@@ -41,6 +41,6 @@ jobs:
           node-version: 21
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }} eslint
+        run: ${{ steps.detect-package-manager.outputs.manager }} i eslint
       - name: Run ESLint
         run: npx eslint . --ext .js,.jsx,.ts,.tsx
