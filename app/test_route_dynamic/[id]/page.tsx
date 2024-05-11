@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function TestRouteDynamic({ params }: {
   params: {
@@ -6,6 +6,9 @@ export default function TestRouteDynamic({ params }: {
   };
 }) {
   return (
-    <h1>Hello world! This is route {params.id}</h1>
+    <>
+      <h1>Hello world! This is route {params.id}</h1>
+      <Link href="/">Go Home</Link>
+    </>
   );
 }
