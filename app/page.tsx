@@ -1,3 +1,4 @@
+// This is the root view of the app, hence it is placed in the root of the app directory.
 import Image from "next/image";
 
 export default function Home() {
