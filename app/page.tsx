@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="">
-      <h1>Welcome to my unfinished website! I'm in the process of building it.</h1>
+      <h1>Welcome to my unfinished website! I&apos;m in the process of building it.</h1>
       <Image src="https://cdn-icons-png.flaticon.com/512/8999/8999474.png" alt="Work In Progress" width={200} height={200} />
       <Link href="/test_route">Test Route</Link>
       <br />

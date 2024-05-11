@@ -3,9 +3,15 @@ const nextConfig = {
   reactStrictMode: true,
   // webpack: {},
   images: {
-    domains: [
-      'avatars.githubusercontent.com',
-      'cdn-icons-png.flaticon.com',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn-icons-png.flaticon.com',
+      },
     ],
   },
 };
