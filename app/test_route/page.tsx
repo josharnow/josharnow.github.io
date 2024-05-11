@@ -5,7 +5,7 @@ import Image from "next/image";
 export default async function TestRoute() {
   const res = await fetch("https://api.github.com/users/josharnow");
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
