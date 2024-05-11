@@ -6,8 +6,6 @@ on:
     branches: ["master"]
   pull_request: # Runs on pull requests to the default branch
     branches: ["master"]
-  release: # Runs on release & pre-release creation
-    types: [published]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
