@@ -12,8 +12,8 @@ import { Toast } from 'primereact/toast';
 import { Tree } from 'primereact/tree';
 import { Menubar } from 'primereact/menubar';
 import { MenuItem } from 'primereact/menuitem';
-import { PhotoService, NodeService } from '@/services';
-import '@/styles/DockDemo.css';
+import { PhotoService, NodeService } from '@/src/services';
+import '@/src/styles/DockDemo.css';
 
 export default async function AdvanceDemo() {
   const [displayTerminal, setDisplayTerminal] = useState(false);
