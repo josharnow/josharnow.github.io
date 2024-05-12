@@ -3,7 +3,7 @@ import { useState } from "react";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 
-const Navigation = () => {
+const OldNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -18,4 +18,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default OldNavigation;
