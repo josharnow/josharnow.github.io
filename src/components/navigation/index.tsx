@@ -10,6 +10,8 @@ const Navigation = () => {
   };
   return (
     <>
+    {/* TODO - Make Sidebar (on left side) the default for desktop view & make left sidebar appear w/ menu button on mobile */}
+    {/* TODO - Make toggle for opening/closing side pane.  */}
       <Sidebar isOpen={ isOpen } toggle={ toggle } />
       <Navbar toggle={ toggle } />
     </>
