@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: "export",
+  // output: "export",
   // webpack: {},
   images: {
     remotePatterns: [
@@ -14,7 +14,11 @@ const nextConfig = {
         hostname: 'cdn-icons-png.flaticon.com',
       },
     ],
+    // unoptimized: true,
   },
+  // sassOptions: {
+  //   includePaths: [path.join(__dirname, 'src/styles')],
+  // }
 };
 
 export default nextConfig;
