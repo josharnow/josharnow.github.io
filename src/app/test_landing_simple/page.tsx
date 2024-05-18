@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Dock } from 'primereact/dock';
 import { MenuItem } from 'primereact/menuitem';
 import { RadioButton } from 'primereact/radiobutton';
-import '@/styles/DockDemoSimple.css';
+import '@/src/styles/DockDemoSimple.css';
 
 export default function BasicDemo() {
   const [position, setPosition] = useState<string>('bottom');

@@ -11,7 +11,9 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
       <div className="w-full h-20 bg-emerald-800 sticky top-0">
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
-            {/* <Logo /> */}
+            <div style={{height: '100%'}}>
+              <Logo />
+            </div>
             <button
               type="button"
               className="inline-flex items-center md:hidden"
