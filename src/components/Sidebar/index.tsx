@@ -34,15 +34,16 @@ const Sidebar = () => {
   return (
     <>
       {/* <div className="p-3"> */}
-        <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-72 lg:flex-col">
-          <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">
-            <div className="flex h-16 shrink-0 items-center">
-              <h1 className="text-3xl font-bold text-black">
-                Logo
-              </h1>
-            </div>
+      {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-72 lg:flex-col"> */}
+      <div className="hidden lg:flex lg:basis-1/5 lg:inset-y-0">
+        <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">
+          <div className="flex h-16 shrink-0 items-center">
+            <h1 className="text-3xl font-bold text-black">
+              Logo
+            </h1>
           </div>
         </div>
+      </div>
       {/* </div> */}
     </>
   );
