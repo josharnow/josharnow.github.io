@@ -12,6 +12,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Josh Arnow's Website",
   description: "Welcome to my website!",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -22,9 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navigation />
-        {/* <OldNavigation /> */}
-        {children}
+        <div className="flex mx-auto w-full">
+          <Navigation />
+          {/* <OldNavigation /> */}
+          <main className="w-full">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
