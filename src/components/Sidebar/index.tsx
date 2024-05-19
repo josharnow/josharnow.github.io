@@ -1,8 +1,10 @@
 "use client";
+import Link from "next/link";
 // import { EnvelopeIcon } from "@heroicons/react";
 // import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
 import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicons/react/20/solid";
 import { useSelectedLayoutSegment } from "next/navigation";
+import Logo from "./Logo";
 
 // NOTE - Below is one of the preferred ways to do dynamic classes in Tailwind CSS
 function classNames(...classes: string[]) {
@@ -11,21 +13,33 @@ function classNames(...classes: string[]) {
 
 const Sidebar = () => {
   const sidebarOptions = [
+    // {
+    //   name: "About",
+    //   href: "/about",
+    //   icon: IdentificationIcon,
+    //   current: true,
+    // },
+    // {
+    //   name: "Contact",
+    //   href: "/contact",
+    //   icon: EnvelopeIcon,
+    //   current: false,
+    // },
+    // {
+    //   name: "Portfolio",
+    //   href: "/portfolio",
+    //   icon: CubeTransparentIcon,
+    //   current: false,
+    // },
     {
-      name: "About",
-      href: "/about",
-      icon: IdentificationIcon,
-      current: true,
-    },
-    {
-      name: "Contact",
-      href: "/contact",
-      icon: EnvelopeIcon,
+      name: "TEST ROUTE",
+      href: "/test_route",
+      icon: CubeTransparentIcon,
       current: false,
     },
     {
-      name: "Portfolio",
-      href: "/portfolio",
+      name: "DYNAMIC_TEST ROUTE",
+      href: "/test_route_dynamic/4",
       icon: CubeTransparentIcon,
       current: false,
     },
@@ -35,13 +49,39 @@ const Sidebar = () => {
     <>
       {/* <div className="p-3"> */}
       {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-72 lg:flex-col"> */}
-      <div className="hidden lg:flex lg:basis-1/5 lg:inset-y-0">
+      <div className="hidden h-screen lg:flex lg:basis-1/5 lg:inset-y-0">
         <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">
           <div className="flex h-16 shrink-0 items-center">
-            <h1 className="text-3xl font-bold text-black">
+            {/* <h1 className="text-3xl font-bold text-black">
               Logo
-            </h1>
+            </h1> */}
+            <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>
+                <Logo />
+            </Link>
+            <Link href="/">
+              <h1 className="text-black font-bold">Josh Arnow</h1>
+            </Link>
           </div>
+          <nav className="flex flex-1 flex-col">
+            <ul role="list" className="flex flex-1 flex-col gap-y-7">
+              <li>
+                <ul role="list" className="-mx-2 space-y-1">
+                  {sidebarOptions.map((option) => (
+                    <li key={ option.name }>
+                      <Link href={ option.href } className={ classNames(option.current ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold") }>
+                        {/*  NOTE - Classes after the comma will be applied regardless of outcome of ternary */ }
+                          <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0" />
+                          {option.name}
+                        </Link> 
+                    </li>
+                    
+                  ))}
+                </ul>
+              </li>
+            </ul>
+            {/* TODO - Add date and time to the bottom of the navbar */}
+            {/* TODO - Switch to Apple font (San Francisco?) & apply as default */}
+          </nav>
         </div>
       </div>
       {/* </div> */}
