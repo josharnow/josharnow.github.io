@@ -1,6 +1,11 @@
+'use client';
+
 // This is the root view of the app, hence it is placed in the root of the app directory.
 import Image from "next/image";
 import Link from "next/link";
+import { logEvent } from "firebase/analytics";
+import { analytics } from "@/src/config/firebase";
+import { logCustomEvent } from "@/src/utils/firebase";
 
 export default function Home() {
   return (
@@ -10,6 +15,11 @@ export default function Home() {
       <Link href="/test_route">Test Route</Link>
       <br />
       <Link href="/test_route_dynamic/4">Dynamic Test Route</Link>
+      <br />
+      <p onClick={ () => logCustomEvent("page_view", {
+        page_title: "/",
+        page_path: "/",
+      }) }>Test Firebase Analytics</p>
     </main>
   );
 }
