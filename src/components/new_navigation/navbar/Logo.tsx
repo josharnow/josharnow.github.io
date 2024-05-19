@@ -3,7 +3,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Button from "./Button";
+import Device from "@/src/components/Device";
 import joshArnowLogo from "@/src/assets/images/josh_arnow_logo.svg";
+import joshArnowLogoNoShadows from "@/src/assets/images/josh_arnow_logo_no_shadows.svg";
 
 const Logo = () => {
   //update the size of the logo when the size of the screen changes
@@ -38,22 +40,15 @@ const Logo = () => {
     <>
       <Link href="/" style={ { display: showButton ? "none" : "block" } }>
         {/* src="/src/assets/images/josh_arnow_logo.svg" */}
-        <Image
-          src={joshArnowLogo}
-          alt="Logo"
-          style={{ shapeRendering: 'geometricPrecision'}}
-          quality={100}
-        />
-        {/* https://github.com/airbnb/lottie-web/issues/1976#issuecomment-1161091203 */}
-        {/* <object type="image/svg+xml" data="../../../assets/images/josh_arnow_logo.svg">svg-image</object> */}
-        {/* <object type="image/svg+xml" data={joshArnowLogo}>svg-image</object> */}
-        {/* <Image
-          src={joshArnowLogo}
-          alt="Logo"
-          className="relative"
-        /> */}
-          {/* width={ width < 1024 ? "150" : "250" }
-          height={ width < 1024 ? "45" : "74" } */}
+        <Device>
+          { ({ isSafari }) => {
+            return <Image
+              src={ !isSafari ? joshArnowLogo : joshArnowLogoNoShadows}
+              alt="Logo"
+              quality={ 100 }
+            />
+          } }
+        </Device>
       </Link>
       <div
         style={ {
