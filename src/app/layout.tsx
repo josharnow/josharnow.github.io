@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 // import { Navigation } from "@/src/components";
-import NewNavigation from "@/src/components/new_navigation";
+import OldNavigation from "@/src/components/old_navigation";
+import Navigation from "@/src/components/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NewNavigation />
+        <Navigation />
+        {/* <OldNavigation /> */}
         {children}
       </body>
     </html>

@@ -39,7 +39,6 @@ const Logo = () => {
   return (
     <>
       <Link href="/" style={ { display: showButton ? "none" : "block" } }>
-        {/* src="/src/assets/images/josh_arnow_logo.svg" */}
         <Device>
           { ({ isSafari }) => {
             return <Image
