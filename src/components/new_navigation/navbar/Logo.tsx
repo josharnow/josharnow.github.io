@@ -41,9 +41,17 @@ const Logo = () => {
         <Image
           src={joshArnowLogo}
           alt="Logo"
-          className="relative"
-          style={{height: '100%'}}
+          style={{ shapeRendering: 'geometricPrecision'}}
+          quality={100}
         />
+        {/* https://github.com/airbnb/lottie-web/issues/1976#issuecomment-1161091203 */}
+        {/* <object type="image/svg+xml" data="../../../assets/images/josh_arnow_logo.svg">svg-image</object> */}
+        {/* <object type="image/svg+xml" data={joshArnowLogo}>svg-image</object> */}
+        {/* <Image
+          src={joshArnowLogo}
+          alt="Logo"
+          className="relative"
+        /> */}
           {/* width={ width < 1024 ? "150" : "250" }
           height={ width < 1024 ? "45" : "74" } */}
       </Link>
