@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navigation, OldNavigation } from "@/src/components";
+import { 
+  Navigation, 
+  OldNavigation,
+  Sidebar,
+} from "@/src/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,8 +31,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="flex mx-auto w-full">
-          <Navigation />
-          {/* <OldNavigation /> */}
+          {/* <Navigation /> */}
+          {/* <div>
+            yoyoyoyoyoyoyoyo
+          </div> */}
+          {/* <div> */}
+
+          <Sidebar />
+          {/* </div> */}
           <main className="w-full">
             {children}
           </main>
