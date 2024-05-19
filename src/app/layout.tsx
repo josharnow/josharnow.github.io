@@ -39,7 +39,8 @@ export default function RootLayout({
 
           <Sidebar />
           {/* </div> */}
-          <main className="w-full">
+          <main className="grow">
+          {/* <main className="w-full"> */}
             {children}
           </main>
         </div>
