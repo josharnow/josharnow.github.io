@@ -125,5 +125,11 @@
 <stop stop-color="#FFF7F7"/>
 <stop offset="1" stop-color="#00A0A0"/>
 </linearGradient>
+<style type="text/css"><![CDATA[
+  g {
+    transform: translate3d(0px, 0px, 0px);
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+]]></style>
 </defs>
 </svg>

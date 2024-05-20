@@ -2,8 +2,10 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Button from "./Button";
+// import Button from "./Button";
+import Device from "@/src/components/Device";
 import joshArnowLogo from "@/src/assets/images/josh_arnow_logo.svg";
+import joshArnowLogoNoShadows from "@/src/assets/images/josh_arnow_logo_no_shadows.svg";
 
 const Logo = () => {
   //update the size of the logo when the size of the screen changes
@@ -36,23 +38,23 @@ const Logo = () => {
 
   return (
     <>
-      <Link href="/" style={ { display: showButton ? "none" : "block" } }>
-        {/* src="/src/assets/images/josh_arnow_logo.svg" */}
-        <Image
-          src={joshArnowLogo}
-          alt="Logo"
-          className="relative"
-          style={{height: '100%'}}
-        />
-          {/* width={ width < 1024 ? "150" : "250" }
-          height={ width < 1024 ? "45" : "74" } */}
-      </Link>
+      {/* <Link href="/" style={ { display: showButton ? "none" : "block" } }> */}
+        <Device>
+          { ({ isSafari }) => {
+            return <Image
+              src={ !isSafari ? joshArnowLogo : joshArnowLogoNoShadows}
+              alt="Logo"
+              quality={ 100 }
+            />
+          } }
+        </Device>
+      {/* </Link> */}
       <div
         style={ {
           display: showButton ? "block" : "none",
         } }
       >
-        <Button />
+        {/* <Button /> */}
       </div>
     </>
   );
