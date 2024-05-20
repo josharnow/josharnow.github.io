@@ -12,49 +12,47 @@ function classNames(...classes: string[]) {
 };
 
 const Sidebar = () => {
+  const segment = useSelectedLayoutSegment();
+
   const sidebarOptions = [
     // {
     //   name: "About",
     //   href: "/about",
     //   icon: IdentificationIcon,
-    //   current: true,
+    //   current: `/${segment}` === "/about" ? true : false,
     // },
     // {
     //   name: "Contact",
     //   href: "/contact",
     //   icon: EnvelopeIcon,
-    //   current: false,
+    //   current: `/${segment}` === "/contact" ? true : false,
     // },
     // {
     //   name: "Portfolio",
     //   href: "/portfolio",
     //   icon: CubeTransparentIcon,
-    //   current: false,
+    //   current: `/${segment}` === "/portfolio" ? true : false,
     // },
     {
       name: "TEST ROUTE",
       href: "/test_route",
       icon: CubeTransparentIcon,
-      current: false,
+      current: `/${segment}` === "/test_route" ? true : false,
     },
     {
       name: "DYNAMIC_TEST ROUTE",
       href: "/test_route_dynamic/4",
       icon: CubeTransparentIcon,
-      current: false,
+      current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
     },
   ];
-
+  
   return (
     <>
-      {/* <div className="p-3"> */}
-      {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-72 lg:flex-col"> */}
+      {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:flex-col"> */}
       <div className="hidden h-screen lg:flex lg:basis-1/5 lg:inset-y-0">
         <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">
           <div className="flex h-16 shrink-0 items-center">
-            {/* <h1 className="text-3xl font-bold text-black">
-              Logo
-            </h1> */}
             <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>
                 <Logo />
             </Link>
@@ -84,7 +82,6 @@ const Sidebar = () => {
           </nav>
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 };
