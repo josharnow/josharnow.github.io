@@ -34,7 +34,7 @@ export default function RootLayout({
           {/* <Navigation /> */}
           {/* TODO - Make Sidebar component similar to the way the old navigation component was (i.e. with a toggle) */}
           {/* TODO - When the screen is "mobile sized" (i.e. small enough), make navbar operate on top similarly to old navbar. Will probably involve conditionally setting flex/flex-column on parent element here based on screen size (i.e. via Tailwind) */}
-          <Sidebar />
+          <Navigation />
           <main className="grow">
             {children}
           </main>

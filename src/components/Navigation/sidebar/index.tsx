@@ -1,46 +1,89 @@
+"use client";
 import Link from "next/link";
+// import { EnvelopeIcon } from "@heroicons/react";
+// import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
+import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicons/react/20/solid";
+import { useSelectedLayoutSegment } from "next/navigation";
+import Logo from "../Logo";
 
-const Sidebar = ({
-  isOpen,
-  toggle,
-}: {
-  isOpen: boolean;
-  toggle: () => void;
-}): JSX.Element => {
+
+// NOTE - Below is one of the preferred ways to do dynamic classes in Tailwind CSS
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+};
+
+const Sidebar = () => {
+  const segment = useSelectedLayoutSegment();
+
+  const sidebarOptions = [
+    // {
+    //   name: "About",
+    //   href: "/about",
+    //   icon: IdentificationIcon,
+    //   current: `/${segment}` === "/about" ? true : false,
+    // },
+    // {
+    //   name: "Contact",
+    //   href: "/contact",
+    //   icon: EnvelopeIcon,
+    //   current: `/${segment}` === "/contact" ? true : false,
+    // },
+    // {
+    //   name: "Portfolio",
+    //   href: "/portfolio",
+    //   icon: CubeTransparentIcon,
+    //   current: `/${segment}` === "/portfolio" ? true : false,
+    // },
+    {
+      name: "TEST ROUTE",
+      href: "/test_route",
+      icon: CubeTransparentIcon,
+      current: `/${segment}` === "/test_route" ? true : false,
+    },
+    {
+      name: "DYNAMIC_TEST ROUTE",
+      href: "/test_route_dynamic/4",
+      icon: CubeTransparentIcon,
+      current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
+    },
+  ];
+  
   return (
     <>
-      <div
-        className="sidebar-container fixed w-full h-full overflow-hidden justify-center bg-white grid pt-[120px] left-0 z-10"
-        style={ {
-          opacity: `${isOpen ? "1" : "0"}`,
-          top: ` ${isOpen ? "0" : "-100%"}`,
-          color: "black",
-        } }
-      >
-        <button className="absolute right-0 p-5" onClick={ toggle }>
-          {/* Close icon */ }
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
-            <path
-              fill="currentColor"
-              d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
-            />
-          </svg>
-        </button>
-
-        <ul className="sidebar-nav text-center leading-relaxed text-xl">
-          <li>
-            <Link href="/about" onClick={ toggle }><p>About Us</p></Link>
-          </li>
-          <li>
-            <Link href="/services" onClick={ toggle }><p>Services</p></Link>
-          </li>
-          <li>
-            <Link href="/contacts" onClick={ toggle }><p>Contacts</p></Link>
-          </li>
-        </ul>
+      {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:flex-col"> */}
+      <div className="hidden h-screen lg:flex lg:basis-1/5 lg:inset-y-0">
+        <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">
+          <div className="flex h-16 shrink-0 items-center">
+            <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>
+                <Logo />
+            </Link>
+            <Link href="/">
+              <h1 className="text-black font-bold">Josh Arnow</h1>
+            </Link>
+          </div>
+          <nav className="flex flex-1 flex-col">
+            <ul role="list" className="flex flex-1 flex-col gap-y-7">
+              <li>
+                <ul role="list" className="-mx-2 space-y-1">
+                  {sidebarOptions.map((option) => (
+                    <li key={ option.name }>
+                      <Link href={ option.href } className={ classNames(option.current ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold") }>
+                        {/*  NOTE - Classes after the comma will be applied regardless of outcome of ternary */ }
+                          <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0" />
+                          {option.name}
+                        </Link> 
+                    </li>
+                    
+                  ))}
+                </ul>
+              </li>
+            </ul>
+            {/* TODO - Add date and time to the bottom of the navbar */}
+            {/* TODO - Switch to Apple font (San Francisco?) & apply as default */}
+          </nav>
+        </div>
       </div>
     </>
   );
 };
-
 export default Sidebar;
