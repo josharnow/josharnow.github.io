@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+
 import "./globals.css";
 import { 
   Navigation, 
@@ -9,10 +11,14 @@ import {
 
 const inter = Inter({ subsets: ["latin"] });
 
+// const myFont = localFont({ 
+//   src: ""
+// });
+
 // TODO - Metadata for each page (https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
 export const metadata: Metadata = {
   applicationName: "Josh Arnow's Website", // NOTE - This should be applied on all pages
-  title: "Josh Arnow's Website", // NOTE - This should change depending on what page is being viewed
+  title: "Josh Arnow's Website", // NOTE - This should change depending on what page is being viewed. Same goes for other titles in this metadata object.
   description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida.",
   authors: [{name: "Josh Arnow", url: "https://www.josharnow.com"}],
   creator: "Josh Arnow",
@@ -23,16 +29,17 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
-  openGraph: {
+  openGraph: { // NOTE - https://ahrefs.com/blog/open-graph-meta-tags/
     type: "website",
     url: "https://www.josharnow.com",
+    siteName: "Josh Arnow's Website",
     title: "Josh Arnow's Website",
     description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida.",
     images: [
       {
-        url: "/twitter-icon.png",
-        width: 512,
-        height: 512,
+        url: "/open-graph-image.png",
+        width: 1200,
+        height: 1216,
         alt: "Josh Arnow's Website",
       },
     ],
@@ -41,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "https://www.josharnow.com",
     creator: "Josh Arnow",
-    images: "/twitter-icon.png",
+    images: "/open-graph-image.png", // TODO - Make this an image of whatever page is being shared
     description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida.",
   },
 };
