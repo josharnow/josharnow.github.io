@@ -27,6 +27,8 @@ const Sidebar = () => {
   const segment = useSelectedLayoutSegment();
 
   const [visible, setVisible] = useState<boolean>(false);
+  const outerSidebarElement = useRef<HTMLDivElement>(null);
+
   
 
   const sidebarOptions: SidebarOption[] = [
@@ -64,13 +66,16 @@ const Sidebar = () => {
   
   return (
     <>
+    {/* NOTE - The below div is necessary to the whole screen tracks with the PrimeReactSidebar component. This is a hacky solution I came up with to get around the fact that the component is presented as an overlay.  */}
+      <div className="hidden h-screen lg:flex lg:basis-1/5 lg:inset-y-0" ref={outerSidebarElement}>
         {/*  NOTE - The way I'm handling hidden here shouldn't be how it works. It should hide based on the "visible" attribute */}
         {/* NOTE - The outer div may or may not be necessary */}
         {/* NOTE - lg:basis-1/5 matches the outer div & helps constrain the sidebar to the width of the outer div */}
         <PrimeReactSidebar 
           modal={ false }
           closeOnEscape={ false }
-        className="hidden lg:flex lg:basis-1/5 border-r-4 border-r-white"
+          appendTo={ outerSidebarElement.current }
+          className="hidden lg:flex lg:basis-1/5 border-r-4 border-r-white"
           // className="border-r-4 border-r-white lg:basis-1/5"
           // className="hidden h-screen lg:flex lg:grow lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white"
           // pt={ {
@@ -104,6 +109,7 @@ const Sidebar = () => {
           }
           dismissable={ false }
         />
+      </div>
     </>
   );
 };
