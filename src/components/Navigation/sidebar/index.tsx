@@ -6,6 +6,13 @@ import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicon
 import { useSelectedLayoutSegment } from "next/navigation";
 import Logo from "../Logo";
 
+type SidebarOption = {
+  name: string,
+  href: string,
+  icon: any,
+  current: boolean,
+}
+
 
 // NOTE - Below is one of the preferred ways to do dynamic classes in Tailwind CSS
 function classNames(...classes: string[]) {
@@ -15,7 +22,7 @@ function classNames(...classes: string[]) {
 const Sidebar = () => {
   const segment = useSelectedLayoutSegment();
 
-  const sidebarOptions = [
+  const sidebarOptions: SidebarOption[] = [
     // {
     //   name: "About",
     //   href: "/about",
