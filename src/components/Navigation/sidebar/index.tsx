@@ -71,17 +71,41 @@ const Sidebar = () => {
         {/* NOTE - The outer div may or may not be necessary */}
         {/* NOTE - lg:basis-1/5 matches the outer div & helps constrain the sidebar to the width of the outer div */}
         <PrimeReactSidebar 
-          onClick={ () => console.log(outerSidebarElement.current)}
+          modal={ false }
           appendTo={ outerSidebarElement.current }
           className="hidden lg:flex lg:basis-1/5"
           // className="border-r-4 border-r-white lg:basis-1/5"
           // className="hidden h-screen lg:flex lg:grow lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white"
+          // pt={ {
+          //   mask: (state) => ({
+          //     // TODO - Selectively apply this class based on whether the sidebar is visible or not
+          //     className: 'lg:flex !lg:basis-1/5',
+          //   }),
+          // } }
+          // maskClassName="lg:flex !lg:basis-1/5 !w-fit"
+          // maskClassName="!w-fit"
+          // pt={ {
+          //   header: ({ state }) => ({
+          //     id: 'myPanelHeader',
+          //     style: {
+          //       'user-select': 'none'
+          //     },
+          //     className: classNames('border-primary', {
+          //       'bg-primary': state.collapsed,
+          //       'bg-primary-reverse': !state.collapsed
+          //     })
+          //   }),
+          //   content: { className: 'border-primary text-lg text-primary-700' },
+          //   title: 'text-xl', // OR { className: 'text-xl' }
+          //   toggler: 'bg-primary hover:bg-primary-reverse' // OR { className: 'bg-primary hover:bg-primary-reverse' }
+          // } }
           visible={ true }
           onHide={ () => console.log("hiding") }
           content={ ({ closeIconRef, hide }) => (
             <SidebarContent closeIconRef={ closeIconRef } hide={ hide } />
           )
           }
+          dismissable={ false }
         />
       </nav>
     </>
