@@ -6,6 +6,10 @@ import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicon
 import { useSelectedLayoutSegment } from "next/navigation";
 import Logo from "../Logo";
 
+import { useRef } from 'react';
+import { Sidebar as PrimeReactSidebar } from 'primereact/sidebar';
+
+
 type SidebarOption = {
   name: string,
   href: string,
@@ -21,6 +25,9 @@ function classNames(...classes: string[]) {
 
 const Sidebar = () => {
   const segment = useSelectedLayoutSegment();
+
+  const sidebarDiv = useRef<HTMLDivElement>(null);
+  
 
   const sidebarOptions: SidebarOption[] = [
     // {
@@ -58,8 +65,8 @@ const Sidebar = () => {
   return (
     <>
       {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:flex-col"> */}
-      <div className="hidden h-screen lg:flex lg:basis-1/5 lg:inset-y-0">
-        <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">
+      <div className="hidden h-screen lg:flex lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white" ref={sidebarDiv}>
+        {/* <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">
           <div className="flex h-16 shrink-0 items-center">
             <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>
                 <Logo />
@@ -75,7 +82,6 @@ const Sidebar = () => {
                   {sidebarOptions.map((option) => (
                     <li key={ option.name }>
                       <Link href={ option.href } className={ classNames(option.current ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold") }>
-                        {/*  NOTE - Classes after the comma will be applied regardless of outcome of ternary */ }
                           <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0" />
                           {option.name}
                         </Link> 
@@ -85,10 +91,25 @@ const Sidebar = () => {
                 </ul>
               </li>
             </ul>
-            {/* TODO - Add date and time to the bottom of the navbar */}
-            {/* TODO - Switch to Apple font (San Francisco?) & apply as default */}
           </nav>
-        </div>
+        </div> */}
+        {/*  NOTE - The way I'm handling hidden here shouldn't be how it works. It should hide based on the "visible" attribute */}
+        {/* NOTE - The outer div may or may not be necessary */}
+        <PrimeReactSidebar 
+          onClick={ () => console.log(sidebarDiv.current)}
+          appendTo={ sidebarDiv.current }
+          className="lg:basis-1/5"
+          // className="border-r-4 border-r-white lg:basis-1/5"
+          // className="hidden h-screen lg:flex lg:grow lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white"
+          visible={ true }
+          onHide={ () => console.log("hiding") }
+          content={() => (
+            <div>
+              test
+            </div>
+          )
+          }
+        />
       </div>
     </>
   );
