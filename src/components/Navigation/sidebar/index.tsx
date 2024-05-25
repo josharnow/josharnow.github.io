@@ -6,9 +6,13 @@ import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicon
 import { useSelectedLayoutSegment } from "next/navigation";
 import Logo from "../Logo";
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Sidebar as PrimeReactSidebar } from 'primereact/sidebar';
-
+import { Button } from 'primereact/button';
+import { Avatar } from 'primereact/avatar';
+import { Ripple } from 'primereact/ripple';
+import { StyleClass } from 'primereact/styleclass';
+import Content from "./Content"
 
 type SidebarOption = {
   name: string,
@@ -26,7 +30,12 @@ function classNames(...classes: string[]) {
 const Sidebar = () => {
   const segment = useSelectedLayoutSegment();
 
+  const [visible, setVisible] = useState<boolean>(false);
   const outerSidebarElement = useRef<HTMLElement>(null);
+  const btnRef1 = useRef<any>(null);
+  const btnRef2 = useRef<any>(null);
+  const btnRef3 = useRef<any>(null);
+  const btnRef4 = useRef<any>(null);
   
 
   const sidebarOptions: SidebarOption[] = [
@@ -104,10 +113,8 @@ const Sidebar = () => {
           // className="hidden h-screen lg:flex lg:grow lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white"
           visible={ true }
           onHide={ () => console.log("hiding") }
-          content={() => (
-            <div>
-              test
-            </div>
+          content={ ({ closeIconRef, hide }) => (
+          <Content closeIconRef={ closeIconRef } hide={ hide } />
           )
           }
         />
