@@ -8,7 +8,7 @@ import {
   OldNavigation,
   Sidebar,
 } from "@/src/components";
-import { isMobileDevice, getBrowser, getDevice } from "@/src/utils/device";
+// import { isMobileDevice, getBrowser, getDevice } from "@/src/utils/device";
 
 
 // TODO - Metadata for each page (https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
@@ -67,13 +67,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   // NOTE - ***This can be passed to components as a prop to affect functionality based on whether the user is on a mobile device or not***
-  const mobile = await isMobileDevice();
-  const browser = await getBrowser();
-  const device = await getDevice();
 
-  console.log("Mobile device: ", mobile);
-  console.log("Browser: ", browser);
-  console.log("Device: ", device);
+  // NOTE - Attempting to use these functions will result in the following build error: "Server Actions are not supported with static export."
+  // const mobile = await isMobileDevice();
+  // const browser = await getBrowser();
+  // const device = await getDevice();
+
+  // console.log("Mobile device: ", mobile);
+  // console.log("Browser: ", browser);
+  // console.log("Device: ", device);
 
   // TODO - Fallback to system font on Apple devices (?)
 

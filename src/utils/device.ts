@@ -2,6 +2,8 @@
 
 // NOTE - https://stackademic.com/blog/the-best-way-to-detect-mobile-device-in-next-js-14
 
+// NOTE - ***Attempting to use these functions will result in the following build error: "Server Actions are not supported with static export."***
+
 import { headers } from 'next/headers';
 import { UAParser } from 'ua-parser-js';
 
