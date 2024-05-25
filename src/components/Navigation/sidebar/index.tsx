@@ -26,7 +26,7 @@ function classNames(...classes: string[]) {
 const Sidebar = () => {
   const segment = useSelectedLayoutSegment();
 
-  const sidebarDiv = useRef<HTMLDivElement>(null);
+  const outerSidebarElement = useRef<HTMLElement>(null);
   
 
   const sidebarOptions: SidebarOption[] = [
@@ -65,7 +65,7 @@ const Sidebar = () => {
   return (
     <>
       {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:flex-col"> */}
-      <div className="hidden h-screen lg:flex lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white" ref={sidebarDiv}>
+      <nav className="hidden h-screen lg:flex lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white" ref={outerSidebarElement}>
         {/* <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">
           <div className="flex h-16 shrink-0 items-center">
             <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>
@@ -97,9 +97,9 @@ const Sidebar = () => {
         {/* NOTE - The outer div may or may not be necessary */}
         {/* NOTE - lg:basis-1/5 matches the outer div & helps constrain the sidebar to the width of the outer div */}
         <PrimeReactSidebar 
-          onClick={ () => console.log(sidebarDiv.current)}
-          appendTo={ sidebarDiv.current }
-          className="lg:basis-1/5"
+          onClick={ () => console.log(outerSidebarElement.current)}
+          appendTo={ outerSidebarElement.current }
+          className="hidden lg:flex lg:basis-1/5"
           // className="border-r-4 border-r-white lg:basis-1/5"
           // className="hidden h-screen lg:flex lg:grow lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white"
           visible={ true }
@@ -111,7 +111,7 @@ const Sidebar = () => {
           )
           }
         />
-      </div>
+      </nav>
     </>
   );
 };
