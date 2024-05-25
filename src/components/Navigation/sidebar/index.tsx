@@ -27,8 +27,6 @@ const Sidebar = () => {
   const segment = useSelectedLayoutSegment();
 
   const [visible, setVisible] = useState<boolean>(false);
-  const outerSidebarElement = useRef<HTMLElement>(null);
-
   
 
   const sidebarOptions: SidebarOption[] = [
@@ -66,14 +64,13 @@ const Sidebar = () => {
   
   return (
     <>
-      <nav className="hidden h-screen lg:flex lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white" ref={outerSidebarElement}>
         {/*  NOTE - The way I'm handling hidden here shouldn't be how it works. It should hide based on the "visible" attribute */}
         {/* NOTE - The outer div may or may not be necessary */}
         {/* NOTE - lg:basis-1/5 matches the outer div & helps constrain the sidebar to the width of the outer div */}
         <PrimeReactSidebar 
           modal={ false }
-          appendTo={ outerSidebarElement.current }
-          className="hidden lg:flex lg:basis-1/5"
+          closeOnEscape={ false }
+        className="hidden lg:flex lg:basis-1/5 border-r-4 border-r-white"
           // className="border-r-4 border-r-white lg:basis-1/5"
           // className="hidden h-screen lg:flex lg:grow lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white"
           // pt={ {
@@ -107,7 +104,6 @@ const Sidebar = () => {
           }
           dismissable={ false }
         />
-      </nav>
     </>
   );
 };

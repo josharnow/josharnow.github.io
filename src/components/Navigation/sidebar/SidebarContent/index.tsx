@@ -13,7 +13,7 @@ const SidebarContent = ({ closeIconRef, hide }: ContentProps) => {
 
   return (
     <>
-      <div className="min-h-screen flex relative lg:static surface-ground">
+      <nav className="min-h-screen flex relative lg:static surface-ground">
         {/* <div id="app-sidebar-2" className="surface-section h-screen block flex-shrink-0 absolute lg:static left-0 top-0 right-0 z-1 border-right-4 border-r-white surface-border select-none"> */}
         <div id="app-sidebar-2" className="w-full">
           <div className="flex flex-col h-full">
@@ -193,7 +193,7 @@ const SidebarContent = ({ closeIconRef, hide }: ContentProps) => {
                   </div>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 };
