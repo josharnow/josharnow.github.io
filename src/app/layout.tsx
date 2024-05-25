@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import "./globals.css";
@@ -49,17 +48,20 @@ export const metadata: Metadata = {
   },
 };
 
-
-const inter = Inter({
-  subsets: ["latin"],
+// NOTE - I installed this locally despite being available as a Google font because Google doesn't have a variable font version of IBM Plex Sans
+const ibmPlexSans = localFont({ 
+  src: [
+    {
+      path: '../assets/fonts/ibm_plex_sans_var_roman.woff2',
+      style: 'normal',
+    },
+    {
+      path: '../assets/fonts/ibm_plex_sans_var_italic.woff2',
+      style: 'italic',
+    }
+  ],
   fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"],
 });
-
-// NOTE - Apple's San Francisco font isn't legally allowed to be bundled with this webapp, but I can make the app use it via the system default font it if the site is being viewed on an Apple device...
-
-// const myFont = localFont({ 
-//   src: ""
-// });
 
 export default async function RootLayout({
   children,
@@ -67,7 +69,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   // NOTE - ***This can be passed to components as a prop to affect functionality based on whether the user is on a mobile device or not***
-
   // NOTE - Attempting to use these functions will result in the following build error: "Server Actions are not supported with static export."
   // const mobile = await isMobileDevice();
   // const browser = await getBrowser();
@@ -77,11 +78,9 @@ export default async function RootLayout({
   // console.log("Browser: ", browser);
   // console.log("Device: ", device);
 
-  // TODO - Fallback to system font on Apple devices (?)
-
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={ibmPlexSans.className}>
         <div className="flex mx-auto w-full">
           {/* <Navigation /> */}
           {/* TODO - Make Sidebar component similar to the way the old navigation component was (i.e. with a toggle) */}
