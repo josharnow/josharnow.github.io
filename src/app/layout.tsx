@@ -71,9 +71,9 @@ export default async function RootLayout({
   const browser = await getBrowser();
   const device = await getDevice();
 
-  // console.log("Mobile device: ", mobile);
-  // console.log("Browser: ", browser);
-  // console.log("Device: ", device);
+  console.log("Mobile device: ", mobile);
+  console.log("Browser: ", browser);
+  console.log("Device: ", device);
 
   // TODO - Fallback to system font on Apple devices (?)
 
