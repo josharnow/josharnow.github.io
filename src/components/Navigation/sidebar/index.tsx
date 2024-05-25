@@ -8,11 +8,7 @@ import Logo from "../Logo";
 
 import { useRef, useState } from 'react';
 import { Sidebar as PrimeReactSidebar } from 'primereact/sidebar';
-import { Button } from 'primereact/button';
-import { Avatar } from 'primereact/avatar';
-import { Ripple } from 'primereact/ripple';
-import { StyleClass } from 'primereact/styleclass';
-import Content from "./Content"
+import SidebarContent from "./SidebarContent";
 
 type SidebarOption = {
   name: string,
@@ -32,10 +28,7 @@ const Sidebar = () => {
 
   const [visible, setVisible] = useState<boolean>(false);
   const outerSidebarElement = useRef<HTMLElement>(null);
-  const btnRef1 = useRef<any>(null);
-  const btnRef2 = useRef<any>(null);
-  const btnRef3 = useRef<any>(null);
-  const btnRef4 = useRef<any>(null);
+
   
 
   const sidebarOptions: SidebarOption[] = [
@@ -73,35 +66,7 @@ const Sidebar = () => {
   
   return (
     <>
-      {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:flex-col"> */}
       <nav className="hidden h-screen lg:flex lg:basis-1/5 lg:inset-y-0 border-r-4 border-r-white" ref={outerSidebarElement}>
-        {/* <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">
-          <div className="flex h-16 shrink-0 items-center">
-            <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>
-                <Logo />
-            </Link>
-            <Link href="/">
-              <h1 className="text-black font-bold">Josh Arnow</h1>
-            </Link>
-          </div>
-          <nav className="flex flex-1 flex-col">
-            <ul role="list" className="flex flex-1 flex-col gap-y-7">
-              <li>
-                <ul role="list" className="-mx-2 space-y-1">
-                  {sidebarOptions.map((option) => (
-                    <li key={ option.name }>
-                      <Link href={ option.href } className={ classNames(option.current ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold") }>
-                          <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0" />
-                          {option.name}
-                        </Link> 
-                    </li>
-                    
-                  ))}
-                </ul>
-              </li>
-            </ul>
-          </nav>
-        </div> */}
         {/*  NOTE - The way I'm handling hidden here shouldn't be how it works. It should hide based on the "visible" attribute */}
         {/* NOTE - The outer div may or may not be necessary */}
         {/* NOTE - lg:basis-1/5 matches the outer div & helps constrain the sidebar to the width of the outer div */}
@@ -114,7 +79,7 @@ const Sidebar = () => {
           visible={ true }
           onHide={ () => console.log("hiding") }
           content={ ({ closeIconRef, hide }) => (
-          <Content closeIconRef={ closeIconRef } hide={ hide } />
+            <SidebarContent closeIconRef={ closeIconRef } hide={ hide } />
           )
           }
         />

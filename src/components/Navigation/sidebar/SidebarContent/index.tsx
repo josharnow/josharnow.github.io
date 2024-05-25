@@ -1,13 +1,23 @@
 import { type ContentProps } from "primereact/sidebar";
+import { useRef, useState } from 'react';
+import { Button } from 'primereact/button';
+import { Avatar } from 'primereact/avatar';
+import { Ripple } from 'primereact/ripple';
+import { StyleClass } from 'primereact/styleclass';
 
-const Content = ({ closeIconRef, hide }: ContentProps) => {
+const SidebarContent = ({ closeIconRef, hide }: ContentProps) => {
+  const btnRef1 = useRef<any>(null);
+  const btnRef2 = useRef<any>(null);
+  const btnRef3 = useRef<any>(null);
+  const btnRef4 = useRef<any>(null);
+
   return (
     <>
       <div className="min-h-screen flex relative lg:static surface-ground">
-        <div id="app-sidebar-2" className="surface-section h-screen block flex-shrink-0 absolute lg:static left-0 top-0 z-1 border-right-4 border-r-white surface-border select-none">
-          <div className="flex flex-column h-full">
-            <h1 className="text-white">YOOOO</h1>
-            {/* <div className="flex align-items-center justify-content-between px-4 pt-3 flex-shrink-0">
+        {/* <div id="app-sidebar-2" className="surface-section h-screen block flex-shrink-0 absolute lg:static left-0 top-0 right-0 z-1 border-right-4 border-r-white surface-border select-none"> */}
+        <div id="app-sidebar-2" className="w-full">
+          <div className="flex flex-col h-full">
+            <div className="flex align-items-center justify-content-between px-4 pt-3 flex-shrink-0">
                     <span className="inline-flex align-items-center gap-2">
                       <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g mask="url(#mask0_2642_713)">
@@ -180,7 +190,7 @@ const Content = ({ closeIconRef, hide }: ContentProps) => {
                       <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png" shape="circle" />
                       <span className="font-bold">Amy Elsner</span>
                     </a>
-                  </div> */}
+                  </div>
           </div>
         </div>
       </div>
@@ -188,4 +198,4 @@ const Content = ({ closeIconRef, hide }: ContentProps) => {
   );
 };
 
-export default Content;
+export default SidebarContent;
