@@ -8,12 +8,8 @@ import {
   OldNavigation,
   Sidebar,
 } from "@/src/components";
+import { isMobileDevice } from "@/src/utils/device";
 
-const inter = Inter({ subsets: ["latin"] });
-
-// const myFont = localFont({ 
-//   src: ""
-// });
 
 // TODO - Metadata for each page (https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
 export const metadata: Metadata = {
@@ -53,11 +49,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+
+const inter = Inter({
+  subsets: ["latin"],
+  fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"],
+});
+
+// NOTE - Apple's San Francisco font isn't legally allowed to be bundled with this webapp, but I can make the app use it via the system default font it if the site is being viewed on an Apple device...
+
+// const myFont = localFont({ 
+//   src: ""
+// });
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // NOTE - ***This can be passed to components as a prop to affect functionality based on whether the user is on a mobile device or not***
+  const mobile = await isMobileDevice();
+
   return (
     <html lang="en">
       <body className={inter.className}>
