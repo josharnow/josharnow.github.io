@@ -1,8 +1,8 @@
 // NOTE - https://www.reddit.com/r/reactjs/comments/17i3a1p/what_is_the_benefit_of_the_indextsx_naming/
 import React from "react";
 import Link from "next/link";
-import Logo from "./Logo";
-import Button from "./Button";
+// import Logo from "./Logo";
+// import Button from "./Button";
 import variables from '@/src/styles/variables.module.scss';
 
 const Navbar = ({ toggle }: { toggle: () => void }) => {
@@ -12,7 +12,7 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
             <div className="p-3" style={{ height: '100%', aspectRatio: '1/1' }}>
-              <Logo />
+              {/* <Logo /> */}
             </div>
             <button
               type="button"
@@ -49,7 +49,7 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
               </li>
             </ul>
             <div className="hidden md:block">
-              <Button />
+              {/* <Button /> */}
             </div>
           </div>
         </div>
