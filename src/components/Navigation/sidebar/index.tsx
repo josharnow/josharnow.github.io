@@ -95,6 +95,7 @@ const Sidebar = () => {
         </div> */}
         {/*  NOTE - The way I'm handling hidden here shouldn't be how it works. It should hide based on the "visible" attribute */}
         {/* NOTE - The outer div may or may not be necessary */}
+        {/* NOTE - lg:basis-1/5 matches the outer div & helps constrain the sidebar to the width of the outer div */}
         <PrimeReactSidebar 
           onClick={ () => console.log(sidebarDiv.current)}
           appendTo={ sidebarDiv.current }
