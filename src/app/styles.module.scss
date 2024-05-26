@@ -8,6 +8,18 @@
   }
 }
 
+@keyframes slow-expand {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+    // display: none;
+  }
+}
+
+
 .main {
   flex-grow: 1;
 }
@@ -15,4 +27,11 @@
 .landingOuterDiv {
   // animation: slide-in-from-right 1s ease-in-out;
   animation: slide-in-from-right 1s ease forwards;
+}
+
+@media (max-width: 1024px) {
+  .landingOuterDiv {
+    // animation: slow-expand 1s ease forwards;
+  }
+
 }

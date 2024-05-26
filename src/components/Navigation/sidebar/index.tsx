@@ -48,7 +48,7 @@ const Sidebar = () => {
     <>
       {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:flex-col"> */ }
       <div 
-        className={ classNames(styles.sidebarContainer, "hidden h-screen lg:flex lg:w-fit lg:inset-y-0")}
+        className={ classNames(styles.sidebarContainer, "h-screen lg:flex lg:w-fit lg:inset-y-0")}
       >
       {/* <div className="h-screen lg:flex lg:w-fit lg:inset-y-0"> */}
         <div className={ classNames( "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4 border-r-2") }>
