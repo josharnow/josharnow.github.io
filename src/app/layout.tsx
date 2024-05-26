@@ -10,7 +10,7 @@ import {
 // import { isMobileDevice, getBrowser, getDevice } from "@/src/utils/device";
 
 import styles from "./styles.module.scss";
-import { classNames } from "@/src/utils";
+import { classNames } from "@/src/app/_utils";
 
 
 // TODO - Metadata for each page (https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
