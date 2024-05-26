@@ -3,8 +3,13 @@
   0% {
     transform: translateX(100%);
   }
+  99% {
+    // transform: translateX(5%);
+    box-shadow: none;
+  }
   100% {
     transform: translateX(0);
+    box-shadow: -7px 0 13px rgba(10, 36, 173, 0.95);
   }
 }
 
@@ -27,6 +32,8 @@
 .landingOuterDiv {
   // animation: slide-in-from-right 1s ease-in-out;
   animation: slide-in-from-right 1s ease forwards;
+  // background-color: red !important;
+  
 }
 
 @media (max-width: 1024px) {
