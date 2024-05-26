@@ -35,7 +35,7 @@ const SidebarContent = ({ closeIconRef, hide }: ContentProps) => {
                 </Link>
               </div>
                     <span>
-                      <Button type="button" ref={ closeIconRef } onClick={ (e) => hide(e) } icon="pi pi-times" rounded outlined className="h-2rem w-2rem"></Button>
+                      {/* <Button type="button" ref={ closeIconRef } onClick={ (e) => hide(e) } icon="pi pi-times" rounded outlined className="h-2rem w-2rem"></Button> */}
                     </span>
                   </div>
                   <div className="overflow-y-auto">
