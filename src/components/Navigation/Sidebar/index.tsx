@@ -52,6 +52,8 @@ const Sidebar = ({
 
   return (
     <>
+
+    {/* TODO - Made the sidebar fixed. It currently scrolls with the body */}
       {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:flex-col"> */ }
       <div 
         className={ classNames(styles.sidebarContainer, "h-screen lg:flex lg:w-fit lg:inset-y-0")}
