@@ -1,0 +1,41 @@
+// @keyframes smooth-appear {
+//   to {
+//     bottom: 20px;
+//     opacity: 1;
+//   }
+// }
+
+// .sidebarContainer {
+//   background: white;
+//   color: white;
+//   padding: 20px;
+//   position: fixed;
+//   bottom: -100%;
+//   opacity: 0;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   border-radius: 10px;
+//   animation: smooth-appear 1s ease forwards;
+// }
+
+@keyframes smooth-appear {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.sidebarContainer {
+  // color: white;
+  // padding: 20px;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // height: 100vh;
+  background: white;
+  width: fit-content;
+  transform: translateX(-100%);
+  animation: smooth-appear 1s ease forwards;
+}
