@@ -1,0 +1,18 @@
+
+@keyframes slide-in-from-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.landingOuterDiv {
+  // animation: slide-in-from-right 1s ease-in-out;
+  animation: slide-in-from-right 1s ease forwards;
+}
