@@ -1,7 +1,7 @@
 // This is the root view of the app, hence it is placed in the root of the app directory.
 import Image from "next/image";
 import Link from "next/link";
-import { classNames } from "@/src/utils";
+import { classNames } from "@/src/app/_utils";
 import styles from "./styles.module.scss";
 
 export default function Home() {

@@ -10,7 +10,7 @@ import {
 // import { isMobileDevice, getBrowser, getDevice } from "@/src/utils/device";
 
 import styles from "./styles.module.scss";
-import { classNames } from "@/src/utils";
+import { classNames } from "@/src/app/_utils";
 
 
 // TODO - Metadata for each page (https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
@@ -89,7 +89,7 @@ export default async function RootLayout({
           {/* TODO - Make Sidebar component similar to the way the old navigation component was (i.e. with a toggle) */}
           {/* TODO - When the screen is "mobile sized" (i.e. small enough), make navbar operate on top similarly to old navbar. Will probably involve conditionally setting flex/flex-column on parent element here based on screen size (i.e. via Tailwind) */}
           <Navigation />
-          <main className="grow">
+          <main className={classNames(styles.main)}>
             {children}
           </main>
         </div>
