@@ -8,7 +8,13 @@ import Logo from "./SidebarContent/Logo";
 import styles from "./styles.module.scss";
 import { classNames } from "@/src/utils";
 
-const Sidebar = () => {
+const Sidebar = ({
+  isOpen,
+  toggle,
+}: {
+  isOpen: boolean;
+  toggle: () => void;
+}) => {
   const segment = useSelectedLayoutSegment();
 
   const sidebarOptions = [

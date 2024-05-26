@@ -4,8 +4,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { 
   Navigation, 
-  OldNavigation,
-  Sidebar,
+  // OldNavigation,
+  // Sidebar,
 } from "@/src/components";
 // import { isMobileDevice, getBrowser, getDevice } from "@/src/utils/device";
 
