@@ -4,7 +4,7 @@ import Link from "next/link";
 // import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
 import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicons/react/20/solid";
 import { useSelectedLayoutSegment } from "next/navigation";
-import Logo from "./SidebarContent/Logo";
+import Logo from "../Logo";
 import styles from "./styles.module.scss";
 import { classNames } from "@/src/utils";
 
