@@ -47,9 +47,11 @@ const Sidebar = () => {
   return (
     <>
       {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:flex-col"> */ }
-      <div className="hidden h-screen lg:flex lg:w-fit lg:inset-y-0">
-      {/* <div className="sidebar-container hidden h-screen lg:flex lg:w-fit lg:inset-y-0"> */}
-        <div className={ classNames(styles.sidebarContainer, "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4 border-r-2") }>
+      <div 
+        className={ classNames(styles.sidebarContainer, "hidden h-screen lg:flex lg:w-fit lg:inset-y-0")}
+      >
+      {/* <div className="h-screen lg:flex lg:w-fit lg:inset-y-0"> */}
+        <div className={ classNames( "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4 border-r-2") }>
         {/* <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2"> */}
           <div className="flex h-16 shrink-0 items-center">
             <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>

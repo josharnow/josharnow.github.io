@@ -27,6 +27,15 @@
   }
 }
 
+@keyframes smooth-disappear {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 .sidebarContainer {
   // color: white;
   // padding: 20px;
@@ -38,4 +47,17 @@
   width: fit-content;
   transform: translateX(-100%);
   animation: smooth-appear 1s ease forwards;
+}
+
+
+// TODO - Figure out exit animation. The hidden property is making it not work (https: //chriscoyier.net/2023/10/30/exit-animations/)
+@media (max-width: 1024px) {
+  // .sidebarContainer {
+  //   animation: smooth-disappear 1s ease forwards;
+  //   // animation-fill-mode: forwards;
+  // }
+  // ::view-transition-old(.sidebarContainer) {
+  //   animation: smooth-disappear 1s ease forwards;
+  // }
+  
 }
