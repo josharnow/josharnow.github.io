@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 // import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
 import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicons/react/20/solid"; 
 
-const Navigation = () => {
+const Navigation= () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -55,7 +55,7 @@ const Navigation = () => {
       {/* TODO - Maybe make a "shadowsidebar..." This sits behind the real sidebar and is used to make the main part of the screen be correctly sized */}
       {/* NOTE - This is a hacky fix I came up with to make the sidebar sticky and still use flex-grow to grow the main content on the screen. Now my main content can remain as server components while still being properly sized 🎉 */}
       <Sidebar isOpen={ isOpen } toggle={ toggle } sidebarOptions={ sidebarOptions  } />
-      {/* <Navbar toggle={ toggle } /> */}
+      <Navbar toggle={ toggle } />
     </>
   );
 };
