@@ -5,7 +5,7 @@ import Link from "next/link";
 import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicons/react/20/solid";
 import { useSelectedLayoutSegment } from "next/navigation";
 import Logo from "../Logo";
-import styles from "./styles.module.scss";
+// import styles from "./styles.module.scss";
 import { classNames } from "@/src/utils";
 import ShadowSidebar from "./ShadowSidebar";
 import RealSidebar from "./RealSidebar";

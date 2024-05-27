@@ -5,15 +5,9 @@ import Link from "next/link";
 import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicons/react/20/solid";
 import { useSelectedLayoutSegment } from "next/navigation";
 import Logo from "../../Logo";
-import styles from "./styles.module.scss";
+import styles from "../styles.module.scss";
 import { classNames } from "@/src/utils";
 
-type SidebarOptions = {
-  name: string,
-  href: string,
-  icon: any,
-  current?: boolean,
-}
 
 const ShadowSidebar = ({
   isOpen,
@@ -38,7 +32,7 @@ const ShadowSidebar = ({
         className={ classNames(styles.shadowSidebarContainer, "h-screen lg:flex lg:w-fit lg:inset-y-0")}
       >
       {/* <div className="h-screen lg:flex lg:w-fit lg:inset-y-0"> */}
-        <div className={ classNames( "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4 border-r-2") }>
+        <div className={ classNames( "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4") }>
         {/* <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2"> */}
           <div className="flex h-16 shrink-0 items-center">
             <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>
