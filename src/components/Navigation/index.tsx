@@ -53,7 +53,7 @@ const Navigation = () => {
       {/* TODO - Figure out how to collapse the sidebar */}
 
       {/* TODO - Maybe make a "shadowsidebar..." This sits behind the real sidebar and is used to make the main part of the screen be correctly sized */}
-      {/* NOTE - This is a hacky fix I came up with to make the sidebar sticky and still use flex-grow to grow the main content on the screen (i.e. to get it to the correct size) */}
+      {/* NOTE - This is a hacky fix I came up with to make the sidebar sticky and still use flex-grow to grow the main content on the screen. Now my main content can remain as server components while still being properly sized 🎉 */}
       <Sidebar isOpen={ isOpen } toggle={ toggle } sidebarOptions={ sidebarOptions  } />
       {/* <Navbar toggle={ toggle } /> */}
     </>
