@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Sidebar from "./Sidebar";
-import ShadowSidebar from "./ShadowSidebar";
 import Navbar from "./Navbar";
 // import BackgroundMenu from "./BackgroundMenu";
 
@@ -18,8 +17,8 @@ const Navigation = () => {
       {/* TODO - Add button to collapse sidebar */}
       {/* TODO - Figure out how to collapse the sidebar */}
 
-      {/* NOTE - This is a hacky fix I came up with to make the sidebar sticky and still use flex-grow to grow the main content on the screen (i.e. to get the correct sizing) */}
-      <ShadowSidebar isOpen={ isOpen } toggle={ toggle } />
+      {/* TODO - Maybe make a "shadowsidebar..." This sits behind the real sidebar and is used to make the main part of the screen be correctly sized */}
+      {/* NOTE - This is a hacky fix I came up with to make the sidebar sticky and still use flex-grow to grow the main content on the screen (i.e. to get it to the correct size) */}
       <Sidebar isOpen={ isOpen } toggle={ toggle } />
       {/* <Navbar toggle={ toggle } /> */}
     </>

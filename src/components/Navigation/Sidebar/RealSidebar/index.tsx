@@ -1,21 +1,21 @@
-// "use client";
+"use client";
 import Link from "next/link";
 // import { EnvelopeIcon } from "@heroicons/react";
 // import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
 import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicons/react/20/solid";
 import { useSelectedLayoutSegment } from "next/navigation";
-import Logo from "../Logo";
+import Logo from "../../Logo";
 import styles from "./styles.module.scss";
 import { classNames } from "@/src/utils";
 
-const ShadowSidebar = ({
+const RealSidebar = ({
   isOpen,
   toggle,
 }: {
   isOpen: boolean;
   toggle: () => void;
 }) => {
-  // const segment = useSelectedLayoutSegment();
+  const segment = useSelectedLayoutSegment();
 
   const sidebarOptions = [
     // {
@@ -40,13 +40,13 @@ const ShadowSidebar = ({
       name: "TEST ROUTE",
       href: "/test_route",
       icon: CubeTransparentIcon,
-      // current: `/${segment}` === "/test_route" ? true : false,
+      current: `/${segment}` === "/test_route" ? true : false,
     },
     {
       name: "DYNAMIC_TEST ROUTE",
       href: "/test_route_dynamic/4",
       icon: CubeTransparentIcon,
-      // current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
+      current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
     },
   ];
 
@@ -56,7 +56,7 @@ const ShadowSidebar = ({
     {/* TODO - Made the sidebar fixed. It currently scrolls with the body */}
       {/* <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:flex-col"> */ }
       <div 
-        className={ classNames(styles.shadowSidebarContainer, "h-screen lg:flex lg:w-fit lg:inset-y-0")}
+        className={ classNames(styles.sidebarContainer, "h-screen lg:flex lg:w-fit lg:inset-y-0")}
       >
       {/* <div className="h-screen lg:flex lg:w-fit lg:inset-y-0"> */}
         <div className={ classNames( "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4 border-r-2") }>
@@ -75,7 +75,7 @@ const ShadowSidebar = ({
                 <ul role="list" className="-mx-2 space-y-1">
                   { sidebarOptions.map((option) => (
                     <li key={ option.name }>
-                      <Link href={ option.href } className={ classNames( "text-gray-400 hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium whitespace-nowrap") }>
+                      <Link href={ option.href } className={ classNames(option.current ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium whitespace-nowrap") }>
                         {/*  NOTE - Classes after the comma will be applied regardless of outcome of ternary */ }
                         <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0" />
                         { option.name }
@@ -94,4 +94,4 @@ const ShadowSidebar = ({
     </>
   );
 };
-export default ShadowSidebar;
+export default RealSidebar;
