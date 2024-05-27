@@ -84,12 +84,9 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={ibmPlexSans.className}>
-        {/* NOTE - On screens larger than mobile size, switch to flex-row */}
         <div className="flex flex-col sm:flex-row mx-auto w-full">
-          {/* TODO - Make Sidebar component similar to the way the old navigation component was (i.e. with a toggle) */}
-          {/* TODO - When the screen is "mobile sized" (i.e. small enough), make navbar operate on top similarly to old navbar. Will probably involve conditionally setting flex/flex-column on parent element here based on screen size (i.e. via Tailwind) */}
           <Navigation />
-          <main className={classNames(styles.main)}>
+          <main className={classNames(styles.main, "sm:grow overflow-auto")}>
             {children}
           </main>
         </div>

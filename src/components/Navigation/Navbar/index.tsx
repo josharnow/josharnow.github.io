@@ -10,14 +10,14 @@ import { classNames } from "@/src/utils";
 const Navbar = ({ toggle }: { toggle: () => void }) => {
   return (
     <>
-      <nav className={ classNames(styles.navbar, 'sm:hidden h-20 bg-emerald-800 sticky')}>
-        <div className="container mx-auto px-4 h-full">
+      <nav className={ classNames(styles.navbar, 'sm:hidden h-20')}>
+      <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
             <div className="p-3" style={{ height: '100%', aspectRatio: '1/1' }}>
               {/* <Logo /> */}
             </div>
 
-            <ul className="flex gap-x-6 text-black ">
+            {/* <ul className="flex gap-x-6 text-black ">
               <li>
                 <Link href="/about">
                   <p>About Us</p>
@@ -33,7 +33,7 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
                   <p>Contacts</p>
                 </Link>
               </li>
-            </ul>
+            </ul> */}
             <button
               type="button"
               className="inline-flex items-center md:hidden"

@@ -36,9 +36,9 @@
 }
 
 
-.main {
-  flex-grow: 1;
-}
+// .main {
+//   // flex-grow: 1;
+// }
 
 .landingOuterDiv {
   // animation: slide-in-from-right 1s ease-in-out;
@@ -57,8 +57,11 @@
 
 }
 
-// NOTE - Below animates from the bottom up on mobile
 @media (max-width: 639px) {
+  .main {
+    height: calc(100vh - 5rem);
+  }
+  // NOTE - Below animates from the bottom up on mobile
   .landingOuterDiv {
     animation: slide-in-from-bottom 1s ease forwards;
   }
