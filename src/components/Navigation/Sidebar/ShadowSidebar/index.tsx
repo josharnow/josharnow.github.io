@@ -6,7 +6,7 @@ import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicon
 import { useSelectedLayoutSegment } from "next/navigation";
 import Logo from "../../Logo";
 import styles from "../styles.module.scss";
-import { classNames } from "@/src/utils";
+import { classNames } from "@/src/app/_utils";
 
 
 const ShadowSidebar = ({

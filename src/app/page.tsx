@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { Card } from 'primereact/card';
 
-import { classNames } from "@/src/utils";
+import { classNames } from "@/src/app/_utils";
 import styles from "./styles.module.scss";
 
 export default function Home() {

@@ -5,7 +5,7 @@ import Link from "next/link";
 // import Button from "./Button";
 import variables from '@/src/styles/variables.module.scss';
 import styles from './styles.module.scss';
-import { classNames } from "@/src/utils";
+import { classNames } from "@/src/app/_utils";
 
 const Navbar = ({ toggle }: { toggle: () => void }) => {
   return (
