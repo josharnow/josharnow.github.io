@@ -56,4 +56,19 @@
   }
 
 }
-// TODO - Animate from bottom up on small screen sizes
+
+// NOTE - Below animates from the bottom up on mobile
+@media (max-width: 639px) {
+  .landingOuterDiv {
+    animation: slide-in-from-bottom 1s ease forwards;
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
