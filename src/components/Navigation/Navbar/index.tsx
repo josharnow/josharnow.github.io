@@ -4,34 +4,20 @@ import Link from "next/link";
 // import Logo from "./Logo";
 // import Button from "./Button";
 import variables from '@/src/styles/variables.module.scss';
+import styles from './styles.module.scss';
+import { classNames } from "@/src/utils";
 
 const Navbar = ({ toggle }: { toggle: () => void }) => {
   return (
     <>
-      <div className="sm:hidden w-full h-20 bg-emerald-800 sticky top-0">
+      <nav className={ classNames(styles.navbar, 'sm:hidden h-20 bg-emerald-800 sticky')}>
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
             <div className="p-3" style={{ height: '100%', aspectRatio: '1/1' }}>
               {/* <Logo /> */}
             </div>
-            <button
-              type="button"
-              className="inline-flex items-center md:hidden"
-              onClick={ toggle }
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="#fff"
-                  d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"
-                />
-              </svg>
-            </button>
-            <ul className="hidden md:flex gap-x-6 text-white ">
+
+            <ul className="flex gap-x-6 text-black ">
               <li>
                 <Link href="/about">
                   <p>About Us</p>
@@ -48,12 +34,26 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
                 </Link>
               </li>
             </ul>
-            <div className="hidden md:block">
-              {/* <Button /> */}
-            </div>
+            <button
+              type="button"
+              className="inline-flex items-center md:hidden"
+              onClick={ toggle }
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="black"
+                  d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 };
