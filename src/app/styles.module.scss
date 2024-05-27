@@ -13,14 +13,14 @@
     box-shadow: none;
   }
   95% {
-    box-shadow: -7px 0 13px rgba(10, 36, 173, 0.741);
+    // box-shadow: -7px 0 13px rgba(10, 36, 173, 0.741);
   }
-  // 99% {
-  //   box-shadow: -7px 0 13px rgba(10, 36, 173, 0.7722);
+  // // 99% {
+  // //   box-shadow: -7px 0 13px rgba(10, 36, 173, 0.7722);
   // }
   100% {
     transform: translateX(0);
-    box-shadow: -7px 0 13px rgba(10, 36, 173, 0.78);
+    // box-shadow: -7px 0 13px rgba(10, 36, 173, 0.78);
   }
 }
 
@@ -43,10 +43,11 @@
 .landingOuterDiv {
   // animation: slide-in-from-right 1s ease-in-out;
   animation: slide-in-from-right 1s ease forwards;
+  // z-index: 1000;
   // TODO - Trigger a box shadow fade in animation AFTER the above animation finishes
   // background-color: red !important;
   // box-shadow: -7px 0 13px rgba(10, 36, 173, 0.78);
-  
+  // position: relative;
 }
 
 @media (max-width: 1024px) {

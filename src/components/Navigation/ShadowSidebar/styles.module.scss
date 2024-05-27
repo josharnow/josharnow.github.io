@@ -28,13 +28,13 @@
   }
 }
 
-.sidebarContainer {
+.shadowSidebarContainer {
   // color: white;
   // padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  z-index: 0;
   // height: 100vh;
   background: white;
   width: fit-content;
@@ -62,7 +62,7 @@
 
 // TODO - Figure out exit animation. The hidden property is making it not work (https: //chriscoyier.net/2023/10/30/exit-animations/)
 @media (max-width: 1024px) {
-  .sidebarContainer {
+  .shadowSidebarContainer {
     // animation: smooth-shrink 1s ease forwards;
     // animation-fill-mode: forwards;
   }
