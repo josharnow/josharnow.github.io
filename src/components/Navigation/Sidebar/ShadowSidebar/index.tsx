@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import Link from "next/link";
 // import { EnvelopeIcon } from "@heroicons/react";
 // import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
@@ -8,47 +8,26 @@ import Logo from "../../Logo";
 import styles from "./styles.module.scss";
 import { classNames } from "@/src/utils";
 
+type SidebarOptions = {
+  name: string,
+  href: string,
+  icon: any,
+  current?: boolean,
+}
+
 const ShadowSidebar = ({
   isOpen,
   toggle,
+  sidebarOptions,
 }: {
   isOpen: boolean;
   toggle: () => void;
+  sidebarOptions: SidebarOption[];
 }) => {
   // const segment = useSelectedLayoutSegment();
 
-  const sidebarOptions = [
-    // {
-    //   name: "About",
-    //   href: "/about",
-    //   icon: IdentificationIcon,
-    //   current: `/${segment}` === "/about" ? true : false,
-    // },
-    // {
-    //   name: "Contact",
-    //   href: "/contact",
-    //   icon: EnvelopeIcon,
-    //   current: `/${segment}` === "/contact" ? true : false,
-    // },
-    // {
-    //   name: "Portfolio",
-    //   href: "/portfolio",
-    //   icon: CubeTransparentIcon,
-    //   current: `/${segment}` === "/portfolio" ? true : false,
-    // },
-    {
-      name: "TEST ROUTE",
-      href: "/test_route",
-      icon: CubeTransparentIcon,
-      // current: `/${segment}` === "/test_route" ? true : false,
-    },
-    {
-      name: "DYNAMIC_TEST ROUTE",
-      href: "/test_route_dynamic/4",
-      icon: CubeTransparentIcon,
-      // current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
-    },
-  ];
+
+
 
   return (
     <>

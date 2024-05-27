@@ -20,10 +20,51 @@ const Sidebar = ({
 
 
 
+  const sidebarOptions: SidebarOption[] = [
+    // {
+    //   name: "About",
+    //   href: "/about",
+    //   icon: IdentificationIcon,
+    //   current: `/${segment}` === "/about" ? true : false,
+    // },
+    // {
+    //   name: "Contact",
+    //   href: "/contact",
+    //   icon: EnvelopeIcon,
+    //   current: `/${segment}` === "/contact" ? true : false,
+    // },
+    // {
+    //   name: "Portfolio",
+    //   href: "/portfolio",
+    //   icon: CubeTransparentIcon,
+    //   current: `/${segment}` === "/portfolio" ? true : false,
+    // },
+    {
+      name: "TEST ROUTE",
+      href: "/test_route",
+      icon: CubeTransparentIcon,
+      // current: `/${segment}` === "/test_route" ? true : false,
+    },
+    {
+      name: "DYNAMIC_TEST ROUTE",
+      href: "/test_route_dynamic/4",
+      icon: CubeTransparentIcon,
+      // current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
+    },
+  ];
+
   return (
     <>
-      <RealSidebar isOpen={isOpen} toggle={toggle} />
-      <ShadowSidebar isOpen={isOpen} toggle={toggle} />
+      <RealSidebar
+        isOpen={ isOpen } 
+        toggle={ toggle } 
+        sidebarOptions={ sidebarOptions } 
+      />
+      <ShadowSidebar 
+        isOpen={ isOpen } 
+        toggle={ toggle } 
+        sidebarOptions={ sidebarOptions } 
+      />
     </>
   );
 };
