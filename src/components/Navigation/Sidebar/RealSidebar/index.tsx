@@ -6,7 +6,7 @@ import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicon
 import { useSelectedLayoutSegment } from "next/navigation";
 import Logo from "../../Logo";
 import styles from "../styles.module.scss";
-import { classNames } from "@/src/app/_utils";
+// import { classNames } from "@/src/app/_utils";
 
 const RealSidebar = ({
   isOpen,
@@ -17,6 +17,9 @@ const RealSidebar = ({
   toggle: () => void;
   sidebarOptions: SidebarOption[];
 }) => {
+  function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
   return (
     <>
       {/* NOTE - When the window has a width of 640px or less (like on mobile devices), only the hidden class is applied. On larger screen sizes, flex overrides the hidden class and makes the sidebar visible. */}

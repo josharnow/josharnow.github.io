@@ -5,9 +5,12 @@ import Link from "next/link";
 // import Button from "./Button";
 import variables from '@/src/styles/variables.module.scss';
 import styles from './styles.module.scss';
-import { classNames } from "@/src/app/_utils";
+// import { classNames } from "@/src/app/_utils";
 
 const Navbar = ({ toggle }: { toggle: () => void }) => {
+  function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
   return (
     <>
       <nav className={ classNames(styles.navbar, 'sm:hidden h-20')}>

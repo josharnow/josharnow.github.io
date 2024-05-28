@@ -6,7 +6,7 @@ import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicon
 import { useSelectedLayoutSegment } from "next/navigation";
 import Logo from "../../Logo";
 import styles from "../styles.module.scss";
-import { classNames } from "@/src/app/_utils";
+// import { classNames } from "@/src/app/_utils";
 
 
 const ShadowSidebar = ({
@@ -21,7 +21,9 @@ const ShadowSidebar = ({
   // const segment = useSelectedLayoutSegment();
 
 
-
+  function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
 
   return (
     <>

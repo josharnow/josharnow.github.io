@@ -4,10 +4,13 @@ import Link from "next/link";
 
 import { Card } from 'primereact/card';
 
-import { classNames } from "@/src/app/_utils";
+// import { classNames } from "@/src/app/_utils";
 import styles from "./styles.module.scss";
 
 export default function Home() {
+  function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
   return (
     <>
       <div className={ classNames(styles.landingOuterDiv, "bg-black px-6 py-24 sm:py-32 lg:px-8 h-full overflow-auto")}>

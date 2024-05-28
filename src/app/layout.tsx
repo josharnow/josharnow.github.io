@@ -10,7 +10,7 @@ import {
 // import { isMobileDevice, getBrowser, getDevice } from "@/src/utils/device";
 
 import styles from "./styles.module.scss";
-import { classNames } from "@/src/app/_utils";
+// import { classNames } from "@/src/app/_utils";
 
 
 // TODO - Metadata for each page (https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
@@ -81,6 +81,10 @@ export default async function RootLayout({
   // console.log("Browser: ", browser);
   // console.log("Device: ", device);
 
+  function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
+  
   return (
     <html lang="en">
       <body className={ibmPlexSans.className}>
