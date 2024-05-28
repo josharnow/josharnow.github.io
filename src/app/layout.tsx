@@ -10,7 +10,7 @@ import {
 // import { isMobileDevice, getBrowser, getDevice } from "@/src/utils/device";
 
 import styles from "./styles.module.scss";
-import { classNames } from "@/src/app/_utils";
+// import { classNames } from "@/src/app/_utils";
 
 
 // TODO - Metadata for each page (https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
@@ -81,15 +81,16 @@ export default async function RootLayout({
   // console.log("Browser: ", browser);
   // console.log("Device: ", device);
 
+  function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
+  
   return (
     <html lang="en">
       <body className={ibmPlexSans.className}>
-        <div className="flex mx-auto w-full">
-          {/* <Navigation /> */}
-          {/* TODO - Make Sidebar component similar to the way the old navigation component was (i.e. with a toggle) */}
-          {/* TODO - When the screen is "mobile sized" (i.e. small enough), make navbar operate on top similarly to old navbar. Will probably involve conditionally setting flex/flex-column on parent element here based on screen size (i.e. via Tailwind) */}
+        <div className="flex flex-col sm:flex-row mx-auto w-full">
           <Navigation />
-          <main className={classNames(styles.main)}>
+          <main className={classNames(styles.main, "sm:grow overflow-auto")}>
             {children}
           </main>
         </div>

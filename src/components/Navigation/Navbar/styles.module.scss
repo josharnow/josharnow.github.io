@@ -1,0 +1,26 @@
+.navbar {
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // padding: 1rem 2rem;
+  // background-color: var(--color-primary);
+  // color: var(--color-white);
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 -5px 11px rgba(10, 36, 173, 0.68) inset;
+}
+
+.navbar {
+  animation: slideInFromTop 0.5s ease-in-out;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    box-shadow: 0;
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 -5px 11px rgba(10, 36, 173, 0.68) inset;
+  }
+}

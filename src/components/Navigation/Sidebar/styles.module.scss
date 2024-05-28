@@ -4,7 +4,16 @@
   }
   to {
     transform: translateX(0);
-    // box-shadow: -5px 0 11px rgba(10, 36, 173, 0.95) inset;
+  }
+}
+
+@keyframes smooth-appear-for-real {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+    box-shadow: -5px 0 11px rgba(10, 36, 173, 0.68) inset;
   }
 }
 
@@ -17,32 +26,34 @@
     display: none;
   }
 }
-@keyframes smooth-shrink {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-75%);
-    // display: none;
-    // width: calc(fit-content / 2);
-  }
-}
+// @keyframes smooth-shrink {
+//   from {
+//     transform: translateX(0);
+//   }
+//   to {
+//     transform: translateX(-75%);
+//   }
+// }
 
-.sidebarContainer {
-  // color: white;
-  // padding: 20px;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // height: 100vh;
+.sidebarContainer,
+.shadowSidebarContainer {
   background: white;
   width: fit-content;
   transform: translateX(-100%);
-  animation: smooth-appear 1s ease forwards;
-  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.952);
-    // box-shadow: -5px 0 11px rgba(10, 36, 173, 0.95) inset;
 }
 
+.sidebarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  animation: smooth-appear-for-real 1s ease forwards;
+}
+
+.shadowSidebarContainer {
+  z-index: 0;
+  animation: smooth-appear 1s ease forwards;
+}
 
 // TODO - Figure out exit animation. The hidden property is making it not work (https: //chriscoyier.net/2023/10/30/exit-animations/)
 @media (max-width: 1024px) {
@@ -54,4 +65,17 @@
   //   animation: smooth-disappear 1s ease forwards;
   // }
   
+}
+
+// TODO - Figure out exit animation. The hidden property is making it not work (https: //chriscoyier.net/2023/10/30/exit-animations/)
+@media (max-width: 1024px) {
+  .shadowSidebarContainer {
+    // animation: smooth-shrink 1s ease forwards;
+    // animation-fill-mode: forwards;
+  }
+
+  // ::view-transition-old(.sidebarContainer) {
+  //   animation: smooth-disappear 1s ease forwards;
+  // }
+
 }
