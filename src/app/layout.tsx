@@ -41,6 +41,7 @@ export const metadata: Metadata = {
         alt: "Josh Arnow's Website",
       },
     ],
+    emails: ["contact@josharnow.com"],
   },
   twitter: {
     card: "summary_large_image",
@@ -90,7 +91,7 @@ export default async function RootLayout({
       <body className={ibmPlexSans.className}>
         <div className="flex flex-col sm:flex-row mx-auto w-full">
           <Navigation />
-          <main className={classNames(styles.main, "sm:grow overflow-auto")}>
+          <main className={classNames(styles.main, "sm:grow overflow-y-auto")}>
             {children}
           </main>
         </div>
