@@ -1,0 +1,23 @@
+// // babel.config.js
+// const ReactCompilerConfig = { /* ... */ };
+
+// export default function () {
+//   return {
+//     plugins: [
+//       ['babel-plugin-react-compiler', ReactCompilerConfig], // must run first!
+//       // ...
+//     ],
+//   };
+// }
+
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+          ["babel-plugin-react-compiler"] // must run first!
+          // ...
+        ]
+}
