@@ -3,5 +3,7 @@
   "rules": {
     // NOTE - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
     // "react/no-unescaped-entities": 0
-  }
+    "react-compiler/react-compiler": "error"
+  },
+  "plugins": ["eslint-plugin-react-compiler"]
 }
