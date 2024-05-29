@@ -13,7 +13,10 @@ const nextConfig = {
       hostname: 'cdn-icons-png.flaticon.com'
     }]
     // unoptimized: true,
-  }
+  },
+  experimental: {
+    reactCompiler: true,
+  },
   // sassOptions: {
   //   includePaths: [path.join(__dirname, 'src/styles')],
   // }
