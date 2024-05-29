@@ -4,8 +4,10 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 // import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
 import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicons/react/20/solid"; 
+import { useSelectedLayoutSegment } from "next/navigation";
 
 const Navigation= () => {
+  const segment = useSelectedLayoutSegment();
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -31,16 +33,22 @@ const Navigation= () => {
     //   current: `/${segment}` === "/portfolio" ? true : false,
     // },
     {
+      name: "3D Demo",
+      href: "/3D_Demo",
+      icon: CubeTransparentIcon,
+      current: `/${segment}` === "/3D_Demo" ? true : false,
+    },
+    {
       name: "TEST ROUTE",
       href: "/test_route",
       icon: CubeTransparentIcon,
-      // current: `/${segment}` === "/test_route" ? true : false,
+      current: `/${segment}` === "/test_route" ? true : false,
     },
     {
       name: "DYNAMIC_TEST ROUTE",
       href: "/test_route_dynamic/4",
       icon: CubeTransparentIcon,
-      // current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
+      current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
     },
   ];
 

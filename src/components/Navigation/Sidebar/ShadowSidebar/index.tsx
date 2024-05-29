@@ -18,7 +18,7 @@ const ShadowSidebar = ({
   toggle: () => void;
   sidebarOptions: SidebarOption[];
 }) => {
-  // const segment = useSelectedLayoutSegment();
+  
 
 
   function classNames(...classes: string[]) {
