@@ -53,9 +53,9 @@ I'm used to using Jira in a professional setting but GitHub's built-in system ha
 My project board can be found [here](https://github.com/users/josharnow/projects/2).
 
 
-
-
-
 ## License
+This project is licensed under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). Please see the [LICENSE](LICENSE) file for more details.
 
-_TBD_
+The GNU Affero General Public License (AGPL) is a copyleft license that ensures the freedom to use, modify, and distribute the software. It is specifically designed for software that is used over a network, such as web applications.
+
+The AGPL requires that any modifications or additions made to the software must also be released under the same license, ensuring that the source code remains open and accessible to the community. This promotes collaboration and encourages developers to contribute back to the project.
