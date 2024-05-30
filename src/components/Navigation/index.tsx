@@ -54,13 +54,6 @@ const Navigation= () => {
 
   return (
     <>
-      {/* TODO - Make Sidebar (on left side) the default for desktop view & make left sidebar appear w/ menu button on mobile */ }
-      {/* TODO - Make toggle for opening/closing side pane.  */ }
-
-      {/* TODO - Add button to collapse sidebar */}
-      {/* TODO - Figure out how to collapse the sidebar */}
-
-      {/* TODO - Maybe make a "shadowsidebar..." This sits behind the real sidebar and is used to make the main part of the screen be correctly sized */}
       {/* NOTE - This is a hacky fix I came up with to make the sidebar sticky and still use flex-grow to grow the main content on the screen. Now my main content can remain as server components while still being properly sized 🎉 */}
       <Sidebar isOpen={ isOpen } toggle={ toggle } sidebarOptions={ sidebarOptions  } />
       <Navbar toggle={ toggle } />
