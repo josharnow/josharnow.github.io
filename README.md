@@ -33,6 +33,17 @@ This project uses IBM Plex Sans, an open-source font. I opted not to use the Goo
 
 _TBD_
 
+## Project Management System
+
+To organize my ideas, set goals, and keep track of findings and progress on this project, I have leveraged `GitHub Projects`, GitHub's project managment system.
+
+I'm used to using Jira in a professional setting but GitHub's built-in system has impressed me... although I am the only one using it here 😅. The only notable downside is the inability to "relate" issues on the project board to one another, like setting one as a blocker to another.
+
+My project board can be found [here](https://github.com/users/josharnow/projects/2).
+
+
+
+
 
 ## License
 
