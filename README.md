@@ -25,8 +25,16 @@ The flag is necessary to work around false positives for dependency conflicts du
 Then, run the development server:
 
 ```bash
+npm i --legacy-peer-deps
+```
+The flag is necessary to work around false positives for dependency conflicts due to using Release Candidate versions of React 19 and Next.js 15.
+
+
+Then, run the development server:
+```bash
 npm run dev
 ```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
