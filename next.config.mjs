@@ -37,14 +37,14 @@ const millionConfig = {
   rsc: true,
 };
 
-// export default million.next(MillionLint.next({
-//   rsc: true, 
-//   filter: {
-//     include: [
-//       "**/components/*.{mtsx,mjsx,tsx,jsx}",
-//       "**/app/*.{mtsx,mjsx,tsx,jsx}",
-//     ],
-//   }, 
-// })(nextConfig), millionConfig);
+export default million.next(MillionLint.next({
+  rsc: true, 
+  filter: {
+    include: [
+      "**/components/*.{mtsx,mjsx,tsx,jsx}",
+      "**/app/*.{mtsx,mjsx,tsx,jsx}",
+    ],
+  }, 
+})(nextConfig), millionConfig);
 
-export default nextConfig;
+// export default nextConfig;
