@@ -6,7 +6,7 @@ export default async function ThreeDDemo() {
 
   return (
     <>
-      <h1>3D demo test</h1>
+      {/* <h1>3D demo test</h1>
       <Canvas 
         className='w-full h-full bg-transparent'
         camera={{near: 0.1, far: 1000}}
@@ -18,7 +18,7 @@ export default async function ThreeDDemo() {
           <spotLight />
           <hemisphereLight />
         </Suspense>
-      </Canvas>
+      </Canvas> */}
     </>
   );
 }
