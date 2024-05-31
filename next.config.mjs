@@ -4,7 +4,7 @@ import million from 'million/compiler';
 const nextConfig = {
   reactStrictMode: true,
   // output: "standalone",
-  // output: "export",
+  output: "export",
   // webpack: (
   //   config,
   //   { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
@@ -18,8 +18,8 @@ const nextConfig = {
     }, {
       protocol: 'https',
       hostname: 'cdn-icons-png.flaticon.com'
-    }]
-    // unoptimized: true,
+    }],
+    unoptimized: true,
   },
   experimental: {
     reactCompiler: true,
