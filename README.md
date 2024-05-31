@@ -1,6 +1,6 @@
 # My Personal Website
 
-Welcome to the repo for [my personal site](https://www.josharnow.com)! This project is a work in progress and will be updated as I continue to develop it.
+Welcome to the repo for [my personal site](https://josharnow.com)! This project is a work in progress and will be updated as I continue to develop it.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
