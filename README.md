@@ -48,6 +48,7 @@ This project uses IBM Plex Sans, an open-source font. I opted not to use the Goo
 - 3D Animations
 - Portfolio/About/Contact Sections
 - Project Management System [[on GitHub](https://github.com/users/josharnow/projects/2/views/1)]
+- Server Components [where possible]
 - _TBD_
 
 ## Languages / Frameworks / Libraries Used
