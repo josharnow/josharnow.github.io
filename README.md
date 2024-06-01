@@ -44,11 +44,22 @@ This project uses IBM Plex Sans, an open-source font. I opted not to use the Goo
 
 ## Features
 
-_TBD_
+- Blog
+- 3D Animations
+- Portfolio/About/Contact Sections
+- Project Management System [[on GitHub](https://github.com/users/josharnow/projects/2/views/1)]
+- _TBD_
 
-## Frameworks / Libraries Used
+## Languages / Frameworks / Libraries Used
 
-_TBD_
+- TypeScript
+  - React.js
+    - Next.js
+- Tailwind CSS
+- Three.js
+- PrimeReact
+- _TBD_
+
 
 ## Project Management System
 
