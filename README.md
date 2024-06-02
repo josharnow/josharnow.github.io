@@ -8,7 +8,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 - [Getting Started](#getting-started)
 - [Features](#features)
-- [Frameworks / Libraries Used](#frameworks--libraries-used)
+- [Languages / Frameworks / Libraries Used](#languages--frameworks--libraries-used)
 - [Project Management System](#project-management-system)
 - [License](#license)
 
@@ -44,8 +44,8 @@ This project uses IBM Plex Sans, an open-source font. I opted not to use the Goo
 
 ## Features
 
-- Blog
-- 3D Animations
+- [Blog](https://github.com/josharnow/josharnow.github.io/issues/39)
+- [3D Animations](https://github.com/josharnow/josharnow.github.io/issues/40)
 - Portfolio/About/Contact Sections
 - Project Management System [[on GitHub](https://github.com/users/josharnow/projects/2/views/1)]
 - Server Components [where possible]
