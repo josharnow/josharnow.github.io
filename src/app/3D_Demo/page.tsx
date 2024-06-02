@@ -10,19 +10,19 @@ export default function ThreeDDemo() {
   return (
     <>
       <h1>3D demo test</h1>
-      {/* <Canvas 
+      <Canvas 
         className='w-full h-full bg-transparent'
         camera={{near: 0.1, far: 1000}}
-      > */}
+      >
         {/* <Suspense fallback={<Loader />}> */}
-        {/* <Suspense>
+        <Suspense>
           <directionalLight />
           <ambientLight />
           <pointLight />
           <spotLight />
           <hemisphereLight />
         </Suspense>
-      </Canvas> */}
+      </Canvas>
     </>
   );
 }

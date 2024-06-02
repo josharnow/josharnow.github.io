@@ -22,7 +22,8 @@ const nextConfig = {
     unoptimized: true,
   },
   experimental: {
-    reactCompiler: true,
+    // NOTE - Next.js 15 is incompatible with react-three-fiber (as of 2024-06-02)
+    // reactCompiler: true,
     forceSwcTransforms: true,
   },
   // sassOptions: {
@@ -37,14 +38,15 @@ const millionConfig = {
   rsc: true,
 };
 
-export default million.next(MillionLint.next({
-  rsc: true, 
-  filter: {
-    include: [
-      "**/components/*.{mtsx,mjsx,tsx,jsx}",
-      "**/app/*.{mtsx,mjsx,tsx,jsx}",
-    ],
-  }, 
-})(nextConfig), millionConfig);
+// NOTE - Enabling million appears to mess up the which active link is selected in the sidebar (as of 2024-06-02)
+// export default million.next(MillionLint.next({
+//   rsc: true, 
+//   filter: {
+//     include: [
+//       "**/components/*.{mtsx,mjsx,tsx,jsx}",
+//       "**/app/*.{mtsx,mjsx,tsx,jsx}",
+//     ],
+//   }, 
+// })(nextConfig), millionConfig);
 
-// export default nextConfig;
+export default nextConfig;
