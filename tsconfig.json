@@ -29,6 +29,7 @@
     "target": "ESNext",
   },
   "include": [
+    "additional.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
