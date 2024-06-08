@@ -10,7 +10,7 @@
  */
 
 import { a } from "@react-spring/three";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 
@@ -22,11 +22,17 @@ export function Island({
   setCurrentStage,
   currentFocusPoint,
   ...props
+}: {
+  isRotating: boolean;
+  setIsRotating: (isRotating: boolean) => void;
+  setCurrentStage: (stage: number | null) => void;
+  currentFocusPoint: number | null;
+  [x: string]: any;
 }) {
-  const islandRef = useRef();
+  const islandRef: InitialGroupRef = useRef();
   // Get access to the Three.js renderer and viewport
   const { gl, viewport } = useThree();
-  const { nodes, materials } = useGLTF(islandScene);
+  const { nodes, materials } = useGLTF(islandScene) as DreiGLTF;
 
   // Use a ref for the last mouse x position
   const lastX = useRef(0);
@@ -36,27 +42,37 @@ export function Island({
   const dampingFactor = 0.95;
 
   // Handle pointer (mouse or touch) down event
-  const handlePointerDown = (event) => {
+  const handlePointerDown = (event: PointerEvent & TouchEvent) => {
     event.stopPropagation();
     event.preventDefault();
     setIsRotating(true);
 
     // Calculate the clientX based on whether it's a touch event or a mouse event
+    
+    // switch (event.type) {
+    //   case "touchstart":
+    //     const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+    //     lastX.current = clientX;
+    //   case "mousedown":
+    //     // lastX.current = event.clientX;
+    //     const clientX = event.clientX
+    // }
+
     const clientX = event.touches ? event.touches[0].clientX : event.clientX;
 
     // Store the current clientX position for reference
     lastX.current = clientX;
-  };
+  } ;
 
   // Handle pointer (mouse or touch) up event
-  const handlePointerUp = (event) => {
+  const handlePointerUp = (event: PointerEvent & TouchEvent) => {
     event.stopPropagation();
     event.preventDefault();
     setIsRotating(false);
   };
 
   // Handle pointer (mouse or touch) move event
-  const handlePointerMove = (event) => {
+  const handlePointerMove = (event: PointerEvent & TouchEvent) => {
     event.stopPropagation();
     event.preventDefault();
     if (isRotating) {
@@ -68,6 +84,7 @@ export function Island({
       const delta = (clientX - lastX.current) / viewport.width;
 
       // Update the island's rotation based on the mouse/touch movement
+      if (!islandRef.current) return;
       islandRef.current.rotation.y += delta * 0.01 * Math.PI;
 
       // Update the reference for the last clientX position
@@ -79,7 +96,8 @@ export function Island({
   };
 
   // Handle keydown events
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (!islandRef.current) return;
     if (event.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
 
@@ -94,14 +112,14 @@ export function Island({
   };
 
   // Handle keyup events
-  const handleKeyUp = (event) => {
+  const handleKeyUp = (event: KeyboardEvent) => {
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
       setIsRotating(false);
     }
   };
 
   // Touch events for mobile devices
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: TouchEvent & PointerEvent) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
@@ -110,13 +128,13 @@ export function Island({
     lastX.current = clientX;
   }
   
-  const handleTouchEnd = (e) => {
+  const handleTouchEnd = (e: TouchEvent & PointerEvent) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(false);
   }
   
-  const handleTouchMove = (e) => {
+  const handleTouchMove = (e: TouchEvent & PointerEvent) => {
     e.stopPropagation();
     e.preventDefault();
   
@@ -124,6 +142,7 @@ export function Island({
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const delta = (clientX - lastX.current) / viewport.width;
   
+      if (!islandRef.current) return;
       islandRef.current.rotation.y += delta * 0.01 * Math.PI;
       lastX.current = clientX;
       rotationSpeed.current = delta * 0.01 * Math.PI;
@@ -133,30 +152,31 @@ export function Island({
   useEffect(() => {
     // Add event listeners for pointer and keyboard events
     const canvas = gl.domElement;
-    canvas.addEventListener("pointerdown", handlePointerDown);
-    canvas.addEventListener("pointerup", handlePointerUp);
-    canvas.addEventListener("pointermove", handlePointerMove);
+    canvas.addEventListener("pointerdown", handlePointerDown as (event: PointerEvent) => void);
+    canvas.addEventListener("pointerup", handlePointerUp as (event: PointerEvent) => void);
+    canvas.addEventListener("pointermove", handlePointerMove as (event: PointerEvent) => void);
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
-    canvas.addEventListener("touchstart", handleTouchStart);
-    canvas.addEventListener("touchend", handleTouchEnd);
-    canvas.addEventListener("touchmove", handleTouchMove);
+    canvas.addEventListener("touchstart", handleTouchStart as (event: TouchEvent) => void);
+    canvas.addEventListener("touchend", handleTouchEnd as(event: TouchEvent) => void );
+    canvas.addEventListener("touchmove", handleTouchMove as (event: TouchEvent) => void);
 
     // Remove event listeners when component unmounts
     return () => {
-      canvas.removeEventListener("pointerdown", handlePointerDown);
-      canvas.removeEventListener("pointerup", handlePointerUp);
-      canvas.removeEventListener("pointermove", handlePointerMove);
+      canvas.removeEventListener("pointerdown", handlePointerDown as (event: PointerEvent) => void);
+      canvas.removeEventListener("pointerup", handlePointerUp as (event: PointerEvent) => void);
+      canvas.removeEventListener("pointermove", handlePointerMove as (event: PointerEvent) => void);
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
-      canvas.removeEventListener("touchstart", handleTouchStart);
-      canvas.removeEventListener("touchend", handleTouchEnd);
-      canvas.removeEventListener("touchmove", handleTouchMove);
+      canvas.removeEventListener("touchstart", handleTouchStart as (event: TouchEvent) => void);
+      canvas.removeEventListener("touchend", handleTouchEnd as (event: TouchEvent) => void);
+      canvas.removeEventListener("touchmove", handleTouchMove as (event: TouchEvent) => void);
     };
   }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
 
   // This function is called on each frame update
   useFrame(() => {
+    if (!islandRef.current) return;
     // If not rotating, apply damping to slow down the rotation (smoothly)
     if (!isRotating) {
       // Apply damping factor
@@ -213,7 +233,7 @@ export function Island({
 
   return (
     // {Island 3D model from: https://sketchfab.com/3d-models/foxs-islands-163b68e09fcc47618450150be7785907}
-    <a.group ref={islandRef} {...props}>
+    <a.group ref={islandRef as AssignedGroupRef} {...props}>
       <mesh
         geometry={nodes.polySurface944_tree_body_0.geometry}
         material={materials.PaletteMaterial001}

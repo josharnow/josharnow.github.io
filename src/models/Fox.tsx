@@ -15,22 +15,26 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import scene from "../assets/3d/fox.glb";
 
 // 3D Model from: https://sketchfab.com/3d-models/fox-f372c04de44640fbb6a4f9e4e5845c78
-export function Fox({ currentAnimation, ...props }) {
-  const group = useRef();
-  const { nodes, materials, animations } = useGLTF(scene);
+export function Fox(
+  { currentAnimation, ...props }: {
+    [x: string]: any;
+    currentAnimation: any;
+  }
+) {
+  const group: InitialGroupRef = useRef();
+  const { nodes, materials, animations } = useGLTF(scene) as DreiGLTF;
   const { actions } = useAnimations(animations, group);
 
   // This effect will run whenever the currentAnimation prop changes
   useEffect(() => {
-    Object.values(actions).forEach((action) => action.stop());
+    Object.values(actions).forEach((action) => action?.stop());
 
-    if (actions[currentAnimation]) {
-      actions[currentAnimation].play();
-    }
+    const action = actions[currentAnimation];
+    action?.play();
   }, [actions, currentAnimation]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group as AssignedGroupRef} {...props} dispose={null}>
       <group name='Sketchfab_Scene'>
         <primitive object={nodes.GLTF_created_0_rootJoint} />
         <skinnedMesh
