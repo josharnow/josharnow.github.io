@@ -1,13 +1,18 @@
 "use client";
 // NOTE - "use client" appears to be necessary to compile this without an error
 import { Suspense, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { type Camera, Canvas } from '@react-three/fiber';
 // import { Loader as dreiLoader } from "@react-three/drei";
 import { Loader } from '@/src/components';
 import { Island } from '@/src/models';
 
 
 export default function ThreeDDemo() {
+  const cameraProps = {
+    near: 0.1,
+    far: 1000,
+  } as Camera;
+
   const [isRotating, setIsRotating] = useState(true);
   const [currentStage, setCurrentStage] = useState(0);
   const currentFocusPoint = 0;
@@ -17,10 +22,10 @@ export default function ThreeDDemo() {
       <h1>3D demo test</h1>
       <Canvas 
         className='w-full h-full bg-transparent'
-        camera={{near: 0.1, far: 1000}}
+        camera={cameraProps}
       >
         <Suspense fallback={<Loader />}>
-          <directionalLight />
+          <directionalLight  />
           <ambientLight />
           <pointLight />
           <spotLight />
