@@ -26,6 +26,7 @@ export default function ThreeDDemo() {
     const screenPosition = [0, -6.5, -43];
     const islandRotation = [0.1, 4.7, 0]
 
+    // NOTE - Can't access window.innerWidth due to SSR, so I'm using a fixed value for now (https://stackoverflow.com/questions/69009355/getting-width-of-screen-using-window-innerwidth-not-working) (there are workarounds)
     // if (window.innerWidth < 768) {
     //   screenScale = [0.9, 0.9, 0.9];
     // } else {
