@@ -4,7 +4,7 @@ import { Suspense, useState } from 'react';
 import { type Camera, Canvas } from '@react-three/fiber';
 // import { Loader as dreiLoader } from "@react-three/drei";
 import { Loader } from '@/src/components';
-import { Island } from '@/src/models';
+import { Island, Sky } from '@/src/models';
 import { FontData, Text3D } from '@react-three/drei';
 import text3DFont from '@/src/assets/fonts/ibm_plex_sans_var_roman_regular.json';
 // import { Leva, useControls } from 'leva';
@@ -52,12 +52,19 @@ export default function ThreeDDemo() {
             Josh Arnow
         </Text3D> */}
 
+          {/* NOTE - Simulates the light coming from a distance source, like the sun */}
+          <directionalLight position={[1, 1, 1]} intensity={2} />
+          {/* NOTE - Illuminates all objects in a scene equally, without casting shadows */}
+          <ambientLight intensity={0.5} />
+          {/* NOTE - Emits light in all directions from a single point. Not necessary here because outside */}
+          {/* <pointLight /> */}
+          {/* NOTE - Similar to pointLight. Emits light from one direction, but in the shape of a cone (to provide an angle)  */}
+          {/* <spotLight /> */}
+          {/* NOTE - Illuminates the scene with a gradient */}
+          {/* <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1}/> */}
+          <hemisphereLight groundColor="#000000" intensity={1}/>
 
-          <directionalLight  />
-          <ambientLight />
-          <pointLight />
-          <spotLight />
-          <hemisphereLight />
+          
           {/* TODO - Set up props for island */}
           <Island
             isRotating={isRotating}
