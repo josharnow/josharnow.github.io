@@ -16,8 +16,9 @@ export default function ThreeDDemo() {
   } as Camera;
 
 
-  const [isRotating, setIsRotating] = useState(true);
-  const [currentStage, setCurrentStage] = useState(0);
+  const [currentStage, setCurrentStage] = useState(1);
+  const [isRotating, setIsRotating] = useState(false);
+  // const [isPlayingMusic, setIsPlayingMusic] = useState(false);
   const currentFocusPoint = 0;
 
   const adjustIslandForScreenSize = () => {
@@ -39,7 +40,6 @@ export default function ThreeDDemo() {
 
   return (
     <>
-      <h1>3D demo test</h1>
       {/* <Leva /> */}
       <Canvas 
         className='w-full h-full bg-transparent'
