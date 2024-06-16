@@ -4,10 +4,10 @@ import { Suspense, useState } from 'react';
 import { type Camera, Canvas } from '@react-three/fiber';
 // import { Loader as dreiLoader } from "@react-three/drei";
 import { Loader } from '@/src/components';
-import { Island, Sky } from '@/src/models';
+import { Island, Sky, Bird, Plane } from '@/src/models';
 import { FontData, Text3D } from '@react-three/drei';
 import text3DFont from '@/src/assets/fonts/ibm_plex_sans_var_roman_regular.json';
-// import { Leva, useControls } from 'leva';
+import { Leva, useControls } from 'leva';
 
 export default function ThreeDDemo() {
   const cameraProps = {
@@ -21,29 +21,54 @@ export default function ThreeDDemo() {
   // const [isPlayingMusic, setIsPlayingMusic] = useState(false);
   const currentFocusPoint = 0;
 
-  const adjustIslandForScreenSize = () => {
+  // TODO - After finding best rotation/scale/position in the real (non-test) animation using Leva controls, set the values here (so they will adjust automatically for different screen sizes)
+  // const adjustIslandForScreenSize = () => {
+  //   let screenScale;
+  //   const screenPosition = [0, -6.5, -43];
+  //   const rotation = [0.1, 4.7, 0];
+
+  //   // NOTE - Can't access window.innerWidth due to SSR, so I'm using a fixed value for now (https://stackoverflow.com/questions/69009355/getting-width-of-screen-using-window-innerwidth-not-working) (there are workarounds)
+  //   // if (window.innerWidth < 768) {
+  //   //   screenScale = [0.9, 0.9, 0.9];
+  //   // } else {
+  //   //   screenScale = [1, 1, 1];
+  //   // }
+  //   screenScale = [1, 1, 1];
+
+  //   return [screenScale, screenPosition, rotation]
+  // }
+
+  const adjustPlaneForScreenSize = () => {
     let screenScale;
-    const screenPosition = [0, -6.5, -43];
-    const islandRotation = [0.1, 4.7, 0]
+    const screenPosition = [0, -4, -4];
+    const rotation = [0, 20, 0];
 
     // NOTE - Can't access window.innerWidth due to SSR, so I'm using a fixed value for now (https://stackoverflow.com/questions/69009355/getting-width-of-screen-using-window-innerwidth-not-working) (there are workarounds)
     // if (window.innerWidth < 768) {
-    //   screenScale = [0.9, 0.9, 0.9];
+    //   screenScale = [1.5, 1.5, 1.5];
+    //   screenPosition = [0, -1.5, 0];
     // } else {
-    //   screenScale = [1, 1, 1];
+      //   screenScale = [3, 3, 3];
+      //   screenPosition = [0, -4, -4];
     // }
-    screenScale = [1, 1, 1];
+    screenScale = [3, 3, 3];
 
-    return [screenScale, screenPosition, islandRotation]
+    return [screenScale, screenPosition, rotation]
   }
 
-  const [islandScale, islandPosition, islandRotation] = adjustIslandForScreenSize();
+  // const [islandScale, islandPosition, islandRotation] = adjustIslandForScreenSize();
+  const { position: islandPosition, scale: islandScale, rotation: islandRotation } = useControls({
+    position: [0, -6.5, -43],
+    scale: [1, 1, 1],
+    rotation: [0.1, 4.7, 0]
+  });
+  const [planeScale, planePosition, planeRotation] = adjustPlaneForScreenSize();
 
   return (
     <>
-      {/* <Leva /> */}
+      <Leva />
       <Canvas 
-        className='w-full h-full bg-transparent'
+        className={`w-full h-full bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
         camera={cameraProps}
       >
         <Suspense fallback={<Loader />}>
@@ -64,7 +89,8 @@ export default function ThreeDDemo() {
           {/* <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1}/> */}
           <hemisphereLight groundColor="#000000" intensity={1}/>
 
-          
+          <Bird />
+          <Sky />
           {/* TODO - Set up props for island */}
           <Island
             isRotating={isRotating}
@@ -74,6 +100,12 @@ export default function ThreeDDemo() {
             position={islandPosition}
             scale={islandScale}
             rotation={islandRotation}
+          />
+          <Plane
+            isRotating={isRotating}
+            planeScale={planeScale}
+            planePosition={planePosition}
+            rotation={planeRotation}
           />
         </Suspense>
       </Canvas>
