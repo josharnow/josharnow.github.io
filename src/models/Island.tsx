@@ -42,7 +42,7 @@ export function Island({
   const dampingFactor = 0.95;
 
   // Handle pointer (mouse or touch) down event
-  const handlePointerDown = useCallback((event: PointerEvent & TouchEvent) => {
+  const handlePointerDown = useCallback((event: PointerEvent) => {
     event.stopPropagation();
     event.preventDefault();
     setIsRotating(true);
@@ -58,26 +58,26 @@ export function Island({
     //     const clientX = event.clientX
     // }
 
-    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+    const clientX = event.clientX;
 
     // Store the current clientX position for reference
     lastX.current = clientX;
 }, [setIsRotating])
 
   // Handle pointer (mouse or touch) up event
-  const handlePointerUp = useCallback((event: PointerEvent & TouchEvent) => {
+  const handlePointerUp = useCallback((event: PointerEvent) => {
     event.stopPropagation();
     event.preventDefault();
     setIsRotating(false);
   }, [setIsRotating]);
 
   // Handle pointer (mouse or touch) move event
-  const handlePointerMove = useCallback((event: PointerEvent & TouchEvent) => {
+  const handlePointerMove = useCallback((event: PointerEvent) => {
     event.stopPropagation();
     event.preventDefault();
     if (isRotating) {
       // If rotation is enabled, calculate the change in clientX position
-      const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+      const clientX = event.clientX;
 
       // calculate the change in the horizontal position of the mouse cursor or touch input,
       // relative to the viewport's width
@@ -119,27 +119,27 @@ export function Island({
   }, [setIsRotating]);
 
   // Touch events for mobile devices
-  const handleTouchStart = useCallback((e: TouchEvent & PointerEvent) => {
+  const handleTouchStart = useCallback((e: TouchEvent) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
   
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientX = e.touches[0].clientX;
     lastX.current = clientX;
   }, [setIsRotating]);
   
-  const handleTouchEnd = useCallback((e: TouchEvent & PointerEvent) => {
+  const handleTouchEnd = useCallback((e: TouchEvent) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(false);
   }, [setIsRotating]);
   
-  const handleTouchMove = useCallback((e: TouchEvent & PointerEvent) => {
+  const handleTouchMove = useCallback((e: TouchEvent) => {
     e.stopPropagation();
     e.preventDefault();
   
     if (isRotating) {
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientX = e.touches[0].clientX;
       const delta = (clientX - lastX.current) / viewport.width;
   
       if (!islandRef.current) return;
@@ -152,25 +152,25 @@ export function Island({
   useEffect(() => {
     // Add event listeners for pointer and keyboard events
     const canvas = gl.domElement;
-    canvas.addEventListener("pointerdown", handlePointerDown as (event: PointerEvent) => void);
-    canvas.addEventListener("pointerup", handlePointerUp as (event: PointerEvent) => void);
-    canvas.addEventListener("pointermove", handlePointerMove as (event: PointerEvent) => void);
+    canvas.addEventListener("pointerdown", handlePointerDown);
+    canvas.addEventListener("pointerup", handlePointerUp);
+    canvas.addEventListener("pointermove", handlePointerMove);
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
-    canvas.addEventListener("touchstart", handleTouchStart as (event: TouchEvent) => void);
-    canvas.addEventListener("touchend", handleTouchEnd as(event: TouchEvent) => void );
-    canvas.addEventListener("touchmove", handleTouchMove as (event: TouchEvent) => void);
+    canvas.addEventListener("touchstart", handleTouchStart);
+    canvas.addEventListener("touchend", handleTouchEnd);
+    canvas.addEventListener("touchmove", handleTouchMove);
 
     // Remove event listeners when component unmounts
     return () => {
-      canvas.removeEventListener("pointerdown", handlePointerDown as (event: PointerEvent) => void);
-      canvas.removeEventListener("pointerup", handlePointerUp as (event: PointerEvent) => void);
-      canvas.removeEventListener("pointermove", handlePointerMove as (event: PointerEvent) => void);
+      canvas.removeEventListener("pointerdown", handlePointerDown);
+      canvas.removeEventListener("pointerup", handlePointerUp);
+      canvas.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
-      canvas.removeEventListener("touchstart", handleTouchStart as (event: TouchEvent) => void);
-      canvas.removeEventListener("touchend", handleTouchEnd as (event: TouchEvent) => void);
-      canvas.removeEventListener("touchmove", handleTouchMove as (event: TouchEvent) => void);
+      canvas.removeEventListener("touchstart", handleTouchStart);
+      canvas.removeEventListener("touchend", handleTouchEnd);
+      canvas.removeEventListener("touchmove", handleTouchMove);
     };
   }, [gl, handlePointerDown, handlePointerUp, handlePointerMove, handleKeyDown, handleKeyUp, handleTouchStart, handleTouchEnd, handleTouchMove]);
 
