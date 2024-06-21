@@ -10,7 +10,7 @@
  */
 
 import { a } from "@react-spring/three";
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 
@@ -42,13 +42,13 @@ export function Island({
   const dampingFactor = 0.95;
 
   // Handle pointer (mouse or touch) down event
-  const handlePointerDown = (event: PointerEvent & TouchEvent) => {
+  const handlePointerDown = useCallback((event: PointerEvent & TouchEvent) => {
     event.stopPropagation();
     event.preventDefault();
     setIsRotating(true);
 
     // Calculate the clientX based on whether it's a touch event or a mouse event
-    
+
     // switch (event.type) {
     //   case "touchstart":
     //     const clientX = event.touches ? event.touches[0].clientX : event.clientX;
@@ -62,17 +62,17 @@ export function Island({
 
     // Store the current clientX position for reference
     lastX.current = clientX;
-  } ;
+}, [setIsRotating])
 
   // Handle pointer (mouse or touch) up event
-  const handlePointerUp = (event: PointerEvent & TouchEvent) => {
+  const handlePointerUp = useCallback((event: PointerEvent & TouchEvent) => {
     event.stopPropagation();
     event.preventDefault();
     setIsRotating(false);
-  };
+  }, [setIsRotating]);
 
   // Handle pointer (mouse or touch) move event
-  const handlePointerMove = (event: PointerEvent & TouchEvent) => {
+  const handlePointerMove = useCallback((event: PointerEvent & TouchEvent) => {
     event.stopPropagation();
     event.preventDefault();
     if (isRotating) {
@@ -93,10 +93,10 @@ export function Island({
       // Update the rotation speed
       rotationSpeed.current = delta * 0.01 * Math.PI;
     }
-  };
+  }, [isRotating, viewport.width]);
 
   // Handle keydown events
-  const handleKeyDown = (event: KeyboardEvent) => {
+  const handleKeyDown = useCallback((event: KeyboardEvent) => {
     if (!islandRef.current) return;
     if (event.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
@@ -109,32 +109,32 @@ export function Island({
       islandRef.current.rotation.y -= 0.005 * Math.PI;
       rotationSpeed.current = -0.007;
     }
-  };
+  }, [isRotating, setIsRotating]);
 
   // Handle keyup events
-  const handleKeyUp = (event: KeyboardEvent) => {
+  const handleKeyUp = useCallback((event: KeyboardEvent) => {
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
       setIsRotating(false);
     }
-  };
+  }, [setIsRotating]);
 
   // Touch events for mobile devices
-  const handleTouchStart = (e: TouchEvent & PointerEvent) => {
+  const handleTouchStart = useCallback((e: TouchEvent & PointerEvent) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
   
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     lastX.current = clientX;
-  }
+  }, [setIsRotating]);
   
-  const handleTouchEnd = (e: TouchEvent & PointerEvent) => {
+  const handleTouchEnd = useCallback((e: TouchEvent & PointerEvent) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(false);
-  }
+  }, [setIsRotating]);
   
-  const handleTouchMove = (e: TouchEvent & PointerEvent) => {
+  const handleTouchMove = useCallback((e: TouchEvent & PointerEvent) => {
     e.stopPropagation();
     e.preventDefault();
   
@@ -147,7 +147,7 @@ export function Island({
       lastX.current = clientX;
       rotationSpeed.current = delta * 0.01 * Math.PI;
     }
-  }
+  }, [isRotating, viewport.width]);
 
   useEffect(() => {
     // Add event listeners for pointer and keyboard events
@@ -172,7 +172,7 @@ export function Island({
       canvas.removeEventListener("touchend", handleTouchEnd as (event: TouchEvent) => void);
       canvas.removeEventListener("touchmove", handleTouchMove as (event: TouchEvent) => void);
     };
-  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove, handleKeyDown, handleKeyUp, handleTouchStart, handleTouchEnd, handleTouchMove]);
 
   // This function is called on each frame update
   useFrame(() => {
