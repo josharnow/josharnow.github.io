@@ -3,7 +3,7 @@
 import { Suspense, useState } from 'react';
 import { type Camera, Canvas } from '@react-three/fiber';
 // import { Loader as dreiLoader } from "@react-three/drei";
-import { Loader } from '@/src/components';
+import { Loader, ThreeDDemoInfo } from '@/src/components';
 import { Island, Sky, Bird, Plane } from '@/src/models';
 import { FontData, Text3D } from '@react-three/drei';
 import text3DFont from '@/src/assets/fonts/ibm_plex_sans_var_roman_regular.json';
@@ -67,8 +67,11 @@ export default function ThreeDDemo() {
   return (
     <>
       <Leva />
+      <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center text-black'>
+        {currentStage && <ThreeDDemoInfo currentStage={currentStage} />}
+      </div>
       <Canvas 
-        className={`w-full h-full bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
+        className={`w-full h-full bg-transparent relative ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
         camera={cameraProps}
       >
         <Suspense fallback={<Loader />}>
