@@ -66,7 +66,7 @@ export default function ThreeDDemo() {
 
   return (
     <>
-      <Leva />
+      <Leva collapsed={true} />
       <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center text-black'>
         {currentStage && <ThreeDDemoInfo currentStage={currentStage} />}
       </div>
