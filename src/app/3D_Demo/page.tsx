@@ -90,7 +90,7 @@ export default function ThreeDDemo() {
           <hemisphereLight groundColor="#000000" intensity={1}/>
 
           <Bird />
-          <Sky />
+          <Sky isRotating={isRotating} />
           {/* TODO - Set up props for island */}
           <Island
             isRotating={isRotating}

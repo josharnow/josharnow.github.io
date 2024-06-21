@@ -151,6 +151,7 @@ export function Island({
 
   useEffect(() => {
     // Add event listeners for pointer and keyboard events
+    // Declaring canvas here is necessary because everything is wrapped in a Canvas element (i.e. gl.domElement)
     const canvas = gl.domElement;
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("pointerup", handlePointerUp);
