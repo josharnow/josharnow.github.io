@@ -1,16 +1,33 @@
 import MillionLint from '@million/lint';
-import million from 'million/compiler';  
+import million from 'million/compiler';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   // output: "standalone",
   output: "export",
-  // webpack: (
-  //   config,
-  //   { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
-  // ) => {
-  //   return config
-  // },
+  webpack: (
+    config,
+    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
+  ) => {
+
+    // NOTE - This is needed to load .glb and .gltf files
+    config.module.rules.push({
+      test: /\.(glb|gltf)$/,
+      type: 'asset/resource'
+      // use:
+      //   [
+      //     {
+      //       loader: 'file-loader',
+      //       options:
+      //       {
+      //         outputPath: 'assets/models/'
+      //       }
+      //     }
+      //   ]
+    })
+
+    return config
+  },
   images: {
     remotePatterns: [{
       protocol: 'https',
