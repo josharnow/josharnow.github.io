@@ -30,7 +30,9 @@
     "@types/three": "^0.164.1",
     "@types/ua-parser-js": "^0.7.39",
     "babel-plugin-react-compiler": "^0.0.0-experimental-592953e-20240517",
+    "clsx": "^2.1.1",
     "eslint-plugin-react-compiler": "^0.0.0-experimental-c8b3f72-20240517",
+    "framer-motion": "^11.2.12",
     "leva": "^0.9.35",
     "million": "^3.1.6",
     "next": "^14.2.3",
@@ -38,6 +40,7 @@
     "react": "^18.3.1",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.3.0",
     "three": "^0.164.1",
     "ua-parser-js": "^1.0.37"
   },
