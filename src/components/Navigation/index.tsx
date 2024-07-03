@@ -13,6 +13,7 @@ const Navigation= () => {
     setIsOpen(!isOpen);
   };
 
+  console.log('segment', segment)
   const sidebarOptions: SidebarOption[] = [
     // {
     //   name: "About",
@@ -32,6 +33,12 @@ const Navigation= () => {
     //   icon: CubeTransparentIcon,
     //   current: `/${segment}` === "/portfolio" ? true : false,
     // },
+    {
+      name: "About Me",
+      href: "/",
+      icon: CubeTransparentIcon,
+      current: segment === null ? true : false,
+    },
     {
       name: "3D Demo",
       href: "/3D_Demo",
