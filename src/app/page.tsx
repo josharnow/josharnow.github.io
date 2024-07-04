@@ -28,22 +28,66 @@ export default function Home() {
               duration: 0.8,
               ease: "easeInOut",
             } }
-          // className={ classNames("px-6 py-24 sm:py-32 lg:px-8 h-full overflow-auto") }
-            // className="relative"
-          // className="h-full w-full overflow-auto"
-          // className="px-6 py-24 sm:py-32 lg:px-8 h-full"
-            className="absolute top-0 left-0 right-0 bottom-0"
-            // className="relative"
+            // className="absolute top-0 left-0 right-0 bottom-0 flex flex-col text-white px-6 py-24 sm:py-32 lg:px-8"
+            className="absolute top-0 left-0 right-0 bottom-0 text-white px-6 py-24 sm:py-32 sm:px-24"
           >
-            <div className="text-white">
-              test
+            {/* TODO - Make this as a grid instead, it'll be easier */}
+          <div className="h-full relative flex flex-col justify-between">
+            <div className="flex flex-col justify-between text-4xl sm:text-5xl w-3/6">
+              <h1 className="text-white text-balance">
+                Hi, I&apos;m <b className="font-medium text-blue-500">Josh</b>
+              </h1>
+              {/* TODO - Insert quote here */}
+
             </div>
-            {/* <h1 className="text-white">
-              Hi, I&apos;m <b>Josh</b>
-            </h1>
+            <div className="w-full flex justify-end">
+
+              <div className="h-full flex text-4xl sm:text-5xl w-3/6 text-right" style={{"textAlign": "justify"}}>
+              {/* <div className="h-full text-4xl sm:text-5xl flex flex-column self-end w-3/6 text-right"> */}
+                <h1 className="text-white self-center text-right text-balance">
+                  A <b className="text-blue-500 font-medium">software engineer</b> from NY/FL
+                  {/* A Software Engineer */}
+                </h1>
+              </div>
+            </div>
+              <div className="text-white text-lg sm:text-xl w-3/6">
+                <p>
+                  “True happiness comes from the joy of deeds well done, the zest of creating things new.”  ~ Antoine De Saint-Exupery
+                </p>
+              </div>
+            </div>
+
+          {/* <div className="grid grid-rows-4 grid-flow-col gap-4">
+              <div>
+                test
+              </div>
+              <div>
+                test
+              </div>
+              <div>
+                test
+              </div>
+          </div> */}
+
+            {/* TODO - PUT BELOW QUOTE AT BOTTOM OF PAGE */}
+            {/* “True happiness comes from the joy of deeds well done, the zest of creating things new.”  ~ Antoine De Saint-Exupery */}
+            {/* Creativity is a fundamental aspect of being human. It’s our birthright. And it’s for all of us.” - Rick Rubin */}
+            {/* <div>
+              If you&apos;re looking for someone with a passion for creating outstanding applications across a variety of platforms, follow me!
+            </div> */}
+            {/* <div className="text-5xl self-end justify-self-end w-3/6" style={{"alignSelf": "flex-end"}}>
+              <h1 className="text-white">
+                Hi, I&apos;m <b className="font-medium text-blue-500">Josh</b>
+              </h1>
+            </div> */}
+          
+
+          {/* <div className="text-5xl self-end justify-self-end w-3/6">
             <h1>
-              A passionate software engineer (*IN DIFFERENT COLOR*) from NY/FL
-            </h1> */}
+            A <span className="text-blue-500">software engineer</span> with a passion for creating outstanding applications across a variety of platforms
+            </h1>
+          </div> */}
+              {/* A software engineer with a passion for creating and building things. I have experience in full-stack web development, mobile development, and game development. I am always looking for new opportunities to learn and grow as a developer. */}
 
 
             {/* TODO - get rid of overflow. This should be one page ("view") */}
@@ -73,6 +117,9 @@ export default function Home() {
             </div> */}
           </motion.div>
       </AuroraBackground>
+      {/* <div>
+        testing
+      </div> */}
     </>
   );
 }
