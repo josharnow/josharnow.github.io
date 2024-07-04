@@ -40,6 +40,17 @@
 //   // flex-grow: 1;
 // }
 
+.view1,
+.view2 {
+  height: 100%;
+  width: 100%;
+}
+
+.view2 {
+  // background-color: rgb(24 24 27 / var(--tw-bg-opacity));
+  background-color: rgb(24 24 27);
+}
+
 .landingOuterDiv {
   // animation: slide-in-from-right 1s ease-in-out;
   animation: slide-in-from-right 1s ease forwards;

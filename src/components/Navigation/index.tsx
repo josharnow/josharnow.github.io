@@ -13,7 +13,6 @@ const Navigation= () => {
     setIsOpen(!isOpen);
   };
 
-  console.log('segment', segment)
   const sidebarOptions: SidebarOption[] = [
     // {
     //   name: "About",
