@@ -30,7 +30,12 @@ const AboutPageEducationWork = () => {
         ] }
         // description="We are more than the sum total of our experiences, but a diverse background has equipped me with a unique perspective"
         description="We are more than the sum total of our experiences, but my diverse background equips me with a unique perspective to offer"
-      />
+      >
+        <div>
+          test
+        </div>
+      </GoogleGeminiEffect>
+
     </div>
   );
 };

@@ -1,8 +1,16 @@
 "use client";
 import { cn } from "@/src/app/_utils";
 import { motion, MotionValue } from "framer-motion";
-import React from "react";
+import React, { ReactNode } from "react";
 import Link from "next/link";
+
+interface GoogleGeminiEffectProps extends React.HTMLProps<HTMLDivElement> {
+  children?: ReactNode;
+  pathLengths: MotionValue[];
+  title?: string;
+  description?: string;
+  className?: string;
+}
 
 const transition = {
   duration: 0,
@@ -14,12 +22,9 @@ const GoogleGeminiEffect = ({
   title,
   description,
   className,
-}: {
-  pathLengths: MotionValue[];
-  title?: string;
-  description?: string;
-  className?: string;
-}) => {
+  children,
+  ...props
+}: GoogleGeminiEffectProps) => {
   return (
     <div className={ cn("sticky top-32", className) }>
     { title ?
@@ -35,7 +40,7 @@ const GoogleGeminiEffect = ({
           `Scroll this component and see the bottom SVG come to life wow this
         works!`}
       </p>
-      <div className="w-full h-[890px] -top-56 md:-top-40  flex items-center justify-center bg-red-transparent absolute ">
+      <div className="w-full h-[890px] -top-56 md:-top-44  flex items-center justify-center bg-red-transparent absolute ">
         <button className="font-bold bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto bg-opacity-75">
           <Link href="/education-and-career">Education & Career Timeline</Link>
         </button>
@@ -162,6 +167,9 @@ const GoogleGeminiEffect = ({
           </filter>
         </defs>
       </svg>
+      <div className="absolute w-full flex justify-center -bottom-56 md:-bottom-64">
+        { children }
+      </div>
     </div>
   );
 };
