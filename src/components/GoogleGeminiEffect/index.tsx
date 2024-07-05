@@ -28,14 +28,14 @@ const GoogleGeminiEffect = ({
   return (
     <div className={ cn("sticky top-32", className) }>
     { title ?
-      <p className="px-6 text-3xl md:text-4xl lg:text-5xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
+      <p className="px-6 text-3xl md:text-4xl lg:text-5xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 text-balance">
         { title }
       </p> :
-      <p className="px-6 text-3xl md:text-4xl lg:text-5xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
+      <p className="px-6 text-3xl md:text-4xl lg:text-5xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 text-balance">
           <span className="">Complex problems</span> call for <span className="text-blue-500">creative solutions</span>
       </p>
     }
-      <p className="px-6text-xs md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
+      <p className="px-6 md:px-2 text-base md:text-2xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto text-balance">
         { description ||
           `Scroll this component and see the bottom SVG come to life wow this
         works!`}
