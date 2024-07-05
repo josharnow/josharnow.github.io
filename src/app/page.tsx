@@ -2,7 +2,7 @@
 // This is the root view of the app, hence it is placed in the root of the app directory.
 import Image from "next/image";
 import Link from "next/link";
-import { AuroraBackground, WavyBackground, AboutPageIntro } from "@/src/components";
+import { AuroraBackground, WavyBackground, AboutPageIntro, AboutPageEducationWork } from "@/src/components";
 import { motion } from "framer-motion";
 
 import { Card } from 'primereact/card';
@@ -18,8 +18,8 @@ export default function Home() {
 
   return (
     <>
-
         <AboutPageIntro />
+        <AboutPageEducationWork />
       {/* TODO - Remove the border when I get to the second view */}
       {/* TODO - Put below in a card & make it look nice */ }
       {/* TODO -Move quote to somewhere on next page: "True happiness comes from the joy of deeds well done, the zest of creating things new." – Antoine de Saint-Exupery */ }

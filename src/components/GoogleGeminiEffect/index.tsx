@@ -167,8 +167,7 @@ const GoogleGeminiEffect = ({
           </filter>
         </defs>
       </svg>
-      {/* <div className="absolute w-full flex justify-center -bottom-56 md:-bottom-64"> */}
-      <div className="absolute w-full flex justify-center -bottom-64 md:-bottom-72">
+      <div className="absolute left-0 right-0 -bottom-64 md:-bottom-72" style={ { "margin": "0 auto"}}>
         { children }
       </div>
     </div>

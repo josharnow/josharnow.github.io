@@ -28,12 +28,13 @@ const AboutPageEducationWork = () => {
         ] }
         description="We are more than the sum total of our experiences, but my diverse background equips me with a unique perspective to offer"
       >
-        {/* <div className="px-2 md:px-40"> */}
-        <div className="px-20 md:px-40">
-          <q cite="https://www.goodreads.com/quotes/482424-true-happiness-comes-from-the-joy-of-deeds-well-done">
+        <div className="px-20 md:px-40 flex flex-col text-center text-balance">
+        {/* <div className="flex flex-col text-center text-balance"> */}
+          <q cite="https://www.goodreads.com/quotes/482424-true-happiness-comes-from-the-joy-of-deeds-well-done" className="text-balance">
             <i>True happiness comes from the joy of deeds well done, the zest of creating things new.</i>
-          </q> ~Antoine de Saint-Exupéry
-          {/* TODO - bring ~Antoine de Saint-Exupéry to the next line and align right */}
+          </q>
+          <i className="">~Antoine de Saint-Exupéry</i>
+          {/* <span className="self-end">~Antoine de Saint-Exupéry</span> */}
         </div>
       </GoogleGeminiEffect>
     </div>
