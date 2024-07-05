@@ -4,3 +4,5 @@ export { default as Loader } from './Loader';
 export { default as ThreeDDemoInfo } from './ThreeDDemoInfo';
 export { default as BackgroundGradientAnimation } from './BackgroundGradientAnimation';
 export { default as AuroraBackground } from './AuroraBackground';
+export { default as WavyBackground } from './WavyBackground';
+export { default as AboutPageIntro } from './AboutPageIntro';

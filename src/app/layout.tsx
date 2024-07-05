@@ -91,7 +91,7 @@ export default async function RootLayout({
       <body className={ibmPlexSans.className}>
         <div className="flex flex-col sm:flex-row mx-auto w-full">
           <Navigation />
-          <main className={classNames(styles.main, "sm:grow overflow-y-auto relative")}>
+          <main className={ classNames(styles.main, "sm:grow relative")}>
             {children}
           </main>
         </div>
