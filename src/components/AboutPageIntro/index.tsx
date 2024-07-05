@@ -9,8 +9,10 @@ const AboutPageIntro = () => {
       <div className="min-h-full px-6 py-20 sm:py-18 sm:px-24 sm:py-16 md:px-20">
         <div className="justify-between h-full min-h-fit relative flex flex-col">
           <motion.div 
+            key={"about-page-intro-1"}
             initial={ { opacity: 0.0, y: 0 } }
             whileInView={ { opacity: 1.0, y: 0 } }
+            exit={ { opacity: 0.0, y: 0 } }
             transition={ {
               delay: 0.3,
               duration: 1.0,
@@ -23,8 +25,10 @@ const AboutPageIntro = () => {
             </h1>
           </motion.div>
           <motion.div 
+            key={ "about-page-intro-2" }
             initial={ { opacity: 0.0, y: 0 } }
             whileInView={ { opacity: 1.0, y: 0 } }
+            exit={ { opacity: 0.0, y: 0 } }
             transition={ {
               delay: 2.05,
               duration: 1.0,
@@ -41,8 +45,10 @@ const AboutPageIntro = () => {
           <div className="flex flex-col grow justify-end justify-self-end text-white w-3/6 text-3xl lg:text-4xl">
             <p className="">
               <motion.span
+                key={ "about-page-intro-3" }
                 initial={ { opacity: 0.0, y: 0 } }
                 whileInView={ { opacity: 1.0, y: 0 } }
+                exit={ { opacity: 0.0, y: 0 } }
                 transition={ {
                   delay: 3.8,
                   duration: 1.0,
@@ -52,13 +58,16 @@ const AboutPageIntro = () => {
                 Software is a more than a career to me:
               </motion.span><br />
               <motion.span
+                key={ "about-page-intro-4" }
                 initial={ { opacity: 0.0, y: 0 } }
                 whileInView={ { opacity: 1.0, y: 0 } }
+                exit={ { opacity: 0.0, y: 0 } }
                 transition={ {
                   delay: 5.8,
                   duration: 1.0,
                   ease: "easeInOut",
                 } }
+                onViewportLeave={ (e) => console.log(e)}
               >
                 it’s a <b className="text-red-500 font-medium">passion</b>
               </motion.span>
