@@ -5,9 +5,9 @@ import { AuroraBackground } from "@/src/components";
 
 const AboutPageIntro = () => {
   return (
-    <AuroraBackground className="h-screen sm:min-h-fit w-full">
-      <div className="min-h-full px-6 py-20 sm:py-15 sm:px-24 md:px-20">
-        <div className="justify-between short:justify-around h-full min-h-fit relative flex flex-col">
+    <AuroraBackground className="h-full sm:h-screen sm:min-h-fit w-full">
+      <div className="min-h-full px-6 py-10 sm:py-15 sm:px-24 md:px-20">
+        <div className="justify-evenly sm:justify-between h-full min-h-fit relative flex flex-col">
           <motion.div 
             key={"about-page-intro-1"}
             initial={ { opacity: 0.0, y: 0 } }
