@@ -67,7 +67,6 @@ const AboutPageIntro = () => {
                   duration: 1.0,
                   ease: "easeInOut",
                 } }
-                onViewportLeave={ (e) => console.log(e)}
               >
                 it’s a <b className="text-red-500 font-medium">passion</b>
               </motion.span>

@@ -31,21 +31,61 @@ const GoogleGeminiEffect = ({
       <p className="px-6 text-3xl md:text-4xl lg:text-5xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 text-balance">
         { title }
       </p> :
-      <p className="px-6 text-3xl md:text-4xl lg:text-5xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 text-balance">
+      <motion.p 
+          key={ "about-page-timeline-1" }
+          initial={ { opacity: 0.0, y: 0 } }
+          whileInView={ { opacity: 1.0, y: 0 } }
+          exit={ { opacity: 0.0, y: 0 } }
+          transition={ {
+            delay: 0.3,
+            duration: 1.0,
+            ease: "easeInOut",
+          } }
+        className="px-6 text-3xl md:text-4xl lg:text-5xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 text-balance">
           <span className="">Complex problems</span> call for <span className="text-blue-500">creative solutions</span>
-      </p>
+      </motion.p>
     }
-      <p className="px-6 md:px-2 text-base md:text-2xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto text-balance">
+      <motion.p 
+        key={ "about-page-timeline-2" }
+        initial={ { opacity: 0.0, y: 0 } }
+        whileInView={ { opacity: 1.0, y: 0 } }
+        exit={ { opacity: 0.0, y: 0 } }
+        transition={ {
+          delay: 0.3,
+          duration: 1.0,
+          ease: "easeInOut",
+        } }
+        className="px-6 md:px-2 text-base md:text-2xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto text-balance">
         { description ||
           `Scroll this component and see the bottom SVG come to life wow this
         works!`}
-      </p>
-      <div className="w-full h-[890px] -top-56 md:-top-44  flex items-center justify-center bg-red-transparent absolute ">
+      </motion.p>
+      <motion.div 
+        key={ "about-page-timeline-3" }
+        initial={ { opacity: 0.0, y: 0 } }
+        whileInView={ { opacity: 1.0, y: 0 } }
+        exit={ { opacity: 0.0, y: 0 } }
+        transition={ {
+          delay: 0.3,
+          duration: 1.0,
+          ease: "easeInOut",
+        } }
+        className="w-full h-[890px] -top-56 md:-top-44  flex items-center justify-center bg-red-transparent absolute "
+      >
         <button className="font-bold bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto bg-opacity-75">
           <Link href="/education-and-career">Education & Career Timeline</Link>
         </button>
-      </div>
-      <svg
+      </motion.div>
+      <motion.svg
+        key={ "about-page-timeline-4" }
+        initial={ { opacity: 0.0, y: 0 } }
+        whileInView={ { opacity: 1.0, y: 0 } }
+        exit={ { opacity: 0.0, y: 0 } }
+        transition={ {
+          delay: 0.3,
+          duration: 1.0,
+          ease: "easeInOut",
+        } }
         width="1440"
         height="890"
         viewBox="0 0 1440 890"
@@ -166,10 +206,20 @@ const GoogleGeminiEffect = ({
             <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
           </filter>
         </defs>
-      </svg>
-      <div className="absolute left-0 right-0 -bottom-64 md:-bottom-72" style={ { "margin": "0 auto"}}>
+      </motion.svg>
+      <motion.div 
+        key={ "about-page-timeline-4" }
+        initial={ { opacity: 0.0, y: 0 } }
+        whileInView={ { opacity: 1.0, y: 0 } }
+        exit={ { opacity: 0.0, y: 0 } }
+        transition={ {
+          delay: 0.3,
+          duration: 1.0,
+          ease: "easeInOut",
+        } }
+        className="absolute left-0 right-0 -bottom-64 md:-bottom-72" style={ { "margin": "0 auto"}}>
         { children }
-      </div>
+      </motion.div>
     </div>
   );
 };

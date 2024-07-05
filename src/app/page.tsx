@@ -24,7 +24,6 @@ export default function Home() {
         <AboutPageEducationWork />
       {/* TODO - Remove the border when I get to the second view */}
       {/* TODO - Put below in a card & make it look nice */ }
-      {/* TODO -Move quote to somewhere on next page: "True happiness comes from the joy of deeds well done, the zest of creating things new." – Antoine de Saint-Exupery */ }
       {/* <i>
         
       </i> */}
