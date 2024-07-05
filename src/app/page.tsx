@@ -19,6 +19,8 @@ export default function Home() {
   return (
     <>
         <AboutPageIntro />
+        {/* NOTE - The below div is my hacky way to make transition effects between views work correctly. Without it the text from the next page is considered to be within the viewport even at the maximum scroll height, so the transition will not activate when scrolling down. */}
+        <div className="w-full" style={ { "height": "1px", "backgroundColor": "rgb(24 24 27)"}}></div>
         <AboutPageEducationWork />
       {/* TODO - Remove the border when I get to the second view */}
       {/* TODO - Put below in a card & make it look nice */ }
