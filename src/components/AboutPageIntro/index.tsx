@@ -5,9 +5,9 @@ import { AuroraBackground } from "@/src/components";
 
 const AboutPageIntro = () => {
   return (
-    <AuroraBackground className="min-h-fit h-full w-full">
-      <div className="min-h-full px-6 py-20 sm:py-18 sm:px-24 sm:py-16 md:px-20">
-        <div className="justify-between h-full min-h-fit relative flex flex-col">
+    <AuroraBackground className="h-screen sm:min-h-fit w-full">
+      <div className="min-h-full px-6 py-20 sm:py-15 sm:px-24 md:px-20">
+        <div className="justify-between short:justify-around h-full min-h-fit relative flex flex-col">
           <motion.div 
             key={"about-page-intro-1"}
             initial={ { opacity: 0.0, y: 0 } }
@@ -18,7 +18,7 @@ const AboutPageIntro = () => {
               duration: 1.0,
               ease: "easeInOut",
             } }
-            className="flex flex-col grow justify-between w-3/6"
+            className="flex flex-col justify-between w-3/6"
           >
             <h1 className="text-white text-balance text-3xl md:text-4xl lg:text-5xl">
               Hi, I’m <b className="font-medium text-blue-500">Josh</b>
@@ -34,7 +34,7 @@ const AboutPageIntro = () => {
               duration: 1.0,
               ease: "easeInOut",
             } }
-            className="w-full flex justify-end grow"
+            className="w-full flex justify-end"
           >
             <div className="flex w-3/6 text-right justify-end" style={ { "textAlign": "justify" } }>
               <h1 className="text-white self-center text-right text-balance text-3xl md:text-4xl lg:text-5xl">
@@ -42,7 +42,7 @@ const AboutPageIntro = () => {
               </h1>
             </div>
           </motion.div>
-          <div className="flex flex-col grow justify-end justify-self-end text-white w-3/6 text-3xl lg:text-4xl">
+          <div className="flex flex-col justify-end justify-self-end text-white w-3/6 text-3xl lg:text-4xl">
             <p className="">
               <motion.span
                 key={ "about-page-intro-3" }
