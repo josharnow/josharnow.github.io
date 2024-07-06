@@ -113,7 +113,9 @@ const MacbookScroll = ({
   const titleOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   // const subTextTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const subTextTransform = useTransform(scrollYProgress, [100, 200], [0, 200]);
-  const subTextOpacity = useTransform(scrollYProgress, [1, 0.2], [1, 0]);
+  // const subTextOpacity = useTransform(scrollYProgress, [1, 0.2], [1, 0]);
+  // const subTextOpacity = useTransform(scrollYProgress, [1, 0], [5, 0]);
+  const subTextOpacity = useTransform(scrollYProgress, [1, 0], [3, 0]);
 
   return (
     <div
@@ -166,9 +168,9 @@ const MacbookScroll = ({
       <motion.h2
         style={ {
           translateY: bottomContentTranslate,
-          // opacity: subTextOpacity,
+          opacity: subTextOpacity,
         } }
-        className="dark:text-white text-neutral-800 text-3xl font-bold mb-20 text-center"
+        className="dark:text-white text-neutral-800 mb-20 w-full"
       >
         { bottomContent }
       </motion.h2>
