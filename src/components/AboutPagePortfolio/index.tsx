@@ -27,7 +27,7 @@ function AboutPagePortfolio() {
         // }
         // src={ `/linear.webp` }
         showGradient={ false }
-        className="w-full h-full"
+        className="w-full"
       />
     </div>
   );

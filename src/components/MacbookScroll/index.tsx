@@ -58,27 +58,35 @@ const MacbookScroll = ({
     if (!isMobile) {
       if (size.width < 768) {
         setIsMobile(true);
-        if (lidTranslateInputRange[1] !== 2000) {
-          setLidTranslateInputRange([0, 2000]);
-          setBottomContentTranslateInputRange([0, 2200]);
-        }
-      } else {
-        if (size.height < 800 && lidTranslateInputRange[1] !== 1000) {
-          setLidTranslateInputRange([0, 1000]);
-          setBottomContentTranslateInputRange([0, 1200]);
-        }
-        if (size.height >= 800 && size.height < 900 && lidTranslateInputRange[1] !== 1200) {
-          setLidTranslateInputRange([0, 1200]);
-          setBottomContentTranslateInputRange([0, 1400]);
-        }
-        if (size.height >= 900 && lidTranslateInputRange[1] !== 1400) {
-          setLidTranslateInputRange([0, 1400]);
-          setBottomContentTranslateInputRange([0, 1600]);
-        }
-      }
+      } 
     } else {
       if (size.width >= 768) {
         setIsMobile(false);
+      }
+    }
+
+    if (size.width < 768) {
+      // setIsMobile(true);
+      if (size.height > 850 && lidTranslateInputRange[1] !== 2000) {
+        setLidTranslateInputRange([0, 2000]);
+        setBottomContentTranslateInputRange([0, 2200]);
+      }
+      if (size.height <= 850 && lidTranslateInputRange[1] !== 1600) {
+        setLidTranslateInputRange([0, 1600]);
+        setBottomContentTranslateInputRange([0, 1600]);
+      }
+    } else {
+      if (size.height < 800 && lidTranslateInputRange[1] !== 1000) {
+        setLidTranslateInputRange([0, 1000]);
+        setBottomContentTranslateInputRange([0, 1200]);
+      }
+      if (size.height >= 800 && size.height < 900 && lidTranslateInputRange[1] !== 1200) {
+        setLidTranslateInputRange([0, 1200]);
+        setBottomContentTranslateInputRange([0, 1400]);
+      }
+      if (size.height >= 900 && lidTranslateInputRange[1] !== 1400) {
+        setLidTranslateInputRange([0, 1400]);
+        setBottomContentTranslateInputRange([0, 1600]);
       }
     }
   }
@@ -120,7 +128,7 @@ const MacbookScroll = ({
   return (
     <div
       ref={ ref }
-      className={ cn("min-h-[200vh]  flex flex-col items-center py-0 md:py-80 justify-start flex-shrink-0 [perspective:800px] transform md:scale-100 scale-[0.35] sm:scale-50", className)}
+      className={ cn("min-h-[200vh] flex flex-col items-center py-0 md:py-80 justify-start flex-shrink-0 [perspective:800px] transform scale-[0.55] sm:scale-50 md:scale-100", className)}
     >
       { title && (
         <motion.h2
@@ -148,7 +156,7 @@ const MacbookScroll = ({
           <div className="absolute inset-x-0 mx-auto w-[80%] h-4 bg-[#050505]" />
         </div>
         <div className="flex relative">
-          <div className="mx-auto w-[10%] overflow-hidden  h-full">
+          <div className="mx-auto w-[10%] overflow-hidden h-full">
             <SpeakerGrid />
           </div>
           <div className="mx-auto w-[80%] h-full">
