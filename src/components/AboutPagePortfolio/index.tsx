@@ -3,10 +3,16 @@ import React from "react";
 import { MacbookScroll, MovingBorderButton } from "@/src/components";
 import Link from "next/link";
 import surrogacyAdvisorScreenshot1 from '@/src/assets/images/surrogacy_advisor_screenshot_1.png';
+import surrogacyAdvisorScreenshot2 from '@/src/assets/images/surrogacy_advisor_screenshot_2.png';
+import cyzlAppStoreScreenshot1 from '@/src/assets/images/cyzl_app_store_screenshot_1.png';
+import cyzlPlayStoreScreenshot1 from '@/src/assets/images/cyzl_play_store_screenshot_1.png';
 
 function AboutPagePortfolio() {
   const srcArray = [
+    cyzlAppStoreScreenshot1.src,
     surrogacyAdvisorScreenshot1.src,
+    surrogacyAdvisorScreenshot2.src,
+    cyzlPlayStoreScreenshot1.src,
     // "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg", 
     // "https://images.ctfassets.net/hrltx12pl8hq/3Mz6t2p2yHYqZcIM0ic9E2/3b7037fe8871187415500fb9202608f7/Man-Stock-Photos.jpg", 
     // "https://images.ctfassets.net/hrltx12pl8hq/3Mz6t2p2yHYqZcIM0ic9E2/3b7037fe8871187415500fb9202608f7/Man-Stock-Photos.jpg"
@@ -28,7 +34,7 @@ function AboutPagePortfolio() {
           //   </span>
           // </div>
           <div className="w-full text-center text-balance text-5xl lg:text-4xl xl:text-5xl">
-            <p className="mb-2">The digital frontier is a world of <span className="text-blue-500 font-medium">limitless dreams</span></p>
+            <p className="mb-4 sm:mt-2">The digital frontier is a world of <span className="text-blue-500 font-medium">limitless dreams</span></p>
             <MovingBorderButton
               borderRadius="1.75rem"
               className="bg-white dark:bg-slate-700 text-black dark:text-white border-neutral-200 dark:border-slate-800 font-medium z-10 text-3xl sm:text-lg md:text-xl w-fit h-fit px-4 py-2 text-balance"
@@ -36,7 +42,7 @@ function AboutPagePortfolio() {
             >
               <Link href="/portfolio">My Portfolio</Link>
             </MovingBorderButton>
-            <p className="mt-2">I help make them a <span className="text-blue-500 font-medium">reality</span></p>
+            <p className="mt-4 sm:mt-2">I help make them a <span className="text-blue-500 font-medium">reality</span></p>
           </div>
         }
         // badge={
