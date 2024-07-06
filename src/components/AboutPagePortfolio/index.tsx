@@ -4,6 +4,9 @@ import { MacbookScroll, MovingBorderButton } from "@/src/components";
 import Link from "next/link";
 import surrogacyAdvisorScreenshot1 from '@/src/assets/images/surrogacy_advisor_screenshot_1.png';
 import surrogacyAdvisorScreenshot2 from '@/src/assets/images/surrogacy_advisor_screenshot_2.png';
+import surrogacyAdvisorScreenshot3 from '@/src/assets/images/surrogacy_advisor_screenshot_3.png';
+import surrogacyAdvisorScreenshot4 from '@/src/assets/images/surrogacy_advisor_screenshot_4.png';
+import segPlusScreenshot1 from '@/src/assets/images/seg_plus_screenshot_1.png';
 import cyzlAppStoreScreenshot1 from '@/src/assets/images/cyzl_app_store_screenshot_1.png';
 import cyzlPlayStoreScreenshot1 from '@/src/assets/images/cyzl_play_store_screenshot_1.png';
 
@@ -12,10 +15,9 @@ function AboutPagePortfolio() {
     cyzlAppStoreScreenshot1.src,
     surrogacyAdvisorScreenshot1.src,
     surrogacyAdvisorScreenshot2.src,
+    surrogacyAdvisorScreenshot3.src,
+    segPlusScreenshot1.src,
     cyzlPlayStoreScreenshot1.src,
-    // "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg", 
-    // "https://images.ctfassets.net/hrltx12pl8hq/3Mz6t2p2yHYqZcIM0ic9E2/3b7037fe8871187415500fb9202608f7/Man-Stock-Photos.jpg", 
-    // "https://images.ctfassets.net/hrltx12pl8hq/3Mz6t2p2yHYqZcIM0ic9E2/3b7037fe8871187415500fb9202608f7/Man-Stock-Photos.jpg"
   ]
 
 
@@ -26,13 +28,7 @@ function AboutPagePortfolio() {
         // }
         srcArray={ srcArray }
         bottomContent={
-              // {/* Software comes in all shapes and sizes. <br /> I build them all. */}
-              // {/* TODO - Put a button link to portfolio in between */}
-          // <div className="w-full text-center">
-          //   <span className="text-5xl">
-          //     The digital frontier is a world of limitless <span className="text-blue-500 font-medium">dreams</span> <br /> I help make them a <span className="text-blue-500 font-medium">reality</span>
-          //   </span>
-          // </div>
+          // {/* Software comes in all shapes and sizes. <br /> I build them all. */}
           <div className="w-full text-center text-balance text-5xl lg:text-4xl xl:text-5xl">
             <p className="mb-4 sm:mt-2">The digital frontier is a world of <span className="text-blue-500 font-medium">limitless dreams</span></p>
             <MovingBorderButton
@@ -50,7 +46,6 @@ function AboutPagePortfolio() {
         //     <Badge className="h-10 w-10 transform -rotate-12" />
         //   </Link>
         // }
-        // src={ `/linear.webp` }
         showGradient={ false }
         className="w-full"
       />
