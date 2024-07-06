@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
-import { cn } from "@/src/app/_utils";
+import { cn, useWindowSize } from "@/src/app/_utils";
 import {
   IconBrightnessDown,
   IconBrightnessUp,
@@ -49,14 +49,14 @@ const MacbookScroll = ({
 
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    // if (window && window.innerWidth < 768) {
-      // setIsMobile(true);
-      // TODO - Deal with window resizing
-    if (window && window.innerWidth < 768) {
-      setIsMobile(true);
-    }
-  }, []);
+  // NOTE - The below function will fire every time the window is resized
+  const size = useWindowSize();
+
+  if (!isMobile && size.width && size.width < 768) {
+    setIsMobile(true);
+  } else if (isMobile && size.width && size.width >= 768) {
+    setIsMobile(false);
+  }
 
   const scaleX = useTransform(
     scrollYProgress,
@@ -68,7 +68,12 @@ const MacbookScroll = ({
     [0, 0.3],
     [0.6, isMobile ? 1 : 1.5]
   );
-  const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
+  // const lidTranslate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
+  // const bottomContentTranslate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
+  // TODO - Depending on the height, adjust the translate values
+  const lidTranslate = useTransform(scrollYProgress, [0, 1], [0, 1200]);
+  const bottomContentTranslate = useTransform(scrollYProgress, [0, 1], [0, 1200]);
+  // const lidTranslate = useTransform(scrollYProgress, [0, 1], [0, 500]);
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   const titleTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const titleOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
@@ -98,7 +103,7 @@ const MacbookScroll = ({
         scaleX={ scaleX }
         scaleY={ scaleY }
         rotate={ rotate }
-        translate={ translate }
+        translate={ lidTranslate }
       />
       {/* Base area */ }
       <div className="h-[22rem] w-[32rem] bg-gray-200 dark:bg-[#272729] rounded-2xl overflow-hidden relative -z-10">
@@ -126,7 +131,7 @@ const MacbookScroll = ({
       </div>
       <motion.h2
         style={ {
-          translateY: translate,
+          translateY: bottomContentTranslate,
           // opacity: subTextOpacity,
         } }
         className="dark:text-white text-neutral-800 text-3xl font-bold mb-20 text-center"

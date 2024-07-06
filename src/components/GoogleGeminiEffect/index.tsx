@@ -216,7 +216,7 @@ const GoogleGeminiEffect = ({
         </defs>
       </motion.svg>
       <motion.div 
-        key={ "about-page-timeline-4" }
+        key={ "about-page-timeline-5" }
         initial={ { opacity: 0.0, y: 0 } }
         whileInView={ { opacity: 1.0, y: 0 } }
         exit={ { opacity: 0.0, y: 0 } }
