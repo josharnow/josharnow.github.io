@@ -28,7 +28,7 @@ const AboutPageEducationWork = () => {
         ] }
         description="We are more than the sum total of our experiences, but my diverse background equips me with a unique perspective to offer"
       >
-        <div className="px-20 md:px-40 flex flex-col text-center text-balance">
+        <div className="px-30 sm:px-40 lg:px-60 xl:px-96 flex flex-col text-center text-balance">
         {/* <div className="flex flex-col text-center text-balance"> */}
           <q cite="https://www.goodreads.com/quotes/482424-true-happiness-comes-from-the-joy-of-deeds-well-done" className="text-balance">
             <i>True happiness comes from the joy of deeds well done, the zest of creating things new.</i>
