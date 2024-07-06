@@ -48,15 +48,40 @@ const MacbookScroll = ({
   });
 
   const [isMobile, setIsMobile] = useState(false);
+  const [lidTranslateInputRange, setLidTranslateInputRange] = useState([0, 0]);
+  const [bottomContentTranslateInputRange, setBottomContentTranslateInputRange] = useState([0, 0]);
 
-  // NOTE - The below function will fire every time the window is resized
+  // NOTE - The below function will fire on first load and every time the window is resized
   const size = useWindowSize();
 
-  if (!isMobile && size.width && size.width < 768) {
-    setIsMobile(true);
-  } else if (isMobile && size.width && size.width >= 768) {
-    setIsMobile(false);
+  if (size.width && size.height) {
+    if (!isMobile) {
+      if (size.width < 768) {
+        setIsMobile(true);
+      } 
+    } else {
+      if (size.width >= 768) {
+        setIsMobile(false);
+      }
+    }
+
+    if (size.height < 800 && lidTranslateInputRange[1] !== 1000) {
+      setLidTranslateInputRange([0, 1000]);
+      setBottomContentTranslateInputRange([0, 1200]);
+    }
+    if (size.height >= 800 && size.height < 900 && lidTranslateInputRange[1] !== 1200) {
+      setLidTranslateInputRange([0, 1200]);
+      setBottomContentTranslateInputRange([0, 1400]);
+    }
+    if (size.height >= 900 && lidTranslateInputRange[1] !== 1400) {
+      setLidTranslateInputRange([0, 1400]);
+      setBottomContentTranslateInputRange([0, 1600]);
+    }
+
+
   }
+
+  console.log(size)
 
   const scaleX = useTransform(
     scrollYProgress,
@@ -71,8 +96,17 @@ const MacbookScroll = ({
   // const lidTranslate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
   // const bottomContentTranslate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
   // TODO - Depending on the height, adjust the translate values
-  const lidTranslate = useTransform(scrollYProgress, [0, 1], [0, 1200]);
-  const bottomContentTranslate = useTransform(scrollYProgress, [0, 1], [0, 1200]);
+  const lidTranslate = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    lidTranslateInputRange
+    // [0, 1200]
+  );
+  const bottomContentTranslate = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    bottomContentTranslateInputRange
+  );
   // const lidTranslate = useTransform(scrollYProgress, [0, 1], [0, 500]);
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   const titleTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
