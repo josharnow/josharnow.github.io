@@ -6,5 +6,7 @@ export { default as BackgroundGradientAnimation } from './BackgroundGradientAnim
 export { default as AuroraBackground } from './AuroraBackground';
 export { default as WavyBackground } from './WavyBackground';
 export { default as GoogleGeminiEffect } from './GoogleGeminiEffect';
+export { default as MacbookScroll } from './MacbookScroll';
 export { default as AboutPageIntro } from './AboutPageIntro';
 export { default as AboutPageEducationWork } from './AboutPageEducationWork';
+export { default as AboutPagePortfolio } from './AboutPagePortfolio';

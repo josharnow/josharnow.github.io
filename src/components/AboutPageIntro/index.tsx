@@ -43,7 +43,7 @@ const AboutPageIntro = () => {
             </div>
           </motion.div>
           <div className="flex flex-col justify-end justify-self-end text-white w-3/6 text-3xl lg:text-4xl">
-            <p className="">
+            <p className="text-balance">
               <motion.span
                 key={ "about-page-intro-3" }
                 initial={ { opacity: 0.0, y: 0 } }

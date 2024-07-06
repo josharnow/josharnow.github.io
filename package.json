@@ -27,6 +27,7 @@
     "@react-spring/three": "^9.7.3",
     "@react-three/drei": "^9.108.1",
     "@react-three/fiber": "^8.16.8",
+    "@tabler/icons-react": "^3.9.0",
     "@types/three": "^0.164.1",
     "@types/ua-parser-js": "^0.7.39",
     "babel-plugin-react-compiler": "^0.0.0-experimental-592953e-20240517",
