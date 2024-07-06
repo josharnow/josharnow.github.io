@@ -3,11 +3,23 @@
 import React, { useRef, useState, useEffect } from "react";
 import { cn } from "@/src/app/_utils";
 import styles from './styles.module.scss';
+import Image from "next/image";
 
-const colors = ["#0088FE", "#00C49F", "#FFBB28"];
-const delay = 2500;
+// const colors = ["#0088FE", "#00C49F", "#FFBB28"];
+// const delay = 2500;
 
-function Slideshow() {
+function Slideshow(
+  { 
+    srcArray = ["#0088FE", "#00C49F", "#FFBB28"],
+    delay = 2500,
+    children,
+  }: 
+  {
+    srcArray?: string[];
+    delay?: number;
+    children?: React.ReactNode;
+  }
+) {
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -22,7 +34,7 @@ function Slideshow() {
     timeoutRef.current = setTimeout(
       () =>
         setIndex((prevIndex) =>
-          prevIndex === colors.length - 1 ? 0 : prevIndex + 1
+          prevIndex === srcArray.length - 1 ? 0 : prevIndex + 1
         ),
       delay
     );
@@ -38,17 +50,26 @@ function Slideshow() {
         className={ cn(styles.slideshowSlider) }
         style={ { transform: `translate3d(${-index * 100}%, 0, 0)` } }
       >
-        { colors.map((backgroundColor, index) => (
+        { srcArray.map((src, index) => (
+          <Image 
+            src={ src }
+            key={ index }
+            alt="portfolio-sample-image"
+            width={ 1920 }
+            height={ 1080 }
+          />
+        )) }
+        {/* { srcArray.map((backgroundColor, index) => (
           <div
             className={ cn(styles.slide) }
             key={ index }
             style={ { backgroundColor } }
           ></div>
-        )) }
+        )) } */}
       </div>
 
       <div className={ cn(styles.slideshowDots)}>
-        { colors.map((_, idx) => (
+        { srcArray.map((_, idx) => (
           <div
             key={ idx }
             className={ index === idx ? cn(styles.slideshowDot, styles.active) : cn(styles.slideshowDot) }

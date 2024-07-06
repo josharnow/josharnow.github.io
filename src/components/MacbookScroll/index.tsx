@@ -25,16 +25,17 @@ import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import Logo from "@/src/components/Navigation/Logo";
+import { Slideshow } from "@/src/components";
 
 const MacbookScroll = ({
-  src,
+  srcArray,
   showGradient,
   title,
   bottomContent,
   badge,
   className,
 }: {
-  src?: string;
+  srcArray?: string[];
   showGradient?: boolean;
   title?: string | React.ReactNode;
   bottomContent?: string | React.ReactNode;
@@ -82,9 +83,9 @@ const MacbookScroll = ({
         setLidTranslateInputRange([0, 1000]);
         setBottomContentTranslateInputRange([0, 1200]);
       }
-      if (size.height >= 800 && size.height < 900 && lidTranslateInputRange[1] !== 1100) {
-        setLidTranslateInputRange([0, 1100]);
-        setBottomContentTranslateInputRange([0, 1250]);
+      if (size.height >= 800 && size.height < 900 && lidTranslateInputRange[1] !== 1150) {
+        setLidTranslateInputRange([0, 1150]);
+        setBottomContentTranslateInputRange([0, 1300]);
       }
       if (size.height >= 900 && lidTranslateInputRange[1] !== 1400) {
         setLidTranslateInputRange([0, 1400]);
@@ -103,9 +104,6 @@ const MacbookScroll = ({
     [0, 0.3],
     [0.6, isMobile ? 1 : 1.5]
   );
-  // const lidTranslate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
-  // const bottomContentTranslate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
-  // TODO - Depending on the height, adjust the translate values
   const lidTranslate = useTransform(
     scrollYProgress, 
     [0, 1], 
@@ -145,7 +143,7 @@ const MacbookScroll = ({
       ) }
       {/* Lid */ }
       <Lid
-        src={ src }
+        srcArray={ srcArray }
         scaleX={ scaleX }
         scaleY={ scaleY }
         rotate={ rotate }
@@ -193,13 +191,13 @@ export const Lid = ({
   scaleY,
   rotate,
   translate,
-  src,
+  srcArray,
 }: {
   scaleX: MotionValue<number>;
   scaleY: MotionValue<number>;
   rotate: MotionValue<number>;
   translate: MotionValue<number>;
-  src?: string;
+  srcArray?: string[];
 }) => {
   return (
     <div className="relative [perspective:800px]">
@@ -234,11 +232,15 @@ export const Lid = ({
         className="h-96 w-[32rem] absolute inset-0 bg-[#010101] rounded-2xl p-2"
       >
         <div className="absolute inset-0 bg-[#272729] rounded-lg" />
-        <Image
+        {/* TODO - Switch this out with my Slideshow component */}
+        {/* <Image
           src={ src as string }
           alt="aceternity logo"
           fill
           className="object-cover object-left-top absolute rounded-lg inset-0 h-full w-full"
+        /> */}
+        <Slideshow
+          srcArray={ srcArray }
         />
       </motion.div>
     </div>
