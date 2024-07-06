@@ -77,7 +77,7 @@ const GoogleGeminiEffect = ({
 
           <MovingBorderButton 
             borderRadius="1.75rem"
-            className="bg-white dark:bg-slate-700 text-black dark:text-white border-neutral-200 dark:border-slate-800 text-medium z-30 font-medium text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
+            className="bg-white dark:bg-slate-700 text-black dark:text-white border-neutral-200 dark:border-slate-800 text-medium z-10 font-medium text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
             duration={ 5000.0 }
             >
             <Link href="/education-and-career">Education & Career Timeline</Link>
