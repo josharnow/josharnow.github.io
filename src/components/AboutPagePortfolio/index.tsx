@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { MacbookScroll } from "@/src/components";
+import { MacbookScroll, MovingBorderButton } from "@/src/components";
 import Link from "next/link";
 
 function AboutPagePortfolio() {
@@ -10,14 +10,23 @@ function AboutPagePortfolio() {
         // title={
         // }
         bottomContent={
-          <div className="w-full text-center">
-            <span className="text-5xl">
-          {/* <div className="w-screen">
-            <span className="w-screen text-4xl"> */}
-              {/* Software comes in all shapes and sizes. <br /> I build them all. */}
-              {/* TODO - Put a button link to portfolio in between */}
-              The digital frontier is a world of limitless <span className="text-blue-500 font-medium">dreams</span> <br /> I help make them a <span className="text-blue-500 font-medium">reality</span>
-            </span>
+              // {/* Software comes in all shapes and sizes. <br /> I build them all. */}
+              // {/* TODO - Put a button link to portfolio in between */}
+          // <div className="w-full text-center">
+          //   <span className="text-5xl">
+          //     The digital frontier is a world of limitless <span className="text-blue-500 font-medium">dreams</span> <br /> I help make them a <span className="text-blue-500 font-medium">reality</span>
+          //   </span>
+          // </div>
+          <div className="w-full text-center text-balance text-5xl lg:text-4xl xl:text-5xl">
+            <p className="mb-2">The digital frontier is a world of <span className="text-blue-500 font-medium">limitless dreams</span></p>
+            <MovingBorderButton
+              borderRadius="1.75rem"
+              className="bg-white dark:bg-slate-700 text-black dark:text-white border-neutral-200 dark:border-slate-800 font-medium z-10 text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
+              duration={ 5000.0 }
+            >
+              <Link href="/portfolio">My Portfolio</Link>
+            </MovingBorderButton>
+            <p className="mt-2">I help make them a <span className="text-blue-500 font-medium">reality</span></p>
           </div>
         }
         // badge={

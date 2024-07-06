@@ -29,7 +29,7 @@ export default function Home() {
         
       </i> */}
       {/* <AboutPageIntro /> */}
-      {/* <div className={ classNames("border-t-white border-t-2") } style={ { "backgroundColor": "rgb(24 24 27)"}}>
+      {/* <div className={ classNames("border-t-white border-t-2 h-full") } style={ { "backgroundColor": "rgb(24 24 27)"}}>
         test
       </div> */}
       {/* <div>

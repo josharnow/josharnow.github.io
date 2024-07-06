@@ -64,7 +64,6 @@ const MacbookScroll = ({
         setIsMobile(false);
       }
     }
-
     if (size.width < 768) {
       if (size.height < 830 && lidTranslateInputRange[1] !== 1600) {
         setLidTranslateInputRange([0, 1600]);
@@ -83,9 +82,9 @@ const MacbookScroll = ({
         setLidTranslateInputRange([0, 1000]);
         setBottomContentTranslateInputRange([0, 1200]);
       }
-      if (size.height >= 800 && size.height < 900 && lidTranslateInputRange[1] !== 1200) {
-        setLidTranslateInputRange([0, 1200]);
-        setBottomContentTranslateInputRange([0, 1400]);
+      if (size.height >= 800 && size.height < 900 && lidTranslateInputRange[1] !== 1100) {
+        setLidTranslateInputRange([0, 1100]);
+        setBottomContentTranslateInputRange([0, 1250]);
       }
       if (size.height >= 900 && lidTranslateInputRange[1] !== 1400) {
         setLidTranslateInputRange([0, 1400]);
