@@ -1,23 +1,31 @@
 /* Slideshow */
 
 .slideshow {
+  height: 100%;
   margin: 0 auto;
   overflow: hidden;
-  max-width: 500px;
+  // max-width: 500px;
 }
 
 .slideshowSlider {
   display: flex;
   white-space: nowrap;
-  transition: ease 1000ms;
+  transition: ease 2500ms;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  // justify-content: center;
 }
 
 .slide {
-  display: inline-block;
-
-  height: 400px;
+  height: auto;
   width: 100%;
-  border-radius: 40px;
+  object-fit: contain;
+  // display: inline-block;
+
+  // height: 400px;
+  // width: 100%;
+  // border-radius: 40px;
 }
 
 /* Buttons */

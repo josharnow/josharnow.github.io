@@ -241,6 +241,7 @@ export const Lid = ({
         /> */}
         <Slideshow
           srcArray={ srcArray }
+          delay={ 4000 }
         />
       </motion.div>
     </div>

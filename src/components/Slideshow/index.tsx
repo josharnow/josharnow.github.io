@@ -12,11 +12,13 @@ function Slideshow(
   { 
     srcArray = ["#0088FE", "#00C49F", "#FFBB28"],
     delay = 2500,
+    hasDots = false,
     children,
   }: 
   {
     srcArray?: string[];
     delay?: number;
+    hasDots?: boolean;
     children?: React.ReactNode;
   }
 ) {
@@ -55,8 +57,9 @@ function Slideshow(
             src={ src }
             key={ index }
             alt="portfolio-sample-image"
-            width={ 1920 }
-            height={ 1080 }
+            width={ 0 }
+            height={ 0 }
+            className={ cn(styles.slide) }
           />
         )) }
         {/* { srcArray.map((backgroundColor, index) => (
@@ -67,18 +70,21 @@ function Slideshow(
           ></div>
         )) } */}
       </div>
-
-      <div className={ cn(styles.slideshowDots)}>
-        { srcArray.map((_, idx) => (
-          <div
-            key={ idx }
-            className={ index === idx ? cn(styles.slideshowDot, styles.active) : cn(styles.slideshowDot) }
-            onClick={ () => {
-              setIndex(idx);
-            } }
-          ></div>
-        )) }
-      </div>
+      {
+        hasDots && (
+          <div className={ cn(styles.slideshowDots)}>
+            { srcArray.map((_, idx) => (
+              <div
+                key={ idx }
+                className={ index === idx ? cn(styles.slideshowDot, styles.active) : cn(styles.slideshowDot) }
+                onClick={ () => {
+                  setIndex(idx);
+                } }
+              ></div>
+            )) }
+          </div>
+        )
+      }
     </div>
   );
 }
