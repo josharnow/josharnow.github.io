@@ -8,14 +8,17 @@ function AboutPagePortfolio() {
     <div className="overflow-hidden dark:bg-[#0B0B0F] bg-white w-full">
       <MacbookScroll
         // title={
-        //   <span>
-        //     This Macbook is built with Tailwindcss. <br /> No kidding.
-        //   </span>
         // }
         bottomContent={
-          <span className="">
-            This Macbook is built with Tailwindcss. <br /> No kidding.
-          </span>
+          <div className="w-full text-center">
+            <span className="text-5xl">
+          {/* <div className="w-screen">
+            <span className="w-screen text-4xl"> */}
+              {/* Software comes in all shapes and sizes. <br /> I build them all. */}
+              {/* TODO - Put a button link to portfolio in between */}
+              The digital frontier is a world of limitless <span className="text-blue-500 font-medium">dreams</span> <br /> I help make them a <span className="text-blue-500 font-medium">reality</span>
+            </span>
+          </div>
         }
         // badge={
         //   <Link href="https://peerlist.io/manuarora">
