@@ -58,30 +58,30 @@ const MacbookScroll = ({
     if (!isMobile) {
       if (size.width < 768) {
         setIsMobile(true);
-      } 
+        if (lidTranslateInputRange[1] !== 2000) {
+          setLidTranslateInputRange([0, 2000]);
+          setBottomContentTranslateInputRange([0, 2200]);
+        }
+      } else {
+        if (size.height < 800 && lidTranslateInputRange[1] !== 1000) {
+          setLidTranslateInputRange([0, 1000]);
+          setBottomContentTranslateInputRange([0, 1200]);
+        }
+        if (size.height >= 800 && size.height < 900 && lidTranslateInputRange[1] !== 1200) {
+          setLidTranslateInputRange([0, 1200]);
+          setBottomContentTranslateInputRange([0, 1400]);
+        }
+        if (size.height >= 900 && lidTranslateInputRange[1] !== 1400) {
+          setLidTranslateInputRange([0, 1400]);
+          setBottomContentTranslateInputRange([0, 1600]);
+        }
+      }
     } else {
       if (size.width >= 768) {
         setIsMobile(false);
       }
     }
-
-    if (size.height < 800 && lidTranslateInputRange[1] !== 1000) {
-      setLidTranslateInputRange([0, 1000]);
-      setBottomContentTranslateInputRange([0, 1200]);
-    }
-    if (size.height >= 800 && size.height < 900 && lidTranslateInputRange[1] !== 1200) {
-      setLidTranslateInputRange([0, 1200]);
-      setBottomContentTranslateInputRange([0, 1400]);
-    }
-    if (size.height >= 900 && lidTranslateInputRange[1] !== 1400) {
-      setLidTranslateInputRange([0, 1400]);
-      setBottomContentTranslateInputRange([0, 1600]);
-    }
-
-
   }
-
-  console.log(size)
 
   const scaleX = useTransform(
     scrollYProgress,
