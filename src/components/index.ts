@@ -7,6 +7,7 @@ export { default as AuroraBackground } from './AuroraBackground';
 export { default as WavyBackground } from './WavyBackground';
 export { default as GoogleGeminiEffect } from './GoogleGeminiEffect';
 export { default as MacbookScroll } from './MacbookScroll';
+export { default as Slideshow } from './Slideshow';
 export { default as MovingBorderButton } from './MovingBorderButton';
 export { default as AboutPageIntro } from './AboutPageIntro';
 export { default as AboutPageEducationWork } from './AboutPageEducationWork';
