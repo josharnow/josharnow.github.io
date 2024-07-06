@@ -60,6 +60,7 @@ function Slideshow(
             width={ 0 }
             height={ 0 }
             className={ cn(styles.slide) }
+            quality={ 100 }
           />
         )) }
         {/* { srcArray.map((backgroundColor, index) => (

@@ -2,14 +2,23 @@
 import React from "react";
 import { MacbookScroll, MovingBorderButton } from "@/src/components";
 import Link from "next/link";
+import surrogacyAdvisorScreenshot1 from '@/src/assets/images/surrogacy_advisor_screenshot_1.png';
 
 function AboutPagePortfolio() {
+  const srcArray = [
+    surrogacyAdvisorScreenshot1.src,
+    // "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg", 
+    // "https://images.ctfassets.net/hrltx12pl8hq/3Mz6t2p2yHYqZcIM0ic9E2/3b7037fe8871187415500fb9202608f7/Man-Stock-Photos.jpg", 
+    // "https://images.ctfassets.net/hrltx12pl8hq/3Mz6t2p2yHYqZcIM0ic9E2/3b7037fe8871187415500fb9202608f7/Man-Stock-Photos.jpg"
+  ]
+
+
   return (
     <div className="overflow-hidden dark:bg-[#0B0B0F] bg-white w-full">
       <MacbookScroll
         // title={
         // }
-        srcArray={ ["https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg", "https://images.ctfassets.net/hrltx12pl8hq/3Mz6t2p2yHYqZcIM0ic9E2/3b7037fe8871187415500fb9202608f7/Man-Stock-Photos.jpg", "https://images.ctfassets.net/hrltx12pl8hq/3Mz6t2p2yHYqZcIM0ic9E2/3b7037fe8871187415500fb9202608f7/Man-Stock-Photos.jpg"] }
+        srcArray={ srcArray }
         bottomContent={
               // {/* Software comes in all shapes and sizes. <br /> I build them all. */}
               // {/* TODO - Put a button link to portfolio in between */}
