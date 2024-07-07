@@ -130,7 +130,7 @@ export const Header = () => {
         } }
         className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200"
       >
-        Finding the most <span className="font-medium text-blue-500">innovative</span>, <span className="font-medium text-blue-500">competitive</span>, and <span className="font-medium text-blue-500">sustainable solutions</span> for your needs can seem overwhelming with new tools emerging by the day
+        Finding the most <span className="font-medium text-blue-500">innovative</span>, <span className="font-medium text-blue-500">competitive</span>, and <span className="font-medium text-blue-500">sustainable solutions</span> for your needs can be a challenge with new tools emerging by the day
       </motion.p>
     </div>
   );
