@@ -22,7 +22,7 @@ function AboutPagePortfolio() {
 
 
   return (
-    <div className="overflow-hidden dark:bg-[#0B0B0F] bg-white w-full">
+    <div id="portfolio" className="overflow-hidden dark:bg-[#0B0B0F] bg-white w-full">
       <MacbookScroll
         // title={
         // }
@@ -30,7 +30,7 @@ function AboutPagePortfolio() {
         bottomContent={
           // {/* Software comes in all shapes and sizes. <br /> I build them all. */}
           <div className="w-full text-center text-balance text-5xl lg:text-4xl xl:text-5xl">
-            <p className="mb-4 sm:mt-2">The digital frontier is a world of <span className="text-blue-500 font-medium">limitless dreams</span></p>
+            <p className="mb-4 sm:mt-2">The digital frontier is a realm of <span className="text-blue-500 font-medium">limitless dreams</span></p>
             <MovingBorderButton
               borderRadius="1.75rem"
               className="bg-white dark:bg-slate-700 text-black dark:text-white border-neutral-200 dark:border-slate-800 font-medium z-10 text-3xl sm:text-lg md:text-xl w-fit h-fit px-4 py-2 text-balance"
