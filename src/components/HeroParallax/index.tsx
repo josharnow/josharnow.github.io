@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { MovingBorderButton } from "@/src/components";
 
 const HeroParallax = ({
   products,
@@ -57,7 +58,7 @@ const HeroParallax = ({
   return (
     <div
       ref={ ref }
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -67,7 +68,7 @@ const HeroParallax = ({
           translateY,
           opacity,
         } }
-        className="absolute"
+        className="absolute flex flex-col"
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
           { firstRow.map((product) => (
@@ -97,6 +98,63 @@ const HeroParallax = ({
           )) }
         </motion.div>
       </motion.div>
+      <div 
+        className="text-white h-full flex flex-col justify-end items-center relative"
+      >
+        <div
+          className="flex flex-col items-center text-center text-balance px-6"
+        >
+          <motion.p
+            key={ "about-page-technologies-bottom-content-1" }
+            initial={ { opacity: 0.0, y: 0 } }
+            whileInView={ { opacity: 1.0, y: 0 } }
+            exit={ { opacity: 0.0, y: 0 } }
+            transition={ {
+              delay: 0.3,
+              duration: 1.0,
+              ease: "easeInOut",
+            } }
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+          >
+            As a <span className="font-medium text-blue-500">full-stack developer</span>, I've used a plethora of technologies to provide the best solutions to clients across different industries
+          </motion.p>
+          <motion.div
+            key={ "about-page-technologies-bottom-content-2" }
+            initial={ { opacity: 0.0, y: 0 } }
+            whileInView={ { opacity: 1.0, y: 0 } }
+            exit={ { opacity: 0.0, y: 0 } }
+            transition={ {
+              delay: 0.3,
+              duration: 1.0,
+              ease: "easeInOut",
+            } }
+            className="my-4 md:my-6 lg:my-10"
+          >
+            <MovingBorderButton
+              borderRadius="1.75rem"
+              className="bg-white dark:bg-slate-700 text-black dark:text-white border-neutral-200 dark:border-slate-800 font-medium z-10 text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
+              duration={ 5000.0 }
+            >
+              <Link href="/technologies">My Technologies</Link>
+            </MovingBorderButton>
+          </motion.div>
+          <motion.p
+            key={ "about-page-technologies-bottom-content-3" }
+            initial={ { opacity: 0.0, y: 0 } }
+            whileInView={ { opacity: 1.0, y: 0 } }
+            exit={ { opacity: 0.0, y: 0 } }
+            transition={ {
+              delay: 0.3,
+              duration: 1.0,
+              ease: "easeInOut",
+            } }
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+          >
+            My toolbelt is ready no matter the platform
+          </motion.p>
+        </div>
+        
+      </div>
     </div>
   );
 };
@@ -105,7 +163,7 @@ export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full ">
       <motion.h1
-        key={ "about-page-technology-header" }
+        key={ "about-page-technologies-header" }
         initial={ { opacity: 0.0, y: 0 } }
         whileInView={ { opacity: 1.0, y: 0 } }
         exit={ { opacity: 0.0, y: 0 } }
@@ -119,7 +177,7 @@ export const Header = () => {
         Technology moves<br/>faster than light
       </motion.h1>
       <motion.p 
-        key={ "about-page-technology-subheader" }
+        key={ "about-page-technologies-subheader" }
         initial={ { opacity: 0.0, y: 0 } }
         whileInView={ { opacity: 1.0, y: 0 } }
         exit={ { opacity: 0.0, y: 0 } }
