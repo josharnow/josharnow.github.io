@@ -100,7 +100,7 @@ function AboutPageTechnologies() {
   ];
 
   return (
-    <div>
+    <div id="technologies" className="w-full">
       <HeroParallax products={products} />
     </div>
   );
