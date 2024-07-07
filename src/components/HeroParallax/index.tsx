@@ -116,7 +116,7 @@ const HeroParallax = ({
             } }
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
           >
-            As a <span className="font-medium text-blue-500">full-stack developer</span>, I've used a plethora of technologies to provide the best solutions to clients across different industries
+            As a <span className="font-medium text-blue-500">full-stack developer</span>, I’ve used a plethora of technologies to provide the best solutions to clients across different industries
           </motion.p>
           <motion.div
             key={ "about-page-technologies-bottom-content-2" }
