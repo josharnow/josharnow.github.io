@@ -60,7 +60,7 @@ const HeroParallax = ({
   return (
     <div
       ref={ ref }
-      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="bg-black h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -137,7 +137,7 @@ const HeroParallax = ({
           >
             <MovingBorderButton
               borderRadius="1.75rem"
-              className="bg-white dark:bg-slate-700 text-black dark:text-white border-neutral-200 dark:border-slate-800 font-medium z-10 text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
+              className="bg-slate-700 !text-white border-slate-800 font-medium z-10 text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
               duration={ 5000.0 }
             >
               <Link href="/technologies">My Technologies</Link>
@@ -177,7 +177,7 @@ export const Header = () => {
           duration: 1.0,
           ease: "easeInOut",
         } }
-        className="text-4xl md:text-7xl font-medium dark:text-white"
+        className="text-4xl md:text-7xl font-medium text-white"
       >
         Technology moves<br/>faster than light
       </motion.h1>
@@ -191,7 +191,7 @@ export const Header = () => {
           duration: 1.0,
           ease: "easeInOut",
         } }
-        className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200"
+        className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200"
       >
         Finding the most <span className="font-medium text-blue-500">innovative</span>, <span className="font-medium text-blue-500">competitive</span>, and <span className="font-medium text-blue-500">sustainable solutions</span> for your needs can be a challenge with new tools emerging by the day
       </motion.p>
