@@ -1,101 +1,101 @@
 "use client";
 import { HeroParallax } from "@/src/components";
+import reactNativeScreenshot from '@/src/assets/images/technologies/technologies-react-native.png';
+import awsScreenshot from '@/src/assets/images/technologies/technologies-aws.png';
+import chartJSScreenshot from '@/src/assets/images/technologies/technologies-chart-js.png';
+import cloudflareScreenshot from '@/src/assets/images/technologies/technologies-cloudflare.png';
+import firebaseScreenshot from '@/src/assets/images/technologies/technologies-firebase.png';
+import flaskScreenshot from '@/src/assets/images/technologies/technologies-flask.png';
+import framerMotionScreenshot from '@/src/assets/images/technologies/technologies-framer-motion.png';
+import jiraScreenshot from '@/src/assets/images/technologies/technologies-jira.png';
+import mapboxScreenshot from '@/src/assets/images/technologies/technologies-mapbox.png';
+import mongoDBScreenshot from '@/src/assets/images/technologies/technologies-mongo-db.png';
+import mySQLScreenshot from '@/src/assets/images/technologies/technologies-mysql.png';
+import pandasScreenshot from '@/src/assets/images/technologies/technologies-pandas.png';
+import sendgridScreenshot from '@/src/assets/images/technologies/technologies-sendgrid.png';
+import tailwindCSSScreenshot from '@/src/assets/images/technologies/technologies-tailwind-css.png';
+import twilioScreenshot from '@/src/assets/images/technologies/technologies-twilio.png';
 
-// TODO - Add id to outer element so it can be navigated to at "#technologies"
 function AboutPageTechnologies() {
+  // TODO - Sites & screenshots
   const products = [
     {
-      title: "Moonbeam",
-      link: "https://gomoonbeam.com",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+      title: "React Native",
+      link: "https://reactnative.dev",
+      thumbnail: reactNativeScreenshot.src,
     },
     {
-      title: "Cursor",
-      link: "https://cursor.so",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+      title: "AWS",
+      link: "https://aws.amazon.com",
+      thumbnail: awsScreenshot.src,
     },
     {
-      title: "Rogue",
-      link: "https://userogue.com",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+      title: "Mapbox GL JS",
+      link: "https://www.mapbox.com",
+      thumbnail: mapboxScreenshot.src,
     },
 
     {
-      title: "Editorially",
-      link: "https://editorially.org",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+      title: "Twilio",
+      link: "https://www.twilio.com",
+      thumbnail: twilioScreenshot.src,
     },
     {
-      title: "Editrix AI",
-      link: "https://editrix.ai",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/editrix.png",
+      title: "Framer Motion",
+      link: "https://www.framer.com/motion/",
+      thumbnail: framerMotionScreenshot.src,
     },
     {
-      title: "Pixel Perfect",
-      link: "https://app.pixelperfect.quest",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
+      title: "ChartJS",
+      link: "https://www.chartjs.org",
+      thumbnail: chartJSScreenshot.src,
     },
 
     {
-      title: "Algochurn",
-      link: "https://algochurn.com",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
+      title: "Firebase",
+      link: "https://firebase.google.com",
+      thumbnail: firebaseScreenshot.src,
     },
     {
-      title: "Aceternity UI",
-      link: "https://ui.aceternity.com",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
+      title: "Flask",
+      link: "https://flask.palletsprojects.com/en/3.0.x/",
+      thumbnail: flaskScreenshot.src,
     },
     {
-      title: "Tailwind Master Kit",
-      link: "https://tailwindmasterkit.com",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
+      title: "MySQL",
+      link: "https://www.mysql.com/",
+      thumbnail: mySQLScreenshot.src,
     },
     {
-      title: "SmartBridge",
-      link: "https://smartbridgetech.com",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
+      title: "MongoDB",
+      link: "https://www.mongodb.com",
+      thumbnail: mongoDBScreenshot.src,
     },
     {
-      title: "Renderwork Studio",
-      link: "https://renderwork.studio",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
+      title: "Jira",
+      link: "https://www.atlassian.com/software/jira",
+      thumbnail: jiraScreenshot.src,
     },
 
     {
-      title: "Creme Digital",
-      link: "https://cremedigital.com",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
+      title: "Sendgrid",
+      link: "https://sendgrid.com",
+      thumbnail: sendgridScreenshot.src,
     },
     {
-      title: "Golden Bells Academy",
-      link: "https://goldenbellsacademy.com",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
+      title: "Tailwind CSS",
+      link: "https://tailwindcss.com",
+      thumbnail: tailwindCSSScreenshot.src,
     },
     {
-      title: "Invoker Labs",
-      link: "https://invoker.lol",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/invoker.png",
+      title: "Pandas",
+      link: "https://pandas.pydata.org",
+      thumbnail: pandasScreenshot.src,
     },
     {
-      title: "E Free Invoice",
-      link: "https://efreeinvoice.com",
-      thumbnail:
-        "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
+      title: "Cloudflare",
+      link: "https://www.cloudflare.com",
+      thumbnail: cloudflareScreenshot.src,
     },
   ];
 
