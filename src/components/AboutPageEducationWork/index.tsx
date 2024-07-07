@@ -29,12 +29,10 @@ const AboutPageEducationWork = () => {
         description="We are more than the sum total of our experiences, but my diverse background allows me to offer a unique perspective"
       >
         <div className="px-30 sm:px-40 lg:px-60 xl:px-96 flex flex-col text-center text-balance">
-        {/* <div className="flex flex-col text-center text-balance"> */}
           <q cite="https://www.goodreads.com/quotes/482424-true-happiness-comes-from-the-joy-of-deeds-well-done" className="text-balance">
             <i>True happiness comes from the joy of deeds well done, the zest of creating things new.</i>
           </q>
           <i className="">~Antoine de Saint-Exupéry</i>
-          {/* <span className="self-end">~Antoine de Saint-Exupéry</span> */}
         </div>
       </GoogleGeminiEffect>
     </div>

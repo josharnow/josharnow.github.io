@@ -69,13 +69,6 @@ function Slideshow(
             quality={ 100 }
           />
         )) }
-        {/* { srcArray.map((backgroundColor, index) => (
-          <div
-            className={ cn(styles.slide) }
-            key={ index }
-            style={ { backgroundColor } }
-          ></div>
-        )) } */}
       </div>
       {
         hasDots && (
