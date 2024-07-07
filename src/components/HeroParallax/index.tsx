@@ -99,7 +99,7 @@ const HeroParallax = ({
         </motion.div>
       </motion.div>
       <div 
-        className="text-white h-full flex flex-col justify-end items-center relative"
+        className="text-white flex flex-col justify-end items-center absolute bottom-48"
       >
         <div
           className="flex flex-col items-center text-center text-balance px-6"
