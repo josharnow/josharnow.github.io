@@ -20,9 +20,19 @@ function AboutPageTechnologies() {
   // TODO - Sites & screenshots
   const products = [
     {
-      title: "React Native",
-      link: "https://reactnative.dev",
-      thumbnail: reactNativeScreenshot.src,
+      title: "Framer Motion",
+      link: "https://www.framer.com/motion/",
+      thumbnail: framerMotionScreenshot.src,
+    },
+    {
+      title: "Twilio",
+      link: "https://www.twilio.com",
+      thumbnail: twilioScreenshot.src,
+    },
+    {
+      title: "Cloudflare",
+      link: "https://www.cloudflare.com",
+      thumbnail: cloudflareScreenshot.src,
     },
     {
       title: "AWS",
@@ -30,36 +40,25 @@ function AboutPageTechnologies() {
       thumbnail: awsScreenshot.src,
     },
     {
-      title: "Mapbox GL JS",
-      link: "https://www.mapbox.com",
-      thumbnail: mapboxScreenshot.src,
+      title: "React Native",
+      link: "https://reactnative.dev",
+      thumbnail: reactNativeScreenshot.src,
     },
-
-    {
-      title: "Twilio",
-      link: "https://www.twilio.com",
-      thumbnail: twilioScreenshot.src,
-    },
-    {
-      title: "Framer Motion",
-      link: "https://www.framer.com/motion/",
-      thumbnail: framerMotionScreenshot.src,
-    },
-    {
-      title: "ChartJS",
-      link: "https://www.chartjs.org",
-      thumbnail: chartJSScreenshot.src,
-    },
-
     {
       title: "Firebase",
       link: "https://firebase.google.com",
       thumbnail: firebaseScreenshot.src,
     },
     {
-      title: "Flask",
-      link: "https://flask.palletsprojects.com/en/3.0.x/",
-      thumbnail: flaskScreenshot.src,
+      title: "MongoDB",
+      link: "https://www.mongodb.com",
+      thumbnail: mongoDBScreenshot.src,
+    },
+
+    {
+      title: "ChartJS",
+      link: "https://www.chartjs.org",
+      thumbnail: chartJSScreenshot.src,
     },
     {
       title: "MySQL",
@@ -67,10 +66,11 @@ function AboutPageTechnologies() {
       thumbnail: mySQLScreenshot.src,
     },
     {
-      title: "MongoDB",
-      link: "https://www.mongodb.com",
-      thumbnail: mongoDBScreenshot.src,
+      title: "Flask",
+      link: "https://flask.palletsprojects.com/en/3.0.x/",
+      thumbnail: flaskScreenshot.src,
     },
+
     {
       title: "Jira",
       link: "https://www.atlassian.com/software/jira",
@@ -93,9 +93,9 @@ function AboutPageTechnologies() {
       thumbnail: pandasScreenshot.src,
     },
     {
-      title: "Cloudflare",
-      link: "https://www.cloudflare.com",
-      thumbnail: cloudflareScreenshot.src,
+      title: "Mapbox GL JS",
+      link: "https://www.mapbox.com",
+      thumbnail: mapboxScreenshot.src,
     },
   ];
 
