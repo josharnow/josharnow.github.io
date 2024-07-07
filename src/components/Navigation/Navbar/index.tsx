@@ -13,8 +13,8 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
   }
   return (
     <>
-      <nav className={ classNames(styles.navbar, 'sm:hidden h-20')}>
-      <div className="container mx-auto px-4 h-full">
+      <nav className={ classNames(styles.navbar, 'h-20 sm:hidden fixed')}>
+        <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
             <div className="p-3" style={{ height: '100%', aspectRatio: '1/1' }}>
               {/* <Logo /> */}

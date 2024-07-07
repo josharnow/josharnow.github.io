@@ -91,7 +91,8 @@ export default async function RootLayout({
       <body className={ibmPlexSans.className}>
         <div className="flex flex-col sm:flex-row mx-auto w-full">
           <Navigation />
-          <main className={classNames(styles.main, "sm:grow overflow-y-auto relative")}>
+          {/* NOTE - This margin is necessary due to the fixed navbar at the top when the screen is small */}
+          <main className={ classNames(styles.main, "sm:grow relative mt-20 sm:mt-0")}>
             {children}
           </main>
         </div>

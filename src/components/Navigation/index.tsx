@@ -33,6 +33,12 @@ const Navigation= () => {
     //   current: `/${segment}` === "/portfolio" ? true : false,
     // },
     {
+      name: "About Me",
+      href: "/",
+      icon: CubeTransparentIcon,
+      current: segment === null ? true : false,
+    },
+    {
       name: "3D Demo",
       href: "/3D_Demo",
       icon: CubeTransparentIcon,
