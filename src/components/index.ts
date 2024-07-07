@@ -14,3 +14,4 @@ export { default as AboutPageIntro } from './AboutPageIntro';
 export { default as AboutPageEducationWork } from './AboutPageEducationWork';
 export { default as AboutPagePortfolio } from './AboutPagePortfolio';
 export { default as AboutPageTechnologies } from './AboutPageTechnologies';
+export { default as AboutPageContact } from './AboutPageContact';
