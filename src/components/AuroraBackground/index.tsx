@@ -1,6 +1,11 @@
 "use client";
-import { cn } from "@/src/app/_utils";
 import React, { ReactNode } from "react";
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
   children: ReactNode;

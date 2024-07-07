@@ -1,7 +1,13 @@
 "use client";
-import { cn } from "@/src/app/_utils";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { createNoise3D } from "simplex-noise";
+
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 const WavyBackground = ({
   children,
@@ -46,7 +52,7 @@ const WavyBackground = ({
     }
   };
 
-  const init = () => {
+  const init = useCallback(() => {
     canvas = canvasRef.current;
     ctx = canvas.getContext("2d");
     w = ctx.canvas.width = window.innerWidth;
@@ -59,7 +65,7 @@ const WavyBackground = ({
       ctx.filter = `blur(${blur}px)`;
     };
     render();
-  };
+  }, []);
 
   const waveColors = colors ?? [
     "#38bdf8",
@@ -83,7 +89,7 @@ const WavyBackground = ({
     }
   };
 
-  let animationId: number;
+  let animationId: number | undefined = undefined;
   const render = () => {
     ctx.fillStyle = backgroundFill || "black";
     ctx.globalAlpha = waveOpacity || 0.5;
@@ -95,9 +101,9 @@ const WavyBackground = ({
   useEffect(() => {
     init();
     return () => {
-      cancelAnimationFrame(animationId);
+      cancelAnimationFrame(animationId as number);
     };
-  }, []);
+  }, [animationId, init]);
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {

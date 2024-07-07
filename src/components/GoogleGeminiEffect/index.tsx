@@ -1,9 +1,15 @@
 "use client";
-import { cn } from "@/src/app/_utils";
 import { motion, MotionValue } from "framer-motion";
 import React, { ReactNode } from "react";
 import Link from "next/link";
 import { MovingBorderButton } from "@/src/components";
+
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 interface GoogleGeminiEffectProps extends React.HTMLProps<HTMLDivElement> {
   children?: ReactNode;

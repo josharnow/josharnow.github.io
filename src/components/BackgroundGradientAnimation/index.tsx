@@ -1,6 +1,12 @@
 "use client";
-import { cn } from "@/src/app/_utils";
 import { useEffect, useRef, useState } from "react";
+
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "rgb(108, 0, 162)",
