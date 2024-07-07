@@ -9,6 +9,8 @@ export { default as GoogleGeminiEffect } from './GoogleGeminiEffect';
 export { default as MacbookScroll } from './MacbookScroll';
 export { default as Slideshow } from './Slideshow';
 export { default as MovingBorderButton } from './MovingBorderButton';
+export { default as HeroParallax } from './HeroParallax';
 export { default as AboutPageIntro } from './AboutPageIntro';
 export { default as AboutPageEducationWork } from './AboutPageEducationWork';
 export { default as AboutPagePortfolio } from './AboutPagePortfolio';
+export { default as AboutPageTechnologies } from './AboutPageTechnologies';
