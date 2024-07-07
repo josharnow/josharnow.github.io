@@ -17,7 +17,6 @@ import tailwindCSSScreenshot from '@/src/assets/images/technologies/technologies
 import twilioScreenshot from '@/src/assets/images/technologies/technologies-twilio.png';
 
 function AboutPageTechnologies() {
-  // TODO - Sites & screenshots
   const products = [
     {
       title: "Framer Motion",
@@ -101,7 +100,7 @@ function AboutPageTechnologies() {
 
   return (
     <div id="technologies" className="w-full">
-      <HeroParallax products={products} />
+      <HeroParallax products={products} areLinksDisabled={true} />
     </div>
   );
 }

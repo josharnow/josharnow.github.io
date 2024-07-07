@@ -13,12 +13,14 @@ import { MovingBorderButton } from "@/src/components";
 
 const HeroParallax = ({
   products,
+  areLinksDisabled = false,
 }: {
   products: {
     title: string;
     link: string;
     thumbnail: string;
   }[];
+  areLinksDisabled?: boolean;
 }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
@@ -76,6 +78,7 @@ const HeroParallax = ({
               product={ product }
               translate={ translateX }
               key={ product.title }
+              isLinkDisabled={ areLinksDisabled }
             />
           )) }
         </motion.div>
@@ -85,6 +88,7 @@ const HeroParallax = ({
               product={ product }
               translate={ translateXReverse }
               key={ product.title }
+              isLinkDisabled={ areLinksDisabled }
             />
           )) }
         </motion.div>
@@ -94,6 +98,7 @@ const HeroParallax = ({
               product={ product }
               translate={ translateX }
               key={ product.title }
+              isLinkDisabled={ areLinksDisabled }
             />
           )) }
         </motion.div>
@@ -197,6 +202,7 @@ export const Header = () => {
 export const ProductCard = ({
   product,
   translate,
+  isLinkDisabled = false,
 }: {
   product: {
     title: string;
@@ -204,6 +210,7 @@ export const ProductCard = ({
     thumbnail: string;
   };
   translate: MotionValue<number>;
+  isLinkDisabled?: boolean;
 }) => {
   return (
     <motion.div
@@ -218,7 +225,8 @@ export const ProductCard = ({
     >
       <Link
         href={ product.link }
-        className="block group-hover/product:shadow-2xl "
+        className="block group-hover/product:shadow-2xl"
+        onClick={ (e) => { e.preventDefault() } }
       >
         <Image
           src={ product.thumbnail }
