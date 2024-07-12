@@ -20,7 +20,7 @@ interface HeroParallaxProps extends React.HTMLProps<HTMLDivElement> {
   areLinksDisabled?: boolean;
 }
 
-const HeroParallax = forwardRef(function HeroParallax(props: HeroParallaxProps, ref) {
+const HeroParallax = forwardRef(function HeroParallax(props: HeroParallaxProps, ref: React.ForwardedRef<HTMLDivElement>) {
   const { products, areLinksDisabled = false } = props;
 
   const firstRow = products.slice(0, 5);
@@ -60,7 +60,7 @@ const HeroParallax = forwardRef(function HeroParallax(props: HeroParallaxProps, 
   );
   return (
     <div
-      ref={ ref as React.RefObject<HTMLDivElement> }
+      ref={ ref }
       className="bg-black h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />

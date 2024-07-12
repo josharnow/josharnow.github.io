@@ -13,12 +13,12 @@ interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
   className?: string;
 }
 
-const AuroraBackground = forwardRef(function AuroraBackground(props: AuroraBackgroundProps, ref) {
+const AuroraBackground = forwardRef(function AuroraBackground(props: AuroraBackgroundProps, ref: React.ForwardedRef<HTMLDivElement>) {
   const { className, children, showRadialGradient = true, ...otherProps } = props;
 
   return (
     <div
-      ref={ ref as React.RefObject<HTMLDivElement>}
+      ref={ ref }
       className={ cn(
         "relative flex flex-col h-fit w-fit bg-zinc-900  text-slate-950 transition-bg",
         className

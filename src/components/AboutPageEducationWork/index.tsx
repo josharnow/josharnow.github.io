@@ -3,7 +3,7 @@ import React, {forwardRef} from "react";
 import { useScroll, useTransform } from "framer-motion";
 import { GoogleGeminiEffect } from "@/src/components";
 
-const AboutPageEducationWork = forwardRef(function AboutPageEducationWork(props, ref) {
+const AboutPageEducationWork = forwardRef(function AboutPageEducationWork(props, ref: React.ForwardedRef<HTMLDivElement>) {
   // const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref as React.RefObject<HTMLDivElement>,
@@ -17,7 +17,7 @@ const AboutPageEducationWork = forwardRef(function AboutPageEducationWork(props,
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.4], [0, 1.2]);
 
   return (
-    <div id="education-work" ref={ ref as React.RefObject<HTMLDivElement> } className="h-full" style={ { "backgroundImage": "linear-gradient(rgb(24 24 27), black)" } }>
+    <div id="education-work" ref={ ref } className="h-full" style={ { "backgroundImage": "linear-gradient(rgb(24 24 27), black)" } }>
       <GoogleGeminiEffect
         pathLengths={ [
           pathLengthFirst,
