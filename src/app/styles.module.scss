@@ -86,3 +86,18 @@
     transform: translateY(0);
   }
 }
+
+
+
+.pageArrow {
+  color: black;
+  // color: green;
+  // background-color: red;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
