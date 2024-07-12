@@ -55,7 +55,7 @@ const AboutPageIntro = () => {
                   ease: "easeInOut",
                 } }
               >
-                Software is a more than a career to me:
+                Software is more than a career to me:
               </motion.span><br />
               <motion.span
                 key={ "about-page-intro-4" }
