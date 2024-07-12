@@ -3,6 +3,13 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger } from "@/src/components";
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+import styles from "./styles.module.scss";
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 type ContactModalProps = {
   // triggerElement: React.ReactNode;
@@ -15,12 +22,12 @@ const ContactModal = ({ imageSrcArr }: ContactModalProps) => {
   return (
     <>
       <Modal>
-        <ModalTrigger className="bg-white text-black flex justify-center group/modal-btn">
+        <ModalTrigger className={ cn(styles.modalButton, "bg-black text-white flex justify-center group/modal-btn shadow-blue-500")}>
           <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
-            Book your flight
+            🙋‍♂️ Contact Me
           </span>
-          <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-white z-20">
-            ✈️
+          <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
+            📇
           </div>
         </ModalTrigger>
         <ModalBody>

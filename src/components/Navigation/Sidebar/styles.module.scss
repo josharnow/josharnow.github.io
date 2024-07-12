@@ -37,9 +37,10 @@
 
 .sidebarContainer,
 .shadowSidebarContainer {
-  background: white;
+  // background: #F6AF3B;
+  // TODO - Make background darker
   width: fit-content;
-  box-shadow: -5px 0 11px rgba(10, 36, 173, 0.68) inset;
+  // box-shadow: -5px 0 11px rgba(10, 36, 173, 0.68) inset;
   // transform: translateX(-100%);
 }
 

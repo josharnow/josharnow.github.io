@@ -39,7 +39,7 @@ const ShadowSidebar = ({
               <Logo />
             </Link>
             <Link href="/">
-              <h1 className="text-black font-medium whitespace-nowrap">Josh Arnow</h1>
+              <h1 className="text-white font-medium whitespace-nowrap">Josh Arnow</h1>
             </Link>
           </div>
           <nav className="flex flex-1 flex-col">

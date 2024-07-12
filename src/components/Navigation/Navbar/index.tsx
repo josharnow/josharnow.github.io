@@ -6,6 +6,7 @@ import Link from "next/link";
 import variables from '@/src/styles/variables.module.scss';
 import styles from './styles.module.scss';
 // import { classNames } from "@/src/app/_utils";
+import { ContactModal } from "@/src/components";
 
 const Navbar = ({ toggle }: { toggle: () => void }) => {
   function classNames(...classes: string[]) {
@@ -13,13 +14,13 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
   }
   return (
     <>
-      <nav className={ classNames(styles.navbar, 'h-20 sm:hidden fixed')}>
+      <nav className={ classNames(styles.navbar, 'h-20 sm:hidden fixed bg-slate-700')}>
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
             <div className="p-3" style={{ height: '100%', aspectRatio: '1/1' }}>
               {/* <Logo /> */}
             </div>
-
+            <ContactModal />
             {/* <ul className="flex gap-x-6 text-black ">
               <li>
                 <Link href="/about">
