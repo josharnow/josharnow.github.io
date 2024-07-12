@@ -16,7 +16,7 @@ const config: Config = {
     extend: {
       screens: {
         'xs': '400px',
-        'short': { 'raw': '(min-height: 800px)' },
+        'tall': { 'raw': '(min-height: 800px)' },
         ...defaultTheme.screens,
       },
       backgroundImage: {

@@ -17,7 +17,7 @@ import sendgridScreenshot from '@/src/assets/images/technologies/technologies-se
 import tailwindCSSScreenshot from '@/src/assets/images/technologies/technologies-tailwind-css.png';
 import twilioScreenshot from '@/src/assets/images/technologies/technologies-twilio.png';
 
-const AboutPageTechnologies = forwardRef(function AboutPageTechnologies(props, ref) {
+const AboutPageTechnologies = forwardRef(function AboutPageTechnologies(props, ref: React.ForwardedRef<HTMLDivElement>) {
   const products = [
     {
       title: "Framer Motion",
@@ -101,7 +101,7 @@ const AboutPageTechnologies = forwardRef(function AboutPageTechnologies(props, r
 
   return (
     <div id="technologies" className="w-full">
-      <HeroParallax ref={ ref as React.RefObject<HTMLDivElement> } products={products} areLinksDisabled={true} />
+      <HeroParallax ref={ ref } products={products} areLinksDisabled={true} />
     </div>
   );
 });

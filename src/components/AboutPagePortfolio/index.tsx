@@ -10,7 +10,7 @@ import segPlusScreenshot1 from '@/src/assets/images/seg_plus_screenshot_1.png';
 import cyzlAppStoreScreenshot1 from '@/src/assets/images/cyzl_app_store_screenshot_1.png';
 import cyzlPlayStoreScreenshot1 from '@/src/assets/images/cyzl_play_store_screenshot_1.png';
 
-const AboutPagePortfolio = forwardRef(function AboutPagePortfolio(props, ref) {
+const AboutPagePortfolio = forwardRef(function AboutPagePortfolio(props, ref: React.ForwardedRef<HTMLDivElement>) {
   const srcArray = [
     cyzlAppStoreScreenshot1.src,
     surrogacyAdvisorScreenshot1.src,
@@ -22,7 +22,7 @@ const AboutPagePortfolio = forwardRef(function AboutPagePortfolio(props, ref) {
 
 
   return (
-    <div ref={ ref as React.RefObject<HTMLDivElement> } id="portfolio" className="overflow-hidden bg-[#0B0B0F] w-full">
+    <div ref={ ref } id="portfolio" className="overflow-hidden bg-[#0B0B0F] w-full">
       <MacbookScroll
         // title={
         // }
