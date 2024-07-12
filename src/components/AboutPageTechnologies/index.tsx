@@ -1,4 +1,5 @@
 "use client";
+import React, { forwardRef } from "react";
 import { HeroParallax } from "@/src/components";
 import reactNativeScreenshot from '@/src/assets/images/technologies/technologies-react-native.png';
 import awsScreenshot from '@/src/assets/images/technologies/technologies-aws.png';
@@ -16,7 +17,7 @@ import sendgridScreenshot from '@/src/assets/images/technologies/technologies-se
 import tailwindCSSScreenshot from '@/src/assets/images/technologies/technologies-tailwind-css.png';
 import twilioScreenshot from '@/src/assets/images/technologies/technologies-twilio.png';
 
-function AboutPageTechnologies() {
+const AboutPageTechnologies = forwardRef(function AboutPageTechnologies(props, ref) {
   const products = [
     {
       title: "Framer Motion",
@@ -100,8 +101,8 @@ function AboutPageTechnologies() {
 
   return (
     <div id="technologies" className="w-full">
-      <HeroParallax products={products} areLinksDisabled={true} />
+      <HeroParallax ref={ ref as React.RefObject<HTMLDivElement> } products={products} areLinksDisabled={true} />
     </div>
   );
-}
+});
 export default AboutPageTechnologies;

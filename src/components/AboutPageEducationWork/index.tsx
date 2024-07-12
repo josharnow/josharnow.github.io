@@ -1,12 +1,12 @@
 "use client";
-import React from "react";
+import React, {forwardRef} from "react";
 import { useScroll, useTransform } from "framer-motion";
 import { GoogleGeminiEffect } from "@/src/components";
 
-const AboutPageEducationWork = () => {
-  const ref = React.useRef(null);
+const AboutPageEducationWork = forwardRef(function AboutPageEducationWork(props, ref) {
+  // const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: ref as React.RefObject<HTMLDivElement>,
     offset: ["start start", "end start"],
   });
 
@@ -17,7 +17,7 @@ const AboutPageEducationWork = () => {
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.4], [0, 1.2]);
 
   return (
-    <div id="education-work" ref={ ref } className="h-full" style={ { "backgroundImage": "linear-gradient(rgb(24 24 27), black)" } }>
+    <div id="education-work" ref={ ref as React.RefObject<HTMLDivElement> } className="h-full" style={ { "backgroundImage": "linear-gradient(rgb(24 24 27), black)" } }>
       <GoogleGeminiEffect
         pathLengths={ [
           pathLengthFirst,
@@ -26,7 +26,7 @@ const AboutPageEducationWork = () => {
           pathLengthFourth,
           pathLengthFifth,
         ] }
-        description="We are more than the sum total of our experiences, but my diverse background allows me to offer a unique perspective"
+        description="Our experiences define us and my diverse background allows me to offer a unique perspective"
       >
         <div className="px-30 sm:px-40 lg:px-60 xl:px-96 flex flex-col text-center text-balance text-white">
           <q cite="https://www.goodreads.com/quotes/482424-true-happiness-comes-from-the-joy-of-deeds-well-done" className="text-balance">
@@ -37,5 +37,5 @@ const AboutPageEducationWork = () => {
       </GoogleGeminiEffect>
     </div>
   );
-};
+});
 export default AboutPageEducationWork;

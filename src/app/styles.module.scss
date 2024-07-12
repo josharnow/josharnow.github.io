@@ -86,3 +86,30 @@
     transform: translateY(0);
   }
 }
+
+
+
+.pageArrowContainer {
+  border-radius: 50%;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+
+  box-shadow: 0 0 1rem var(--tw-shadow-color);
+  height: fit-content;
+  width: fit-content;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.pageArrow {
+  color: black;
+
+
+  animation: bounce 2s infinite;
+}

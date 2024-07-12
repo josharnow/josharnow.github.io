@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {forwardRef} from "react";
 import {
   motion,
   useScroll,
@@ -11,23 +11,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { MovingBorderButton } from "@/src/components";
 
-const HeroParallax = ({
-  products,
-  areLinksDisabled = false,
-}: {
+interface HeroParallaxProps extends React.HTMLProps<HTMLDivElement> {
   products: {
     title: string;
     link: string;
     thumbnail: string;
   }[];
   areLinksDisabled?: boolean;
-}) => {
+}
+
+const HeroParallax = forwardRef(function HeroParallax(props: HeroParallaxProps, ref) {
+  const { products, areLinksDisabled = false } = props;
+
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
   const thirdRow = products.slice(10, 15);
-  const ref = React.useRef(null);
+  // const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: ref as React.RefObject<HTMLDivElement>,
     offset: ["start start", "end start"],
   });
 
@@ -59,7 +60,7 @@ const HeroParallax = ({
   );
   return (
     <div
-      ref={ ref }
+      ref={ ref as React.RefObject<HTMLDivElement> }
       className="bg-black h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
@@ -162,7 +163,7 @@ const HeroParallax = ({
       </div>
     </div>
   );
-};
+});
 
 export const Header = () => {
   return (

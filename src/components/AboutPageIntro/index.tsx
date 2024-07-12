@@ -1,11 +1,12 @@
 "use client";
-import React from "react";
+import React, { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { AuroraBackground } from "@/src/components";
 
-const AboutPageIntro = () => {
+
+const AboutPageIntro = forwardRef(function AboutPageInfo(props, ref) {
   return (
-    <AuroraBackground id="intro" className="h-full sm:h-screen sm:min-h-fit w-full">
+    <AuroraBackground ref={ ref as React.RefObject<HTMLDivElement> } id="intro" className="h-full sm:h-screen sm:min-h-fit w-full">
       <div className="min-h-full px-6 py-10 sm:py-15 sm:px-24 md:px-20">
         <div className="justify-evenly sm:justify-between h-full min-h-fit relative flex flex-col">
           <motion.div 
@@ -55,7 +56,7 @@ const AboutPageIntro = () => {
                   ease: "easeInOut",
                 } }
               >
-                Software is a more than a career to me:
+                Software is more than a career to me:
               </motion.span><br />
               <motion.span
                 key={ "about-page-intro-4" }
@@ -76,5 +77,5 @@ const AboutPageIntro = () => {
       </div>
     </AuroraBackground>
   );
-};
+});
 export default AboutPageIntro;
