@@ -36,33 +36,64 @@ function useScrollHook(initialPosition: number) {
 
 export default function Home() {
   function handleArrowClick(e: React.MouseEvent<HTMLDivElement>) {
-    // TODO - Make arrow function so that when you click it it scrolls to the next section. At the bottom it should flip upside down, and when clicking on it it should take you to the top of the page immediately.
-    console.log(e)
+    const sectionOffsets = [
+      {
+        element: aboutPageIntroRef.current,
+        scrollPosition: aboutPageIntroRef.current?.offsetTop as number,
+      },
+      {
+        element: aboutPageEducationWorkRef.current,
+        scrollPosition: aboutPageEducationWorkRef.current?.offsetTop as number,
+      },
+      {
+        element: aboutPagePortfolioRef.current,
+        scrollPosition: aboutPagePortfolioRef.current?.offsetTop as number,
+      },
+      {
+        element: aboutPageTechnologiesRef.current,
+        scrollPosition: aboutPageTechnologiesRef.current?.offsetTop as number,
+      },
+      {
+        element: aboutPageContactRef.current,
+        scrollPosition: aboutPageContactRef.current?.offsetTop as number,
+      },
+    ].sort((a, b) => a.scrollPosition - b.scrollPosition);
 
-    console.log(aboutPageRef.current?.offsetTop)
-    
-    // TODO - LOOK HERE FOR DOCS: https://react.dev/learn/manipulating-the-dom-with-refs#example-scrolling-to-an-element
-    // if (aboutPageRef.current.) {
-    // aboutPageRef?.current?.scrollIntoView({
-    //   behavior: 'smooth',
-    //   block: 'nearest',
-    //   inline: 'center'
-    // });
-
-    console.log(aboutPageRef.current?.scrollTop)
-    // TODO - Compare current position on page to each element's scrollTop position
-
-
+    // NOTE - https://react.dev/learn/manipulating-the-dom-with-refs#example-scrolling-to-an-element
+    // NOTE - If at the bottom, scroll to the top
     if (isScrollAtBottom) {
-      return window.scrollTo({
-        top: 0,
+      return aboutPageIntroRef?.current?.scrollIntoView({
         behavior: "smooth",
+        block: 'nearest',
+        inline: 'center',
       });
     }
+
+    // NOTE - If below the top of the page but above the bottom, scroll to the next section
+    for (let i = 0; i < sectionOffsets.length; i++) {
+      if (scrollPosition < sectionOffsets[i].scrollPosition) {
+        return sectionOffsets[i].element?.scrollIntoView({
+          behavior: "smooth",
+          block: 'nearest',
+          inline: 'center',
+        });
+      }
+    }
+
+    // NOTE - If in the bottom section but above the bottom of the page, scroll to the bottom
+    return sectionOffsets[sectionOffsets.length - 1].element?.scrollIntoView({
+      behavior: "smooth",
+      block: 'nearest',
+      inline: 'center',
+    });
   }
 
   const arrowRef = useRef<HTMLElement>(null);
-  const aboutPageRef = useRef<HTMLDivElement>(null);
+  const aboutPageIntroRef = useRef<HTMLDivElement>(null);
+  const aboutPageEducationWorkRef = useRef<HTMLDivElement>(null);
+  const aboutPagePortfolioRef = useRef<HTMLDivElement>(null);
+  const aboutPageTechnologiesRef = useRef<HTMLDivElement>(null);
+  const aboutPageContactRef = useRef<HTMLDivElement>(null);
 
   const [isScrollAtBottom, setIsScrollAtBottom] = useState(false);
   let bottomScrollPosition = 0;
@@ -94,13 +125,13 @@ export default function Home() {
           "pi-arrow-down": !isScrollAtBottom,
         })}></i>
       </div>
-        <AboutPageIntro ref={aboutPageRef} />
+        <AboutPageIntro ref={aboutPageIntroRef} />
         {/* NOTE - The below div is my hacky way to make transition effects between views work correctly. Without it the text from the next page is considered to be within the viewport even at the maximum scroll height, so the transition will not activate when scrolling down. */}
         <div className="w-full" style={ { "height": "1px", "backgroundColor": "rgb(24 24 27)"}}></div>
-        <AboutPageEducationWork />
-        <AboutPagePortfolio />
-        <AboutPageTechnologies /> 
-        <AboutPageContact /> 
+        <AboutPageEducationWork ref={aboutPageEducationWorkRef} />
+        <AboutPagePortfolio ref={aboutPagePortfolioRef} />
+        <AboutPageTechnologies ref={aboutPageTechnologiesRef} /> 
+        <AboutPageContact ref={aboutPageContactRef} /> 
     </>
   );
 }

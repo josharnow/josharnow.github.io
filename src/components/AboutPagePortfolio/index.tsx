@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {forwardRef} from "react";
 import { MacbookScroll, MovingBorderButton } from "@/src/components";
 import Link from "next/link";
 import surrogacyAdvisorScreenshot1 from '@/src/assets/images/surrogacy_advisor_screenshot_1.png';
@@ -10,7 +10,7 @@ import segPlusScreenshot1 from '@/src/assets/images/seg_plus_screenshot_1.png';
 import cyzlAppStoreScreenshot1 from '@/src/assets/images/cyzl_app_store_screenshot_1.png';
 import cyzlPlayStoreScreenshot1 from '@/src/assets/images/cyzl_play_store_screenshot_1.png';
 
-function AboutPagePortfolio() {
+const AboutPagePortfolio = forwardRef(function AboutPagePortfolio(props, ref) {
   const srcArray = [
     cyzlAppStoreScreenshot1.src,
     surrogacyAdvisorScreenshot1.src,
@@ -22,7 +22,7 @@ function AboutPagePortfolio() {
 
 
   return (
-    <div id="portfolio" className="overflow-hidden bg-[#0B0B0F] w-full">
+    <div ref={ ref as React.RefObject<HTMLDivElement> } id="portfolio" className="overflow-hidden bg-[#0B0B0F] w-full">
       <MacbookScroll
         // title={
         // }
@@ -51,7 +51,7 @@ function AboutPagePortfolio() {
       />
     </div>
   );
-}
+});
 // Peerlist logo
 const Badge = ({ className }: { className?: string }) => {
   return (

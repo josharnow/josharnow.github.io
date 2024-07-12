@@ -1,14 +1,14 @@
 "use client";
-
+import React, { forwardRef } from "react";
 import { MovingBorderButton } from "@/src/components";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-function AboutPageContact() {
+const AboutPageContact = forwardRef(function AboutPageContact(props, ref) {
 
   return (
     // NOTE - h-[calc(100vh-5rem)] is used to offset the height of the top navbar
-    <div id="contact" className="h-[calc(100vh-5rem)] sm:h-screen  w-full bg-black  bg-grid-white/[0.2] relative flex items-center justify-center">
+    <div ref={ ref as React.RefObject<HTMLDivElement> } id="contact" className="h-[calc(100vh-5rem)] sm:h-screen  w-full bg-black  bg-grid-white/[0.2] relative flex items-center justify-center">
       {/* Radial gradient for the container to give a faded look */ }
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
@@ -63,5 +63,5 @@ function AboutPageContact() {
       </div>
     </div>
   );
-}
+});
 export default AboutPageContact;
