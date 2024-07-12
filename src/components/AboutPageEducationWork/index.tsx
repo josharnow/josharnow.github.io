@@ -26,7 +26,7 @@ const AboutPageEducationWork = forwardRef(function AboutPageEducationWork(props,
           pathLengthFourth,
           pathLengthFifth,
         ] }
-        description="Our experiences define us and my diverse background allows me to offer a unique perspective"
+        description={ (<>Our experiences define us:<br/>My diverse background allows me to offer a unique perspective</>)}
       >
         <div className="px-30 sm:px-40 lg:px-60 xl:px-96 flex flex-col text-center text-balance text-white">
           <q cite="https://www.goodreads.com/quotes/482424-true-happiness-comes-from-the-joy-of-deeds-well-done" className="text-balance">

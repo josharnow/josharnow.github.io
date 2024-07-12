@@ -15,7 +15,7 @@ interface GoogleGeminiEffectProps extends React.HTMLProps<HTMLDivElement> {
   children?: ReactNode;
   pathLengths: MotionValue[];
   title?: string;
-  description?: string;
+  description?: ReactNode;
   className?: string;
 }
 
@@ -64,8 +64,8 @@ const GoogleGeminiEffect = ({
         } }
         className="px-6 md:px-2 text-base md:text-2xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto text-balance">
         { description ||
-          `Scroll this component and see the bottom SVG come to life wow this
-        works!`}
+          (<>Scroll this component and see the bottom SVG come to life wow this
+          works!</>)}
       </motion.p>
       <motion.div 
         key={ "about-page-timeline-3" }
