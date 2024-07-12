@@ -35,30 +35,28 @@ function useScrollHook(initialPosition: number) {
 }
 
 export default function Home() {
+  function handleArrowClick(e: React.MouseEvent<HTMLDivElement>) {
+    // TODO - Make arrow function so that when you click it it scrolls to the next section. At the bottom it should flip upside down, and when clicking on it it should take you to the top of the page immediately.
+    console.log(e)
+  }
   const arrowRef = useRef<HTMLElement>(null);
   const [isScrollAtBottom, setIsScrollAtBottom] = useState(false);
   // const bottomScrollPosition = 
-  const bottomScrollPosition = document.documentElement.scrollHeight - window.innerHeight;
+  // const bottomScrollPosition = document.documentElement.scrollHeight - window.innerHeight;
+  let bottomScrollPosition = 0;
+
+  if (typeof window !== "undefined") {
+    bottomScrollPosition = document.documentElement.scrollHeight - window.innerHeight;
+  }
+
+
   const scrollPosition = useScrollHook(0);
-  // const [scrollPosition, setScrollPosition] = useScrollHook(0);
 
-
-  if (scrollPosition  > 0) {
-    // TODO - handle changes to class here
-    // console.log(document.documentElement.scrollHeight)
-    // console.log(window.innerHeight)
-    // console.log("Scrolled down")
-    // console.log(arrowRef.current?.className)
-    // console.log(scrollPosition)
-    // console.log(bottomScrollPosition)
-    if (scrollPosition === bottomScrollPosition && isScrollAtBottom === false) {
-      console.log(scrollPosition)
-      console.log("Scrolled to the bottom")
+  if (scrollPosition > 0) {
+    // NOTE - This is a hacky way to determine if the user has scrolled to the bottom of the page
+    if (scrollPosition >= bottomScrollPosition && isScrollAtBottom === false) {
       setIsScrollAtBottom(true);
-      // console.log(arrowRef.current?.className)
-      // console.log(scrollPosition)
-      // console.log(bottomScrollPosition)
-    } else if (scrollPosition !== bottomScrollPosition && isScrollAtBottom === true) {
+    } else if (isScrollAtBottom === true && scrollPosition < bottomScrollPosition) {
       setIsScrollAtBottom(false);
     }
   }
@@ -66,19 +64,19 @@ export default function Home() {
 
 
 
-  function handleArrowClick(e: React.MouseEvent<HTMLDivElement>) {
-      // TODO - Make arrow function so that when you click it it scrolls to the next section. At the bottom it should flip upside down, and when clicking on it it should take you to the top of the page immediately.
-    console.log(e)
-  }
+
 
   return (
     <>
-      <i ref={arrowRef} onClick={handleArrowClick} className={ cn(styles.pageArrow, "pi bg-gradient-to-b", {
-        "pi-arrow-circle-up": isScrollAtBottom,
-        "pi-arrow-circle-down": !isScrollAtBottom,
+      <div className={ cn(styles.pageArrowContainer, "p-2 bg-gradient-to-b", {
         "from-white to-blue-500": !isScrollAtBottom,
         "from-blue-500 to-white": isScrollAtBottom,
-      })}></i>
+      }) }>
+        <i ref={ arrowRef } onClick={ handleArrowClick } className={ cn(styles.pageArrow, "pi text-[1rem] sm:text-[2rem]", {
+          "pi-arrow-up": isScrollAtBottom,
+          "pi-arrow-down": !isScrollAtBottom,
+        })}></i>
+      </div>
         <AboutPageIntro />
         {/* NOTE - The below div is my hacky way to make transition effects between views work correctly. Without it the text from the next page is considered to be within the viewport even at the maximum scroll height, so the transition will not activate when scrolling down. */}
         <div className="w-full" style={ { "height": "1px", "backgroundColor": "rgb(24 24 27)"}}></div>

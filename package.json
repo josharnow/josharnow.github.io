@@ -20,6 +20,7 @@
     "build": "next build",
     "build:verbose": "next build --debug",
     "start": "next start",
+    "start:export": "npx serve@latest out",
     "lint": "next lint"
   },
   "dependencies": {

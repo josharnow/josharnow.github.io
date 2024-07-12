@@ -89,15 +89,27 @@
 
 
 
-.pageArrow {
-  color: black;
-  // color: green;
-  // background-color: red;
+.pageArrowContainer {
   border-radius: 50%;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   z-index: 1000;
   cursor: pointer;
+  animation: bounce 2s infinite;
+
+  box-shadow: 0 0 1rem rgba(220, 20, 60, 0.5);
+  height: fit-content;
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.pageArrow {
+  color: black;
+
+
   animation: bounce 2s infinite;
 }
