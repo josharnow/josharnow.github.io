@@ -61,7 +61,23 @@ const HeroParallax = forwardRef(function HeroParallax(props: HeroParallaxProps, 
   return (
     <div
       ref={ ref }
-      className="bg-black h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="
+        h-[310vh] 
+        tall:h-[280vh]
+        sm:h-[300vh]
+        sm:[@media(min-height:720px)]:h-[350vh] 
+        sm:[@media(min-height:841px)]:h-[300vh] 
+        bg-black 
+        py-40 
+        overflow-hidden 
+        antialiased 
+        relative 
+        flex 
+        flex-col 
+        self-auto 
+        [perspective:1000px] 
+        [transform-style:preserve-3d]
+      "
     >
       <Header />
       <motion.div
