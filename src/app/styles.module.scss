@@ -98,10 +98,10 @@
   cursor: pointer;
   animation: bounce 2s infinite;
 
-  box-shadow: 0 0 1rem rgba(220, 20, 60, 0.5);
+  box-shadow: 0 0 1rem var(--tw-shadow-color);
   height: fit-content;
   width: fit-content;
-
+  
   display: flex;
   align-items: center;
   justify-content: center;
