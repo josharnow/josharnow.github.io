@@ -39,7 +39,8 @@
 .shadowSidebarContainer {
   background: white;
   width: fit-content;
-  transform: translateX(-100%);
+  box-shadow: -5px 0 11px rgba(10, 36, 173, 0.68) inset;
+  // transform: translateX(-100%);
 }
 
 .sidebarContainer {
@@ -47,12 +48,12 @@
   top: 0;
   left: 0;
   z-index: 1;
-  animation: smooth-appear-for-real 1s ease forwards;
+  // animation: smooth-appear-for-real 1s ease forwards;
 }
 
 .shadowSidebarContainer {
   z-index: 0;
-  animation: smooth-appear 1s ease forwards;
+  // animation: smooth-appear 1s ease forwards;
 }
 
 // TODO - Figure out exit animation. The hidden property is making it not work (https: //chriscoyier.net/2023/10/30/exit-animations/)
