@@ -38,17 +38,39 @@ export default function Home() {
   function handleArrowClick(e: React.MouseEvent<HTMLDivElement>) {
     // TODO - Make arrow function so that when you click it it scrolls to the next section. At the bottom it should flip upside down, and when clicking on it it should take you to the top of the page immediately.
     console.log(e)
+
+    console.log(aboutPageRef.current?.offsetTop)
+    
+    // TODO - LOOK HERE FOR DOCS: https://react.dev/learn/manipulating-the-dom-with-refs#example-scrolling-to-an-element
+    // if (aboutPageRef.current.) {
+    // aboutPageRef?.current?.scrollIntoView({
+    //   behavior: 'smooth',
+    //   block: 'nearest',
+    //   inline: 'center'
+    // });
+
+    console.log(aboutPageRef.current?.scrollTop)
+    // TODO - Compare current position on page to each element's scrollTop position
+
+
+    if (isScrollAtBottom) {
+      return window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   }
+
   const arrowRef = useRef<HTMLElement>(null);
+  const aboutPageRef = useRef<HTMLDivElement>(null);
+
   const [isScrollAtBottom, setIsScrollAtBottom] = useState(false);
-  // const bottomScrollPosition = 
-  // const bottomScrollPosition = document.documentElement.scrollHeight - window.innerHeight;
   let bottomScrollPosition = 0;
 
+  // NOTE - This is necessary to prevent the window object from being accessed on the server (which will cause an error; this is a client-side only object but there appears to be a bug in Next where it thinks it isn't and throws an error)
   if (typeof window !== "undefined") {
     bottomScrollPosition = document.documentElement.scrollHeight - window.innerHeight;
   }
-
 
   const scrollPosition = useScrollHook(0);
 
@@ -61,11 +83,6 @@ export default function Home() {
     }
   }
 
-
-
-
-
-
   return (
     <>
       <div className={ cn(styles.pageArrowContainer, "p-2 bg-gradient-to-b", {
@@ -77,7 +94,7 @@ export default function Home() {
           "pi-arrow-down": !isScrollAtBottom,
         })}></i>
       </div>
-        <AboutPageIntro />
+        <AboutPageIntro ref={aboutPageRef} />
         {/* NOTE - The below div is my hacky way to make transition effects between views work correctly. Without it the text from the next page is considered to be within the viewport even at the maximum scroll height, so the transition will not activate when scrolling down. */}
         <div className="w-full" style={ { "height": "1px", "backgroundColor": "rgb(24 24 27)"}}></div>
         <AboutPageEducationWork />
