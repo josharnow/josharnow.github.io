@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger } from "@/src/components";
@@ -32,13 +32,15 @@ const ContactModal = ({ imageSrcArr }: ContactModalProps) => {
         </ModalTrigger>
         <ModalBody>
           <ModalContent>
-            <h4 className="text-lg md:text-2xl text-neutral-100 font-bold text-center mb-8">
-              Book your trip to{ " " }
+            <h2 className="text-xl sm:text-2xl text-neutral-100 font-bold text-center mb-8">
+              {/* Book your trip to{ " " }
               <span className="px-1 py-0.5 rounded-md bg-neutral-800 border-neutral-700 border">
                 Bali
               </span>{ " " }
-              now! ✈️
-            </h4>
+              now! ✈️ */}
+
+              Let’s get in touch!
+            </h2>
             <div className="flex justify-center items-center">
               { imageSrcArr?.map((image, idx) => (
                 <motion.div
@@ -68,6 +70,8 @@ const ContactModal = ({ imageSrcArr }: ContactModalProps) => {
                 </motion.div>
               )) }
             </div>
+            {/* TODO - Content here */}
+            {/* Phone (w/link), email (w/link) */}
             <div className="py-10 flex flex-wrap gap-x-4 gap-y-6 items-start justify-start max-w-sm mx-auto">
               <div className="flex  items-center justify-center">
                 <span className="text-neutral-300 text-sm">
@@ -102,12 +106,6 @@ const ContactModal = ({ imageSrcArr }: ContactModalProps) => {
             </div>
           </ModalContent>
           <ModalFooter className="gap-4">
-            <button className="px-2 py-1 bg-black border-black text-white border rounded-md text-sm w-28">
-              Cancel
-            </button>
-            <button className="bg-white text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-              Book Now
-            </button>
           </ModalFooter>
         </ModalBody>
       </Modal>
