@@ -4,7 +4,6 @@ import Link from "next/link";
 // import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
 import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicons/react/20/solid";
 import { useSelectedLayoutSegment } from "next/navigation";
-import Logo from "../../Logo";
 import styles from "../styles.module.scss";
 // import { classNames } from "@/src/app/_utils";
 
@@ -35,9 +34,9 @@ const ShadowSidebar = ({
         <div className={ classNames( "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4") }>
         {/* <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2"> */}
           <div className="flex h-16 shrink-0 items-center">
-            <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>
+            {/* <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>
               <Logo />
-            </Link>
+            </Link> */}
             <Link href="/">
               <h1 className="text-white font-medium whitespace-nowrap">Josh Arnow</h1>
             </Link>
