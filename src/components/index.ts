@@ -13,6 +13,7 @@ export { default as HeroParallax } from './HeroParallax';
 export { default as Spotlight } from './Spotlight';
 export { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger } from './AnimatedModal';
 export { default as ContactModal } from './ContactModal';
+export { default as ContactIcon } from './ContactIcon';
 export { default as AboutPageIntro } from './AboutPageIntro';
 export { default as AboutPageEducationWork } from './AboutPageEducationWork';
 export { default as AboutPagePortfolio } from './AboutPagePortfolio';

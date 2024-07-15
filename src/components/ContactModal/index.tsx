@@ -2,7 +2,14 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger } from "@/src/components";
+import { 
+  Modal,
+  ModalBody, 
+  ModalContent, 
+  ModalFooter, 
+  ModalTrigger, 
+  ContactIcon, 
+} from "@/src/components";
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import styles from "./styles.module.scss";
@@ -11,12 +18,6 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-type ContentObj = {
-  // triggerElement: React.ReactNode;
-  contactMethod: string;
-  imageSrc?: string;
-  // content?: ;
-};
 type ContactModalProps = {
   contentArr?: ContentObj[];
   // triggerElement: React.ReactNode;
@@ -51,41 +52,13 @@ const ContactModal = ({ contentArr }: ContactModalProps) => {
             <h2 className="text-2xl sm:text-3xl text-neutral-100 font-medium text-center mb-8">
               Let’s get in touch!
             </h2>
-            <div className="flex justify-center items-center grow space-x-10">
+            {/* NOTE - https://tailwindcss.com/docs/grid-template-columns */}
+            {/* TODO - Idea: Iterate over each Contact icon, and underneath each have text */}
+            <div className="grid grid-cols-4 gap-4">
               { contentArr?.map((content, idx) => (
                 <div key={ "content" + idx }>
-                  <motion.div
-                    style={ {
-                      // rotate: Math.random() * 20 - 10,
-                    } }
-                    whileHover={ {
-                      scale: 1.1,
-                      rotate: 0,
-                      zIndex: 100,
-                    } }
-                    whileTap={ {
-                      scale: 1.1,
-                      rotate: 0,
-                      zIndex: 100,
-                    } }
-                    className="rounded-xl mt-4 p-1 bg-neutral-800 border-neutral-700 border flex-shrink-0 overflow-hidden"
-                  >
-                    {/* TODO - Ensure pictures stay as squares */}
-                    {/* TODO - Improve styling */}
-                    {/* TODO - Add text underneath */}
-                    {/* TODO - Add photos */}
-                    {/* TODO - Add links (set target so it opens in another tab) */}
-                    {/* TODO - "Click to copy" for email */}
-                    <Image
-                      src={ content.imageSrc as string }
-                      alt="images"
-                      width="500"
-                      height="500"
-                      className="rounded-lg h-30 w-30 sm:h-20 sm:w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
-                      // className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
-                    />
-                    {content.contactMethod}
-                  </motion.div>
+                  <ContactIcon content={ content } />
+                  <span className="text-center">{content.contactMethod}</span>
                 </div>
               )) }
             </div>
