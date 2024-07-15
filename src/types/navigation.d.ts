@@ -1,4 +1,4 @@
-type SidebarOption = {
+type NavigationOption = {
   name: string,
   href: string,
   icon: any,

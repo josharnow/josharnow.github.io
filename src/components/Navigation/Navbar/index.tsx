@@ -1,14 +1,16 @@
 // NOTE - https://www.reddit.com/r/reactjs/comments/17i3a1p/what_is_the_benefit_of_the_indextsx_naming/
 import React from "react";
-import Link from "next/link";
 // import Logo from "./Logo";
-// import Button from "./Button";
-import variables from '@/src/styles/variables.module.scss';
+// import variables from '@/src/styles/variables.module.scss';
 import styles from './styles.module.scss';
-// import { classNames } from "@/src/app/_utils";
 import { ContactModal } from "@/src/components";
+import NavbarMenu from "./NavbarMenu";
 
-const Navbar = ({ toggle }: { toggle: () => void }) => {
+const Navbar = ({ toggle, isOpen, navigationOptions }: { 
+  toggle: () => void; 
+  isOpen: boolean;
+  navigationOptions: NavigationOption[];
+  }) => {
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
   }
@@ -21,23 +23,7 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
               <Logo />
             </div> */}
             <ContactModal />
-            {/* <ul className="flex gap-x-6 text-black ">
-              <li>
-                <Link href="/about">
-                  <p>About Us</p>
-                </Link>
-              </li>
-              <li>
-                <Link href="/services">
-                  <p>Services</p>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contacts">
-                  <p>Contacts</p>
-                </Link>
-              </li>
-            </ul> */}
+            {/* TODO - Make button an X when menu is open */}
             <button
               type="button"
               className="inline-flex items-center md:hidden"
@@ -57,6 +43,7 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
             </button>
           </div>
         </div>
+        <NavbarMenu isOpen={isOpen} navigationOptions={navigationOptions} />
       </nav>
     </>
   );

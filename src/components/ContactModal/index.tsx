@@ -32,10 +32,6 @@ const ContactModal = ({ contentArr }: ContactModalProps) => {
 
   // console.log("imageSrcArr", imageSrcArr);
 
-  contentArr?.map(({imageSrc}, idx) => {
-    console.log("imageSrcArr", imageSrc);
-  });
-
   return (
     <>
       <Modal>

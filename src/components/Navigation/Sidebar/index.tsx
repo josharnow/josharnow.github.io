@@ -10,11 +10,11 @@ import RealSidebar from "./RealSidebar";
 const Sidebar = ({
   isOpen,
   toggle,
-  sidebarOptions,
+  navigationOptions,
 }: {
   isOpen: boolean;
   toggle: () => void;
-  sidebarOptions: SidebarOption[];
+  navigationOptions: NavigationOption[];
 }) => {
 
   return (
@@ -22,12 +22,12 @@ const Sidebar = ({
       <RealSidebar
         isOpen={ isOpen } 
         toggle={ toggle } 
-        sidebarOptions={ sidebarOptions } 
+        navigationOptions={ navigationOptions } 
       />
       <ShadowSidebar 
         isOpen={ isOpen } 
         toggle={ toggle } 
-        sidebarOptions={ sidebarOptions } 
+        navigationOptions={ navigationOptions } 
       />
     </>
   );

@@ -13,7 +13,7 @@ const Navigation= () => {
     setIsOpen(!isOpen);
   };
 
-  const sidebarOptions: SidebarOption[] = [
+  const navigationOptions: NavigationOption[] = [
     // {
     //   name: "About",
     //   href: "/about",
@@ -61,8 +61,8 @@ const Navigation= () => {
   return (
     <>
       {/* NOTE - This is a hacky fix I came up with to make the sidebar sticky and still use flex-grow to grow the main content on the screen. Now my main content can remain as server components while still being properly sized 🎉 */}
-      <Sidebar isOpen={ isOpen } toggle={ toggle } sidebarOptions={ sidebarOptions  } />
-      <Navbar toggle={ toggle } />
+      <Sidebar isOpen={ isOpen } toggle={ toggle } navigationOptions={ navigationOptions  } />
+      <Navbar toggle={ toggle } isOpen={ isOpen } navigationOptions={ navigationOptions } />
     </>
   );
 };

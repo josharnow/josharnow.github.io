@@ -12,11 +12,11 @@ import { ContactModal } from "@/src/components";
 const RealSidebar = ({
   isOpen,
   toggle,
-  sidebarOptions,
+  navigationOptions,
 }: {
   isOpen: boolean;
   toggle: () => void;
-  sidebarOptions: SidebarOption[];
+  navigationOptions: NavigationOption[];
 }) => {
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -74,7 +74,7 @@ const RealSidebar = ({
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
               <li>
                 <ul role="list" className="-mx-2 space-y-1">
-                  { sidebarOptions.map((option) => (
+                  { navigationOptions.map((option) => (
                     <li key={ option.name }>
                       <Link href={ option.href } className={ classNames(option.current ? "bg-blue-500 text-black" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15", "hover:text-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium whitespace-nowrap") }>
                         {/*  NOTE - Classes after the comma will be applied regardless of outcome of ternary */ }
