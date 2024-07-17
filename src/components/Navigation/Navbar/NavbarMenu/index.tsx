@@ -33,16 +33,14 @@ const NavbarMenu = ({ toggle, isOpen, navigationOptions }: {
           <ul role="list" className="space-y-2 py-2">
             { navigationOptions.map((option) => (
               <li key={ option.name } className="">
-                {/* <Link href={ option.href } className={ classNames("text-white hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium whitespace-nowrap") }> */}
                 <Link onClick={ toggle } href={ option.href } className={ classNames(
-                    "hover:text-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium whitespace-nowrap",
+                    "hover:text-white group flex gap-x-3 rounded-md p-2 text-xl leading-6 font-medium whitespace-nowrap",
                   option.current ? "bg-blue-500 text-black " : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15"
                     ) }>
                   <option.icon className={ classNames(option.current ? "text-black" : "text-gray-300", " group-hover:text-white h-6 w-6 shrink-0") } />
                   { option.name }
                 </Link>
               </li>
-
             )) }
           </ul>
         </li>

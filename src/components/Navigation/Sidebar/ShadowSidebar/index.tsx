@@ -33,12 +33,12 @@ const ShadowSidebar = ({
       {/* <div className="h-screen lg:flex lg:w-fit lg:inset-y-0"> */}
         <div className={ classNames( "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4") }>
         {/* <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2"> */}
-          <div className="flex h-16 shrink-0 items-center">
-            {/* <Link href="/" className="p-3" style={ { height: '100%', aspectRatio: '1/1' } }>
+          <div className="w-full flex h-16 shrink-0 items-center justify-center p-3 gap-x-3">
+            {/* <Link href="/" className="" style={ { height: '100%', aspectRatio: '1/1' } }>
               <Logo />
             </Link> */}
-            <Link href="/">
-              <h1 className="text-white font-medium whitespace-nowrap">Josh Arnow</h1>
+            <Link href="/" className="">
+              <h1 className="text-white font-medium whitespace-nowrap sm:text-lg text-xl">Josh Arnow</h1>
             </Link>
           </div>
           <nav className="flex flex-1 flex-col">
@@ -47,7 +47,7 @@ const ShadowSidebar = ({
                 <ul role="list" className="-mx-2 space-y-1">
                   { navigationOptions.map((option) => (
                     <li key={ option.name }>
-                      <Link href={ option.href } className={ classNames( "text-gray-400 hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium whitespace-nowrap") }>
+                      <Link href={ option.href } className={ classNames("text-gray-400 hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 sm:text-lg text-xl leading-6 font-medium whitespace-nowrap") }>
                         {/*  NOTE - Classes after the comma will be applied regardless of outcome of ternary */ }
                         <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0" />
                         { option.name }
