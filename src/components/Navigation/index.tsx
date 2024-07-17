@@ -3,7 +3,8 @@ import { useState } from "react";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 // import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
-import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicons/react/20/solid"; 
+import { EnvelopeIcon, CubeTransparentIcon, RocketLaunchIcon, WrenchScrewdriverIcon, GlobeAltIcon, AcademicCapIcon, BuildingOffice2Icon } from "@heroicons/react/20/solid"; 
+import { IdentificationIcon } from "@heroicons/react/24/solid";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 const Navigation= () => {
@@ -17,45 +18,33 @@ const Navigation= () => {
     {
       name: "About Me",
       href: "/",
-      icon: CubeTransparentIcon,
+      icon: IdentificationIcon,
       current: segment === null ? true : false,
     },
     {
-      name: "Education & Career Timeline",
-      href: "/education_and_career_timeline",
-      icon: CubeTransparentIcon,
-      current: `/${segment}` === "/education_and_career_timeline" ? true : false,
+      name: "Career & Education Timeline",
+      href: "/career-and-education-timeline",
+      icon: BuildingOffice2Icon,
+      current: `/${segment}` === "/career-and-education-timeline" ? true : false,
     },
     {
       name: "Portfolio",
       href: "/portfolio",
-      icon: CubeTransparentIcon,
+      icon: RocketLaunchIcon,
       current: `/${segment}` === "/portfolio" ? true : false,
     },
     {
       name: "Technologies",
       href: "/technologies",
-      icon: CubeTransparentIcon,
+      icon: WrenchScrewdriverIcon,
       current: `/${segment}` === "/technologies" ? true : false,
     },
     {
       name: "3D Demo",
-      href: "/3D_Demo",
+      href: "/3d-demo",
       icon: CubeTransparentIcon,
-      current: `/${segment}` === "/3D_Demo" ? true : false,
+      current: `/${segment}` === "/3d-demo" ? true : false,
     },
-    // {
-    //   name: "TEST ROUTE",
-    //   href: "/test_route",
-    //   icon: CubeTransparentIcon,
-    //   current: `/${segment}` === "/test_route" ? true : false,
-    // },
-    // {
-    //   name: "DYNAMIC_TEST ROUTE",
-    //   href: "/test_route_dynamic/4",
-    //   icon: CubeTransparentIcon,
-    //   current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
-    // },
   ];
 
   return (
