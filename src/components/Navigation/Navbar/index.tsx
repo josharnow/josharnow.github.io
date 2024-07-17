@@ -16,7 +16,7 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
   }
   return (
     <>
-      <nav className={ classNames(styles.navbar, "h-20 sm:hidden fixed")}>
+      <nav className={ classNames(styles.navbar, "h-20 sm:hidden fixed shadow-3xl")}>
         <div 
           className={ classNames(
             styles.navbar, 

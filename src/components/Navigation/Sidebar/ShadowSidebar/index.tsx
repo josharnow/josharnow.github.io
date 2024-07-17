@@ -28,7 +28,8 @@ const ShadowSidebar = ({
     <>
       {/* NOTE - When the window has a width of 640px or less (like on mobile devices), only the hidden class is applied. On larger screen sizes, flex overrides the hidden class and makes the sidebar visible. */ }
       <div 
-        className={ classNames(styles.shadowSidebarContainer, "hidden sm:h-screen sm:flex sm:w-fit sm:inset-y-0")}
+        className={ classNames(styles.shadowSidebarContainer, "hidden sm:h-screen sm:flex sm:w-fit sm:inset-y-0 shadow-3xl")}
+        
       >
       {/* <div className="h-screen lg:flex lg:w-fit lg:inset-y-0"> */}
         <div className={ classNames( "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4") }>

@@ -35,7 +35,7 @@ const ContactModal = ({ contentArr }: ContactModalProps) => {
   return (
     <>
       <Modal>
-        <ModalTrigger className={ cn(styles.modalButton, "bg-black text-white flex justify-center group/modal-btn shadow-blue-500")}>
+        <ModalTrigger className={ cn(styles.modalButton, "bg-black text-white flex justify-center group/modal-btn shadow-3xl shadow-blue-500")}>
           <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
             🙋‍♂️ Contact Me
           </span>

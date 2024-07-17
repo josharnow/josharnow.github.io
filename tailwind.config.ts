@@ -19,6 +19,11 @@ const config: Config = {
         'tall': { 'raw': '(min-height: 800px)' },
         ...defaultTheme.screens,
       },
+      boxShadow: {
+        // '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+        // '3xl': '0 0 1rem rgba(0, 0, 0, 0.68)',
+        '3xl': '0 5px 11px rgba(0, 0, 0, 0.68)',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

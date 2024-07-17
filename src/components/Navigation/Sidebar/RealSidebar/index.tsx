@@ -58,9 +58,10 @@ const RealSidebar = ({
       {/* NOTE - When the window has a width of 640px or less (like on mobile devices), only the hidden class is applied. On larger screen sizes, flex overrides the hidden class and makes the sidebar visible. */}
       <div 
         className={ classNames(styles.sidebarContainer, "hidden sm:h-screen sm:flex sm:w-fit sm:inset-y-0 bg-slate-700")}
+        style={ { boxShadow: "5px 0px 11px rgba(0, 0, 0, 0.68)" } }
       >
       {/* <div className="h-screen lg:flex lg:w-fit lg:inset-y-0"> */}
-        <div className={ classNames( "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4 ") }>
+        <div className={ classNames( "flex grow flex-col gapy-y-5 overflow-y-auto px-6 pb-4") }>
         {/* <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2"> */}
           {/* <div className="flex h-16 shrink-0 w-full"> */}
           <div className="w-full flex h-16 shrink-0 items-center justify-center p-3 gap-x-3">
@@ -78,7 +79,7 @@ const RealSidebar = ({
                 <ul role="list" className="-mx-2 space-y-1">
                   { navigationOptions.map((option) => (
                     <li key={ option.name }>
-                      <Link href={ option.href } className={ classNames(option.current ? "bg-blue-500 text-black" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15", "hover:text-white group flex gap-x-3 rounded-md p-2 sm:text-lg text-xl leading-6 font-medium whitespace-nowrap") }>
+                      <Link href={ option.href } className={ classNames(option.current ? "bg-blue-500 text-black shadow-3xl" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15 hover:shadow-3xl", "hover:text-white group flex gap-x-3 rounded-md p-2 sm:text-lg text-xl leading-6 font-medium whitespace-nowrap") }>
                         {/*  NOTE - Classes after the comma will be applied regardless of outcome of ternary */ }
                         <option.icon className={ classNames(option.current ? "text-black" : "text-gray-300", " group-hover:text-white h-6 w-6 shrink-0") } />
                         {/* <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0" /> */}

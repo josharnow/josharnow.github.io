@@ -19,12 +19,10 @@ const NavbarMenu = ({ toggle, isOpen, navigationOptions }: {
 
   return (
     <>
-      {/* TODO - Make components for navbar list items  */ }
-      {/* TODO - Closing animation  */ }
-      {/* TODO - Add drop/box shadow  */ }
-      {/* TODO - Apply active link highlighting like on sidebar */ }
+    {/* TODO - Conditionally change menu button if open & apply box shadow to make it look 3D */}
       <ul role="list" className={ classNames(
         styles.navbarMenu,
+        "shadow-3xl",
         isOpen ? styles.open : styles.closed,
         "px-4 rounded-b-3xl bg-slate-700 opacity-90"
         ) }
@@ -35,7 +33,7 @@ const NavbarMenu = ({ toggle, isOpen, navigationOptions }: {
               <li key={ option.name } className="">
                 <Link onClick={ toggle } href={ option.href } className={ classNames(
                     "hover:text-white group flex gap-x-3 rounded-md p-2 text-xl leading-6 font-medium whitespace-nowrap",
-                  option.current ? "bg-blue-500 text-black " : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15"
+                  option.current ? "bg-blue-500 text-black shadow-3xl" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15 hover:shadow-3xl"
                     ) }>
                   <option.icon className={ classNames(option.current ? "text-black" : "text-gray-300", " group-hover:text-white h-6 w-6 shrink-0") } />
                   { option.name }

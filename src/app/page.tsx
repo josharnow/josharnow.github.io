@@ -116,7 +116,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={ cn(styles.pageArrowContainer, "p-2 bg-gradient-to-b shadow-blue-500", {
+      <div className={ cn(styles.pageArrowContainer, "p-2 bg-gradient-to-b shadow-black", {
         "from-white to-blue-500": !isScrollAtBottom,
         "from-blue-500 to-white": isScrollAtBottom,
       }) }>
