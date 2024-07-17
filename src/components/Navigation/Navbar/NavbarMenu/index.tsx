@@ -23,11 +23,12 @@ const NavbarMenu = ({ isOpen, navigationOptions }: {
       {/* TODO - Add drop/box shadow  */ }
       {/* TODO - Apply active link highlighting like on sidebar */ }
       <ul role="list" className={ classNames(
-          isOpen ? "flex flex-1 flex-col gap-y-7" : "hidden",
         styles.navbarMenu,
-        isOpen ? styles.navbarMenuOpen : styles.navbarMenuHidden,
-        isOpen ? "px-4 border-t-2 border-black rounded-b-3xl bg-slate-700 opacity-90" : "",
-          // "px-4 border-t-2 border-black rounded-b-3xl bg-slate-700 opacity-90"
+        // isOpen ? styles.navbarMenuOpen : styles.navbarMenuHidden,
+        // isOpen ? "px-4 border-t-2 border-black rounded-b-3xl bg-slate-700 opacity-90" : "",
+        // isOpen ? "flex flex-1 flex-col gap-y-7" : "hidden",
+        isOpen ? "" : styles.closed,
+        "px-4 border-t-2 border-black rounded-b-3xl bg-slate-700 opacity-90"
         ) }
       >
         <li>

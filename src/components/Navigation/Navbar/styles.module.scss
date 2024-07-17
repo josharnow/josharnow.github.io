@@ -18,6 +18,36 @@
   right: 0;
   z-index: 1000;
 }
+.navbarMenu {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 5px 11px rgba(black, 0.68);
+
+  // animation-name: swingdown;
+  // animation-duration: .75s;
+  // animation-timing-function: ease-in-out;
+  // height: 100%;
+  height: fit-content;
+  // opacity: 1;
+  // scale: 1;
+  transition-property: transform;
+  transition-duration: 1.00s;
+  transition-behavior: allow-discrete;
+
+  transform: translateY(0);
+  
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  z-index: 39;
+}
+
+// SOURCE - https: //kentondejong.medium.com/we-can-finally-transition-display-none-cbb03831351f
+.navbarMenu.closed {
+  transform: translateY(-100%);
+}
 
 @keyframes slideInFromTop {
   0% {
@@ -45,6 +75,9 @@
   // animation-duration: .75s;
   // animation-timing-function: ease-in-out;
 
+  // animation-name: swingup;
+  //   animation-duration: .75s;
+  //   animation-timing-function: ease-in-out;
   > * {
       animation-name: swingup;
         animation-duration: .75s;
@@ -78,11 +111,11 @@
 
 
 
-    position: absolute;
-    top: 5rem;
-    left: 0;
-    right: 0;
-    z-index: 40;
+    // position: absolute;
+    // top: 5rem;
+    // left: 0;
+    // right: 0;
+    // z-index: 40;
 
     box-shadow: 0 5px 11px rgba(black, 0.68);
 
@@ -141,20 +174,20 @@
 
 
 
-    transform: rotateX(0);
-    animation-timing-function: ease-in-out;
+    // transform: rotateX(0);
+    // animation-timing-function: ease-in-out;
   }
-  30% {
-    transform: rotateX(20deg) rotateY(-3deg);
-    animation-timing-function: ease-in-out;
-  }
-  65% {
-    transform: rotateX(-20deg) rotateY(5deg);
-    animation-timing-function: ease-in-out;
-  }
+  // 30% {
+  //   transform: rotateX(20deg) rotateY(-3deg);
+  //   animation-timing-function: ease-in-out;
+  // }
+  // 65% {
+  //   transform: rotateX(-20deg) rotateY(5deg);
+  //   animation-timing-function: ease-in-out;
+  // }
   100% {
-    opacity: 0.99999;
-    transform: rotateX(90deg);
+    // opacity: 0.99999;
+    // transform: rotateX(90deg);
     // display: hidden;
     // display: absolute;
     //     top: 5rem;
@@ -162,5 +195,6 @@
     //       right: 0;
     //       z-index: 40;
     display: none;
+    height: 0;
   }
 }
