@@ -50,7 +50,7 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
             </div>
           </div>
         </div>
-        <NavbarMenu isOpen={isOpen} navigationOptions={navigationOptions} />
+        <NavbarMenu isOpen={isOpen} navigationOptions={navigationOptions} toggle={toggle} />
       </nav>
     </>
   );

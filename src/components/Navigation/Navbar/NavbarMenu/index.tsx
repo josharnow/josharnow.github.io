@@ -1,5 +1,5 @@
 // NOTE - https://www.reddit.com/r/reactjs/comments/17i3a1p/what_is_the_benefit_of_the_indextsx_naming/
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 // import Logo from "./Logo";
 // import Button from "./Button";
@@ -8,13 +8,15 @@ import styles from '../styles.module.scss';
 // import { classNames } from "@/src/app/_utils";
 import { ContactModal } from "@/src/components";
 
-const NavbarMenu = ({ isOpen, navigationOptions }: { 
+const NavbarMenu = ({ toggle, isOpen, navigationOptions }: { 
+  toggle: () => void; 
   isOpen: boolean;
   navigationOptions: NavigationOption[];
   }) => {
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
   }
+
   return (
     <>
       {/* TODO - Make components for navbar list items  */ }
@@ -28,14 +30,15 @@ const NavbarMenu = ({ isOpen, navigationOptions }: {
         ) }
       >
         <li>
-          <ul role="list" className="-mx-2 space-y-1">
+          <ul role="list" className="space-y-2 py-2">
             { navigationOptions.map((option) => (
               <li key={ option.name } className="">
                 {/* <Link href={ option.href } className={ classNames("text-white hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium whitespace-nowrap") }> */}
-                <Link href={ option.href } className={ classNames("text-gray-400 hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium whitespace-nowrap") }>
-                  {/*  NOTE - Classes after the comma will be applied regardless of outcome of ternary */ }
-                  {/* <option.icon className="text-white group-hover:text-white h-6 w-6 shrink-0" /> */}
-                  <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0" />
+                <Link onClick={ toggle } href={ option.href } className={ classNames(
+                    "hover:text-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium whitespace-nowrap",
+                  option.current ? "bg-blue-500 text-black " : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15"
+                    ) }>
+                  <option.icon className={ classNames(option.current ? "text-black" : "text-gray-300", " group-hover:text-white h-6 w-6 shrink-0") } />
                   { option.name }
                 </Link>
               </li>
