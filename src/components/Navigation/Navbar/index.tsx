@@ -16,8 +16,13 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
   }
   return (
     <>
-      <nav className={ classNames(styles.navbar, 'h-20 sm:hidden fixed')}>
-        <div className="absolute left-0 right-0 top-0 bottom-0 z-40 bg-slate-700">
+      <nav className={ classNames(styles.navbar, "h-20 sm:hidden fixed")}>
+        <div 
+          className={ classNames(
+            styles.navbar, 
+            "absolute left-0 right-0 top-0 bottom-0 z-40 bg-slate-700",
+          ) }
+        >
           <div className="container mx-auto px-4 h-full">
             <div className="flex justify-between items-center h-full">
               {/* <div className="p-3" style={{ height: '100%', aspectRatio: '1/1' }}>

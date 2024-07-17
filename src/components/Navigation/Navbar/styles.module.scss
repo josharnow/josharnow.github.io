@@ -19,7 +19,7 @@
   z-index: 1000;
 }
 .navbarMenu {
-  display: flex;
+  // display: flex;
   flex-direction: column;
 
   box-shadow: 0 5px 11px rgba(black, 0.68);
@@ -31,10 +31,12 @@
   height: fit-content;
   // opacity: 1;
   // scale: 1;
-  transition-property: transform;
+  transition-property: transform, border, display;
   transition-duration: 1.00s;
   transition-behavior: allow-discrete;
 
+
+  border-top: 2px solid black;
   transform: translateY(0);
   
   position: absolute;
@@ -47,6 +49,10 @@
 // SOURCE - https: //kentondejong.medium.com/we-can-finally-transition-display-none-cbb03831351f
 .navbarMenu.closed {
   transform: translateY(-100%);
+  // border: 0;
+  // border-top: 2px solid black;
+  // NOTE - Below isn't working as expected when uncommented, so I'm leaving it as is without truly "hiding" since it can't be seen
+  // display: none;
 }
 
 @keyframes slideInFromTop {
@@ -60,72 +66,22 @@
   }
 }
 
-// .navbarMenu { 
-//   position: absolute;
-//   top: 5rem;
-//   left: 0;
-//   right: 0;
-//   z-index: 40;
+// .navbarMenuHidden {
+//   // animation-name: swingup;
+//   // animation-duration: .75s;
+//   // animation-timing-function: ease-in-out;
 
-//   box-shadow: 0 5px 11px rgba(black, 0.68);
+//   // animation-name: swingup;
+//   //   animation-duration: .75s;
+//   //   animation-timing-function: ease-in-out;
+//   > * {
+//       animation-name: swingup;
+//         animation-duration: .75s;
+//         animation-timing-function: ease-in-out;
+//       // display: none;
+
+//   }
 // }
-
-.navbarMenuHidden {
-  // animation-name: swingup;
-  // animation-duration: .75s;
-  // animation-timing-function: ease-in-out;
-
-  // animation-name: swingup;
-  //   animation-duration: .75s;
-  //   animation-timing-function: ease-in-out;
-  > * {
-      animation-name: swingup;
-        animation-duration: .75s;
-        animation-timing-function: ease-in-out;
-      // display: none;
-
-  }
-}
-
-.navbarMenuOpen {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  // z-index: 1000;
-  // background-color: white;
-  // height: 100vh;
-  // animation: slideInFromTop 0.5s ease-in-out;
-  
-  // position: absolute;
-  // top: 0;
-  // transition: all .5s ease;
-
-  display: flex;
-  flex-direction: column;
-
-
-
-
-    // position: absolute;
-    // top: 5rem;
-    // left: 0;
-    // right: 0;
-    // z-index: 40;
-
-    box-shadow: 0 5px 11px rgba(black, 0.68);
-
-    animation-name: swingdown;
-    animation-duration: .75s;
-    animation-timing-function: ease-in-out;
-
-    // border-radius: 20px;
-  // animation: swingdown 1s ease;
-}
 
 
 @keyframes openNavMenu {
