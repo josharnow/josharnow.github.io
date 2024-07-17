@@ -1,12 +1,6 @@
-// NOTE - https://www.reddit.com/r/reactjs/comments/17i3a1p/what_is_the_benefit_of_the_indextsx_naming/
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-// import Logo from "./Logo";
-// import Button from "./Button";
-import variables from '@/src/styles/variables.module.scss';
 import styles from '../styles.module.scss';
-// import { classNames } from "@/src/app/_utils";
-import { ContactModal } from "@/src/components";
 
 const NavbarMenu = ({ toggle, isOpen, navigationOptions }: { 
   toggle: () => void; 
@@ -19,7 +13,6 @@ const NavbarMenu = ({ toggle, isOpen, navigationOptions }: {
 
   return (
     <>
-    {/* TODO - Conditionally change menu button if open & apply box shadow to make it look 3D */}
       <ul role="list" className={ classNames(
         styles.navbarMenu,
         "shadow-3xl",

@@ -38,7 +38,7 @@ export function MovingBorderButton({
   return (
     <Component
       className={ cn(
-        "bg-transparent relative p-[1px] overflow-hidden",
+        "bg-transparent relative p-[1px] overflow-hidden shadow-3xl shadow-blue-500",
         containerClassName
       ) }
       style={ {
