@@ -199,3 +199,10 @@
 .ham4.active .bottom {
   stroke-dashoffset: -68px;
 }
+
+.navigationLink {
+  transition: box-shadow, color 0.50s allow-discrete;
+}
+.navigationLinkIcon {
+  transition: color 0.50s allow-discrete;
+}
