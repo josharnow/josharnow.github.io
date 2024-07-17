@@ -14,24 +14,6 @@ const Navigation= () => {
   };
 
   const navigationOptions: NavigationOption[] = [
-    // {
-    //   name: "About",
-    //   href: "/about",
-    //   icon: IdentificationIcon,
-    //   current: `/${segment}` === "/about" ? true : false,
-    // },
-    // {
-    //   name: "Contact",
-    //   href: "/contact",
-    //   icon: EnvelopeIcon,
-    //   current: `/${segment}` === "/contact" ? true : false,
-    // },
-    // {
-    //   name: "Portfolio",
-    //   href: "/portfolio",
-    //   icon: CubeTransparentIcon,
-    //   current: `/${segment}` === "/portfolio" ? true : false,
-    // },
     {
       name: "About Me",
       href: "/",
@@ -39,23 +21,41 @@ const Navigation= () => {
       current: segment === null ? true : false,
     },
     {
+      name: "Education & Career Timeline",
+      href: "/education_and_career_timeline",
+      icon: CubeTransparentIcon,
+      current: `/${segment}` === "/education_and_career_timeline" ? true : false,
+    },
+    {
+      name: "Portfolio",
+      href: "/portfolio",
+      icon: CubeTransparentIcon,
+      current: `/${segment}` === "/portfolio" ? true : false,
+    },
+    {
+      name: "Technologies",
+      href: "/technologies",
+      icon: CubeTransparentIcon,
+      current: `/${segment}` === "/technologies" ? true : false,
+    },
+    {
       name: "3D Demo",
       href: "/3D_Demo",
       icon: CubeTransparentIcon,
       current: `/${segment}` === "/3D_Demo" ? true : false,
     },
-    {
-      name: "TEST ROUTE",
-      href: "/test_route",
-      icon: CubeTransparentIcon,
-      current: `/${segment}` === "/test_route" ? true : false,
-    },
-    {
-      name: "DYNAMIC_TEST ROUTE",
-      href: "/test_route_dynamic/4",
-      icon: CubeTransparentIcon,
-      current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
-    },
+    // {
+    //   name: "TEST ROUTE",
+    //   href: "/test_route",
+    //   icon: CubeTransparentIcon,
+    //   current: `/${segment}` === "/test_route" ? true : false,
+    // },
+    // {
+    //   name: "DYNAMIC_TEST ROUTE",
+    //   href: "/test_route_dynamic/4",
+    //   icon: CubeTransparentIcon,
+    //   current: `/${segment}`.includes('/test_route_dynamic') ? true : false,
+    // },
   ];
 
   return (
