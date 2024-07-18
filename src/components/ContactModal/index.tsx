@@ -9,7 +9,8 @@ import {
   ModalContent, 
   ModalFooter, 
   ModalTrigger, 
-  ContactIcon, 
+  ContactIcon,
+  ContactForm, 
 } from "@/src/components";
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -86,6 +87,11 @@ const ContactModal = () => {
                   </Link>
                 </div>
               )) }
+            </div>
+
+
+            <div>
+              <ContactForm />
             </div>
           </ModalContent>
           <ModalFooter className="gap-4">
