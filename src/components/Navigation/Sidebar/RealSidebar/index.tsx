@@ -6,7 +6,7 @@ import { EnvelopeIcon, CubeTransparentIcon, IdentificationIcon } from "@heroicon
 import { useSelectedLayoutSegment } from "next/navigation";
 import Logo from "../../Logo";
 import styles from "../styles.module.scss";
-import { ContactModal } from "@/src/components";
+import { ContactModal, SidebarSocialButton } from "@/src/components";
 
 // import { Divider } from 'primereact/divider';
 
@@ -69,21 +69,15 @@ const RealSidebar = ({
             </ul>
             <div className="flex flex-col items-center gap-y-3">
               <div className="flex gap-x-2">
-                <Link className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit" href="mailto:contact@josharnow.com" target="_blank">
-                  <span className="text-center">
-                    <i className="pi pi-envelope"></i>
-                  </span>
-                </Link>
-                <Link className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit" href="https://www.linkedin.com/in/joshuaarnow/" target="_blank">
-                  <span className="text-center">
-                    <i className="pi pi-linkedin"></i>
-                  </span>
-                </Link>
-                <Link className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit" href="https://github.com/josharnow" target="_blank">
-                  <span className="text-center">
-                    <i className="pi pi-github"></i>
-                  </span>
-                </Link>
+                <SidebarSocialButton href="mailto:contact@josharnow" popoverContent="contact@josharnow.com">
+                  <i className="pi pi-envelope"></i>
+                </SidebarSocialButton>
+                <SidebarSocialButton href="https://www.linkedin.com/in/joshuaarnow/" popoverContent="LinkedIn">
+                  <i className="pi pi-linkedin"></i>
+                </SidebarSocialButton>
+                <SidebarSocialButton href="https://github.com/josharnow" popoverContent="GitHub">
+                  <i className="pi pi-github"></i>
+                </SidebarSocialButton>
               </div>
               {/* <Divider type="solid" layout="horizontal" className="w-full " /> */}
               <div className="flex gap-x-2">
