@@ -7,6 +7,9 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import Logo from "../../Logo";
 import styles from "../styles.module.scss";
 import { ContactModal } from "@/src/components";
+
+// import { Divider } from 'primereact/divider';
+
 // import { classNames } from "@/src/app/_utils";
 
 const RealSidebar = ({
@@ -64,16 +67,36 @@ const RealSidebar = ({
                 </ul>
               </li>
             </ul>
-            <div className="flex gap-x-2">
-              <button className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit group/resume-btn" onClick={() => console.log("CLICKED")}>
-                <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500">
-                  📄 Résumé
-                </span>
-                <div className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
-                  📈
-                </div>
-              </button>
-              <ContactModal />
+            <div className="flex flex-col items-center gap-y-3">
+              <div className="flex gap-x-2">
+                <Link className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit" href="mailto:contact@josharnow.com" target="_blank">
+                  <span className="text-center">
+                    <i className="pi pi-envelope"></i>
+                  </span>
+                </Link>
+                <Link className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit" href="https://www.linkedin.com/in/joshuaarnow/" target="_blank">
+                  <span className="text-center">
+                    <i className="pi pi-linkedin"></i>
+                  </span>
+                </Link>
+                <Link className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit" href="https://github.com/josharnow" target="_blank">
+                  <span className="text-center">
+                    <i className="pi pi-github"></i>
+                  </span>
+                </Link>
+              </div>
+              {/* <Divider type="solid" layout="horizontal" className="w-full " /> */}
+              <div className="flex gap-x-2">
+                <ContactModal />
+                <button className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit group/resume-btn" onClick={ () => console.log("CLICKED") }>
+                  <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500">
+                    📄 Résumé
+                  </span>
+                  <div className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
+                    📈
+                  </div>
+                </button>
+              </div>
             </div>
             {/* TODO - Add date and time to the bottom of the navbar */ }
           </nav>
