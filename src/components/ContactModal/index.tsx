@@ -72,15 +72,15 @@ const ContactModal = () => {
               { contentArr?.map((content, idx) => (
                 <div key={ "content" + idx } className="flex flex-col gap-y-2">
                   <ContactIcon content={ content } />
-                  <a className={ cn(styles.contactMethodText, " text-center w-fit self-center p-2 rounded-lg shadow-3xl shadow-slate-700 bg-slate-700 hover:shadow-blue-500 hover:bg-blue-500 hover:bg-opacity-15")}
+                  <a className={ cn(styles.contactMethodText, " text-center w-fit self-center p-2 rounded-lg shadow-3xl shadow-slate-700 bg-slate-700 hover:shadow-blue-500 hover:bg-blue-500 hover:bg-opacity-15 flex flex-col")}
                   style={ { transition: "box-shadow 1s ease 0s, background 1s ease 0s, opacity 1s ease 0s, color 1s ease 1s allow-discrete" } }
                   href={ content.href } target="_blank"
                   >
                     {content.contactMethod}
                     { content.contactMethod.toLowerCase() === "email" && (
                       <>
-                        <br />
-                        <span className="text-xs sm:text-base">[contact@josharnow.com]</span>
+                        {/* <br /> */}
+                        <span className="text-[.5rem] sm:text-base">[<i className="text-medium">contact@josharnow.com</i>]</span>
                       </>
                       ) }
                   </a>

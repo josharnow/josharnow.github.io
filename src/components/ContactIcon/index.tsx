@@ -23,6 +23,7 @@ const ContactIcon = ({
   //   {/* TODO - "Click to copy" for email */ } */}
   return (
     <motion.a
+      href={ content.href }
       className={
         cn(
           styles.iconContainer,
