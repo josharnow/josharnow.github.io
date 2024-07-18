@@ -26,7 +26,7 @@ import Image from "next/image";
 import Logo from "@/src/components/Navigation/Logo";
 import { Slideshow } from "@/src/components";
 
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 function useWindowSize() {

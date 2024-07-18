@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 // import { useForm } from "react-hook-form";
 
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 // type Inputs = {

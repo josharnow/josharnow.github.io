@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 import Link from "next/link";
 import { MovingBorderButton } from "@/src/components";
 
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 function cn(...inputs: ClassValue[]) {

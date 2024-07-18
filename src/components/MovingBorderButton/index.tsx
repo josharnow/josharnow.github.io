@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 function cn(...inputs: ClassValue[]) {

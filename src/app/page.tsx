@@ -6,7 +6,7 @@ import { AuroraBackground, WavyBackground, AboutPageIntro, AboutPageEducationWor
 // import { classNames } from "@/src/app/_utils";
 import styles from "./styles.module.scss";
 
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 function cn(...inputs: ClassValue[]) {

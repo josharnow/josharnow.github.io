@@ -12,7 +12,7 @@ import {
   ContactIcon,
   ContactForm, 
 } from "@/src/components";
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import styles from "./styles.module.scss";
 

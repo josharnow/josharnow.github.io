@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 // import Image from "next/image";
 import styles from "./styles.module.scss";
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 function cn(...inputs: ClassValue[]) {

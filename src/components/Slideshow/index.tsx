@@ -6,7 +6,7 @@ import Image from "next/image";
 
 // const colors = ["#0088FE", "#00C49F", "#FFBB28"];
 // const delay = 2500;
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 function cn(...inputs: ClassValue[]) {
