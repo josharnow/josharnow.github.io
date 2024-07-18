@@ -1,6 +1,8 @@
 type ContentObj = {
   // triggerElement: React.ReactNode;
   contactMethod: string;
-  imageSrc?: string;
+  primeiconClass?: string;
+  href?: string;
+  // imageSrc?: string;
   // content?: ;
 };

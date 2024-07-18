@@ -1,4 +1,5 @@
-a:hover + .contactMethodText {
+// NOTE - https://developer.mozilla.org/en-US/docs/Web/CSS/:has
+.iconContainer:has(+ a:hover) {
   --tw-shadow-color: #3b82f6;
   --tw-shadow: var(--tw-shadow-colored);
   --tw-bg-opacity: 0.15;

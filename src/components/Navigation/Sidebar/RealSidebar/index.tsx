@@ -47,7 +47,7 @@ const RealSidebar = ({
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
               <li>
-                <ul role="list" className="-mx-2 space-y-1">
+                <ul role="list" className="-mx-2 space-y-2">
                   { navigationOptions.map((option) => (
                     <li key={ option.name }>
                       <Link href={ option.href } className={ classNames(styles.navigationLink, option.current ? "bg-blue-500 text-black shadow-3xl" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15 hover:shadow-3xl", "hover:text-white group flex gap-x-3 rounded-md p-2 sm:text-lg text-xl leading-6 font-medium whitespace-nowrap") }>
@@ -56,7 +56,7 @@ const RealSidebar = ({
                           styles.navigationLinkIcon,
                           option.current ? "text-black" : "text-gray-300", " group-hover:text-white h-6 w-6 shrink-0") } />
                         {/* <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0" /> */}
-                        { option.name }
+                        <span>{ option.name }</span>
                       </Link>
                     </li>
 

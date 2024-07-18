@@ -1,7 +1,8 @@
 "use client";
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+// import Image from "next/image";
+import styles from "./styles.module.scss";
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -14,51 +15,37 @@ const ContactIcon = ({
 }: {
   content: ContentObj;
 }) => {
-
+  //   {/* {/* TODO - Ensure pictures stay as squares */ }
+  //   {/* TODO - Improve styling */ }
+  //   {/* TODO - Add text underneath */ }
+  //   {/* TODO - Add photos */ }
+  //   {/* TODO - Add links (set target so it opens in another tab) */ }
+  //   {/* TODO - "Click to copy" for email */ } */}
   return (
-    <motion.div
-      className="border border-blue-500 flex justify-center items-center"
+    <motion.a
+      className={
+        cn(
+          styles.iconContainer,
+          "rounded-lg flex justify-center items-center p-5 shadow-3xl shadow-slate-700 bg-slate-700 hover:shadow-blue-500 hover:bg-blue-500 hover:bg-opacity-15"
+        ) }
+      style={ { transition: "box-shadow 1s ease 0s, background 1s ease 0s, opacity 1s ease 0s, color 1s ease 1s allow-discrete" } }
     >
-      <div>
-        <Image
-          src={ content.imageSrc as string }
-          alt="images"
-          width="500"
-          height="500"
-          className="rounded-lg h-30 w-30 sm:h-20 sm:w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
-        />
-      </div>
-    </motion.div>
-    // <motion.div
-    //   style={ {
-    //   } }
-    //   whileHover={ {
-    //     scale: 1.1,
-    //     rotate: 0,
-    //     zIndex: 100,
-    //   } }
-    //   whileTap={ {
-    //     scale: 1.1,
-    //     rotate: 0,
-    //     zIndex: 100,
-    //   } }
-    //   className="rounded-xl mt-4 p-1 bg-neutral-800 border-neutral-700 border flex-shrink-0 overflow-hidden"
-    // >
-    //   {/* {/* TODO - Ensure pictures stay as squares */ }
-    //   {/* TODO - Improve styling */ }
-    //   {/* TODO - Add text underneath */ }
-    //   {/* TODO - Add photos */ }
-    //   {/* TODO - Add links (set target so it opens in another tab) */ }
-    //   {/* TODO - "Click to copy" for email */ } */}
-    //   <Image
-    //     src={ content.imageSrc as string }
-    //     alt="images"
-    //     width="500"
-    //     height="500"
-    //     className="rounded-lg h-30 w-30 sm:h-20 sm:w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
-    //   />
-    //   { content.contactMethod }
-    // </motion.div>
+      {/* TODO - Make icons larger on desktop */}
+      <i className={
+        cn(
+          styles.icon,
+          content.primeiconClass,
+          "pi text-[3rem] text-blue-500",
+        )}
+      ></i>
+      {/* <Image
+        src={ content.imageSrc as string }
+        alt="images"
+        width="500"
+        height="500"
+        className="rounded-lg h-30 w-30 sm:h-20 sm:w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
+      /> */}
+    </motion.a>
   );
 };
 export default ContactIcon;

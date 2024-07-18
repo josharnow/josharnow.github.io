@@ -34,21 +34,18 @@ const ContactModal = () => {
   const contentArr = [
     {
       contactMethod: "Email",
-      imageSrc: "https://images.unsplash.com/photo-1517322048670-4fba75cbbb62?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      primeiconClass: "pi-envelope",
       href: "mailto:contact@josharnow.com",
-
     },
     {
       contactMethod: "LinkedIn",
-      imageSrc: "https://images.unsplash.com/photo-1573790387438-4da905039392?q=80&w=3425&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      primeiconClass: "pi-linkedin",
       href: "https://www.linkedin.com/in/joshuaarnow/",
-
     },
     {
       contactMethod: "GitHub",
-      imageSrc: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      primeiconClass: "pi-github",
       href: "https://github.com/josharnow",
-
     },
   ]
 
@@ -71,65 +68,25 @@ const ContactModal = () => {
             </h2>
             {/* NOTE - https://tailwindcss.com/docs/grid-template-columns */}
             {/* TODO - Idea: Iterate over each Contact icon, and underneath each have text */}
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               { contentArr?.map((content, idx) => (
-                <div key={ "content" + idx }>
+                <div key={ "content" + idx } className="flex flex-col gap-y-2">
                   <ContactIcon content={ content } />
-                  <span className="text-center">{content.contactMethod}</span>
+                  <a className={ cn(styles.contactMethodText, " text-center w-fit self-center p-2 rounded-lg shadow-3xl shadow-slate-700 bg-slate-700 hover:shadow-blue-500 hover:bg-blue-500 hover:bg-opacity-15")}
+                  style={ { transition: "box-shadow 1s ease 0s, background 1s ease 0s, opacity 1s ease 0s, color 1s ease 1s allow-discrete" } }
+                  href={ content.href } target="_blank"
+                  >
+                    {content.contactMethod}
+                    { content.contactMethod.toLowerCase() === "email" && (
+                      <>
+                        <br />
+                        <span className="text-xs sm:text-base">[contact@josharnow.com]</span>
+                      </>
+                      ) }
+                  </a>
                 </div>
               )) }
             </div>
-            {/* TODO - Content here */}
-            {/* Phone (w/link), email (w/link) */}
-            {/* <div className="py-10 flex flex-wrap gap-x-4 gap-y-6 items-start justify-start max-w-sm mx-auto">
-              <div className="flex  items-center justify-center">
-                <span className="text-neutral-300 text-sm">
-                  5 connecting flights
-                </span>
-              </div>
-              <div className="flex items-center justify-center">
-                <span className="text-neutral-300 text-sm">
-                  12 hotels
-                </span>
-              </div>
-              <div className="flex items-center justify-center">
-                <span className="text-neutral-300 text-sm">
-                  69 visiting spots
-                </span>
-              </div>
-              <div className="flex  items-center justify-center">
-                <span className="text-neutral-300 text-sm">
-                  Good food everyday
-                </span>
-              </div>
-              <div className="flex items-center justify-center">
-                <span className="text-neutral-300 text-sm">
-                  Open Mic
-                </span>
-              </div>
-              <div className="flex items-center justify-center">
-                <span className="text-neutral-300 text-sm">
-                  Paragliding
-                </span>
-              </div>
-            </div> */}
-            {/* <div className="py-10 flex flex-wrap gap-x-4 gap-y-6 items-start justify-start max-w-sm mx-auto"> */}
-
-
-            {/* <div className="grow flex justify-center items-center">
-              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 bg-white">
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-                  Border Magic
-                </span>
-              </button>
-    
-              <button className="p-[3px] relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-                <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
-                  Lit up borders
-                </div>
-              </button>
-            </div> */}
           </ModalContent>
           <ModalFooter className="gap-4">
           </ModalFooter>
