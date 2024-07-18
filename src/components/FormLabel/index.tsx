@@ -26,5 +26,5 @@ const FormLabel = React.forwardRef<
 ));
 FormLabel.displayName = LabelPrimitive.Root.displayName;
 
-// export { Label };
 export default FormLabel;
+// export { Label };

@@ -6,3 +6,5 @@ type ContentObj = {
   // imageSrc?: string;
   // content?: ;
 };
+interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> { }
