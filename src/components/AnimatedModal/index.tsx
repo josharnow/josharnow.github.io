@@ -192,8 +192,8 @@ export const ModalFooter = ({
       ) }
     >
       { children }
-      <button className="bg-black text-white text-sm px-2 py-1 rounded-md border border-black w-28" onClick={ () => setOpen(false) }>
-        OK
+      <button className="bg-black text-white text-sm px-2 py-1 rounded-md border border-black w-28 cursor-pointer" onClick={ () => setOpen(false) }>
+        Go back
       </button>
     </div>
   );
