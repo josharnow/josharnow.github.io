@@ -56,34 +56,36 @@ function ContactForm() {
 
   return (
     <>
-      <form onSubmit={ handleSubmit } className="flex flex-col gap-y-2 items-center">
-        {/* <div>
-          <label htmlFor="name">Name</label>
-          <input type="text" name="name" required placeholder="Your name" />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" required placeholder="email@example.com" />
-        </div>
-        <div>
-          <label htmlFor="message">Message</label>
-          <textarea name="message" required rows={ 3 } placeholder="Enter Message"></textarea>
-        </div>
-        <HCaptcha
-          sitekey={ process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY }
-          reCaptchaCompat={ false }
-          onVerify={ setCaptcha } 
-        />
-        <button type="submit">Submit Form</button> */}
-
+      <form onSubmit={ handleSubmit } className="flex flex-col gap-y-2">
         <FormLabelInputContainer className="w-full sm:w-[50%]">
             <FormLabel htmlFor="name">Name</FormLabel>
             <FormInput id="name" name="name" placeholder="Your name" type="name" className="" />
-          </FormLabelInputContainer>
+        </FormLabelInputContainer>
         <FormLabelInputContainer className="w-full sm:w-[50%]">
-            <FormLabel htmlFor="email">Email</FormLabel>
+          <FormLabel htmlFor="email">Email</FormLabel>
           <FormInput id="email" placeholder="YourEmailAddress@example.com" type="email" name="email" className="" />
-          </FormLabelInputContainer>
+        </FormLabelInputContainer>
+        <FormLabelInputContainer className="w-full">
+          <FormLabel htmlFor="message">Message</FormLabel>
+          <FormInput id="message" placeholder="Your message" name="message" className="h-20" inputElement={(
+            <>
+              <textarea id="message" name="message" className="flex h-10 w-full border-none bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent 
+                  file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600 
+                  focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600
+                  disabled:cursor-not-allowed disabled:opacity-50
+                  dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
+                  group-hover/input:shadow-none transition duration-400" />
+            </>
+          )} />
+        </FormLabelInputContainer>
+        <HCaptcha
+          sitekey={ process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY }
+          reCaptchaCompat={ false }
+          onVerify={ setCaptcha }
+        />
+        <button className="bg-white text-black text-sm px-2 py-1 rounded-md border border-white w-fit cursor-pointer self-end" type="submit">
+          Send Josh a message
+        </button>
       </form>
     </>
   );
