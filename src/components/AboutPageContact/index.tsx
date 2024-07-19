@@ -1,6 +1,6 @@
 "use client";
 import React, { forwardRef } from "react";
-import { MovingBorderButton } from "@/src/components";
+import { MovingBorderButton, ContactModal } from "@/src/components";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
