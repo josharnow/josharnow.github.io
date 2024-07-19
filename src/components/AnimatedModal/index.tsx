@@ -47,21 +47,40 @@ export function Modal({ children }: { children: ReactNode }) {
 export const ModalTrigger = ({
   children,
   className,
+  buttonElement,
 }: {
   children: ReactNode;
+  buttonElement?: ReactNode;
   className?: string;
 }) => {
   const { setOpen } = useModal();
   return (
-    <button
-      className={ cn(
-        "px-4 py-2 rounded-md text-center relative overflow-hidden",
-        className
-      ) }
-      onClick={ () => setOpen(true) }
-    >
-      { children }
-    </button>
+    <>
+      {
+        !buttonElement ? (
+          <button
+            className={ cn(
+              "px-4 py-2 rounded-md text-center relative overflow-hidden",
+              className
+            ) }
+            onClick={ () => setOpen(true) }
+          >
+            { children }
+          </button>
+        )
+        : (
+          
+          <>
+            <div 
+              onClick={ () => setOpen(true) }
+            >
+              { buttonElement }
+            </div>
+          </>
+        )
+        
+      }
+    </>
   );
 };
 
