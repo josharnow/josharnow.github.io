@@ -84,22 +84,10 @@
 
 .navigationLink {
   transition: all 0.75s allow-discrete;
-  box-shadow: none;
-  // transition: box-shadow, color 5.75s allow-discrete;
-
-  // :hover {
-  //   // color: #3b82f6;
-  //   box-shadow: -5px 0 11px rgba(10, 36, 173, 0.68) inset;
-  // }
+  // box-shadow: none;
 }
 .navigationLinkIcon {
   transition: color 0.75s allow-discrete;
-  // transition: color 5.75s allow-discrete;
-
-  // :hover {
-  //   color: red !important;
-  //   // color: #3b82f6;
-  // }
 }
 
 // .currentLink {

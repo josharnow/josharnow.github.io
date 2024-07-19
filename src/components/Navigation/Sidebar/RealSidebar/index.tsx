@@ -53,7 +53,7 @@ const RealSidebar = ({
                 <ul role="list" className="-mx-2 space-y-2">
                   { navigationOptions.map((option) => (
                     <li key={ option.name }>
-                      <Link href={ option.href } className={ classNames(styles.navigationLink, option.current ? "bg-blue-500 text-black !shadow-3xl" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15 hover:shadow-3xl", "hover:text-white group flex gap-x-3 rounded-md p-2 sm:text-lg text-xl leading-6 font-medium whitespace-nowrap cursor-pointer") }>
+                      <Link href={ option.href } className={ classNames(styles.navigationLink, option.current ? "bg-blue-500 text-black shadow-3xl" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15 hover:shadow-3xl", "hover:text-white group flex gap-x-3 rounded-md p-2 sm:text-lg text-xl leading-6 font-medium whitespace-nowrap cursor-pointer") }>
                         {/*  NOTE - Classes after the comma will be applied regardless of outcome of ternary */ }
                         <option.icon className={ classNames(
                           styles.navigationLinkIcon,
