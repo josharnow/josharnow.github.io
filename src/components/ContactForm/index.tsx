@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 // import { useForm } from "react-hook-form";
+import { FormLabelInputContainer, FormLabel, FormInput } from "@/src/components";
 
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -47,6 +48,7 @@ function ContactForm() {
     // if (response.ok) {
 
     // }
+    // TODO - https://ui.aceternity.com/components/signup-form
     // TODO - After submission, show a success message under the form
     // TODO - Do a similar message with the captcha instead of presenting an alert
     // TODO - Use state to retain information a user puts in the boxes in case they accidentally click out. State handler will probably have to be in parent component, with the set function passed in here
@@ -55,7 +57,7 @@ function ContactForm() {
   return (
     <>
       <form onSubmit={ handleSubmit }>
-        <div>
+        {/* <div>
           <label htmlFor="name">Name</label>
           <input type="text" name="name" required placeholder="Your name" />
         </div>
@@ -72,7 +74,15 @@ function ContactForm() {
           reCaptchaCompat={ false }
           onVerify={ setCaptcha } 
         />
-        <button type="submit">Submit Form</button>
+        <button type="submit">Submit Form</button> */}
+        <FormLabelInputContainer className="">
+          <FormLabel htmlFor="name">Name</FormLabel>
+          <FormInput id="name" name="name" placeholder="Your name" type="name" />
+        </FormLabelInputContainer>
+        <FormLabelInputContainer className="">
+          <FormLabel htmlFor="email">Email</FormLabel>
+          <FormInput id="email" placeholder="YourEmailAddress@example.com" type="email" name="email" />
+        </FormLabelInputContainer>
       </form>
     </>
   );

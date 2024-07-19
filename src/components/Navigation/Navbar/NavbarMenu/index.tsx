@@ -25,8 +25,8 @@ const NavbarMenu = ({ toggle, isOpen, navigationOptions }: {
             { navigationOptions.map((option) => (
               <li key={ option.name } className="">
                 <Link onClick={ toggle } href={ option.href } className={ classNames(styles.navigationLink,
-                    "hover:text-white group flex gap-x-3 rounded-md p-2 text-xl leading-6 font-medium whitespace-nowrap",
-                  option.current ? "bg-blue-500 text-black shadow-3xl" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15 hover:shadow-3xl"
+                  option.current ? "bg-blue-500 text-black shadow-3xl" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15 hover:shadow-3xl",
+                    "hover:text-white group flex gap-x-3 rounded-md p-2 text-xl leading-6 font-medium whitespace-nowrap cursor-pointer",
                     ) }>
                   <option.icon className={ classNames(
                     styles.navigationLinkIcon,

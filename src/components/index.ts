@@ -17,6 +17,7 @@ export { default as ContactIcon } from './ContactIcon';
 export { default as ContactForm } from './ContactForm';
 export { default as FormInput } from './FormInput';
 export { default as FormLabel } from './FormLabel';
+export { default as FormLabelInputContainer } from './FormLabelInputContainer';
 export { default as SidebarSocialButton } from './SidebarSocialButton';
 export { default as AboutPageIntro } from './AboutPageIntro';
 export { default as AboutPageEducationWork } from './AboutPageEducationWork';
