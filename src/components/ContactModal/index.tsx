@@ -102,7 +102,7 @@ const ContactModal = ({
                   </div>
                 )) }
               </div>
-              <div className="">
+              <div className="border border-white p-4 rounded-2xl shadow-3xl shadow-slate-700 bg-slate-700">
                 <ContactForm />
               </div>
             </div>
