@@ -56,7 +56,7 @@ function ContactForm() {
 
   return (
     <>
-      <form onSubmit={ handleSubmit }>
+      <form onSubmit={ handleSubmit } className="flex flex-col gap-y-2 items-center">
         {/* <div>
           <label htmlFor="name">Name</label>
           <input type="text" name="name" required placeholder="Your name" />
@@ -75,14 +75,15 @@ function ContactForm() {
           onVerify={ setCaptcha } 
         />
         <button type="submit">Submit Form</button> */}
-        <FormLabelInputContainer className="">
-          <FormLabel htmlFor="name">Name</FormLabel>
-          <FormInput id="name" name="name" placeholder="Your name" type="name" />
-        </FormLabelInputContainer>
-        <FormLabelInputContainer className="">
-          <FormLabel htmlFor="email">Email</FormLabel>
-          <FormInput id="email" placeholder="YourEmailAddress@example.com" type="email" name="email" />
-        </FormLabelInputContainer>
+
+        <FormLabelInputContainer className="w-full sm:w-[50%]">
+            <FormLabel htmlFor="name">Name</FormLabel>
+            <FormInput id="name" name="name" placeholder="Your name" type="name" className="" />
+          </FormLabelInputContainer>
+        <FormLabelInputContainer className="w-full sm:w-[50%]">
+            <FormLabel htmlFor="email">Email</FormLabel>
+          <FormInput id="email" placeholder="YourEmailAddress@example.com" type="email" name="email" className="" />
+          </FormLabelInputContainer>
       </form>
     </>
   );
