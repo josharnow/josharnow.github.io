@@ -27,7 +27,7 @@ const ContactIcon = ({
       className={
         cn(
           styles.iconContainer,
-          "rounded-lg flex justify-center items-center p-5 shadow-3xl shadow-slate-700 bg-slate-700 hover:shadow-blue-500 hover:bg-blue-500 hover:bg-opacity-15"
+          "rounded-lg flex justify-center items-center w-fit p-2 sm:p-5 self-center shadow-3xl shadow-slate-700 bg-slate-700 hover:shadow-blue-500 hover:bg-blue-500 hover:bg-opacity-15"
         ) }
       style={ { transition: "box-shadow 1s ease 0s, background 1s ease 0s, opacity 1s ease 0s, color 1s ease 1s allow-discrete" } }
     >
@@ -36,7 +36,7 @@ const ContactIcon = ({
         cn(
           styles.icon,
           content.primeiconClass,
-          "pi text-[3rem] text-blue-500",
+          "pi text-[1.5rem] sm:text-[2rem] text-blue-500",
         )}
       ></i>
       {/* <Image
