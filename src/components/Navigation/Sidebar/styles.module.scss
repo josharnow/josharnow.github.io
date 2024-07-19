@@ -83,7 +83,8 @@
 }
 
 .navigationLink {
-  transition: box-shadow, color 0.50s allow-discrete;
+  transition: all 0.75s allow-discrete;
+  box-shadow: none;
   // transition: box-shadow, color 5.75s allow-discrete;
 
   // :hover {
@@ -92,7 +93,7 @@
   // }
 }
 .navigationLinkIcon {
-  transition: color 0.50s allow-discrete;
+  transition: color 0.75s allow-discrete;
   // transition: color 5.75s allow-discrete;
 
   // :hover {
@@ -101,16 +102,13 @@
   // }
 }
 
-.currentLink {
-  background-color: theme("colors.blue.500");
-  color: black;
-  box-shadow: theme("boxShadow.3xl");
-}
+// .currentLink {
+//   background-color: theme("backgroundColor.blue.500");
+//   color: black;
+//   box-shadow: theme("boxShadow.3xl");
+// }
 
-.unselectedLink {
-  // NOTE - This is how you can access Tailwind CSS variables in SCSS
-  color: theme("colors.gray.400");
-}
+
 
 
 .currentLinkIcon {

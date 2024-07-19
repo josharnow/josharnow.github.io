@@ -201,8 +201,8 @@
 }
 
 .navigationLink {
-  transition: box-shadow, color 0.50s allow-discrete;
+  transition: all 0.75s allow-discrete;
 }
 .navigationLinkIcon {
-  transition: color 0.50s allow-discrete;
+  transition: color 0.75s allow-discrete;
 }
