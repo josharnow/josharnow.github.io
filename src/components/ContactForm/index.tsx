@@ -61,7 +61,7 @@ function ContactForm() {
             <FormLabel htmlFor="name">Name</FormLabel>
             <FormInput id="name" name="name" placeholder="Your name" type="name" className="" />
         </FormLabelInputContainer>
-        <FormLabelInputContainer className="w-full sm:w-[50%]">
+        <FormLabelInputContainer className="w-full sm:w-[75%]">
           <FormLabel htmlFor="email">Email</FormLabel>
           <FormInput id="email" placeholder="YourEmailAddress@example.com" type="email" name="email" className="" />
         </FormLabelInputContainer>
