@@ -103,7 +103,7 @@ const ContactModal = ({
                   </div>
                 )) }
               </div>
-              <div className="border border-white p-4 rounded-2xl shadow-3xl shadow-slate-700 bg-slate-700">
+              <div className="grow border border-white p-4 rounded-2xl shadow-3xl shadow-slate-700 bg-slate-700">
                 <ContactForm formId={ formId } />
               </div>
             </div>
