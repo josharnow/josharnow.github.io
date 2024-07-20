@@ -194,11 +194,11 @@ export const ModalFooter = ({
       ) }
     >
       { children }
-      <button className="bg-white text-black text-sm px-2 py-1 rounded-md border border-white w-fit cursor-pointer self-end" type="submit" form={ formId }>
-        Send Josh a message
-      </button>
       <button className="bg-black text-white text-sm px-2 py-1 rounded-md border border-black w-28 cursor-pointer" onClick={ () => setOpen(false) }>
         Go back
+      </button>
+      <button className="bg-white text-black text-sm px-2 py-1 rounded-md border border-white w-fit cursor-pointer self-end" type="submit" form={ formId }>
+        Send Josh a message
       </button>
     </div>
   );
