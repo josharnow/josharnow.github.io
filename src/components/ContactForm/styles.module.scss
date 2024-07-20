@@ -3,3 +3,25 @@
     width: 100% !important;
   }
 }
+
+
+.textareaInput {
+  display: block;
+  width: 100%;
+  // overflow: auto;
+  overflow: hidden;
+  resize: both;
+  min-height: 5rem;
+  line-height: 20px;
+}
+
+@media (min-height: 800px) {
+.textareaInput {
+    min-height: 10rem !important;
+  }
+}
+
+.textareaInput[contenteditable]:empty::before {
+  content: "Your message";
+  color: theme("colors.neutral.400");
+}
