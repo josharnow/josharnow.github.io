@@ -68,6 +68,7 @@ const ContactModal = ({
     },
   ]
 
+  const formId = "contactForm";
 
   return (
     <>
@@ -77,7 +78,7 @@ const ContactModal = ({
         </ModalTrigger>
         <ModalBody>
           <ModalContent className="">
-            <h2 className="text-2xl sm:text-3xl text-neutral-100 font-medium text-center mb-8">
+            <h2 className="text-base sm:text-3xl text-neutral-100 font-medium text-center mb-2 sm:mb-8">
               Let’s get in touch!
             </h2>
             {/* NOTE - https://tailwindcss.com/docs/grid-template-columns */}
@@ -103,11 +104,11 @@ const ContactModal = ({
                 )) }
               </div>
               <div className="border border-white p-4 rounded-2xl shadow-3xl shadow-slate-700 bg-slate-700">
-                <ContactForm />
+                <ContactForm formId={ formId } />
               </div>
             </div>
           </ModalContent>
-          <ModalFooter className="gap-4">
+          <ModalFooter className="gap-4" formId={ formId }>
           </ModalFooter>
         </ModalBody>
       </Modal>

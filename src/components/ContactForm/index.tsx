@@ -20,7 +20,7 @@ function cn(...inputs: ClassValue[]) {
 }
 
 // SOURCE - https://dsavir-h.medium.com/contact-form-for-static-site-with-web3forms-575ee166732
-function ContactForm() {
+function ContactForm({ formId }: { formId?: string } ) {
   const [captcha, setCaptcha] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -56,7 +56,7 @@ function ContactForm() {
 
   return (
     <>
-      <form onSubmit={ handleSubmit } className="flex flex-col gap-y-2">
+      <form id={ formId } onSubmit={ handleSubmit } className="flex flex-col gap-y-2">
         <FormLabelInputContainer className="w-full sm:w-[50%]">
             <FormLabel htmlFor="name">Name</FormLabel>
             <FormInput id="name" name="name" placeholder="Your name" type="name" className="" />
@@ -83,9 +83,9 @@ function ContactForm() {
           reCaptchaCompat={ false }
           onVerify={ setCaptcha }
         />
-        <button className="bg-white text-black text-sm px-2 py-1 rounded-md border border-white w-fit cursor-pointer self-end" type="submit">
+        {/* <button className="bg-white text-black text-sm px-2 py-1 rounded-md border border-white w-fit cursor-pointer self-end" type="submit">
           Send Josh a message
-        </button>
+        </button> */}
       </form>
     </>
   );
