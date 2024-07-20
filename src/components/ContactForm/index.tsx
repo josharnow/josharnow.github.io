@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 // import { useForm } from "react-hook-form";
 import { FormLabelInputContainer, FormLabel, FormInput } from "@/src/components";
+import styles from "./styles.module.scss";
 
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -78,14 +79,13 @@ function ContactForm({ formId }: { formId?: string } ) {
             </>
           )} />
         </FormLabelInputContainer>
-        <HCaptcha
-          sitekey={ process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY }
-          reCaptchaCompat={ false }
-          onVerify={ setCaptcha }
-        />
-        {/* <button className="bg-white text-black text-sm px-2 py-1 rounded-md border border-white w-fit cursor-pointer self-end" type="submit">
-          Send Josh a message
-        </button> */}
+        <div className={ styles.captchaContainer }>
+          <HCaptcha
+            sitekey={ process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY }
+            reCaptchaCompat={ false }
+            onVerify={ setCaptcha }
+          />
+        </div>
       </form>
     </>
   );
