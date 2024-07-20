@@ -69,7 +69,7 @@ const RealSidebar = ({
             </ul>
             <div className="flex flex-col items-center gap-y-3">
               <div className="flex gap-x-2">
-                <SidebarSocialButton href="mailto:contact@josharnow" popoverContent="contact@josharnow.com">
+                <SidebarSocialButton href="mailto:contact@josharnow.com" popoverContent="contact@josharnow.com">
                   <i className="pi pi-envelope"></i>
                 </SidebarSocialButton>
                 <SidebarSocialButton href="https://www.linkedin.com/in/joshuaarnow/" popoverContent="LinkedIn">
