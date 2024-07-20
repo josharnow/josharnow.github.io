@@ -103,7 +103,9 @@ export const ModalBody = ({
 
   const modalRef = useRef(null);
   const { setOpen } = useModal();
-  useOutsideClick(modalRef, () => setOpen(false));
+
+  // NOTE - Below will close the modal when clicking outside of the modal
+  // useOutsideClick(modalRef, () => setOpen(false));
 
   return (
     <AnimatePresence>
