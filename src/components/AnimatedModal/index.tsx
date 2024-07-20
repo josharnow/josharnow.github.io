@@ -127,7 +127,7 @@ export const ModalBody = ({
           <motion.div
             ref={ modalRef }
             className={ cn(
-              "min-h-[60%] max-h-[90%] max-w-[95%] md:max-w-[60%] bg-neutral-950 border border-neutral-800 md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
+              "min-h-[90%] sm:min-h-[60%] max-h-[90%] max-w-[95%] md:max-w-[60%] bg-neutral-950 border border-neutral-800 rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
               className
             ) }
             initial={ {
@@ -178,9 +178,11 @@ export const ModalContent = ({
 
 export const ModalFooter = ({
   children,
+  formId,
   className,
 }: {
   children?: ReactNode;
+  formId?: string;
   className?: string;
 }) => {
   const { setOpen, open } = useModal();
@@ -192,6 +194,9 @@ export const ModalFooter = ({
       ) }
     >
       { children }
+      <button className="bg-white text-black text-sm px-2 py-1 rounded-md border border-white w-fit cursor-pointer self-end" type="submit" form={ formId }>
+        Send Josh a message
+      </button>
       <button className="bg-black text-white text-sm px-2 py-1 rounded-md border border-black w-28 cursor-pointer" onClick={ () => setOpen(false) }>
         Go back
       </button>
