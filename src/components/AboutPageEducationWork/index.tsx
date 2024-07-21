@@ -17,7 +17,7 @@ const AboutPageEducationWork = forwardRef(function AboutPageEducationWork(props,
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.4], [0, 1.2]);
 
   return (
-    <div id="education-work" ref={ ref } className="h-full" style={ { "backgroundImage": "linear-gradient(rgb(24 24 27), black)" } }>
+    <div id="career-education" ref={ ref } className="h-full" style={ { "backgroundImage": "linear-gradient(rgb(24 24 27), black)" } }>
       <GoogleGeminiEffect
         pathLengths={ [
           pathLengthFirst,

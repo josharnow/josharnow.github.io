@@ -18,8 +18,10 @@ import styles from "./styles.module.scss";
 // TODO - Metadata for each page (https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
 export const metadata: Metadata = {
   applicationName: "Josh Arnow's Website", // NOTE - This should be applied on all pages
-  title: "Josh Arnow's Website", // NOTE - This should change depending on what page is being viewed. Same goes for other titles in this metadata object.
-  description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida.",
+  title: "About Josh Arnow", // NOTE - This should change depending on what page is being viewed. Same goes for other titles in this metadata object.
+  // title: "Josh Arnow's Website", // NOTE - This should change depending on what page is being viewed. Same goes for other titles in this metadata object.
+  description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida",
+  // description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida.",
   authors: [{name: "Josh Arnow", url: "https://josharnow.com"}],
   creator: "Josh Arnow",
   metadataBase: new URL('https://josharnow.com'),
@@ -33,8 +35,9 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://josharnow.com",
     siteName: "Josh Arnow's Website",
-    title: "Josh Arnow's Website",
-    description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida.",
+    title: "About Josh Arnow",
+    // title: "Josh Arnow's Website",
+    description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida",
     images: [
       {
         url: "/open-graph-image.png",
@@ -50,7 +53,7 @@ export const metadata: Metadata = {
     site: "https://josharnow.com",
     creator: "Josh Arnow",
     images: "/open-graph-image.png", // TODO - Make this an image of whatever page is being shared
-    description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida.",
+    description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida",
   },
 };
 
