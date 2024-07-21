@@ -28,7 +28,7 @@ const InputError = ({ message }: { message: string }) => {
   return (
     <>
       <motion.p
-        className="flex items-center gap-1 px-2 font-medium text-red-500 bg-red-100 rounded-md"
+        className="text-sm lg:text-base flex items-center gap-1 px-2 font-medium text-red-500 bg-red-100 rounded-md"
         { ...framer_error }
       >
         <MdError />
