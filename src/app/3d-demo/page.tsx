@@ -5,9 +5,9 @@ import { type Camera, Canvas } from '@react-three/fiber';
 // import { Loader as dreiLoader } from "@react-three/drei";
 import { Loader, ThreeDDemoInfo } from '@/src/components';
 import { Island, Sky, Bird, Plane } from '@/src/models';
-import { FontData, Text3D } from '@react-three/drei';
-import text3DFont from '@/src/assets/fonts/ibm_plex_sans_var_roman_regular.json';
-import { Leva, useControls } from 'leva';
+// import { FontData, Text3D } from '@react-three/drei';
+// import text3DFont from '@/src/assets/fonts/ibm_plex_sans_var_roman_regular.json';
+// import { Leva, useControls } from 'leva';
 
 export default function ThreeDDemo() {
   const cameraProps = {
@@ -57,16 +57,21 @@ export default function ThreeDDemo() {
   }
 
   // const [islandScale, islandPosition, islandRotation] = adjustIslandForScreenSize();
-  const { position: islandPosition, scale: islandScale, rotation: islandRotation } = useControls({
+  const { position: islandPosition, scale: islandScale, rotation: islandRotation } = {
     position: [0, -6.5, -43],
     scale: [1, 1, 1],
     rotation: [0.1, 4.7, 0]
-  });
+  };
+  // const { position: islandPosition, scale: islandScale, rotation: islandRotation } = useControls({
+  //   position: [0, -6.5, -43],
+  //   scale: [1, 1, 1],
+  //   rotation: [0.1, 4.7, 0]
+  // });
   const [planeScale, planePosition, planeRotation] = adjustPlaneForScreenSize();
 
   return (
     <>
-      <Leva collapsed={true} />
+      {/* <Leva collapsed={true} /> */}
       <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center text-black'>
         {currentStage && <ThreeDDemoInfo currentStage={currentStage} />}
       </div>
