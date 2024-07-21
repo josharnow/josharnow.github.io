@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 import { ContactModal } from "@/src/components";
 import NavbarMenu from "./NavbarMenu";
 import NavbarMenuButton from "./NavbarMenuButton";
+import Link from "next/link";
 
 const Navbar = ({ toggle, isOpen, navigationOptions }: { 
   toggle: () => void; 
@@ -25,14 +26,18 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
           <div className="flex justify-between items-center h-full w-full px-4 py-2">
             <div className="flex gap-x-4">
               <ContactModal />
-              <button className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit group/resume-btn" onClick={ () => console.log("CLICKED") }>
+              <Link 
+                className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit group/resume-btn" 
+                href="/Josh_Arnow_Resume.pdf"
+                target="_blank"
+              >
                 <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500">
                   📄 Résumé
                 </span>
                 <div className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
                   📈
                 </div>
-              </button>
+              </Link>
             </div>
             <NavbarMenuButton toggle={ toggle } isOpen={ isOpen } />
           </div>
