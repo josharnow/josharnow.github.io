@@ -1,5 +1,4 @@
 "use client";
-import type { Metadata } from "next";
 import React, { useState, useEffect, useRef } from 'react';
 // This is the root view of the app, hence it is placed in the root of the app directory.
 import { AuroraBackground, WavyBackground, AboutPageIntro, AboutPageEducationWork, AboutPagePortfolio, AboutPageTechnologies, AboutPageContact } from "@/src/components";
