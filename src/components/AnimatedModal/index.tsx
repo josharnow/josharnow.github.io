@@ -174,7 +174,7 @@ export const ModalContent = ({
   return (
     <div className={ cn("relative flex flex-col flex-1", className) }>
       <div className="absolute left-0 right-0 top-0 bottom-0 overflow-auto ">
-        <div className="h-full w-full p-4 md:p-10">
+        <div className="h-full w-full flex flex-col p-4 md:p-10">
           { children }
         </div>
       </div>
