@@ -1,6 +1,6 @@
 "use client";
 import React, { forwardRef } from "react";
-import { MovingBorderButton } from "@/src/components";
+import { MovingBorderButton, ContactModal } from "@/src/components";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ const AboutPageContact = forwardRef(function AboutPageContact(props, ref: React.
     <div ref={ ref } id="contact" className="h-[calc(100vh-5rem)] sm:h-screen  w-full bg-black  bg-grid-white/[0.2] relative flex items-center justify-center">
       {/* Radial gradient for the container to give a faded look */ }
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-      <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
+      <div className=" p-4 max-w-7xl  mx-auto relative z-1  w-full pt-20 md:pt-0">
         <motion.h1
           key={ "about-page-contact-1" }
           initial={ { opacity: 0.0, y: 0 } }
@@ -38,13 +38,20 @@ const AboutPageContact = forwardRef(function AboutPageContact(props, ref: React.
           } }
           className="w-full flex justify-center my-4"
         >
-          <MovingBorderButton
-            borderRadius="1.75rem"
-            className="bg-slate-700 !text-white border-slate-800 font-medium z-10 text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
-            duration={ 5000.0 }
-          >
-            <Link href="/contact">Contact Me</Link>
-          </MovingBorderButton>
+          <ContactModal
+            modalTriggerClassName=""
+            buttonElement={(
+              <>
+                <MovingBorderButton
+                  borderRadius="1.75rem"
+                  className="bg-slate-700 !text-white border-slate-800 font-medium z-1 text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
+                  duration={ 5000.0 }
+                >
+                  <span>Contact Me</span>
+                </MovingBorderButton>
+              </>
+            )} 
+          />
         </motion.div>
         <motion.p 
           key={ "about-page-contact-3" }

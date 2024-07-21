@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 import Link from "next/link";
 import { MovingBorderButton } from "@/src/components";
 
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 function cn(...inputs: ClassValue[]) {
@@ -86,7 +86,7 @@ const GoogleGeminiEffect = ({
             className="bg-slate-700 !text-white border-slate-800 font-medium z-10 text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
             duration={ 5000.0 }
             >
-            <Link href="/education-and-career">Education & Career Timeline</Link>
+            <Link href="/career-and-education-timeline">Career & Education Timeline</Link>
           </MovingBorderButton>
         </div>
       </motion.div>

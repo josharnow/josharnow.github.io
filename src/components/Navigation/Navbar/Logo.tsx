@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Button from "./Button";
 import Device from "@/src/components/Device";
 import joshArnowLogo from "@/src/assets/images/josh_arnow_logo.svg";
 import joshArnowLogoNoShadows from "@/src/assets/images/josh_arnow_logo_no_shadows.svg";
@@ -54,7 +53,7 @@ const Logo = () => {
           display: showButton ? "block" : "none",
         } }
       >
-        <Button />
+        <button className="h-12 rounded-lg bg-white font-bold px-5" style={ { color: 'black' } }>Sign In</button>
       </div>
     </>
   );

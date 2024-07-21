@@ -37,9 +37,11 @@
 
 .sidebarContainer,
 .shadowSidebarContainer {
-  background: white;
+  // background: #F6AF3B;
+  // TODO - Make background darker
   width: fit-content;
-  transform: translateX(-100%);
+  // box-shadow: -5px 0 11px rgba(10, 36, 173, 0.68) inset;
+  // transform: translateX(-100%);
 }
 
 .sidebarContainer {
@@ -47,12 +49,12 @@
   top: 0;
   left: 0;
   z-index: 1;
-  animation: smooth-appear-for-real 1s ease forwards;
+  // animation: smooth-appear-for-real 1s ease forwards;
 }
 
 .shadowSidebarContainer {
   z-index: 0;
-  animation: smooth-appear 1s ease forwards;
+  // animation: smooth-appear 1s ease forwards;
 }
 
 // TODO - Figure out exit animation. The hidden property is making it not work (https: //chriscoyier.net/2023/10/30/exit-animations/)
@@ -78,4 +80,25 @@
   //   animation: smooth-disappear 1s ease forwards;
   // }
 
+}
+
+.navigationLink {
+  transition: all 0.75s allow-discrete;
+  // box-shadow: none;
+}
+.navigationLinkIcon {
+  transition: color 0.75s allow-discrete;
+}
+
+// .currentLink {
+//   background-color: theme("backgroundColor.blue.500");
+//   color: black;
+//   box-shadow: theme("boxShadow.3xl");
+// }
+
+
+
+
+.currentLinkIcon {
+  color: black;
 }

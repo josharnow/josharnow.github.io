@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 function cn(...inputs: ClassValue[]) {
@@ -38,7 +38,7 @@ export function MovingBorderButton({
   return (
     <Component
       className={ cn(
-        "bg-transparent relative p-[1px] overflow-hidden",
+        "bg-transparent relative p-[1px] overflow-hidden shadow-3xl shadow-blue-500",
         containerClassName
       ) }
       style={ {

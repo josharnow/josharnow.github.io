@@ -1,5 +1,5 @@
 import React from "react";
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 type SpotlightProps = {

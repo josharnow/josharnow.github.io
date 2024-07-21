@@ -37,7 +37,8 @@
 
 
 // .main {
-//   // flex-grow: 1;
+//   // left: anchor(--sidebar right);
+//   // NOTE - Anchor WOULD work, except it's not compatible with Safari at the moment...
 // }
 
 .view1,
@@ -94,7 +95,7 @@
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  z-index: 1000;
+  // z-index: 49;
   cursor: pointer;
   animation: bounce 2s infinite;
 

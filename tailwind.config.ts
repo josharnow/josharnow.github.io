@@ -19,6 +19,12 @@ const config: Config = {
         'tall': { 'raw': '(min-height: 800px)' },
         ...defaultTheme.screens,
       },
+      boxShadow: {
+        // '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+        // '3xl': '0 0 1rem rgba(0, 0, 0, 0.68)',
+        '3xl': '0 5px 11px rgba(0, 0, 0, 0.68)',
+        'input': `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -27,6 +33,7 @@ const config: Config = {
       animation: {
         aurora: "aurora 60s linear infinite",
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        shimmer: "shimmer 2s linear infinite",
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",
         third: "moveInCircle 40s linear infinite",
@@ -50,6 +57,14 @@ const config: Config = {
           "100%": {
             opacity: "1",
             transform: "translate(-50%,-40%) scale(1)",
+          },
+        },
+        shimmer: {
+          from: {
+            backgroundPosition: "0 0",
+          },
+          to: {
+            backgroundPosition: "-200% 0",
           },
         },
         moveHorizontal: {

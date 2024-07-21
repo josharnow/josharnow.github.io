@@ -6,16 +6,53 @@
   // background-color: var(--color-primary);
   // color: var(--color-white);
   width: 100%;
-  background-color: white;
-  box-shadow: 0 -5px 11px rgba(10, 36, 173, 0.68) inset;
+  // background-color: white;
+  
+  // box-shadow: 0 -5px 11px rgba(10, 36, 173, 0.68) inset;
 }
 
 .navbar {
-  animation: slideInFromTop 0.5s ease-in-out;
+  // animation: slideInFromTop 0.5s ease-in-out;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+}
+.navbarMenu {
+  // display: flex;
+  flex-direction: column;
+
+  // box-shadow: 0 5px 11px rgba(black, 0.68);
+
+  // animation-name: swingdown;
+  // animation-duration: .75s;
+  // animation-timing-function: ease-in-out;
+  // height: 100%;
+  height: fit-content;
+  // opacity: 1;
+  // scale: 1;
+  transition-property: transform, border, display;
+  transition-duration: 1.00s;
+  transition-behavior: allow-discrete;
+
+
+  border-top: 2px solid black;
+  transform: translateY(0);
+  
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  z-index: 39;
+}
+
+// SOURCE - https: //kentondejong.medium.com/we-can-finally-transition-display-none-cbb03831351f
+.navbarMenu.closed {
+  transform: translateY(-100%);
+  // border: 0;
+  // border-top: 2px solid black;
+  // NOTE - Below isn't working as expected when uncommented, so I'm leaving it as is without truly "hiding" since it can't be seen
+  // display: none;
 }
 
 @keyframes slideInFromTop {
@@ -27,4 +64,145 @@
     transform: translateY(0);
     box-shadow: 0 -5px 11px rgba(10, 36, 173, 0.68) inset;
   }
+}
+
+// .navbarMenuHidden {
+//   // animation-name: swingup;
+//   // animation-duration: .75s;
+//   // animation-timing-function: ease-in-out;
+
+//   // animation-name: swingup;
+//   //   animation-duration: .75s;
+//   //   animation-timing-function: ease-in-out;
+//   > * {
+//       animation-name: swingup;
+//         animation-duration: .75s;
+//         animation-timing-function: ease-in-out;
+//       // display: none;
+
+//   }
+// }
+
+
+@keyframes openNavMenu {
+  0% {
+    transform: translateY(-100%);
+    box-shadow: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 -5px 11px rgba(10, 36, 173, 0.68) inset;
+  }
+}
+
+
+
+// SOURCE - https://www.youtube.com/watch?v=4_Pw2Nqg2EI
+@keyframes swingdown {
+  0% {
+    opacity: 0.99999;
+    transform: rotateX(90deg);
+  }
+
+  30% {
+    transform: rotateX(-20deg) rotateY(5deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  65% {
+    transform: rotateX(20deg) rotateY(-3deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    transform: rotateX(0);
+    animation-timing-function: ease-in-out;
+  }
+}
+@keyframes swingup {
+  0% {
+    //     top: 5rem;
+    //       left: 0;
+    //       right: 0;
+    //       z-index: 40;
+    // display: absolute;
+
+
+
+    // transform: rotateX(0);
+    // animation-timing-function: ease-in-out;
+  }
+  // 30% {
+  //   transform: rotateX(20deg) rotateY(-3deg);
+  //   animation-timing-function: ease-in-out;
+  // }
+  // 65% {
+  //   transform: rotateX(-20deg) rotateY(5deg);
+  //   animation-timing-function: ease-in-out;
+  // }
+  100% {
+    // opacity: 0.99999;
+    // transform: rotateX(90deg);
+    // display: hidden;
+    // display: absolute;
+    //     top: 5rem;
+    //       left: 0;
+    //       right: 0;
+    //       z-index: 40;
+    display: none;
+    height: 0;
+  }
+}
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 1000ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+
+.line {
+  fill: none;
+  // transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  // NOTE - This transition duration should match the transition duration for .navbarMenu
+  transition: stroke-dasharray 1000ms, stroke-dashoffset 1000ms;
+  stroke: #000;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+
+.ham4 .top {
+  stroke-dasharray: 40 121;
+}
+
+.ham4 .bottom {
+  stroke-dasharray: 40 121;
+}
+
+.ham4.active .top {
+  stroke-dashoffset: -68px;
+}
+
+.ham4.active .bottom {
+  stroke-dashoffset: -68px;
+}
+
+.navigationLink {
+  transition: all 0.75s allow-discrete;
+}
+.navigationLinkIcon {
+  transition: color 0.75s allow-discrete;
 }

@@ -6,7 +6,7 @@ import { AuroraBackground, WavyBackground, AboutPageIntro, AboutPageEducationWor
 // import { classNames } from "@/src/app/_utils";
 import styles from "./styles.module.scss";
 
-import { ClassValue, clsx } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 function cn(...inputs: ClassValue[]) {
@@ -19,7 +19,7 @@ function cn(...inputs: ClassValue[]) {
 function useScrollHook(initialPosition: number) {  
   const [scrollPosition, setScrollPosition] = useState(initialPosition);
   const handleScroll = () => {
-    const position = window.pageYOffset;
+    const position = window.scrollY;
     setScrollPosition(position);
   };
   useEffect(() => {
@@ -116,22 +116,22 @@ export default function Home() {
 
   return (
     <>
-      <div className={ cn(styles.pageArrowContainer, "p-2 bg-gradient-to-b shadow-blue-500", {
+      <AboutPageIntro ref={aboutPageIntroRef} />
+      {/* NOTE - The below div is my hacky way to make transition effects between views work correctly. Without it the text from the next page is considered to be within the viewport even at the maximum scroll height, so the transition will not activate when scrolling down. */}
+      <div className="w-full" style={ { "height": "1px", "backgroundColor": "rgb(24 24 27)"}}></div>
+      <AboutPageEducationWork ref={aboutPageEducationWorkRef} />
+      <AboutPagePortfolio ref={aboutPagePortfolioRef} />
+      <AboutPageTechnologies ref={aboutPageTechnologiesRef} /> 
+      <AboutPageContact ref={aboutPageContactRef} /> 
+      <div className={ cn(styles.pageArrowContainer, "p-2 bg-gradient-to-b shadow-black", {
         "from-white to-blue-500": !isScrollAtBottom,
         "from-blue-500 to-white": isScrollAtBottom,
       }) }>
         <i ref={ arrowRef } onClick={ handleArrowClick } className={ cn(styles.pageArrow, "pi text-[1rem] sm:text-[2rem]", {
           "pi-arrow-up": isScrollAtBottom,
           "pi-arrow-down": !isScrollAtBottom,
-        })}></i>
+        }) }></i>
       </div>
-        <AboutPageIntro ref={aboutPageIntroRef} />
-        {/* NOTE - The below div is my hacky way to make transition effects between views work correctly. Without it the text from the next page is considered to be within the viewport even at the maximum scroll height, so the transition will not activate when scrolling down. */}
-        <div className="w-full" style={ { "height": "1px", "backgroundColor": "rgb(24 24 27)"}}></div>
-        <AboutPageEducationWork ref={aboutPageEducationWorkRef} />
-        <AboutPagePortfolio ref={aboutPagePortfolioRef} />
-        <AboutPageTechnologies ref={aboutPageTechnologiesRef} /> 
-        <AboutPageContact ref={aboutPageContactRef} /> 
     </>
   );
 }
