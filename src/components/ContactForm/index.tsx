@@ -63,7 +63,7 @@ function ContactForm({ formId }: { formId?: string } ) {
             { ...NAME_VALIDATION }
           />
           <Input
-            containerClassName="w-full sm:w-[75%]"
+            containerClassName="w-full sm:w-[50%]"
             { ...EMAIL_VALIDATION }
           />
           <Input
