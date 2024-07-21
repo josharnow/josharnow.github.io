@@ -1,20 +1,26 @@
 "use client";
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import HCaptcha from '@hcaptcha/react-hcaptcha';
-// import { useForm } from "react-hook-form";
-import { FormLabelInputContainer, FormLabel, FormInput } from "@/src/components";
+import React, { useRef } from "react";
+import { useForm, FormProvider, type SubmitHandler } from "react-hook-form";
+import { Input } from "@/src/components";
 import styles from "./styles.module.scss";
+import {
+  NAME_VALIDATION,
+  EMAIL_VALIDATION,
+  MESSAGE_VALIDATION,
+  CAPTCHA_VALIDATION,
+} from './inputValidations'
 
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-// type Inputs = {
-//   access_key: string;
-//   name: string;
-//   email: string;
-//   message: string;
-//   "h-captcha-response": string;
-// }
+type Inputs = {
+  // access_key: string;
+  name: string;
+  email: string;
+  message: string;
+  "h-captcha-response": string;
+}
+
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -22,23 +28,10 @@ function cn(...inputs: ClassValue[]) {
 
 // SOURCE - https://dsavir-h.medium.com/contact-form-for-static-site-with-web3forms-575ee166732
 function ContactForm({ formId }: { formId?: string } ) {
-  const nameElement = useRef<HTMLInputElement>(null);
-  const emailElement = useRef<HTMLInputElement>(null);
-  const message = useRef<HTMLSpanElement>(null);
+  const methods = useForm<Inputs>();
 
-  const [captcha, setCaptcha] = useState("");
-
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    
-    if (!captcha) {
-      alert("Please verify the captcha");
-      return;
-    }
-    const messageElement = document.querySelector('#message');
-    const messageContent = messageElement?.textContent;
-
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    // NOTE - Once this function is hit, it means data validation passed
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
@@ -47,55 +40,37 @@ function ContactForm({ formId }: { formId?: string } ) {
       },
       body: JSON.stringify({
         access_key: process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY,
-        "h-captcha-response": captcha,
-        name: nameElement.current?.value,
-        email: emailElement.current?.value,
-        // TODO - Switch out w/ state version
-        message: messageContent,
+        ...data,
       }),
     });
     const result = await response.json();
-    // if (response.ok) {
+  };
 
-    // }
-    // TODO - After submission, show a success message under the form
-    // TODO - Do a similar message with the captcha instead of presenting an alert
-    // TODO - Use state to retain information a user puts in the boxes in case they accidentally click out. State handler will probably have to be in parent component, with the set function passed in here
-  }
 
   return (
     <>
-      <form id={ formId } onSubmit={ handleSubmit } className="flex flex-col gap-y-2">
-        <FormLabelInputContainer className="w-full sm:w-[50%]">
-            <FormLabel htmlFor="name">Name</FormLabel>
-          <FormInput ref={ nameElement } id="name" name="name" placeholder="Your name" type="name" className="" />
-        </FormLabelInputContainer>
-        <FormLabelInputContainer className="w-full sm:w-[75%]">
-          <FormLabel htmlFor="email">Email</FormLabel>
-          <FormInput ref={ emailElement } id="email" placeholder="YourEmailAddress@example.com" type="email" name="email" className="" />
-        </FormLabelInputContainer>
-        <FormLabelInputContainer className="w-full">
-          <FormLabel htmlFor="message">Message</FormLabel>
-          <FormInput id="message" placeholder="Your message" name="message" className="h-20" inputElement={(
-            <>
-            {/* NOTE - https://css-tricks.com/auto-growing-inputs-textareas/ */}
-            {/* // <span onChange={(e) => setMessageContent((e.target))} role="textbox" contentEditable={ true } id="message"  */}
-              <span ref={message} role="textbox" contentEditable={ true } id="message" 
-                aria-placeholder="Your message"
-                className={ cn(styles.textareaInput, "border-none bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent  file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600  focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600 disabled:cursor-not-allowed disabled:opacity-50 dark:shadow-[0px_0px_1px_1px_var(--neutral-700)] group-hover/input:shadow-none transition duration-400")} 
-                
-                />
-            </>
-          )} />
-        </FormLabelInputContainer>
-        <div className={ styles.captchaContainer }>
-          <HCaptcha
-            sitekey={ process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY }
-            reCaptchaCompat={ false }
-            onVerify={ setCaptcha }
+      <FormProvider {...methods}>
+        <form noValidate id={ formId } onSubmit={ methods.handleSubmit(onSubmit) } className="flex flex-col grow gap-y-2">
+          <Input
+            containerClassName="w-full sm:w-[50%]"
+            { ...NAME_VALIDATION }
           />
-        </div>
-      </form>
+          <Input
+            containerClassName="w-full sm:w-[75%]"
+            { ...EMAIL_VALIDATION }
+          />
+          <Input
+            containerClassName="w-full"
+            inputClassName={ styles.textareaInput }
+            { ...MESSAGE_VALIDATION }
+          />
+          <Input
+            containerClassName="w-fit"
+            { ...CAPTCHA_VALIDATION }
+            isCaptcha={ true }
+          />
+        </form>
+      </FormProvider>
     </>
   );
 }

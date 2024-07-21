@@ -19,7 +19,7 @@ function cn(...inputs: ClassValue[]) {
 function useScrollHook(initialPosition: number) {  
   const [scrollPosition, setScrollPosition] = useState(initialPosition);
   const handleScroll = () => {
-    const position = window.pageYOffset;
+    const position = window.scrollY;
     setScrollPosition(position);
   };
   useEffect(() => {
