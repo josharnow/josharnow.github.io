@@ -1,7 +1,8 @@
 // NOTE - https://developer.mozilla.org/en-US/docs/Web/CSS/:has
 .iconContainer:has(+ a:hover) {
-  --tw-shadow-color: #3b82f6;
+  --tw-shadow-color: theme("boxShadowColor.blue.500");
   --tw-shadow: var(--tw-shadow-colored);
   --tw-bg-opacity: 0.15;
+  // background-color: theme("backgroundColor.blue.500");
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }

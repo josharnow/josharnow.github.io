@@ -1,5 +1,5 @@
-a:hover + .contactMethodText {
-  --tw-shadow-color: #3b82f6;
+div:hover + .contactMethodText {
+  --tw-shadow-color: theme("boxShadowColor.blue.500");
   --tw-shadow: var(--tw-shadow-colored);
   --tw-bg-opacity: 0.15;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
