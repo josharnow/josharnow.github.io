@@ -10,7 +10,6 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-
 const FormInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({
     className, 
@@ -31,9 +30,9 @@ const FormInput = React.forwardRef<HTMLInputElement, InputProps>(
     const {
       setValue,
       clearErrors,
+      formState: { isSubmitSuccessful },
     } = useFormContext();
     
-
     function handleMouseMove({ currentTarget, clientX, clientY }: any) {
       let { left, top } = currentTarget.getBoundingClientRect();
 
@@ -45,6 +44,14 @@ const FormInput = React.forwardRef<HTMLInputElement, InputProps>(
       setValue(props.name, e.currentTarget.textContent);
       clearErrors(props.name);
     }
+    
+    useEffect(() => {
+      if (isSubmitSuccessful) {
+        if (spanRef.current) {
+          spanRef.current.textContent = "";
+        }
+      }
+    }, [isSubmitSuccessful]);
     
     return (
       <motion.div
@@ -89,7 +96,6 @@ const FormInput = React.forwardRef<HTMLInputElement, InputProps>(
                 <span
                   ref={ spanRef } 
                   onInput={ handleSpanChange } 
-                  // onInput={ (e) => setValue(props.name, e.currentTarget.textContent) } 
                   role="textbox" 
                   contentEditable={ true } 
                   aria-placeholder="Your message"

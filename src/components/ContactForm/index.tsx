@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useForm, FormProvider, type SubmitHandler } from "react-hook-form";
 import { Input } from "@/src/components";
 import styles from "./styles.module.scss";
@@ -28,6 +28,8 @@ function cn(...inputs: ClassValue[]) {
 
 // SOURCE - https://dsavir-h.medium.com/contact-form-for-static-site-with-web3forms-575ee166732
 function ContactForm({ formId }: { formId?: string } ) {
+  const isMessageSent = useRef(false);
+
   const methods = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -44,6 +46,11 @@ function ContactForm({ formId }: { formId?: string } ) {
       }),
     });
     const result = await response.json();
+
+    if (result.success) {
+      isMessageSent.current = true;
+      methods.reset();
+    }
   };
 
 
@@ -71,6 +78,11 @@ function ContactForm({ formId }: { formId?: string } ) {
           />
         </form>
       </FormProvider>
+      {
+        isMessageSent.current && (
+          <span className="text-right font-medium mt-5">Thanks, I look forward to reading your message!</span>
+        )
+      }
     </>
   );
 }
