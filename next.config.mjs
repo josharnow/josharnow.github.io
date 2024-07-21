@@ -24,7 +24,12 @@ const nextConfig = {
       //       }
       //     }
       //   ]
-    })
+    },
+    {
+      test: /\.(pdf)$/,
+      type: "asset/resource",
+    }
+  )
 
     return config
   },
