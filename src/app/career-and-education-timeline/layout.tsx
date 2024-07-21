@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://josharnow.com/career-and-education-timeline",
     siteName: "Josh Arnow's Website",
-    title: "Josh's Career & Education  Timeline",
+    title: "Josh's Career & Education Timeline",
     description: "Software engineer Josh Arnow's career & education timeline",
     images: [
       {
@@ -23,13 +23,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "https://josharnow.com",
+    site: "https://josharnow.com/career-and-education-timeline",
     creator: "Josh Arnow",
     images: "/open-graph-image.png", // TODO - Make this an image of whatever page is being shared
     description: "Software engineer Josh Arnow's career & education timeline",
   },
 };
-
 
 export default async function CareerAndEducationTimelineLayout({
   children,
@@ -37,19 +36,7 @@ export default async function CareerAndEducationTimelineLayout({
   children: React.ReactNode;
 }>) {
 
-  
   return (
-    // <html lang="en">
-    //   <body className={ classNames(ibmPlexSans.className, "h-screen") }>
-    //     <div className="flex flex-col sm:flex-row mx-auto w-full h-full">
-    //       <Navigation />
-    //       {/* NOTE - This margin is necessary due to the fixed navbar at the top when the screen is small */}
-    //       <main className={ classNames(styles.main, "sm:grow relative top-20 sm:top-0")}>
-    //         {children}
-    //       </main>
-    //     </div>
-    //   </body>
-    // </html>
     <>
       { children }
     </>
