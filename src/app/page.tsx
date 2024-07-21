@@ -1,4 +1,5 @@
 "use client";
+import type { Metadata } from "next";
 import React, { useState, useEffect, useRef } from 'react';
 // This is the root view of the app, hence it is placed in the root of the app directory.
 import { AuroraBackground, WavyBackground, AboutPageIntro, AboutPageEducationWork, AboutPagePortfolio, AboutPageTechnologies, AboutPageContact } from "@/src/components";
@@ -8,6 +9,7 @@ import styles from "./styles.module.scss";
 
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -34,7 +36,7 @@ function useScrollHook(initialPosition: number) {
   return scrollPosition;
 }
 
-export default function Home() {
+export default function AboutPage() {
   function handleArrowClick(e: React.MouseEvent<HTMLDivElement>) {
     const sectionOffsets = [
       {

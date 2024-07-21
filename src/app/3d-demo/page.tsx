@@ -9,7 +9,7 @@ import { Island, Sky, Bird, Plane } from '@/src/models';
 // import text3DFont from '@/src/assets/fonts/ibm_plex_sans_var_roman_regular.json';
 // import { Leva, useControls } from 'leva';
 
-export default function ThreeDDemo() {
+export default function ThreeDDemoPage() {
   const cameraProps = {
     near: 0.1,
     far: 1000,
