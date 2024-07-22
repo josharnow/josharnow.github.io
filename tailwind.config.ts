@@ -1,5 +1,5 @@
 import { type Config } from "tailwindcss";
-import { default as colors } from "tailwindcss/colors";
+// import { default as colors } from "tailwindcss/colors";
 import { default as svgToDataUri } from "mini-svg-data-uri";
 import { default as defaultTheme } from "tailwindcss/defaultTheme";
 import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";

@@ -21,7 +21,8 @@
     "build:verbose": "next build --debug",
     "start": "next start",
     "start:export": "npx serve@latest out",
-    "lint": "next lint"
+    "lint": "next lint",
+    "remove_unused_imports": "tslint --config tslint-imports.json --fix --project ."
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.10.1",

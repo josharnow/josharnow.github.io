@@ -102,7 +102,7 @@ export const ModalBody = ({
   }, [open]);
 
   const modalRef = useRef(null);
-  const { setOpen } = useModal();
+  // const { setOpen } = useModal();
 
   // NOTE - Below will close the modal when clicking outside of the modal
   // useOutsideClick(modalRef, () => setOpen(false));
@@ -191,7 +191,7 @@ export const ModalFooter = ({
   formId?: string;
   className?: string;
 }) => {
-  const { setOpen, open } = useModal();
+  const { setOpen } = useModal();
   return (
     <div
       className={ cn(

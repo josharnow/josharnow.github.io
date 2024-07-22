@@ -5,6 +5,22 @@ import React from 'react';
 import Link from "next/link";
 
 export default function ResumePage() {
+  // NOTE - https://blog.logrocket.com/ultimate-guide-iframes/
+
+  // const resumeHref = useState("/Josh_Arnow_Resume.pdf");
+  const iframeSrc = "/Josh_Arnow_Resume.pdf";
+  // function onIframeLoad(e: SyntheticEvent<HTMLIFrameElement, Event>) {
+  //   console.log("LOADED");
+  //   console.log(e);
+  // }
+  // const iframeAttributes: React.IframeHTMLAttributes<HTMLIFrameElement> = {
+  //   src: "/Josh_Arnow_Resume.pdf",
+  //   title: "Josh Arnow's résumé",
+  //   className: "absolute left-0 right-0 bottom-0 top-10 w-full h-[calc(100%-2.5rem)]",
+  //   name: 'resumeIframe',
+  //   // onLoad: onIframeLoad
+  // };
+
 
   return (
     <>
@@ -18,7 +34,14 @@ export default function ResumePage() {
         Open résumé in a new tab
         </Link>
       </div>
-      <iframe src="/Josh_Arnow_Resume.pdf" title="Josh Arnow's résumé" className="absolute left-0 right-0 bottom-0 top-10 w-full h-[calc(100%-2.5rem)]" />
+      <iframe 
+        src={ iframeSrc } 
+        title="Josh Arnow's résumé" 
+        className="absolute left-0 right-0 bottom-0 top-10 w-full h-[calc(100%-2.5rem)]" 
+        name='resumeIframe'
+        // onLoad={ onIframeLoad } 
+        // { ...iframeAttributes }
+      />
     </>
   );
 }

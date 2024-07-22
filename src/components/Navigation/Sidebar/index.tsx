@@ -1,11 +1,8 @@
 "use client";
-import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
-import Logo from "../Logo";
 // import styles from "./styles.module.scss";
 // import { classNames } from "@/src/app/_utils";
-import ShadowSidebar from "./ShadowSidebar";
 import RealSidebar from "./RealSidebar";
+import ShadowSidebar from "./ShadowSidebar";
 
 const Sidebar = ({
   isOpen,

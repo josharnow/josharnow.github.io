@@ -1,18 +1,16 @@
 "use client";
-import React, { useState, useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { 
-  Modal,
-  ModalBody, 
-  ModalContent, 
-  ModalFooter, 
-  ModalTrigger, 
+import {
+  ContactForm,
   ContactIcon,
-  ContactForm, 
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalTrigger,
 } from "@/src/components";
-import { type ClassValue, clsx } from "clsx";
+import { clsx, type ClassValue } from "clsx";
+import Link from "next/link";
+import React from "react";
 import { twMerge } from "tailwind-merge";
 import styles from "./styles.module.scss";
 

@@ -1,9 +1,5 @@
-import "./styles.css";
 import InfoBox from "./InfoBox";
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-};
+import "./styles.css";
 
 const renderContent: RenderContentObj = {
   1: (

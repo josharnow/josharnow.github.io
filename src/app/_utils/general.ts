@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 /**
  * Custom hook that returns the current window size.
  * 

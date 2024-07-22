@@ -8,7 +8,7 @@ import joshArnowLogoNoShadows from "@/src/assets/images/josh_arnow_logo_no_shado
 
 const Logo = () => {
   //update the size of the logo when the size of the screen changes
-  const [width, setWidth] = useState(0);
+  const [, setWidth] = useState(0);
 
   const updateWidth = () => {
     const newWidth = window.innerWidth;
