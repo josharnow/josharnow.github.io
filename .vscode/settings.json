@@ -1,3 +1,21 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "clsx",
+    "contenteditable",
+    "drei",
+    "flaticon",
+    "gltf",
+    "hcaptcha",
+    "heroicons",
+    "mjsx",
+    "mtsx",
+    "primeicon",
+    "primeicons",
+    "primereact",
+    "résumé",
+    "shadcnui",
+    "sitekey",
+    "tailwindcss"
+  ]
 }
