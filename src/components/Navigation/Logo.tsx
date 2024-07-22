@@ -1,15 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 // import Button from "./Button";
-import Device from "@/src/components/Device";
 import joshArnowLogo from "@/src/assets/images/josh_arnow_logo.svg";
 import joshArnowLogoNoShadows from "@/src/assets/images/josh_arnow_logo_no_shadows.svg";
+import Device from "@/src/components/Device";
 
 const Logo = () => {
   //update the size of the logo when the size of the screen changes
-  const [width, setWidth] = useState(0);
+  const [, setWidth] = useState(0);
 
   const updateWidth = () => {
     const newWidth = window.innerWidth;

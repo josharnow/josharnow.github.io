@@ -1,12 +1,12 @@
 "use client";
-import React, { SyntheticEvent, useState } from 'react';
+import React from 'react';
 // import styles from './styles.module.scss';
 // import resume from '@/public/Josh_Arnow_Resume.pdf';
 import Link from "next/link";
 
 export default function ResumePage() {
   // NOTE - https://blog.logrocket.com/ultimate-guide-iframes/
-  
+
   // const resumeHref = useState("/Josh_Arnow_Resume.pdf");
   const iframeSrc = "/Josh_Arnow_Resume.pdf";
   // function onIframeLoad(e: SyntheticEvent<HTMLIFrameElement, Event>) {

@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 // import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
-import { EnvelopeIcon, CubeTransparentIcon, RocketLaunchIcon, WrenchScrewdriverIcon, GlobeAltIcon, AcademicCapIcon, BuildingOffice2Icon } from "@heroicons/react/20/solid"; 
+import { BuildingOffice2Icon, CubeTransparentIcon, RocketLaunchIcon, WrenchScrewdriverIcon } from "@heroicons/react/20/solid";
 import { IdentificationIcon } from "@heroicons/react/24/solid";
 import { useSelectedLayoutSegment } from "next/navigation";
 
