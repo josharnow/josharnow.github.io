@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useForm, FormProvider, type SubmitHandler } from "react-hook-form";
 import { Input } from "@/src/components";
 import styles from "./styles.module.scss";
@@ -10,8 +10,8 @@ import {
   CAPTCHA_VALIDATION,
 } from './inputValidations'
 
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+// import { type ClassValue, clsx } from "clsx";
+// import { twMerge } from "tailwind-merge";
 
 type Inputs = {
   // access_key: string;
@@ -22,9 +22,9 @@ type Inputs = {
 }
 
 
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+// function cn(...inputs: ClassValue[]) {
+//   return twMerge(clsx(inputs));
+// }
 
 // SOURCE - https://dsavir-h.medium.com/contact-form-for-static-site-with-web3forms-575ee166732
 function ContactForm({ formId }: { formId?: string } ) {

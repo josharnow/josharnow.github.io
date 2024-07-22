@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import styles from './styles.module.scss';
+// import styles from './styles.module.scss';
 
 export default function TechnologiesPage() {
 

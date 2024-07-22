@@ -1,32 +1,31 @@
 "use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
+import { Slideshow } from "@/src/components";
+import Logo from "@/src/components/Navigation/Logo";
 import {
   IconBrightnessDown,
   IconBrightnessUp,
+  IconCaretDownFilled,
+  IconCaretLeftFilled,
   IconCaretRightFilled,
   IconCaretUpFilled,
   IconChevronUp,
+  IconCommand,
   IconMicrophone,
   IconMoon,
   IconPlayerSkipForward,
   IconPlayerTrackNext,
   IconPlayerTrackPrev,
+  IconSearch,
   IconTable,
   IconVolume,
   IconVolume2,
   IconVolume3,
+  IconWorld,
 } from "@tabler/icons-react";
-import { IconSearch } from "@tabler/icons-react";
-import { IconWorld } from "@tabler/icons-react";
-import { IconCommand } from "@tabler/icons-react";
-import { IconCaretLeftFilled } from "@tabler/icons-react";
-import { IconCaretDownFilled } from "@tabler/icons-react";
-import Image from "next/image";
-import Logo from "@/src/components/Navigation/Logo";
-import { Slideshow } from "@/src/components";
+import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 
-import { type ClassValue, clsx } from "clsx";
+import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 function useWindowSize() {
@@ -153,7 +152,7 @@ const MacbookScroll = ({
   const titleTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const titleOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   // const subTextTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
-  const subTextTransform = useTransform(scrollYProgress, [100, 200], [0, 200]);
+  // const subTextTransform = useTransform(scrollYProgress, [100, 200], [0, 200]);
   // const subTextOpacity = useTransform(scrollYProgress, [1, 0.2], [1, 0]);
   // const subTextOpacity = useTransform(scrollYProgress, [1, 0], [5, 0]);
   const subTextOpacity = useTransform(scrollYProgress, [1, 0], [3, 0]);
