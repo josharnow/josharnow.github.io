@@ -16,6 +16,7 @@ const AboutPagePortfolio = forwardRef(function AboutPagePortfolio(props, ref: Re
     surrogacyAdvisorScreenshot1.src,
     surrogacyAdvisorScreenshot2.src,
     surrogacyAdvisorScreenshot3.src,
+    surrogacyAdvisorScreenshot4.src,
     segPlusScreenshot1.src,
     cyzlPlayStoreScreenshot1.src,
   ]
