@@ -31,12 +31,13 @@ const Timeline = ({
 
   function handleYearClick(e: React.MouseEvent<HTMLDivElement | HTMLSpanElement, MouseEvent>, year: number, yearIndex?: number) {
     setSelectedYear(year);
+    setSliderValue(yearToSliderValue(year, timelineYears));
   }
 
   function handleSliderChange(e: SliderChangeEvent) {
     // console.log(e);
     // console.log(e.value);
-    // console.log(slideValueToYear(e.value as number, timelineYears));
+    console.log(slideValueToYear(e.value as number, timelineYears));
     setSliderValue(e.value);
     setSelectedYear(slideValueToYear(e.value as number, timelineYears));
   }
@@ -52,10 +53,15 @@ const Timeline = ({
     const yearRange = maxYear - minYear;
     const year = minYear + (yearRange * valuePercentage);
     return Math.floor(year);
+  }
 
+  function yearToSliderValue(year: number, timelineYears: number[]) {
+    const minYear = Math.min(...timelineYears);
+    const maxYear = Math.max(...timelineYears);
 
-    // const yearIndex = Math.floor(value * (timelineYears.length - 1));
-    // return timelineYears[yearIndex];
+    const yearRange = maxYear - minYear;
+    const yearPercentage = (year - minYear) / yearRange;
+    return yearPercentage * 100;
   }
 
   return (
@@ -81,23 +87,22 @@ const Timeline = ({
             </div>
           ) 
         }
-        {/* <div className="line bg-transparent h-1 w-full absolute top-1 z-10 shadow-3xl"> */}
           {/* NOTE - This appears to be the same length without modification, but need to position in front of line */}
           <Slider 
             value={ sliderValue } 
             onChange={ handleSliderChange } 
             pt={ {
               root: {
-                style: {
-                  // zIndex: '20',
-                  // height: '0.25rem',
-                },
-                className: "absolute top-1 w-full z-10 shadow-3xl h-1 bg-slate-700",
+                className: "absolute top-1 w-full shadow-3xl h-1 bg-slate-700 cursor-pointer",
+              },
+              range: {
+                className: "bg-blue-500 shadow-3xl",
+              },
+              handle: {
+                className: cn(styles.sliderHandle, "bg-blue-500 shadow-3xl border border-2 top-0 w-6 h-6 fixed z-50"),
               },
             } }
           />
-        {/* </div> */}
-        
       </div>
     </>
   );
