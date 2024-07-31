@@ -120,10 +120,12 @@ const Timeline = ({
                     (timelineYears.includes(year)) ? "" : "hidden"
                   )} onClick={ (e) => handleYearClick(e, year, i) }></div>
                 </div>
+                {/* TODO - add background behind selected year so it stands out */}
+                {/* TODO - Transition animations for box that appears behind selected year */}
                 <span className={ 
                   cn(
                     "absolute top-3 cursor-pointer flex flex-col", 
-                    (year === selectedYear) ? "text-blue-500 font-medium" : "text-white",
+                    (year === selectedYear) ? "text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50 text-2xl" : "text-white text-xl",
                     (timelineYears.includes(year)) ? "" : "hidden"
                   )} onClick={ (e) => handleYearClick(e, year, i) }>
                     { 
