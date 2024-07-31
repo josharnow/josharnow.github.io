@@ -123,7 +123,9 @@ const WavyBackground = ({
       ) }
     >
       <canvas
-        className="relative"
+        className={ cn(
+          className
+        ) }
         ref={ canvasRef }
         id="canvas"
         style={ {
