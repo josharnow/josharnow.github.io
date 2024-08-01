@@ -9,3 +9,8 @@
     // box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     box-shadow: 0px 0 13px var(--shadow-color);
 }
+
+.selectedYear,
+.unselectedYear {
+  transition: all 0.75s allow-discrete;
+}
