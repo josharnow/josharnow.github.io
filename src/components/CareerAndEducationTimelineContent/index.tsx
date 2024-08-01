@@ -1,13 +1,6 @@
 "use client";
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Timeline, WavyBackground } from "@/src/components";
-
-import { createNoise3D } from "simplex-noise";
-
-// import { Stepper, StepperChangeEvent } from 'primereact/stepper';
-// import { StepperPanel } from 'primereact/stepperpanel';
-// import { Button } from 'primereact/button';
-
 
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -17,44 +10,115 @@ function cn(...inputs: ClassValue[]) {
 }
 
 const CareerAndEducationTimelineContent = () => {
-  const stepperRef = useRef(null);
-
-  // function handleStepperClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-  //   if ((e.target as HTMLButtonElement).classList.contains('pi-arrow-left') || (e.target as HTMLSpanElement).textContent === 'Back') {
-  //     // @ts-ignore
-  //     stepperRef?.current?.prevCallback()
-  //   } else if ((e.target as HTMLButtonElement).classList.contains('pi-arrow-right') || (e.target as HTMLSpanElement).textContent === 'Next') {
-  //     // @ts-ignore
-  //     stepperRef?.current?.nextCallback() 
-  //   }
-  // }
-    
-  const contentArr = [
+  const contentArr: (EducationTimelineContent | CareerTimelineContent)[] = [
+    {
+      yearStart: 2012,
+      yearEnd: 2016,
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Tulane University",
+      location: "New Orleans, LA",
+      type: "education",
+      degrees: [(<span key={ 1 }>Bachelor of Science in Economics, <i>cum laude</i></span>), (<span key={ 2 }>Bachelor of Arts in Political Economy, <i>cum laude</i></span>)],
+      GPA: 3.7,
+    },
     {
       yearStart: 2020,
       yearEnd: 2021,
-      content: "Started working at company A"
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Touro Law Center",
+      location: "Islip, NY (Remote)",
+      type: "education",
+      degrees: [(<span key={ 1 }>Juris Doctor (incomplete)</span>),],
+    },
+    {
+      // TODO - Figure out years I attended Stony Brook
+      yearStart: 2021,
+      yearEnd: 2021,
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Coding Dojo",
+      location: "Remote",
+      type: "education",
+      degrees: [(<span key={ 1 }>Full-Stack Software Development Bootcamp</span>),],
+    },
+    {
+      // TODO - Figure out years I attended Stony Brook
+      yearStart: 2018,
+      yearEnd: 2019,
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Stony Brook University",
+      location: "Stony Brook, NY",
+      type: "education",
+      degrees: [(<span key={ 1 }>Post-Baccalaureate Pre-Health Program</span>),],
+    },
+
+    {
+      yearStart: 2013,
+      yearEnd: 2015,
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Tulane University",
+      location: "New Orleans, LA",
+      type: "career",
+      position: "Resident Advisor",
+    },
+    {
+      yearStart: 2014,
+      yearEnd: 2015,
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Capital One",
+      location: "Melville, NY",
+      type: "career",
+      position: "Municipal Finance Credit Analyst (Intern)",
     },
     {
       yearStart: 2016,
-      yearEnd: 2019,
-      content: "Graduated from university B"
+      yearEnd: 2018,
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Capital One",
+      location: "Melville, NY",
+      type: "career",
+      position: "Middle Market C&I Credit Analyst",
     },
     {
       yearStart: 2018,
-      yearEnd: 2018,
-      content: "Started university B"
+      yearEnd: 2021,
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Citiscape Realty Advisors, Inc.",
+      location: "Huntington, NY",
+      type: "career",
+      position: "Financial Analyst",
     },
     {
-      yearStart: 2017,
-      yearEnd: 2017,
-      content: "Graduated from high school"
+      yearStart: 2021,
+      yearEnd: 2022,
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Self-Employed",
+      location: "Huntington, NY",
+      type: "career",
+      position: "Software Developer",
     },
     {
-      yearStart: 2017,
-      yearEnd: 2017,
-      content: "Graduated from high school"
+      yearStart: 2022,
+      yearEnd: 2023,
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Two Fish Creative, Inc.",
+      location: "West Palm Beach, FL / Remote (Hybrid)",
+      type: "career",
+      position: "Developer",
     },
+    {
+      yearStart: 2023,
+      // yearEnd: 2024,
+      isPresent: true,
+      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      institution: "Two Fish Creative, Inc.",
+      location: "West Palm Beach, FL / Remote (Hybrid)",
+      type: "career",
+      position: "Team Lead",
+      supersedesOtherPositions: true,
+    },
+
+
+
   ]
 
   const sortedContentArr = sortContentArr(contentArr);
@@ -70,69 +134,29 @@ const CareerAndEducationTimelineContent = () => {
 
     for (let i = 0; i < contentArr.length; i++) {
       combinedYearsArr.push(contentArr[i].yearStart);
-      combinedYearsArr.push(contentArr[i].yearEnd);
+      if (contentArr[i]?.yearEnd) {
+        combinedYearsArr.push(contentArr[i]?.yearEnd);
+      }
     }
 
     combinedYearsArr.push(currentYear);
 
-    const combinedYearsSet = new Set(combinedYearsArr);
+    const combinedYearsSet = new Set(combinedYearsArr as number[]);
     return [...combinedYearsSet].sort((a, b) => a - b);
-  }
-
-  // function calculateTranslateX(year: number, timelineYears: number[]) {
-  function getYearRange(timelineYears: number[]) {
-    const yearRange = timelineYears[timelineYears.length - 1] - timelineYears[0];
-    return yearRange;
-  }
-
-  function performTimelineYearTranslate(i: number, timelineYears: number[]) {
-    const yearRange = getYearRange(timelineYears);
-    return `calc(${i} * ${100}%)`;
-
-    // TODO - figure out reference point... needd to be able to calculate the percentage of the timeline that each year represents
-    const minYear = Math.min(...timelineYears);
-    const maxYear = Math.max(...timelineYears);
-    const year = minYear + (yearRange * i);
-    console.log(year)
-    // console.log(minYear)
-    // console.log(maxYear)
-    // return `calc(${year} * ${100 / yearRange}%)`;
-    // return `calc(${i} * ${100 / yearRange}%)`;
-  }
-
-  function calculateYearFlexBasis(year: number, timelineYears: number[]) {
-    const yearRange = getYearRange(timelineYears);
-    return `calc(${year} * ${100 / yearRange}%)`;
-  }
-  function calculateFlexGrow(year: number, timelineYears: number[]) {
-    const yearRange = getYearRange(timelineYears);
-    return `calc(${year} * ${100 / yearRange}%)`;
   }
 
   return (
     <>
-    {/* TODO - Draw how I want component to look */}
-    {/* TODO - Make my own component */}
-
     {/* TODO - Make component for each stepper panel */ }
-
-
-    {/* <div className="w-full h-full px-6 py-10 sm:py-15 sm:px-24 md:px-20"> */}
       <WavyBackground containerClassName="absolute top-0 left-0 right-0 bottom-0" className="w-full" />
-
       <div className="absolute top-0 bottom-0 left-0 right-0 p-6">
-      {/* <div className="w-full h-full p-6"> */}
         <div className="w-full h-full border">
-          {/* TODO - Career card above */}
-          {/* TODO - Timeline between */}
-          {/* TODO - Education card below */}
-
           <div className="w-full h-full flex flex-col">
               <div className="w-full grow border flex flex-col justify-center items-center">
               <span>Career</span>
               <b>{ selectedYear }</b>
             </div>
-            <div className="w-full grow border flex flex-col justify-center items-center p-3">
+            <div className="w-full grow border flex flex-col justify-center items-center px-6 py-3">
               <Timeline timelineYears={ combinedYearsArr } selectedYear={ selectedYear } setSelectedYear={ setSelectedYear } />
             </div>
             <div className="w-full grow border flex flex-col justify-center items-center">

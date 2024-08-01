@@ -21,6 +21,7 @@ export { default as FormLabel } from './FormLabel';
 export { default as FormLabelInputContainer } from './FormLabelInputContainer';
 export { default as SidebarSocialButton } from './SidebarSocialButton';
 export { default as CareerAndEducationTimelineContent } from './CareerAndEducationTimelineContent';
+export { default as Timeline } from './Timeline';
 export { default as AboutPageIntro } from './AboutPageIntro';
 export { default as AboutPageEducationWork } from './AboutPageEducationWork';
 export { default as AboutPagePortfolio } from './AboutPagePortfolio';

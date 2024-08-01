@@ -16,20 +16,6 @@ const Timeline = ({
   selectedYear,
   setSelectedYear,
 }: TimelineProps) => {
-  // NOTE - Sorts the content array by yearStart
-  // const combinedYearsArr = [];
-  // const sortedContentArr = contentArr.sort((a, b) => a.yearStart - b.yearStart);
-
-  // for (let i = 0; i < sortedContentArr.length; i++) {
-  //   combinedYearsArr.push(sortedContentArr[i].yearStart);
-  //   combinedYearsArr.push(sortedContentArr[i].yearEnd);
-  // }
-  // const timelineYears = new Set(combinedYearsArr);
-
-  // const [selectedYear, setSelectedYear] = useState(combinedYearsArr[0]);
-
-  // TODO - Have timeline end on "Present" instead
-
   const [sliderValue, setSliderValue] = useState<[number, number] | number>();
 
   const currentYear = timelineYears[timelineYears.length - 1];
@@ -48,31 +34,35 @@ const Timeline = ({
     return yearArray;
   };
 
+  /**
+   * Handles the click event when a year is clicked.
+   * 
+   * @param e - The click event object.
+   * @param year - The selected year.
+   * @param yearIndex - The index of the selected year.
+   */
   function handleYearClick(e: React.MouseEvent<HTMLDivElement | HTMLSpanElement, MouseEvent>, year: number, yearIndex?: number) {
-    console.log(year);
-    console.log(yearToSliderValue(year, timelineYears));
     setSelectedYear(year);
     setSliderValue(yearToSliderValue(year, timelineYears));
   }
 
+  /**
+   * Handles the change event of the slider.
+   * 
+   * @param e - The slider change event.
+   */
   function handleSliderChange(e: SliderChangeEvent) {
-    // console.log(e);
-    // console.log(e.value);
-    console.log(slideValueToYear(e.value as number, timelineYears));
     setSliderValue(e.value);
     setSelectedYear(slideValueToYear(e.value as number, timelineYears));
   }
 
-  // function yearToSliderValue(year: number, timelineYears: Set<number>) {
-  //   const yearsArray = [...timelineYears];
-  //   const yearIndex = yearsArray.indexOf(year);
-  //   return yearIndex;
-  // }
 
-  // function slideValueToYear(sliderValue: number, timelineYears: Set<number>) {
-  //   const yearsArray = [...timelineYears];
-  //   return yearsArray[sliderValue];
-  // }
+  /**
+   * Converts a slider value to a corresponding year based on the timeline years.
+   * @param value - The slider value (percentage).
+   * @param timelineYears - An array of timeline years.
+   * @returns The corresponding year based on the slider value.
+   */
   function slideValueToYear(value: number, timelineYears: number[]) {
     // NOTE - The slider value is a percentage, so we need to convert it to a year
     // NOTE - We can do this by multiplying the value by the number of years in the timeline
@@ -82,10 +72,16 @@ const Timeline = ({
     const maxYear = Math.max(...timelineYears);
 
     const yearRange = maxYear - minYear;
-    const year = minYear + (yearRange * valuePercentage);
+    const year = minYear + yearRange * valuePercentage;
     return Math.floor(year);
   }
 
+  /**
+   * Converts a year value to a slider value based on the given timeline years.
+   * @param year - The year value to convert.
+   * @param timelineYears - An array of timeline years.
+   * @returns The corresponding slider value.
+   */
   function yearToSliderValue(year: number, timelineYears: number[]) {
     const minYear = Math.min(...timelineYears);
     const maxYear = Math.max(...timelineYears);
@@ -97,22 +93,13 @@ const Timeline = ({
 
   return (
     <>
-      {/* TODO - Make line absolute positioned; make it extend end-to-end in the container BEHIND THE DOTS */ }
-      {/* <div className="line w-10 h-[1px] bg-white">
-            
-            </div> */}
-      {/* TODO - Superimpose slider component over timeline so it can be scrolled by that...? */ }
-      {/* NOTE - https://primereact.org/slider/ */ }
-      {/* NOTE - -left-1.5 is used to account for the radius of the circle so it can be properly centered */ }
-      {/* <div className="flex gap-x-2 relative w-full justify-between"> */}
       <div className="flex gap-x-2 relative w-full justify-between">
         { 
-          // [...timelineYears].map((year, i) =>
           [...generateYearRange(timelineYears)].map((year, i) =>
             <div key={i}>
               <div className="flex flex-col items-center relative">
                 <div className="flex">
-
+                  {/* NOTE - -left-1.5 is used to account for the radius of the circle so it can be properly centered */ }
                   <div className={ cn(
                     styles.timelineButton, 
                     "circle border w-3 h-3 rounded-full shadow-3xl absolute -left-1.5 z-20 cursor-pointer", 
@@ -120,7 +107,6 @@ const Timeline = ({
                     (timelineYears.includes(year)) ? "" : "hidden"
                   )} onClick={ (e) => handleYearClick(e, year, i) }></div>
                 </div>
-                {/* TODO - add background behind selected year so it stands out */}
                 {/* TODO - Transition animations for box that appears behind selected year */}
                 <span className={ 
                   cn(
@@ -130,7 +116,7 @@ const Timeline = ({
                     (timelineYears.includes(year)) ? "" : "hidden"
                   )} onClick={ (e) => handleYearClick(e, year, i) }>
                     { 
-                      (year === timelineYears[timelineYears.length - 1]) 
+                      (year === currentYear) 
                       // ? (<><span className="text-center">{ year }</span><span>(Present)</span></>)
                       ? ("Present")
                         : year
@@ -140,16 +126,6 @@ const Timeline = ({
             </div>
           ) 
         }
-        {/* <div>
-          <div className="flex flex-col items-center relative">
-            <div className="flex">
-
-              <div className={ cn(styles.timelineButton, "circle border w-3 h-3 rounded-full shadow-3xl absolute -left-1.5 z-20 cursor-pointer", (currentYear === selectedYear) ? styles.selected : "bg-white") } onClick={ (e) => handleYearClick(e, year, i) }></div>
-            </div>
-            <span className={ cn("absolute top-3 cursor-pointer", (currentYear === selectedYear) ? "text-blue-500 font-medium" : "text-white") } onClick={ (e) => handleYearClick(e, timelineYears[timelineYears.length - 1], timelineYears.length - 1) }>Present</span>
-          </div>
-        </div> */}
-          {/* NOTE - This appears to be the same length without modification, but need to position in front of line */}
           <Slider 
             value={ sliderValue } 
             onChange={ handleSliderChange } 
