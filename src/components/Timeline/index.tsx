@@ -113,7 +113,7 @@ const Timeline = ({
                     "absolute cursor-pointer flex flex-col", 
                     (i % 2 === 0) ? "top-5" : "bottom-2",
                     (year === selectedYear) ? styles.selectedYear : styles.unselectedYear,
-                    (year === selectedYear) ? "text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50 text-2xl" : "text-white text-xl",
+                    (year === selectedYear) ? "text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50 text-2xl" : "text-white text-xl font-medium",
                     (timelineYears.includes(year)) ? "" : "hidden"
                   )} onClick={ (e) => handleYearClick(e, year, i) }>
                     { 
