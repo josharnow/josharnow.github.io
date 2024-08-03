@@ -13,6 +13,7 @@ type TimelineContent = {
   bodyElement: React.ReactNode;
   location?: string;
   supersedesOtherPositions?: boolean;
+  // isSelected?: boolean;
 };
 
 interface EducationTimelineContent extends TimelineContent {
