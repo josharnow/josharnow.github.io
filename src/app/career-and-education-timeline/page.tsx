@@ -197,14 +197,14 @@ export default function CareerAndEducationTimelinePage() {
       <div className="absolute top-0 bottom-0 left-0 right-0 p-6">
         <div className="w-full h-full border">
           <div className="w-full h-full flex flex-col">
-            <div className="w-full grow border flex flex-col justify-center items-center">
+            <div className="w-full h-[40%] border flex flex-col justify-center items-center">
               <b>{ selectedYear }</b>
               <CareerTimelineContent selectedYear={ selectedYear } selectedContent={ selectedCareerContent } />
             </div>
-            <div className="w-full grow border flex flex-col justify-center items-center px-6 py-3">
+            <div className="w-full border grow flex flex-col justify-center items-center px-6 py-3">
               <Timeline timelineYears={ combinedYearsArr } selectedYear={ selectedYear } setSelectedYear={ setSelectedYear } />
             </div>
-            <div className="w-full grow border flex flex-col justify-center items-center">
+            <div className="w-full h-[40%] border flex flex-col justify-center items-center">
               <b>{ selectedYear }</b>
               <EducationTimelineContent selectedYear={ selectedYear } selectedContent={ selectedEducationContent } />
             </div>
