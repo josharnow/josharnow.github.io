@@ -20,11 +20,11 @@ const CareerTimelineContent = ({ selectedContent, selectedYear }: Props) => {
     <>
       {/* TODO - Make component for each stepper panel */ }
       <div className="relative h-full w-full flex justify-center items-center">
-        <div className={cn(`grid grid-cols-${selectedContent.length} w-full`)}>
+        <div className={cn(`grid grid-cols-${selectedContent.length} w-full h-full gap-2`)}>
           {
             selectedContent.map((item: CareerTimelineContent, index: number) => {
               return (
-                <div key={ index } className="flex flex-col items-center">
+                <div key={ index } className="flex flex-col items-center justify-center px-2 pt-6 pb-2">
                   <h1>{ item.yearStart }</h1>
                   <h1>{ item.institution }</h1>
                   {/* <h1>{item.title}</h1> */ }
@@ -34,7 +34,7 @@ const CareerTimelineContent = ({ selectedContent, selectedYear }: Props) => {
             })
           }
         </div>
-        <div className='absolute top-4 left-4 text-2xl opacity-25 font-medium'>Career</div>
+        <div className='absolute top-0 left-0 text-2xl opacity-25 font-medium'>Career</div>
       </div>
     </>
   );
