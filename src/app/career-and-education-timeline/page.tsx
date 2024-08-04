@@ -196,16 +196,14 @@ export default function CareerAndEducationTimelinePage() {
       <WavyBackground containerClassName="absolute top-0 left-0 right-0 bottom-0" className="w-full" />
       <div className="absolute top-0 bottom-0 left-0 right-0 p-6">
         <div className="w-full h-full border">
-          <div className="w-full h-full flex flex-col">
-            <div className="w-full h-[40%] border flex flex-col justify-center items-center">
-              <b>{ selectedYear }</b>
+          <div className="w-full h-full flex flex-col relative">
+            <div className="w-full h-[40%] border flex justify-center items-center">
               <CareerTimelineContent selectedYear={ selectedYear } selectedContent={ selectedCareerContent } />
             </div>
             <div className="w-full border grow flex flex-col justify-center items-center px-6 py-3 relative">
               <Timeline timelineYears={ combinedYearsArr } selectedYear={ selectedYear } setSelectedYear={ setSelectedYear } />
             </div>
-            <div className="w-full h-[40%] border flex flex-col justify-center items-center">
-              <b>{ selectedYear }</b>
+            <div className="w-full h-[40%] border flex justify-center items-center">
               <EducationTimelineContent selectedYear={ selectedYear } selectedContent={ selectedEducationContent } />
             </div>
           </div>

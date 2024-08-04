@@ -20,19 +20,21 @@ const EducationTimelineContent = ({selectedContent, selectedYear}: Props) => {
   return (
     <>
       {/* TODO - Make component for each stepper panel */ }
-      Education
-      {
-        selectedContent.map((item: EducationTimelineContent, index: number) => {
-          return (
-            <div key={index}>
-              <h1>{item.yearStart}</h1>
-              <h1>{ item.institution }</h1>
-              {/* <h1>{item.title}</h1> */}
-              {/* <p>{item.description}</p> */}
-            </div>
-          );
-        })
-      }
+      <div className="relative h-full w-full flex justify-center items-center">
+        {
+          selectedContent.map((item: EducationTimelineContent, index: number) => {
+            return (
+              <div key={index}>
+                <h1>{item.yearStart}</h1>
+                <h1>{ item.institution }</h1>
+                {/* <h1>{item.title}</h1> */}
+                {/* <p>{item.description}</p> */}
+              </div>
+            );
+          })
+        }
+        <div className='absolute bottom-4 left-4 text-2xl opacity-25 font-medium'>Education</div>
+      </div>
     </>
   );
 };
