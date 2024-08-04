@@ -201,7 +201,7 @@ export default function CareerAndEducationTimelinePage() {
               <b>{ selectedYear }</b>
               <CareerTimelineContent selectedYear={ selectedYear } selectedContent={ selectedCareerContent } />
             </div>
-            <div className="w-full border grow flex flex-col justify-center items-center px-6 py-3">
+            <div className="w-full border grow flex flex-col justify-center items-center px-6 py-3 relative">
               <Timeline timelineYears={ combinedYearsArr } selectedYear={ selectedYear } setSelectedYear={ setSelectedYear } />
             </div>
             <div className="w-full h-[40%] border flex flex-col justify-center items-center">

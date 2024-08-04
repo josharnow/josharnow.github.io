@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import { Slider, SliderChangeEvent } from 'primereact/slider';
 
@@ -17,6 +17,35 @@ const Timeline = ({
   setSelectedYear,
 }: TimelineProps) => {
   const [sliderValue, setSliderValue] = useState<[number, number] | number>();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      const handleInputKeyPress = (e: KeyboardEvent) => {
+        const inputValue = parseInt(e.key);
+        const minYear = Math.min(...timelineYears);
+        const maxYear = Math.max(...timelineYears);
+        if (isNaN(inputValue)) {
+          e.preventDefault();
+        }
+        if (inputRef?.current?.value) {
+          if (inputRef.current.value?.length >= 3) {
+            const inputYear = parseInt(inputRef.current?.value.toString().concat(e.key) as string);
+            if (inputYear < minYear || inputYear > maxYear) {
+              e.preventDefault();
+            } 
+          }
+        } 
+
+
+      };
+      inputRef.current.addEventListener("keypress", handleInputKeyPress);
+      return () => {
+        inputRef.current?.removeEventListener("keypress", handleInputKeyPress);
+      };
+    }
+  }
+  , [inputRef]);
 
   const currentYear = timelineYears[timelineYears.length - 1];
 
@@ -91,57 +120,81 @@ const Timeline = ({
     return yearPercentage * 100;
   }
 
+  // NOTE - This validation logic is separate from the logic in useEffect
+  function handleInputYearChange(e: React.ChangeEvent<HTMLInputElement>) {
+    e.preventDefault()
+    if (parseInt(e.target.value) >= Math.min(...timelineYears) || parseInt(e.target.value) <= Math.max(...timelineYears)) {
+      // if (parseInt(e.target.value) < Math.min(...timelineYears)) {
+      //   return setSelectedYear(Math.min(...timelineYears));
+      // }
+      return setSelectedYear(parseInt(e.target.value));
+    }
+  }
+
   return (
     <>
-      <div className="flex gap-x-2 relative w-full justify-between">
-        { 
-          [...generateYearRange(timelineYears)].map((year, i) =>
-            <div key={i}>
-              <div className="flex flex-col items-center relative">
-                <div className="flex">
-                  {/* NOTE - -left-1.5 is used to account for the radius of the circle so it can be properly centered */ }
-                  <div className={ cn(
-                    styles.timelineButton, 
-                    "circle border w-3 h-3 rounded-full shadow-3xl absolute -left-1.5 z-20 cursor-pointer", 
-                    (year === selectedYear) ? styles.selected : "bg-white",
-                    (timelineYears.includes(year)) ? "" : "hidden"
-                  )} onClick={ (e) => handleYearClick(e, year, i) }></div>
-                </div>
-                {/* TODO - Transition animations for box that appears behind selected year */}
-                <span className={ 
-                  cn(
-                    "absolute cursor-pointer flex flex-col", 
-                    (i % 2 === 0) ? "top-5" : "bottom-2",
-                    (year === selectedYear) ? styles.selectedYear : styles.unselectedYear,
-                    (year === selectedYear) ? "text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50 text-2xl" : "text-white text-xl font-medium",
-                    (timelineYears.includes(year)) ? "" : "hidden"
-                  )} onClick={ (e) => handleYearClick(e, year, i) }>
-                    { 
-                      (year === currentYear) 
-                      // ? (<><span className="text-center">{ year }</span><span>(Present)</span></>)
-                      ? ("Present")
-                        : year
-                    }
-                    </span>
-              </div>
-            </div>
-          ) 
-        }
-          <Slider 
-            value={ sliderValue } 
-            onChange={ handleSliderChange } 
-            pt={ {
-              root: {
-                className: "absolute top-1 w-full shadow-3xl h-1 bg-slate-700 cursor-pointer",
-              },
-              range: {
-                className: "bg-blue-500 shadow-3xl",
-              },
-              handle: {
-                className: cn(styles.sliderHandle, "bg-blue-500 shadow-3xl border border-2 top-0 w-6 h-6 fixed z-50"),
-              },
-            } }
+      <div className="w-full">
+        <div className="mb-9">
+          <input
+            type="number"
+            value={ selectedYear }
+            onChange={ handleInputYearChange }
+            className="w-24 absolute top-1 text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50 text-2xl"
+            min={ Math.min(...timelineYears) }
+            max={ Math.max(...timelineYears) }
+            ref={ inputRef }
           />
+        </div>
+        <div className="flex gap-x-2 relative w-full justify-between">
+          { 
+            [...generateYearRange(timelineYears)].map((year, i) =>
+              <div key={i}>
+                <div className="flex flex-col items-center relative">
+                  <div className="flex">
+                    {/* NOTE - -left-1.5 is used to account for the radius of the circle so it can be properly centered */ }
+                    <div className={ cn(
+                      styles.timelineButton, 
+                      "circle border w-3 h-3 rounded-full shadow-3xl absolute -left-1.5 z-20 cursor-pointer", 
+                      (year === selectedYear) ? styles.selected : "bg-white",
+                      (timelineYears.includes(year)) ? "" : "hidden"
+                    )} onClick={ (e) => handleYearClick(e, year, i) }></div>
+                  </div>
+                  {/* TODO - Transition animations for box that appears behind selected year */}
+                  <span className={ 
+                    cn(
+                      "absolute cursor-pointer flex flex-col", 
+                      (i % 2 === 0) ? "top-5" : "bottom-2",
+                      (year === selectedYear) ? styles.selectedYear : styles.unselectedYear,
+                      (year === selectedYear) ? "text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50 text-2xl" : "text-white text-xl font-medium",
+                      (timelineYears.includes(year)) ? "" : "hidden"
+                    )} onClick={ (e) => handleYearClick(e, year, i) }>
+                      { 
+                        (year === currentYear) 
+                        // ? (<><span className="text-center">{ year }</span><span>(Present)</span></>)
+                        ? ("Present")
+                          : year
+                      }
+                      </span>
+                </div>
+              </div>
+            ) 
+          }
+            <Slider 
+              value={ sliderValue } 
+              onChange={ handleSliderChange } 
+              pt={ {
+                root: {
+                  className: "absolute top-1 w-full shadow-3xl h-1 bg-slate-700 cursor-pointer",
+                },
+                range: {
+                  className: "bg-blue-500 shadow-3xl",
+                },
+                handle: {
+                  className: cn(styles.sliderHandle, "bg-blue-500 shadow-3xl border border-2 top-0 w-6 h-6 fixed z-50"),
+                },
+              } }
+            />
+        </div>
       </div>
     </>
   );
