@@ -127,7 +127,8 @@ const Timeline = ({
       // if (parseInt(e.target.value) < Math.min(...timelineYears)) {
       //   return setSelectedYear(Math.min(...timelineYears));
       // }
-      return setSelectedYear(parseInt(e.target.value));
+      setSelectedYear(parseInt(e.target.value));
+      setSliderValue(yearToSliderValue(parseInt(e.target.value), timelineYears));
     }
   }
 
