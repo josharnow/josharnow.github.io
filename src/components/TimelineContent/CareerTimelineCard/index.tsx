@@ -13,9 +13,11 @@ const CareerTimelineCard = ({ content, className }: {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center px-2 pt-6 pb-2">
-        <h1>{ content.yearStart }</h1>
-        <h1>{ content.institution }</h1>
+      <div className={ classNames(className ? className : "", "flex flex-col items-center justify-center pt-6") }>
+        <div className="border border-red-500 rounded-lg w-full h-full p-2">
+          <h1>{ content.yearStart }</h1>
+          <h1>{ content.institution }</h1>
+        </div>
       </div>
     </>
   );

@@ -28,16 +28,16 @@ const TimelineContent = ({selectedContent, selectedYear, contentType}: Props) =>
             selectedContent.map((item: EducationTimelineContent | CareerTimelineContent, index: number) => {
               return (
                 contentType === "career" ?
-                  <CareerTimelineCard key={ index } content={item as CareerTimelineContent} /> :
-                  <EducationTimelineCard key={ index } content={item as EducationTimelineContent} />
+                  <CareerTimelineCard key={ index } content={item as CareerTimelineContent} className="" /> :
+                  <EducationTimelineCard key={ index } content={item as EducationTimelineContent} className="" />
               );
             })
           }
         </div>
         {
           contentType === "career" ? 
-            <div className='absolute top-0 left-0 text-2xl opacity-25 font-medium'>Career</div> :
-            <div className='absolute bottom-0 left-0 text-2xl opacity-25 font-medium'>Education</div>
+            <div className='absolute top-0 left-0 text-xl opacity-25 font-medium'>Career</div> :
+            <div className='absolute bottom-0 left-0 text-xl opacity-25 font-medium'>Education</div>
         }
       </div>
     </>
