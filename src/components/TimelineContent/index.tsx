@@ -24,15 +24,19 @@ const TimelineContent = ({selectedContent, selectedYear, contentType}: Props) =>
           {
             selectedContent.map((item: EducationTimelineContent | CareerTimelineContent, index: number) => {
               return (
-                <div key={ index } className="flex flex-col items-center justify-center px-2 pb-6 pt-2">
-                  <h1>{ item.yearStart }</h1>
-                  <h1>{ item.institution }</h1>
-                  {/* <h1>{item.title}</h1> */ }
-                  {/* <p>{item.description}</p> */ }
-                </div>
+                contentType === "career" ?
+                  <div key={ index } className="flex flex-col items-center justify-center px-2 pt-6 pb-2">
+                    <h1>{ item.yearStart }</h1>
+                    <h1>{ item.institution }</h1>
+                  </div> :
+                  <div key={ index } className="flex flex-col items-center justify-center px-2 pb-6 pt-2">
+                    <h1>{ item.yearStart }</h1>
+                    <h1>{ item.institution }</h1>
+                  </div>
               );
             })
           }
+          {/* TODO - Make cards for Career & Timeline */}
         </div>
         {
           contentType === "career" ? 
