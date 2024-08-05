@@ -1,29 +1,28 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import { Timeline, WavyBackground } from "@/src/components";
+import React from "react";
 
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 type Props = {
-  selectedContent: EducationTimelineContent[];
+  selectedContent: EducationTimelineContent[] | CareerTimelineContent[];
   selectedYear: number;
+  contentType: "education" | "career";
 }
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const EducationTimelineContent = ({selectedContent, selectedYear}: Props) => {
+const TimelineContent = ({selectedContent, selectedYear, contentType}: Props) => {
 
-  console.log(selectedContent);
   return (
     <>
       {/* TODO - Make component for each stepper panel */ }
       <div className="relative h-full w-full flex justify-center items-center">
         <div className={ cn(`grid grid-cols-${selectedContent.length} w-full h-full gap-2`) }>
           {
-            selectedContent.map((item: EducationTimelineContent, index: number) => {
+            selectedContent.map((item: EducationTimelineContent | CareerTimelineContent, index: number) => {
               return (
                 <div key={ index } className="flex flex-col items-center justify-center px-2 pb-6 pt-2">
                   <h1>{ item.yearStart }</h1>
@@ -35,9 +34,13 @@ const EducationTimelineContent = ({selectedContent, selectedYear}: Props) => {
             })
           }
         </div>
-        <div className='absolute bottom-0 left-0 text-2xl opacity-25 font-medium'>Education</div>
+        {
+          contentType === "career" ? 
+            <div className='absolute top-0 left-0 text-2xl opacity-25 font-medium'>Career</div> :
+            <div className='absolute bottom-0 left-0 text-2xl opacity-25 font-medium'>Education</div>
+        }
       </div>
     </>
   );
 };
-export default EducationTimelineContent;
+export default TimelineContent;

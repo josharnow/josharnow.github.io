@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 // import styles from './styles.module.scss';
-import { Timeline, WavyBackground, CareerTimelineContent, EducationTimelineContent } from '@/src/components';
+import { Timeline, WavyBackground, TimelineContent } from '@/src/components';
 
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -198,13 +198,13 @@ export default function CareerAndEducationTimelinePage() {
         <div className="w-full h-full border">
           <div className="w-full h-full flex flex-col relative">
             <div className="w-full h-[40%] border flex justify-center items-center">
-              <CareerTimelineContent selectedYear={ selectedYear } selectedContent={ selectedCareerContent } />
+              <TimelineContent selectedYear={ selectedYear } selectedContent={ selectedCareerContent } contentType='career' />
             </div>
             <div className="w-full border grow flex flex-col justify-center items-center px-6 py-3 relative">
               <Timeline timelineYears={ combinedYearsArr } selectedYear={ selectedYear } setSelectedYear={ setSelectedYear } />
             </div>
             <div className="w-full h-[40%] border flex justify-center items-center">
-              <EducationTimelineContent selectedYear={ selectedYear } selectedContent={ selectedEducationContent } />
+              <TimelineContent selectedYear={ selectedYear } selectedContent={ selectedEducationContent } contentType='education' />
             </div>
           </div>
         </div>
