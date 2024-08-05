@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import CareerTimelineCard from "./CareerTimelineCard";
+import EducationTimelineCard from "./EducationTimelineCard";
 
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -21,22 +23,16 @@ const TimelineContent = ({selectedContent, selectedYear, contentType}: Props) =>
       {/* TODO - Make component for each stepper panel */ }
       <div className="relative h-full w-full flex justify-center items-center">
         <div className={ cn(`grid grid-cols-${selectedContent.length} w-full h-full gap-2`) }>
+          {/* TODO - Make cards for Career & Timeline */ }
           {
             selectedContent.map((item: EducationTimelineContent | CareerTimelineContent, index: number) => {
               return (
                 contentType === "career" ?
-                  <div key={ index } className="flex flex-col items-center justify-center px-2 pt-6 pb-2">
-                    <h1>{ item.yearStart }</h1>
-                    <h1>{ item.institution }</h1>
-                  </div> :
-                  <div key={ index } className="flex flex-col items-center justify-center px-2 pb-6 pt-2">
-                    <h1>{ item.yearStart }</h1>
-                    <h1>{ item.institution }</h1>
-                  </div>
+                  <CareerTimelineCard key={ index } content={item as CareerTimelineContent} /> :
+                  <EducationTimelineCard key={ index } content={item as EducationTimelineContent} />
               );
             })
           }
-          {/* TODO - Make cards for Career & Timeline */}
         </div>
         {
           contentType === "career" ? 
