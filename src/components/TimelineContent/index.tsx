@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import CareerTimelineCard from "./CareerTimelineCard";
-import EducationTimelineCard from "./EducationTimelineCard";
+import EducationTimelineCard from "./EducationTimelineCard"; 
 
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -18,11 +18,16 @@ function cn(...inputs: ClassValue[]) {
 
 const TimelineContent = ({selectedContent, selectedYear, contentType}: Props) => {
 
+  const colsClass = useMemo(() => {
+    return `grid-cols-${selectedContent.length}`;
+  }, [selectedContent.length]);
+
   return (
     <>
       {/* TODO - Make component for each stepper panel */ }
       <div className="relative h-full w-full flex justify-center items-center">
-        <div className={ cn(`grid grid-cols-${selectedContent.length} w-full h-full gap-2`) }>
+        <div className={ cn(`grid w-full h-full gap-2`, colsClass) }>
+        {/* <div className={ cn(`grid grid-cols-${selectedContent.length} w-full h-full gap-2`) }> */}
           {/* TODO - Make cards for Career & Timeline */ }
           {
             selectedContent.map((item: EducationTimelineContent | CareerTimelineContent, index: number) => {
