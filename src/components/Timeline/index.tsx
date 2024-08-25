@@ -135,17 +135,17 @@ const Timeline = ({
   return (
     <>
       <div className="w-full">
-        <div className="mb-9">
+        {/* <div className="mb-9">
           <input
             type="number"
             value={ selectedYear }
             onChange={ handleInputYearChange }
-            className="w-24 absolute top-1 text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50 text-2xl"
+            className="w-14 sm:w-24 text-xs sm:text-2xl absolute top-1 text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50"
             min={ Math.min(...timelineYears) }
             max={ Math.max(...timelineYears) }
             ref={ inputRef }
           />
-        </div>
+        </div> */}
         <div className="flex gap-x-2 relative w-full justify-between">
           { 
             [...generateYearRange(timelineYears)].map((year, i) =>
@@ -155,7 +155,7 @@ const Timeline = ({
                     {/* NOTE - -left-1.5 is used to account for the radius of the circle so it can be properly centered */ }
                     <div className={ cn(
                       styles.timelineButton, 
-                      "circle border w-3 h-3 rounded-full shadow-3xl absolute -left-1.5 z-20 cursor-pointer", 
+                      "circle border size-3 rounded-full shadow-3xl absolute -left-1.5 z-20 cursor-pointer -top-1", 
                       (year === selectedYear) ? styles.selected : "bg-white",
                       (timelineYears.includes(year)) ? "" : "hidden"
                     )} onClick={ (e) => handleYearClick(e, year, i) }></div>
@@ -164,9 +164,9 @@ const Timeline = ({
                   <span className={ 
                     cn(
                       "absolute cursor-pointer flex flex-col", 
-                      (i % 2 === 0) ? "top-5" : "bottom-2",
+                      (i % 2 === 0) ? "top-4" : "bottom-3",
                       (year === selectedYear) ? styles.selectedYear : styles.unselectedYear,
-                      (year === selectedYear) ? "text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50 text-2xl" : "text-white text-xl font-medium",
+                      (year === selectedYear) ? "text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50 text-base sm:text-2xl" : "text-white text-xs sm:text-xl font-medium",
                       (timelineYears.includes(year)) ? "" : "hidden"
                     )} onClick={ (e) => handleYearClick(e, year, i) }>
                       { 
@@ -185,7 +185,7 @@ const Timeline = ({
               onChange={ handleSliderChange } 
               pt={ {
                 root: {
-                  className: "absolute top-1 w-full shadow-3xl h-1 bg-slate-700 cursor-pointer",
+                  className: "absolute top-0 w-full shadow-3xl h-1 bg-slate-700 cursor-pointer",
                 },
                 range: {
                   className: "bg-blue-500 shadow-3xl",

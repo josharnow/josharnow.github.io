@@ -44,6 +44,31 @@ const TimelineContent = ({selectedContent, selectedYear, contentType}: Props) =>
             <div className='absolute top-0 left-0 text-xl opacity-25 font-medium'>Career</div> :
             <div className='absolute bottom-0 left-0 text-xl opacity-25 font-medium'>Education</div>
         }
+        {/* TODO - Put year input selector here */}
+        {/* TODO - Forward ref to pass data back to timeline? */}
+        {
+          contentType === "career" ?
+            <input
+              type="number"
+              value={ selectedYear }
+              className="w-14 sm:w-24 text-xs sm:text-2xl absolute top-0 right-0 text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50"
+            /> :
+            <></>
+        }
+        {/* <input
+          type="number"
+          value={ selectedYear }
+          onChange={ handleInputYearChange }
+          className="w-14 sm:w-24 text-xs sm:text-2xl absolute top-1 text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50"
+          min={ Math.min(...timelineYears) }
+          max={ Math.max(...timelineYears) }
+          ref={ inputRef }
+        /> */}
+        {/* {
+          contentType === "career" ?
+            <span className="absolute top-0 right-0 text-xl opacity-25 font-medium">{ selectedYear }</span> :
+            <></>
+        } */}
       </div>
     </>
   );
