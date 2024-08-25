@@ -17,6 +17,7 @@ const Timeline = ({
   setSelectedYear,
   sliderValue,
   setSliderValue,
+  yearToSliderValue,
 }: TimelineProps) => {
   // const [sliderValue, setSliderValue] = useState<[number, number] | number>();
   const inputRef = useRef<HTMLInputElement>(null);
