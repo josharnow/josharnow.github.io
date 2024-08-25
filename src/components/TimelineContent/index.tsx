@@ -42,8 +42,8 @@ const TimelineContent = ({selectedContent, selectedYear, contentType, handleInpu
         </div>
         {
           contentType === "career" ? 
-            <div className='absolute top-0 left-0 text-xl opacity-25 font-medium'>Career</div> :
-            <div className='absolute bottom-0 left-0 text-xl opacity-25 font-medium'>Education</div>
+            <div className='absolute top-0 left-0 text-xl sm:text-2xl opacity-25 font-medium'>Career</div> :
+            <div className='absolute bottom-0 left-0 text-xl sm:text-2xl opacity-25 font-medium'>Education</div>
         }
         {/* TODO - Put year input selector here */}
         {/* TODO - Forward ref to pass data back to timeline? */}
