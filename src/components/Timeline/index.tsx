@@ -15,8 +15,10 @@ const Timeline = ({
   timelineYears,
   selectedYear,
   setSelectedYear,
+  sliderValue,
+  setSliderValue,
 }: TimelineProps) => {
-  const [sliderValue, setSliderValue] = useState<[number, number] | number>();
+  // const [sliderValue, setSliderValue] = useState<[number, number] | number>();
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -103,33 +105,6 @@ const Timeline = ({
     const yearRange = maxYear - minYear;
     const year = minYear + yearRange * valuePercentage;
     return Math.floor(year);
-  }
-
-  /**
-   * Converts a year value to a slider value based on the given timeline years.
-   * @param year - The year value to convert.
-   * @param timelineYears - An array of timeline years.
-   * @returns The corresponding slider value.
-   */
-  function yearToSliderValue(year: number, timelineYears: number[]) {
-    const minYear = Math.min(...timelineYears);
-    const maxYear = Math.max(...timelineYears);
-
-    const yearRange = maxYear - minYear;
-    const yearPercentage = (year - minYear) / yearRange;
-    return yearPercentage * 100;
-  }
-
-  // NOTE - This validation logic is separate from the logic in useEffect
-  function handleInputYearChange(e: React.ChangeEvent<HTMLInputElement>) {
-    e.preventDefault()
-    if (parseInt(e.target.value) >= Math.min(...timelineYears) || parseInt(e.target.value) <= Math.max(...timelineYears)) {
-      // if (parseInt(e.target.value) < Math.min(...timelineYears)) {
-      //   return setSelectedYear(Math.min(...timelineYears));
-      // }
-      setSelectedYear(parseInt(e.target.value));
-      setSliderValue(yearToSliderValue(parseInt(e.target.value), timelineYears));
-    }
   }
 
   return (

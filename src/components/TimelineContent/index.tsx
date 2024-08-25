@@ -10,13 +10,14 @@ type Props = {
   selectedContent: EducationTimelineContent[] | CareerTimelineContent[];
   selectedYear: number;
   contentType: "education" | "career";
+  handleInputYearChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const TimelineContent = ({selectedContent, selectedYear, contentType}: Props) => {
+const TimelineContent = ({selectedContent, selectedYear, contentType, handleInputYearChange}: Props) => {
 
   const colsClass = useMemo(() => {
     return `grid-cols-${selectedContent.length}`;
@@ -52,6 +53,7 @@ const TimelineContent = ({selectedContent, selectedYear, contentType}: Props) =>
               type="number"
               value={ selectedYear }
               className="w-14 sm:w-24 text-xs sm:text-2xl absolute top-0 right-0 text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50"
+              onChange={ handleInputYearChange }
             /> :
             <></>
         }

@@ -128,6 +128,8 @@ export default function CareerAndEducationTimelinePage() {
   const combinedYearsArr = combineYears(sortedContentArr);
   const [selectedYear, setSelectedYear] = useState(combinedYearsArr[0]);
 
+  const [sliderValue, setSliderValue] = useState<[number, number] | number>();
+
   const selectedCareerContent = useMemo(() => {
     const contentToSelect: CareerTimelineContent[] = [];
 
@@ -190,6 +192,34 @@ export default function CareerAndEducationTimelinePage() {
     const combinedYearsSet = new Set(combinedYearsArr as number[]);
     return [...combinedYearsSet].sort((a, b) => a - b);
   }
+
+
+  // NOTE - This validation logic is separate from the logic in useEffect
+  function handleInputYearChange(e: React.ChangeEvent<HTMLInputElement>) {
+    e.preventDefault()
+    if (parseInt(e.target.value) >= Math.min(...combinedYearsArr) || parseInt(e.target.value) <= Math.max(...combinedYearsArr)) {
+      // if (parseInt(e.target.value) < Math.min(...timelineYears)) {
+      //   return setSelectedYear(Math.min(...timelineYears));
+      // }
+      setSelectedYear(parseInt(e.target.value));
+      setSliderValue(yearToSliderValue(parseInt(e.target.value), combinedYearsArr));
+    }
+  }
+
+  /**
+ * Converts a year value to a slider value based on the given timeline years.
+ * @param year - The year value to convert.
+ * @param timelineYears - An array of timeline years.
+ * @returns The corresponding slider value.
+ */
+  function yearToSliderValue(year: number, timelineYears: number[]) {
+    const minYear = Math.min(...timelineYears);
+    const maxYear = Math.max(...timelineYears);
+
+    const yearRange = maxYear - minYear;
+    const yearPercentage = (year - minYear) / yearRange;
+    return yearPercentage * 100;
+  }
   
   return (
     <>
@@ -198,13 +228,30 @@ export default function CareerAndEducationTimelinePage() {
         <div className="w-full h-full">
           <div className="w-full h-full flex flex-col relative">
             <div className="w-full h-[40%] flex justify-center items-center">
-              <TimelineContent selectedYear={ selectedYear } selectedContent={ selectedCareerContent } contentType='career' />
+              {/* TODO - Move appropriate logic to here from Timeline component so I can pass through handleInputYearChange */}
+              <TimelineContent 
+                selectedYear={ selectedYear } 
+                selectedContent={ selectedCareerContent } 
+                contentType='career' 
+                handleInputYearChange={ handleInputYearChange }
+              />
             </div>
             <div className="w-full grow flex flex-col justify-center items-center px-6 py-3 relative">
-              <Timeline timelineYears={ combinedYearsArr } selectedYear={ selectedYear } setSelectedYear={ setSelectedYear } />
+              <Timeline 
+                timelineYears={ combinedYearsArr } 
+                selectedYear={ selectedYear } 
+                setSelectedYear={ setSelectedYear } 
+                sliderValue={ sliderValue as [number, number] | number }
+                setSliderValue={ setSliderValue }
+                yearToSliderValue={ yearToSliderValue }
+              />
             </div>
             <div className="w-full h-[40%] flex justify-center items-center">
-              <TimelineContent selectedYear={ selectedYear } selectedContent={ selectedEducationContent } contentType='education' />
+              <TimelineContent 
+                selectedYear={ selectedYear } 
+                selectedContent={ selectedEducationContent } 
+                contentType='education' 
+              />
             </div>
           </div>
         </div>

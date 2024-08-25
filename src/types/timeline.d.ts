@@ -2,6 +2,9 @@ type TimelineProps = {
   timelineYears: number[];
   selectedYear: number;
   setSelectedYear: (year: number) => void;
+  sliderValue: [number, number] | number;
+  setSliderValue: (value: [number, number] | number) => void;
+  yearToSliderValue: (year: number, timelineYears: number[]) => number;
 };
 
 type TimelineContent = {
