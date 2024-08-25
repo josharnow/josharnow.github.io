@@ -17,7 +17,7 @@ const CareerTimelineCard = ({ content, className }: {
 
   return (
     <>
-      <div className={ cn(className ? className : "", "flex flex-col items-center justify-center pt-7") }>
+      <div className={ cn(className ? className : "", "flex flex-col items-center justify-center pt-7 mt-0 sm:mt-2") }>
         {/* <CardSpotlight className={ cn(styles.card, "border border-red-500 rounded-lg w-full h-full p-2 shadow-3xl shadow-blue-500 bg-transparent") }
           style={ { transition: "box-shadow 1s ease 0s, background 1s ease 0s, opacity 1s ease 0s, color 1s ease 1s allow-discrete" } }
           > */}

@@ -111,17 +111,6 @@ const Timeline = ({
   return (
     <>
       <div className="w-full">
-        {/* <div className="mb-9">
-          <input
-            type="number"
-            value={ selectedYear }
-            onChange={ handleInputYearChange }
-            className="w-14 sm:w-24 text-xs sm:text-2xl absolute top-1 text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50"
-            min={ Math.min(...timelineYears) }
-            max={ Math.max(...timelineYears) }
-            ref={ inputRef }
-          />
-        </div> */}
         <div className="flex gap-x-2 relative w-full justify-between">
           { 
             [...generateYearRange(timelineYears)].map((year, i) =>

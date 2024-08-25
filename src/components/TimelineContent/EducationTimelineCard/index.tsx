@@ -17,7 +17,7 @@ const EducationTimelineCard = ({ content, className }: {
 
   return (
     <>
-      <div className={ cn(className ? className : "", "flex flex-col items-center justify-center pb-7")}>
+      <div className={ cn(className ? className : "", "flex flex-col items-center justify-center pb-7 mb-0 sm:mb-2")}>
         <CardSpotlight className={ cn(styles.card, "rounded-lg w-full h-full p-2 shadow-3xl shadow-blue-500 bg-black bg-opacity-80") }>
           <h1>{ content.yearStart }</h1>
           <h1>{ content.institution }</h1>
