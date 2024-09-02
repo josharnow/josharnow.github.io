@@ -20,7 +20,7 @@ export default function CareerAndEducationTimelinePage() {
       institution: "Tulane University",
       location: "New Orleans, LA",
       type: "education",
-      degrees: [(<span key={ 1 }>Bachelor of Science in Economics, <i>cum laude</i></span>), (<span key={ 2 }>Bachelor of Arts in Political Economy, <i>cum laude</i></span>)],
+      degrees: [(<span key={ 1 }>Bachelor of Science <span className='font-normal'>in</span> Economics, <i className='font-normal'>cum laude</i></span>), (<span key={ 2 }>Bachelor of Arts <span className='font-normal'>in</span> Political Economy, <i className='font-normal'>cum laude</i></span>)],
       GPA: 3.7,
     },
     {
