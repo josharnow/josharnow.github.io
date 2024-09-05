@@ -38,8 +38,8 @@ const EducationTimelineCard = ({ content, className }: {
             )) }
           </div>
 
-          <div className="grow text-xs sm:text-sm">
-            test
+          <div className="grow text-sm sm:text-base overflow-y-scroll flex flex-col" style={{"flexBasis": 0, "justifyContent": "safe center"}}>
+            { content.bodyElement }
           </div>
         </CardSpotlight>
       </div>

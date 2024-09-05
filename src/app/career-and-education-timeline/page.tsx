@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState, useMemo } from 'react';
-// import styles from './styles.module.scss';
+import styles from './styles.module.scss';
 import { Timeline, WavyBackground, TimelineContent } from '@/src/components';
 
 import { type ClassValue, clsx } from "clsx";
@@ -16,7 +16,17 @@ export default function CareerAndEducationTimelinePage() {
     {
       yearStart: 2012,
       yearEnd: 2016,
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1')}>
+        <div>
+          <span>•</span>&nbsp;<span>Excelled at a complete pre-med curriculum as I pursued two degrees in unrelated fields</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Engaged in many extracurricular activities including musical ensembles, residence life leadership, Greek life leadership, & more</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Spent a semester abroad at Cambridge University to study economics & broaden my horizons by exploring Europe</span>
+        </div>
+      </div>,
       institution: "Tulane University",
       location: "New Orleans, LA",
       type: "education",

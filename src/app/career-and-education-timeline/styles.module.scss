@@ -1,0 +1,7 @@
+.bodyElement {
+  display: flex;
+  flex-direction: column;
+}
+.bodyElement > div {
+  display: flex;
+}
