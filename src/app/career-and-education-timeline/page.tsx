@@ -26,6 +26,9 @@ export default function CareerAndEducationTimelinePage() {
         <div>
           <span>•</span>&nbsp;<span>Spent a semester abroad at Cambridge University to study economics & broaden my horizons by exploring Europe</span>
         </div>
+        <div>
+          <span>•</span>&nbsp;<span>Founders Scholarship recipient</span>
+        </div>
       </div>,
       institution: "Tulane University",
       location: "New Orleans, LA",
@@ -34,35 +37,53 @@ export default function CareerAndEducationTimelinePage() {
       GPA: 3.7,
     },
     {
-      yearStart: 2020,
-      yearEnd: 2021,
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
-      institution: "Touro Law Center",
-      location: "Islip, NY (Remote)",
-      type: "education",
-      degrees: [(<span key={ 1 }>Juris Doctor (incomplete)</span>),],
-    },
-    {
-      // TODO - Figure out years I attended Stony Brook
-      yearStart: 2021,
-      yearEnd: 2021,
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
-      institution: "Coding Dojo",
-      location: "Remote",
-      type: "education",
-      degrees: [(<span key={ 1 }>Full-Stack Software Development Bootcamp</span>),],
-    },
-    {
-      // TODO - Figure out years I attended Stony Brook
       yearStart: 2018,
       yearEnd: 2019,
+      // TODO - Write below
       bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
       institution: "Stony Brook University",
       location: "Stony Brook, NY",
       type: "education",
       degrees: [(<span key={ 1 }>Post-Baccalaureate Pre-Health Program</span>),],
     },
-
+    {
+      yearStart: 2020,
+      yearEnd: 2021,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div>
+          <span>•</span>&nbsp;<span>Seized an opportunity to study law amidst mandated lockdowns</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Forwent degree completion due to a health issue, post-lockdown university policies, & finding my passion in software engineering</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Dean’s Fellowship Scholarship recipient</span>
+        </div>
+      </div>,
+      institution: "Touro Law Center",
+      location: "Islip, NY (Remote)",
+      type: "education",
+      degrees: [(<span key={ 1 }>Juris Doctor (incomplete)</span>),],
+    },
+    {
+      yearStart: 2021,
+      yearEnd: 2021,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div>
+          <span>•</span>&nbsp;<span>Completed a full-time online coding bootcamp focused on full-stack software development within three tech stacks</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Studied React, Python, & Java frameworks in addition to HTML, CSS, & vanilla JavaScript</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Obtained certifications after receiving excellent marks on completed projects from each tech stack</span>
+        </div>
+      </div>,
+      institution: "Coding Dojo",
+      location: "Remote",
+      type: "education",
+      degrees: [(<span key={ 1 }>Full-Stack Software Development Bootcamp</span>),],
+    },
     {
       yearStart: 2013,
       yearEnd: 2015,
