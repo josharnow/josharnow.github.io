@@ -39,7 +39,7 @@ const CareerTimelineCard = ({ content, className }: {
           {/* <div className="grow text-xs sm:text-base md:text-lg xl:text-xl">
             test
           </div> */}
-          <div className="grow text-sm sm:text-base md:text-lg xl:text-xl overflow-y-scroll flex flex-col" style={ { "flexBasis": 0, "justifyContent": "safe center" } }>
+          <div className="grow text-sm sm:text-base md:text-lg xl:text-xl !overflow-y-scroll flex flex-col" style={ { "flexBasis": 0, "justifyContent": "safe center" } }>
             { content.bodyElement }
           </div>
         </div>
