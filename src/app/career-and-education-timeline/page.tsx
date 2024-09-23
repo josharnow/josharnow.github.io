@@ -107,7 +107,17 @@ export default function CareerAndEducationTimelinePage() {
     {
       yearStart: 2013,
       yearEnd: 2015,
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div>
+          <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span>
+        </div>
+      </div>,
       institution: "Tulane University",
       location: "New Orleans, LA",
       type: "career",
