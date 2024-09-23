@@ -126,7 +126,17 @@ export default function CareerAndEducationTimelinePage() {
     {
       yearStart: 2014,
       yearEnd: 2015,
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div>
+          <span>•</span>&nbsp;<span>Interpreted annual financial reports to determine the creditworthiness of municipalities</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Researched bond pricing and related information to assist in credit analysis, making extensive use of Bloomberg terminals</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Developed an understanding of the intricacies of the municipal bond market</span>
+        </div>
+      </div>,
       institution: "Capital One",
       location: "Melville, NY",
       type: "career",
@@ -135,7 +145,18 @@ export default function CareerAndEducationTimelinePage() {
     {
       yearStart: 2016,
       yearEnd: 2018,
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div>
+          BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)
+          {/* <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span> */ }
+        </div>
+        <div>
+          {/* <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span> */ }
+        </div>
+        <div>
+          {/* <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span> */ }
+        </div>
+      </div>,
       institution: "Capital One",
       location: "Melville, NY",
       type: "career",
@@ -144,7 +165,18 @@ export default function CareerAndEducationTimelinePage() {
     {
       yearStart: 2018,
       yearEnd: 2021,
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div>
+          BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)
+          {/* <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span> */ }
+        </div>
+        <div>
+          {/* <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span> */ }
+        </div>
+        <div>
+          {/* <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span> */ }
+        </div>
+      </div>,
       institution: "Citiscape Realty Advisors, Inc.",
       location: "Huntington, NY",
       type: "career",
@@ -153,7 +185,18 @@ export default function CareerAndEducationTimelinePage() {
     {
       yearStart: 2021,
       yearEnd: 2022,
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div>
+          BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)
+          {/* <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span> */ }
+        </div>
+        <div>
+          {/* <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span> */ }
+        </div>
+        <div>
+          {/* <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span> */ }
+        </div>
+      </div>,
       institution: "Self-Employed",
       location: "Huntington, NY",
       type: "career",
@@ -162,7 +205,18 @@ export default function CareerAndEducationTimelinePage() {
     {
       yearStart: 2022,
       yearEnd: 2023,
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div>
+          BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)
+          {/* <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span> */ }
+        </div>
+        <div>
+          {/* <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span> */ }
+        </div>
+        <div>
+          {/* <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span> */ }
+        </div>
+      </div>,
       institution: "Two Fish Creative, Inc.",
       location: "W. Palm Beach, FL / Remote (Hybrid)",
       type: "career",
@@ -172,7 +226,18 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2023,
       // yearEnd: 2024,
       isPresent: true,
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div>
+          BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)
+          {/* <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span> */ }
+        </div>
+        <div>
+          {/* <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span> */ }
+        </div>
+        <div>
+          {/* <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span> */ }
+        </div>
+      </div>,
       institution: "Two Fish Creative, Inc.",
       location: "W. Palm Beach, FL / Remote (Hybrid)",
       type: "career",
