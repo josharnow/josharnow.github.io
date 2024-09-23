@@ -209,7 +209,13 @@ export default function CareerAndEducationTimelinePage() {
       yearEnd: 2023,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div>
-          {/* <span>•</span>&nbsp;<span>Expanded upon ideas by using various languages to independently design full-stack applications</span> */}
+          <span>•</span>&nbsp;<span>Created full-stack webapps for clients related to surrogacy services & sales/marketing</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Integrated various forms of analytics into the systems & rendered data using ChartJS</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Primarily used Python/Flask alongside jQuery & MySQL/MariaDB in the stack & deployed applications to AWS to be accessed by clients’ customers & employees on the web</span>
         </div>
       </div>,
       institution: "Two Fish Creative, Inc.",
