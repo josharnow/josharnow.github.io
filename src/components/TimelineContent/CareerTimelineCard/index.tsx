@@ -27,18 +27,18 @@ const CareerTimelineCard = ({ content, className }: {
           <div>
 
             <div className="grid grid-cols-2">
-              <div className="text-xs sm:text-sm flex h-fit">
+              <div className="text-xs sm:text-sm md:text-base xl:text-lg flex h-fit">
                 <h1>{ content.yearStart }</h1>&nbsp;–&nbsp;<h1>{ content.yearEnd ? content.yearEnd : "Present" }</h1>
               </div>
-              <h6 className="text-xs sm:text-sm h-fit" style={ { textAlign: "right" } }><i>{ content.location }</i></h6>
+              <h6 className="text-xs sm:text-sm md:text-base xl:text-lg h-fit" style={ { textAlign: "right" } }><i>{ content.location }</i></h6>
             </div>
             <div className="flex flex-col">
-              <h1 className="font-medium text-sm sm:text-base text-blue-500">{ content.institution }</h1>
-              <h3 className="font-medium text-xs sm:text-sm text-white"><i>{ content.position }</i></h3>
+              <h1 className="font-medium text-sm sm:text-base md:text-lg xl:text-xl text-blue-500">{ content.institution }</h1>
+              <h3 className="font-medium text-xs sm:text-base md:text-lg xl:text-xl text-white"><i>{ content.position }</i></h3>
             </div>
           </div>
 
-          <div className="grow text-xs sm:text-sm">
+          <div className="grow text-xs sm:text-base md:text-lg xl:text-xl">
 test
           </div>
         </CardSpotlight>

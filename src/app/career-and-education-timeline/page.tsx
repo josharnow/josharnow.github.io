@@ -39,7 +39,6 @@ export default function CareerAndEducationTimelinePage() {
     {
       yearStart: 2018,
       yearEnd: 2019,
-      // TODO - Write below
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div>
           <span>•</span>&nbsp;<span>Expanded on optional pre-med coursework related to my personal interests, such as cancer biology</span>
