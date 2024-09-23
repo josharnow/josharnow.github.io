@@ -22,23 +22,23 @@ const EducationTimelineCard = ({ content, className }: {
         >
           <div>
             <div className="grid grid-cols-2">
-              <div className="text-xs sm:text-sm flex h-fit">
+              <div className="text-xs sm:text-sm md:text-base xl:text-lg flex h-fit">
                 <span>{ content.yearStart }</span>&nbsp;–&nbsp;<span>{ content.yearEnd ? content.yearEnd : "Present" }</span>
               </div>
-              <span className="text-xs sm:text-sm h-fit" style={ { textAlign: "right" } }><i>{ content.location }</i></span>
+              <span className="text-xs sm:text-sm md:text-base xl:text-lg h-fit" style={ { textAlign: "right" } }><i>{ content.location }</i></span>
             </div>
             <div className="grid grid-cols-2">
-              <span className="font-medium text-sm sm:text-base text-blue-500">{ content.institution }</span>
-              <span className="font-medium text-sm sm:text-base" style={ { textAlign: "right" } }>{ content.GPA ? `GPA: ${content.GPA}` : "" }</span>
+              <span className="font-medium text-sm sm:text-base md:text-lg xl:text-xl text-blue-500">{ content.institution }</span>
+              <span className="font-medium text-sm sm:text-base md:text-lg xl:text-xl" style={ { textAlign: "right" } }>{ content.GPA ? `GPA: ${content.GPA}` : "" }</span>
             </div>
             { content.degrees.map((degreeElement, index) => (
-              <div className="grid grid-cols-1 font-medium text-sm sm:text-base" key={ index }>
+              <div className="grid grid-cols-1 font-medium text-sm sm:text-base md:text-lg xl:text-xl" key={ index }>
                 { degreeElement }
               </div>
             )) }
           </div>
 
-          <div className="grow text-sm sm:text-base overflow-y-scroll flex flex-col" style={{"flexBasis": 0, "justifyContent": "safe center"}}>
+          <div className="grow text-sm sm:text-base md:text-lg xl:text-xl overflow-y-scroll flex flex-col" style={{"flexBasis": 0, "justifyContent": "safe center"}}>
             { content.bodyElement }
           </div>
         </CardSpotlight>
