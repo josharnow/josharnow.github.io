@@ -174,14 +174,10 @@ export default function CareerAndEducationTimelinePage() {
       yearEnd: 2021,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div>
-          BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)
-          {/* <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span> */ }
+          <span>•</span>&nbsp;<span>Reviewed & analyzed offering memorandums to recommend the acquisition of residential & commercial real estate</span>
         </div>
         <div>
-          {/* <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span> */ }
-        </div>
-        <div>
-          {/* <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span> */ }
+          <span>•</span>&nbsp;<span>Performed tasks including annual cash flow analysis, rent roll review, property improvement plans, cash flow projections, & review of third-party reports</span>
         </div>
       </div>,
       institution: "Citiscape Realty Advisors, Inc.",
