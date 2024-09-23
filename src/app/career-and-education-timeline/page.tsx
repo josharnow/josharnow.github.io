@@ -229,14 +229,19 @@ export default function CareerAndEducationTimelinePage() {
       isPresent: true,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div>
-          BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)
-          {/* <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span> */ }
+          <span>•</span>&nbsp;<span>Independently created/published native iOS & Android applications & designed a server & databases to integrate with</span>
         </div>
         <div>
-          {/* <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span> */ }
+          <span>•</span>&nbsp;<span>Utilized TypeScript with the Vue.js Composition API to create the end user frontend, Ionic/Capacitor to build native mobile apps, Python/Flask to build the server & admin portal, & MySQL/MariaDB to handle the database</span>
         </div>
         <div>
-          {/* <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span> */ }
+          <span>•</span>&nbsp;<span>Heavily used Mapbox GL JS & GeoJSON data to render maps & ChartJS to provide analytics</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Introduced new developers to the project & led the development process while utilizing scrum/agile methodologies, performing code reviews, & managing the project timeline</span>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Exceeded client expectations after former developers could not satisfy them which led to contract renewals with our company at higher rates</span>
         </div>
       </div>,
       institution: "Two Fish Creative, Inc.",
@@ -245,9 +250,6 @@ export default function CareerAndEducationTimelinePage() {
       position: "Team Lead",
       supersedesOtherPositions: true,
     },
-
-    // TODO - When rendering this out, make sure that the last position doesn't share with the one before in the same year (2023); should only show the last when it starts
-
   ]
 
 
