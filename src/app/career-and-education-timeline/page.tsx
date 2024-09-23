@@ -190,14 +190,13 @@ export default function CareerAndEducationTimelinePage() {
       yearEnd: 2022,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div>
-          BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)
-          {/* <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span> */ }
+          <span>•</span>&nbsp;<span>Expanded upon ideas by using various languages to independently design full-stack applications</span>
         </div>
         <div>
-          {/* <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span> */ }
+          <span>•</span>&nbsp;<span>Educated myself on languages and frameworks I was interested in but didn’t have exposure to</span>
         </div>
         <div>
-          {/* <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span> */ }
+          <span>•</span>&nbsp;<span>Familiarized myself with common project management philosophies and frameworks like Agile & Scrum</span>
         </div>
       </div>,
       institution: "Self-Employed",
@@ -210,14 +209,7 @@ export default function CareerAndEducationTimelinePage() {
       yearEnd: 2023,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div>
-          BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)
-          {/* <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span> */ }
-        </div>
-        <div>
-          {/* <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span> */ }
-        </div>
-        <div>
-          {/* <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span> */ }
+          {/* <span>•</span>&nbsp;<span>Expanded upon ideas by using various languages to independently design full-stack applications</span> */}
         </div>
       </div>,
       institution: "Two Fish Creative, Inc.",
