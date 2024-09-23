@@ -40,7 +40,28 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2018,
       yearEnd: 2019,
       // TODO - Write below
-      bodyElement: <div>BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)</div>,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div>
+          <span>•</span>&nbsp;<span>Expanded on optional pre-med coursework related to my personal interests, such as cancer biology</span>
+        </div>
+        <div className='flex flex-col'>
+          <div>
+            <span>•</span>&nbsp;<span>Prepared a medical school application packet during this time</span>
+          </div>
+          <div className='pl-6'>
+            <span>•</span>&nbsp;<span>Shadowed a private practice physician & an ER physician</span>
+          </div>
+          <div className='pl-6'>
+            <span>•</span>&nbsp;<span>Scored above average on the MCAT</span>
+          </div>
+          <div className='pl-6'>
+            <span>•</span>&nbsp;<span>Continued regularly volunteering as an EMT (2017-2021)</span>
+          </div>
+        </div>
+        <div>
+          <span>•</span>&nbsp;<span>Opted not to send out my completed application packet due to COVID lockdowns</span>
+        </div>
+      </div>,
       institution: "Stony Brook University",
       location: "Stony Brook, NY",
       type: "education",
