@@ -147,14 +147,21 @@ export default function CareerAndEducationTimelinePage() {
       yearEnd: 2018,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div>
-          BRIEFLY DESCRIBE / TALK ABOUT THIS TIME IN MY LIFE HERE. CAN TAKE STUFF FROM RESUME (if applicable)
-          {/* <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span> */ }
+          <span>•</span>&nbsp;<span>Assessed & reported on the financial performance of middle market firms with annual revenues up to $1 billion</span>
         </div>
         <div>
-          {/* <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span> */ }
+          <span>•</span>&nbsp;<span>Recommended extensions of credit based on underwriting criteria & qualities of the borrower</span>
         </div>
         <div>
-          {/* <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span> */ }
+          <span>•</span>&nbsp;<span>Analyzed borrowers’ business prospects through quantitative analysis of financial statements while assessing qualitative aspects & information gathered from client meetings</span>
+        </div>
+        <div className='flex flex-col'>
+          <div>
+            <span>•</span>&nbsp;<span>Participated in Capital One’s Commercial Banking Development Program to receive specialized skill training over the course of my employment</span>
+          </div>
+          <div className='pl-6'>
+            <span>•</span>&nbsp;<span>Received education & exposure to many aspects of banking at Capital One sites around the country</span>
+          </div>
         </div>
       </div>,
       institution: "Capital One",

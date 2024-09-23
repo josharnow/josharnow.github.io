@@ -23,9 +23,7 @@ const CareerTimelineCard = ({ content, className }: {
           > */}
         <CardSpotlight className={ cn(styles.card, "flex flex-col gap-y-2 rounded-lg w-full h-full p-2 shadow-3xl shadow-blue-500 bg-black bg-opacity-80") }
           >
-          {/* TODO - Use CSS grid */}
           <div>
-
             <div className="grid grid-cols-2">
               <div className="text-xs sm:text-sm md:text-base xl:text-lg flex h-fit">
                 <h1>{ content.yearStart }</h1>&nbsp;–&nbsp;<h1>{ content.yearEnd ? content.yearEnd : "Present" }</h1>
