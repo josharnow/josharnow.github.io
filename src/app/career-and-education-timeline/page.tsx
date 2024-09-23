@@ -357,7 +357,6 @@ export default function CareerAndEducationTimelinePage() {
         <div className="w-full h-full">
           <div className="w-full h-full flex flex-col relative">
             <div className="w-full h-[40%] flex justify-center items-center">
-              {/* TODO - Move appropriate logic to here from Timeline component so I can pass through handleInputYearChange */}
               <TimelineContent 
                 selectedYear={ selectedYear } 
                 selectedContent={ selectedCareerContent } 
