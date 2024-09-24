@@ -47,14 +47,14 @@ export default function CareerAndEducationTimelinePage() {
           <div>
             <span>•</span>&nbsp;<span>Prepared a medical school application packet during this time</span>
           </div>
-          <div className='pl-6'>
-            <span>•</span>&nbsp;<span>Shadowed a private practice physician & an ER physician</span>
+          <div className='sub-bullet pl-6'>
+            <span>○</span>&nbsp;<span>Shadowed a private practice physician & an ER physician</span>
           </div>
-          <div className='pl-6'>
-            <span>•</span>&nbsp;<span>Scored above average on the MCAT</span>
+          <div className='sub-bullet pl-6'>
+            <span>○</span>&nbsp;<span>Scored above average on the MCAT</span>
           </div>
-          <div className='pl-6'>
-            <span>•</span>&nbsp;<span>Continued regularly volunteering as an EMT (2017-2021)</span>
+          <div className='sub-bullet pl-6'>
+            <span>○</span>&nbsp;<span>Continued regularly volunteering as an EMT (2017-2021)</span>
           </div>
         </div>
         <div>
@@ -159,8 +159,8 @@ export default function CareerAndEducationTimelinePage() {
           <div>
             <span>•</span>&nbsp;<span>Participated in Capital One’s Commercial Banking Development Program to receive specialized skill training over the course of my employment</span>
           </div>
-          <div className='pl-6'>
-            <span>•</span>&nbsp;<span>Received education & exposure to many aspects of banking at Capital One sites around the country</span>
+          <div className='sub-bullet pl-6'>
+            <span>○</span>&nbsp;<span>Received education & exposure to many aspects of banking at Capital One sites around the country</span>
           </div>
         </div>
       </div>,
