@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { CardSpotlight } from "@/src/components";
+// import { CardSpotlight } from "@/src/components";
 // import Link from "next/link";
 import styles from '../styles.module.scss';
 import { type ClassValue, clsx } from "clsx";

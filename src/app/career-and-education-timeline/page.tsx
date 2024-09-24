@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import styles from './styles.module.scss';
 import { Timeline, WavyBackground, TimelineContent } from '@/src/components';
 

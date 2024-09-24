@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 import { Slider, SliderChangeEvent } from 'primereact/slider';
 
