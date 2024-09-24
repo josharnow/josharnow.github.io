@@ -115,15 +115,14 @@ export const FadeInDiv = ({
             scale: 1 - idx * 0.1,
             top: hovering ? idx * -50 : 0,
             zIndex: -idx,
-            opacity: (isActive(tab) && !hovering) ? 0.35 : (!isActive(tab) && !hovering) ? 0 : idx < 3 ? 1 - idx * 0.1 : 0,
-            display: (isActive(tab) || hovering) ? "block" : "none",
+            opacity: idx < 3 ? (1 - idx * 0.1) : 0,
           } }
           animate={ {
             y: isActive(tab) ? [0, 40, 0] : 0,
           } }
           className={ cn(
             styles.tab, 
-            (isActive(tab) && hovering) ? "selected-tab hovering" : isActive(tab) ? "selected-tab not-hovering" : "unselected-tab",
+            (isActive(tab) && hovering) ? styles.selectedTabHovering : isActive(tab) ? styles.selectedTabNotHovering : hovering ? styles.unselectedTabHovering : styles.unselectedTabNotHovering,
             "w-full h-full absolute top-0 left-0", 
             className
           ) }
