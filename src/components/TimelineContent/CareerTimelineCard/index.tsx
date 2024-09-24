@@ -25,10 +25,10 @@ const CareerTimelineCard = ({ content, className }: {
         <div className={ cn(styles.card, "flex flex-col gap-y-2 rounded-lg w-full h-full p-2 shadow-3xl shadow-blue-500 bg-black bg-opacity-80") }>
           <div>
             <div className="grid grid-cols-2">
-              <div className="text-xs sm:text-sm md:text-base xl:text-lg flex h-fit">
+              <div className="text-xs sm:text-sm md:text-base xl:text-lg flex h-fit text-white">
                 <h1>{ content.yearStart }</h1>&nbsp;–&nbsp;<h1>{ content.yearEnd ? content.yearEnd : "Present" }</h1>
               </div>
-              <h6 className="text-xs sm:text-sm md:text-base xl:text-lg h-fit" style={ { textAlign: "right" } }><i>{ content.location }</i></h6>
+              <h6 className="text-xs sm:text-sm md:text-base xl:text-lg h-fit text-white" style={ { textAlign: "right" } }><i>{ content.location }</i></h6>
             </div>
             <div className="flex flex-col">
               <h1 className="font-medium text-sm sm:text-base md:text-lg xl:text-xl text-blue-500">{ content.institution }</h1>
@@ -39,7 +39,7 @@ const CareerTimelineCard = ({ content, className }: {
           {/* <div className="grow text-xs sm:text-base md:text-lg xl:text-xl">
             test
           </div> */}
-          <div className="grow text-sm sm:text-base md:text-lg xl:text-xl !overflow-y-scroll flex flex-col" style={ { "flexBasis": 0, "justifyContent": "safe center" } }>
+          <div className="grow text-sm sm:text-base md:text-lg xl:text-xl !overflow-y-scroll flex flex-col text-white" style={ { "flexBasis": 0, "justifyContent": "safe center" } }>
             { content.bodyElement }
           </div>
         </div>
