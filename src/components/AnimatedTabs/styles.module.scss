@@ -1,0 +1,40 @@
+.tab {
+  transition-property: top, display, opacity;
+  transition-duration: 0.50s;
+  transition-behavior: allow-discrete;
+
+  display: none;
+}
+
+
+.selected-tab.not-hovering {
+  display: block;
+  top: 0;
+  opacity: 0.35;
+    transition-property: top, display, opacity;
+  transition-duration: 0.50s;
+  transition-behavior: allow-discrete;
+
+  display: none;
+  // opacity: 0.35;
+}
+.selected-tab.hovering {
+  display: block;
+  top: 0;
+  opacity: 1;
+    transition-property: top, display, opacity;
+  transition-duration: 0.50s;
+  transition-behavior: allow-discrete;
+
+  display: none;
+}
+.unselected-tab {
+  display: none;
+  top: 0;
+  opacity: 0;
+    transition-property: top, display, opacity;
+  transition-duration: 0.50s;
+  transition-behavior: allow-discrete;
+
+  display: none;
+}

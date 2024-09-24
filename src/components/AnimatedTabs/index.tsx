@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import styles from './styles.module.scss';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -114,12 +115,18 @@ export const FadeInDiv = ({
             scale: 1 - idx * 0.1,
             top: hovering ? idx * -50 : 0,
             zIndex: -idx,
-            opacity: idx < 3 ? 1 - idx * 0.1 : 0,
+            opacity: (isActive(tab) && !hovering) ? 0.35 : (!isActive(tab) && !hovering) ? 0 : idx < 3 ? 1 - idx * 0.1 : 0,
+            display: (isActive(tab) || hovering) ? "block" : "none",
           } }
           animate={ {
             y: isActive(tab) ? [0, 40, 0] : 0,
           } }
-          className={ cn("w-full h-full absolute top-0 left-0", className) }
+          className={ cn(
+            styles.tab, 
+            (isActive(tab) && hovering) ? "selected-tab hovering" : isActive(tab) ? "selected-tab not-hovering" : "unselected-tab",
+            "w-full h-full absolute top-0 left-0", 
+            className
+          ) }
         >
           { tab.content }
         </motion.div>
