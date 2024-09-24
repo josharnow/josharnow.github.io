@@ -25,11 +25,8 @@ const TimelineContent = ({selectedContent, selectedYear, contentType, handleInpu
 
   return (
     <>
-      {/* TODO - Make component for each stepper panel */ }
       <div className="relative h-full w-full flex justify-center items-center">
         <div className={ cn(`grid w-full h-full gap-2`, colsClass) }>
-        {/* <div className={ cn(`grid grid-cols-${selectedContent.length} w-full h-full gap-2`) }> */}
-          {/* TODO - Make cards for Career & Timeline */ }
           {
             selectedContent.map((item: EducationTimelineContent | CareerTimelineContent, index: number) => {
               return (
@@ -45,8 +42,6 @@ const TimelineContent = ({selectedContent, selectedYear, contentType, handleInpu
             <div className='absolute top-0 left-0 text-xl sm:text-2xl opacity-25 font-medium'>Career</div> :
             <div className='absolute bottom-0 left-0 text-xl sm:text-2xl opacity-25 font-medium'>Education</div>
         }
-        {/* TODO - Put year input selector here */}
-        {/* TODO - Forward ref to pass data back to timeline? */}
         {
           contentType === "career" ?
             <input
@@ -57,11 +52,6 @@ const TimelineContent = ({selectedContent, selectedYear, contentType, handleInpu
             /> :
             <></>
         }
-        {/* {
-          contentType === "career" ?
-            <span className="absolute top-0 right-0 text-xl opacity-25 font-medium">{ selectedYear }</span> :
-            <></>
-        } */}
       </div>
     </>
   );
