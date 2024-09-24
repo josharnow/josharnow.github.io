@@ -74,7 +74,7 @@ export default function CareerAndEducationTimelinePage() {
           <span>•</span>&nbsp;<span>Seized an opportunity to study law amidst mandated lockdowns</span>
         </div>
         <div>
-          <span>•</span>&nbsp;<span>Forwent degree completion due to a health issue, post-lockdown university policies, & finding my passion in software engineering</span>
+          <span>•</span>&nbsp;<span>Forwent degree completion after finding my passion in software engineering</span>
         </div>
         <div>
           <span>•</span>&nbsp;<span>Dean’s Fellowship Scholarship recipient</span>
@@ -131,7 +131,7 @@ export default function CareerAndEducationTimelinePage() {
           <span>•</span>&nbsp;<span>Interpreted annual financial reports to determine the creditworthiness of municipalities</span>
         </div>
         <div>
-          <span>•</span>&nbsp;<span>Researched bond pricing and related information to assist in credit analysis, making extensive use of Bloomberg terminals</span>
+          <span>•</span>&nbsp;<span>Researched bond pricing & related information to assist in credit analysis, making extensive use of Bloomberg terminals</span>
         </div>
         <div>
           <span>•</span>&nbsp;<span>Developed an understanding of the intricacies of the municipal bond market</span>
@@ -193,10 +193,10 @@ export default function CareerAndEducationTimelinePage() {
           <span>•</span>&nbsp;<span>Expanded upon ideas by using various languages to independently design full-stack applications</span>
         </div>
         <div>
-          <span>•</span>&nbsp;<span>Educated myself on languages and frameworks I was interested in but didn’t have exposure to</span>
+          <span>•</span>&nbsp;<span>Educated myself on languages & software frameworks I was interested in but didn’t have exposure to</span>
         </div>
         <div>
-          <span>•</span>&nbsp;<span>Familiarized myself with common project management philosophies and frameworks like Agile & Scrum</span>
+          <span>•</span>&nbsp;<span>Familiarized myself with common project management philosophies & frameworks like Agile & Scrum</span>
         </div>
       </div>,
       institution: "Self-Employed",
