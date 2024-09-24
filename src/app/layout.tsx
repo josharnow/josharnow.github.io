@@ -3,6 +3,10 @@ import localFont from "next/font/local";
 
 import "./globals.css";
 import 'primeicons/primeicons.css';
+// NOTE - https://primereact.org/theming/#themes
+// import "primereact/resources/themes/md-dark-deeppurple/theme.css";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+// import 'primeflex/primeflex.css'
 
 import { 
   Navigation, 
