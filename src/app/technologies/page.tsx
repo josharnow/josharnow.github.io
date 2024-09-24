@@ -1,6 +1,11 @@
 "use client";
 import React from 'react';
 // import styles from './styles.module.scss';
+// import { 
+//   InfiniteMovingCards,
+//   StickyScrollReveal,
+//   AnimatedTabs,
+// } from '@/src/components';
 
 export default function TechnologiesPage() {
 
