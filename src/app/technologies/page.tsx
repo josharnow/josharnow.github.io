@@ -130,7 +130,8 @@ export default function TechnologiesPage() {
 
   return (
     <>
-      <div className='technologies-page-wrapper h-[calc(100%-9rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'>
+      {/* <div className='technologies-page-wrapper h-[calc(100%-9rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'> */}
+      <div className='technologies-page-wrapper h-[calc(100%-5rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'>
         <div className="h-full [perspective:1000px] relative b flex flex-col  mx-auto w-full items-start justify-start">
           {/* TODO - Add back/forward buttons for mobile nav (just iterate through arr index) */}
           
@@ -145,7 +146,7 @@ export default function TechnologiesPage() {
             tabs={ tabs } 
             contentClassName={ cn(
               styles.content,
-              'mt-36 sm:mt-20 bg-slate-700 rounded-lg shadow-3xl shadow-blue-500 text-white',
+              'mt-20 sm:mt-20 bg-slate-700 rounded-lg shadow-3xl shadow-blue-500 text-white',
             ) }
             // containerClassName=
             containerClassName={ cn(
