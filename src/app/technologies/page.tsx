@@ -27,12 +27,12 @@ const DummyContent = () => {
 };
 const tabs = [
   {
-    title: "Product",
-    value: "product",
+    title: "Programming Languages",
+    value: "programming_languages",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
       <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
-        <p>Product Tab</p>
+        <p>Programming Languages</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -41,42 +41,86 @@ const tabs = [
     ),
   },
   {
-    title: "Services",
-    value: "services",
+    title: "Libraries",
+    value: "libraries",
     content: (
-      <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white">
-        <p>Services tab</p>
-        <DummyContent />
+      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
+      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
+        <p>Libraries</p>
+        {/* <DummyContent /> */}
+        <div className='border grow flex justify-center items-center'>
+          test
+        </div>
       </div>
     ),
   },
   {
-    title: "Playground",
-    value: "playground",
+    title: "Frameworks",
+    value: "frameworks",
     content: (
-      <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-        <p>Playground tab</p>
-        <DummyContent />
+      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
+      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
+        <p>Frameworks</p>
+        {/* <DummyContent /> */}
+        <div className='border grow flex justify-center items-center'>
+          test
+        </div>
       </div>
     ),
   },
   {
-    title: "Content",
-    value: "content",
+    title: "Databases/ORMs",
+    value: "databases_orms",
     content: (
-      <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-        <p>Content tab</p>
-        <DummyContent />
+      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
+      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
+        <p>Databases/ORMs</p>
+        {/* <DummyContent /> */}
+        <div className='border grow flex justify-center items-center'>
+          test
+        </div>
       </div>
     ),
   },
   {
-    title: "Random",
-    value: "random",
+    title: "Software",
+    value: "software",
     content: (
-      <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-        <p>Random tab</p>
-        <DummyContent />
+      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
+      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
+        <p>Software</p>
+        {/* <DummyContent /> */}
+        <div className='border grow flex justify-center items-center'>
+          test
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Cloud Computing & CI/CD",
+    value: "cloud_computing_ci_cd",
+    content: (
+      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
+      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
+        <p>Cloud Computing & CI/CD</p>
+        {/* <DummyContent /> */}
+        <div className='border grow flex justify-center items-center'>
+          test
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "APIs",
+    value: "apis",
+    content: (
+      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
+      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
+        <p>APIs</p>
+        {/* <DummyContent /> */}
+        <div className='border grow flex justify-center items-center'>
+          test
+        </div>
       </div>
     ),
   },
@@ -87,7 +131,7 @@ export default function TechnologiesPage() {
   return (
     <>
       <div className='technologies-page-wrapper h-[calc(100%-9rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'>
-        <div className="h-full [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full items-start justify-start">
+        <div className="h-full [perspective:1000px] relative b flex flex-col  mx-auto w-full items-start justify-start">
           {/* TODO - Within AnimatedTabs, on mobile make the tab bar overflow to next line or figure out different approach... it needs to fit */}
 
           {/* TODO - Within AnimatedTabs, on mobile if you click on a tab in the background it should trigger a tab change as if you clicked on the option in the tab bar */}
