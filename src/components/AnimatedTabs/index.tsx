@@ -47,12 +47,9 @@ const Tabs = ({
     {/* NOTE - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items */}
       <div
         className={ cn(
-          "flex flex-row sm:flex-wrap overflow-x-auto overflow-y-hidden items-center justify-start [perspective:1000px] relative h-fit sm:overflow-visible no-visible-scrollbar max-w-full w-fit",
+          "flex flex-row sm:flex-wrap overflow-x-auto overflow-y-auto sm:items-center sm:justify-start [perspective:1000px] relative sm:overflow-visible no-visible-scrollbar max-w-full w-fit",
           containerClassName
         ) }
-        // style={{
-        //   margin: "auto 0",
-        // }}
       >
         { propTabs.map((tab, idx) => (
           <button
@@ -62,9 +59,10 @@ const Tabs = ({
             } }
             onMouseEnter={ () => setHovering(true) }
             onMouseLeave={ () => setHovering(false) }
-            className={ cn("relative px-2 sm:px-4 py-2 rounded-full", tabClassName) }
+            className={ cn("relative px-2 sm:px-4 sm:py-2 rounded-full", tabClassName) }
             style={ {
               transformStyle: "preserve-3d",
+              // "margin": "auto 0"
             } }
           >
             { active.value === tab.value && (
@@ -72,17 +70,24 @@ const Tabs = ({
                 layoutId="clickedbutton"
                 transition={ { type: "spring", bounce: 0.3, duration: 0.6 } }
                 className={ cn(
-                  "absolute inset-0 bg-zinc-800 rounded-full ",
+                  "absolute inset-0 bg-zinc-800 rounded-full",
                   activeTabClassName
                 ) }
               />
             ) }
 
-            <span className="relative block text-white">
+            <span className="relative block text-white whitespace-nowrap">
               { tab.title }
             </span>
           </button>
         )) }
+      </div>
+      <div className="mt-4">
+        buttons GO HERE
+        {/* NOTE - After switching tab index, should focus on selected tab in bar */}
+        <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-2xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+          Shimmer
+        </button>
       </div>
       <FadeInDiv
         tabs={ tabs }

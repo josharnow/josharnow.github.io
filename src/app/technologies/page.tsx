@@ -31,8 +31,7 @@ const tabs = [
     value: "programming_languages",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
-        <p>Programming Languages</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>Programming Languages</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -45,8 +44,7 @@ const tabs = [
     value: "libraries",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
-        <p>Libraries</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>Libraries</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -59,8 +57,7 @@ const tabs = [
     value: "frameworks",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
-        <p>Frameworks</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>Frameworks</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -73,8 +70,7 @@ const tabs = [
     value: "databases_orms",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
-        <p>Databases/ORMs</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>Databases/ORMs</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -87,8 +83,7 @@ const tabs = [
     value: "software",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
-        <p>Software</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>Software</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -101,7 +96,7 @@ const tabs = [
     value: "cloud_computing_ci_cd",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">
         <p>Cloud Computing & CI/CD</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
@@ -115,8 +110,7 @@ const tabs = [
     value: "apis",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
-        <p>APIs</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>APIs</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -132,8 +126,8 @@ export default function TechnologiesPage() {
     <>
       <div className='technologies-page-wrapper h-[calc(100%-9rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'>
         <div className="h-full [perspective:1000px] relative b flex flex-col  mx-auto w-full items-start justify-start">
-          {/* TODO - Within AnimatedTabs, on mobile make the tab bar overflow to next line or figure out different approach... it needs to fit */}
-
+          {/* TODO - Add back/forward buttons for mobile nav (just iterate through arr index) */}
+          
           {/* TODO - Within AnimatedTabs, on mobile if you click on a tab in the background it should trigger a tab change as if you clicked on the option in the tab bar */}
           {/* TODO - Implement StickyScrollReveal */}
           {/* TODO - Implement InfinteScroll (?) */}
@@ -145,18 +139,26 @@ export default function TechnologiesPage() {
             tabs={ tabs } 
             contentClassName={ cn(
               styles.content,
-              'mt-36 sm:mt-20 bg-slate-700 rounded-lg shadow-3xl shadow-blue-500',
+              'mt-36 sm:mt-20 bg-slate-700 rounded-lg shadow-3xl shadow-blue-500 text-white',
             ) }
-            containerClassName='justify-center gap-2 rounded-full bg-slate-700 self-center sm:p-1 shadow-3xl shadow-blue-500'
+            // containerClassName=
+            containerClassName={ cn(
+              'sm:justify-center gap-2 rounded-full bg-slate-700 self-center p-1 shadow-3xl shadow-blue-500 items-center h-fit'
+            ) }
             activeTabClassName={ cn(
               styles.activeTab,
               'bg-blue-500 shadow-3xl',
             ) }
             tabClassName={ cn(
               styles.tabButton,
-              "text-lg font-medium"
+              "sm:text-lg font-medium h-fit"
             ) }
           />
+        </div>
+
+
+        <div className='align-middle'>
+              TEST
         </div>
       </div>
     </>

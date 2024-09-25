@@ -33,7 +33,7 @@ body {
 }
 
 /* NOTE - Hides scrollbar in AnimatedTabs component (https://ui.aceternity.com/components/tabs) */
-/* .no-visible-scrollbar {
+.no-visible-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
@@ -41,4 +41,4 @@ body {
 
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
-} */
+}
