@@ -47,9 +47,12 @@ const Tabs = ({
     {/* NOTE - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items */}
       <div
         className={ cn(
-          "flex flex-row flex-wrap items-center justify-start [perspective:1000px] relative h-fit sm:overflow-visible no-visible-scrollbar max-w-full w-fit",
+          "flex flex-row sm:flex-wrap overflow-x-auto overflow-y-hidden items-center justify-start [perspective:1000px] relative h-fit sm:overflow-visible no-visible-scrollbar max-w-full w-fit",
           containerClassName
         ) }
+        // style={{
+        //   margin: "auto 0",
+        // }}
       >
         { propTabs.map((tab, idx) => (
           <button
@@ -59,7 +62,7 @@ const Tabs = ({
             } }
             onMouseEnter={ () => setHovering(true) }
             onMouseLeave={ () => setHovering(false) }
-            className={ cn("relative px-4 py-2 rounded-full", tabClassName) }
+            className={ cn("relative px-2 sm:px-4 py-2 rounded-full", tabClassName) }
             style={ {
               transformStyle: "preserve-3d",
             } }

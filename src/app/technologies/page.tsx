@@ -147,7 +147,7 @@ export default function TechnologiesPage() {
               styles.content,
               'mt-36 sm:mt-20 bg-slate-700 rounded-lg shadow-3xl shadow-blue-500',
             ) }
-            containerClassName='justify-center gap-2 rounded-full bg-slate-700 self-center p-1 shadow-3xl shadow-blue-500'
+            containerClassName='justify-center gap-2 rounded-full bg-slate-700 self-center sm:p-1 shadow-3xl shadow-blue-500'
             activeTabClassName={ cn(
               styles.activeTab,
               'bg-blue-500 shadow-3xl',
