@@ -47,7 +47,7 @@ const Tabs = ({
     {/* NOTE - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items */}
       <div
         className={ cn(
-          "flex flex-row sm:flex-wrap overflow-x-auto overflow-y-auto sm:items-center sm:justify-start [perspective:1000px] relative sm:overflow-visible no-visible-scrollbar max-w-full w-fit",
+          "flex flex-row sm:flex-wrap overflow-x-auto overflow-y-hidden sm:items-center sm:justify-start [perspective:1000px] relative sm:overflow-visible no-visible-scrollbar max-w-full w-fit",
           containerClassName
         ) }
       >

@@ -31,7 +31,8 @@ const tabs = [
     value: "programming_languages",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>Programming Languages</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
+        <p className='text-xl md:text-4xl'>Programming Languages</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -44,7 +45,8 @@ const tabs = [
     value: "libraries",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>Libraries</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
+        <p className='text-xl md:text-4xl'>Libraries</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -57,7 +59,8 @@ const tabs = [
     value: "frameworks",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>Frameworks</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
+        <p className='text-xl md:text-4xl'>Frameworks</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -70,7 +73,8 @@ const tabs = [
     value: "databases_orms",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>Databases/ORMs</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
+        <p className='text-xl md:text-4xl'>Databases/ORMs</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -83,7 +87,8 @@ const tabs = [
     value: "software",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>Software</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
+        <p className='text-xl md:text-4xl'>Software</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -96,8 +101,8 @@ const tabs = [
     value: "cloud_computing_ci_cd",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">
-        <p>Cloud Computing & CI/CD</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
+        <p className='text-xl md:text-4xl'>Cloud Computing & CI/CD</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -110,7 +115,8 @@ const tabs = [
     value: "apis",
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5">        <p>APIs</p>
+      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
+        <p className='text-xl md:text-4xl'>APIs</p>
         {/* <DummyContent /> */}
         <div className='border grow flex justify-center items-center'>
           test
@@ -154,11 +160,6 @@ export default function TechnologiesPage() {
               "sm:text-lg font-medium h-fit"
             ) }
           />
-        </div>
-
-
-        <div className='align-middle'>
-              TEST
         </div>
       </div>
     </>
