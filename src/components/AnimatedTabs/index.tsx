@@ -50,11 +50,23 @@ const Tabs = ({
     const lastTabIndex = (activeTab.indexOrder - 1 + tabs.length) % tabs.length;
     moveSelectedTabToTop(lastTabIndex);
 
+    setHovering(true);
+    // NOTE - Timeout is set to the same transition duration in the CSS for the element
+    setTimeout(() => {
+      setHovering(false);
+    }, 500);
+
     selectedTabbarElementRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "end" });
   }
   function handleNextClick(e: React.MouseEvent<HTMLButtonElement>, tabs: Tab[], activeTab: Tab) {
     const nextTabIndex = (activeTab.indexOrder + 1) % tabs.length;
     moveSelectedTabToTop(nextTabIndex);
+
+    setHovering(true);
+    // NOTE - Timeout is set to the same transition duration in the CSS for the element
+    setTimeout(() => {
+      setHovering(false);
+    }, 500);
 
     selectedTabbarElementRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
   }
