@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -13,6 +13,7 @@ function cn(...inputs: ClassValue[]) {
 type Tab = {
   title: string;
   value: string;
+  indexOrder: number;
   content?: string | React.ReactNode | any;
 };
 
@@ -42,6 +43,22 @@ const Tabs = ({
 
   const [hovering, setHovering] = useState(false);
 
+  const selectedTabbarElementRef = useRef<HTMLDivElement>(null);
+
+  // TODO - Fix bug where tab doesn't focus when going to first index to last or vice versa. Don't have time to fix the minor issue now
+  function handleBackClick(e: React.MouseEvent<HTMLButtonElement>, tabs: Tab[], activeTab: Tab) {
+    const lastTabIndex = (activeTab.indexOrder - 1 + tabs.length) % tabs.length;
+    moveSelectedTabToTop(lastTabIndex);
+
+    selectedTabbarElementRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "end" });
+  }
+  function handleNextClick(e: React.MouseEvent<HTMLButtonElement>, tabs: Tab[], activeTab: Tab) {
+    const nextTabIndex = (activeTab.indexOrder + 1) % tabs.length;
+    moveSelectedTabToTop(nextTabIndex);
+
+    selectedTabbarElementRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+  }
+
   return (
     <>
     {/* NOTE - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items */}
@@ -67,6 +84,7 @@ const Tabs = ({
           >
             { active.value === tab.value && (
               <motion.div
+                ref={ selectedTabbarElementRef }
                 layoutId="clickedbutton"
                 transition={ { type: "spring", bounce: 0.3, duration: 0.6 } }
                 className={ cn(
@@ -82,11 +100,19 @@ const Tabs = ({
           </button>
         )) }
       </div>
-      <div className="mt-4">
-        buttons GO HERE
+      <div className="mt-4 w-full flex justify-between">
         {/* NOTE - After switching tab index, should focus on selected tab in bar */}
-        <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-2xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-          Shimmer
+        <button 
+          className="inline-flex size-12 animate-shimmer items-center justify-center rounded-2xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] p-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+          onClick={ (e) => handleBackClick(e, tabs, active) }
+          >
+          <i className="pi pi-chevron-left"></i>
+        </button>
+        <button
+          className="inline-flex size-12 animate-shimmer items-center justify-center rounded-2xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] p-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+          onClick={ (e) => handleNextClick(e, tabs, active) }
+          >
+          <i className="pi pi-chevron-right"></i>
         </button>
       </div>
       <FadeInDiv

@@ -29,6 +29,7 @@ const tabs = [
   {
     title: "Programming Languages",
     value: "programming_languages",
+    indexOrder: 0,
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
       <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
@@ -43,6 +44,7 @@ const tabs = [
   {
     title: "Libraries",
     value: "libraries",
+    indexOrder: 1,
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
       <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
@@ -57,6 +59,7 @@ const tabs = [
   {
     title: "Frameworks",
     value: "frameworks",
+    indexOrder: 2,
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
       <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
@@ -71,6 +74,7 @@ const tabs = [
   {
     title: "Databases/ORMs",
     value: "databases_orms",
+    indexOrder: 3,
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
       <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
@@ -85,6 +89,7 @@ const tabs = [
   {
     title: "Software",
     value: "software",
+    indexOrder: 4,
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
       <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
@@ -99,6 +104,7 @@ const tabs = [
   {
     title: "Cloud Computing & CI/CD",
     value: "cloud_computing_ci_cd",
+    indexOrder: 5,
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
       <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
@@ -113,6 +119,7 @@ const tabs = [
   {
     title: "APIs",
     value: "apis",
+    indexOrder: 6,
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
       <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10">
