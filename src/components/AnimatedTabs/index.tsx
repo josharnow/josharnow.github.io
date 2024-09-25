@@ -44,9 +44,10 @@ const Tabs = ({
 
   return (
     <>
+    {/* NOTE - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items */}
       <div
         className={ cn(
-          "flex flex-row items-center justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex flex-row flex-wrap items-center justify-start [perspective:1000px] relative h-fit sm:overflow-visible no-visible-scrollbar max-w-full w-fit",
           containerClassName
         ) }
       >
@@ -68,13 +69,13 @@ const Tabs = ({
                 layoutId="clickedbutton"
                 transition={ { type: "spring", bounce: 0.3, duration: 0.6 } }
                 className={ cn(
-                  "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full ",
+                  "absolute inset-0 bg-zinc-800 rounded-full ",
                   activeTabClassName
                 ) }
               />
             ) }
 
-            <span className="relative block text-black dark:text-white">
+            <span className="relative block text-white">
               { tab.title }
             </span>
           </button>

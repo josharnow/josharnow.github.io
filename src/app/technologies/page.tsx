@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-// import styles from './styles.module.scss';
+import styles from './styles.module.scss';
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { 
@@ -17,7 +17,7 @@ function cn(...inputs: ClassValue[]) {
 const DummyContent = () => {
   return (
     <Image
-      src="/linear.webp"
+      src="https://elearningchips.com/wp-content/uploads/2017/02/ph_024_043_pw1.jpg"
       alt="dummy image"
       width="1000"
       height="1000"
@@ -30,9 +30,13 @@ const tabs = [
     title: "Product",
     value: "product",
     content: (
-      <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
+      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
+      <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white flex flex-col gap-5">
         <p>Product Tab</p>
-        <DummyContent />
+        {/* <DummyContent /> */}
+        <div className='border grow flex justify-center items-center'>
+          test
+        </div>
       </div>
     ),
   },
@@ -40,7 +44,7 @@ const tabs = [
     title: "Services",
     value: "services",
     content: (
-      <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
+      <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white">
         <p>Services tab</p>
         <DummyContent />
       </div>
@@ -70,8 +74,6 @@ const tabs = [
     title: "Random",
     value: "random",
     content: (
-      // TODO - Check to see tabs are expanded; change bg-opacity & bg-color conditional on that ("hovering" parameter in FadeInDiv) (make sure to transition them to appearance) (if not hovering & not active, bg-opacity-0)
-      // TODO - Hide the tabs behind the main one when they're supposed to be "hidden" (i.e. not the active tab & tabs not expanded) (make sure to transition them to disappearance)
       <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
         <p>Random tab</p>
         <DummyContent />
@@ -87,14 +89,29 @@ export default function TechnologiesPage() {
       <div className='technologies-page-wrapper h-[calc(100%-9rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'>
         <div className="h-full [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full items-start justify-start">
           {/* TODO - Within AnimatedTabs, on mobile make the tab bar overflow to next line or figure out different approach... it needs to fit */}
+
           {/* TODO - Within AnimatedTabs, on mobile if you click on a tab in the background it should trigger a tab change as if you clicked on the option in the tab bar */}
+          {/* TODO - Implement StickyScrollReveal */}
+          {/* TODO - Implement InfinteScroll (?) */}
+
+
+
           {/* NOTE - Accounting for switch to mt-36 by changing the subtrahend used in the calculation for .technologies-page-wrapper (4rem difference between mt-36 & mt-20) */}
           <AnimatedTabs 
             tabs={ tabs } 
             contentClassName={ cn(
+              styles.content,
               'mt-36 sm:mt-20 bg-slate-700 rounded-lg shadow-3xl shadow-blue-500',
             ) }
-            containerClassName='justify-center' 
+            containerClassName='justify-center gap-2 rounded-full bg-slate-700 self-center p-1 shadow-3xl shadow-blue-500'
+            activeTabClassName={ cn(
+              styles.activeTab,
+              'bg-blue-500 shadow-3xl',
+            ) }
+            tabClassName={ cn(
+              styles.tabButton,
+              "text-lg font-medium"
+            ) }
           />
         </div>
       </div>
