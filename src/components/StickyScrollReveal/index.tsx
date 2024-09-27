@@ -72,7 +72,7 @@ const StickyScrollReveal = ({
       animate={ {
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       } }
-      className="grow overflow-y-auto flex justify-center relative p-10"
+      className="grow rounded-lg overflow-y-auto flex justify-center relative p-10"
       ref={ ref }
     >
       <div className="div relative flex items-start px-4">
@@ -86,7 +86,7 @@ const StickyScrollReveal = ({
                 animate={ {
                   opacity: activeCard === index ? 1 : 0.3,
                 } }
-                className="text-2xl font-bold text-slate-100"
+                className="text-lg md:text-3xl font-medium text-white"
               >
                 { item.title }
               </motion.h2>
@@ -97,7 +97,7 @@ const StickyScrollReveal = ({
                 animate={ {
                   opacity: activeCard === index ? 1 : 0.3,
                 } }
-                className="text-kg text-slate-300 max-w-sm mt-10"
+                className="text-kg text-white max-w-sm mt-10"
               >
                 { item.description }
               </motion.p>
@@ -109,7 +109,8 @@ const StickyScrollReveal = ({
       <div
         style={ { background: backgroundGradient } }
         className={ cn(
-          "hidden lg:block h-60 w-80 rounded-lg bg-white sticky top-10 overflow-hidden",
+          // "hidden lg:block h-60 w-80 rounded-lg bg-white sticky top-10 overflow-hidden",
+          "block h-60 w-80 rounded-lg bg-white sticky top-10 overflow-hidden",
           contentClassName
         ) }
       >
