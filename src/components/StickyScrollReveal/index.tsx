@@ -72,10 +72,10 @@ const StickyScrollReveal = ({
       animate={ {
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       } }
-      className="grow rounded-lg overflow-y-auto flex justify-center relative p-10"
+      className="grow rounded-lg overflow-y-auto flex justify-center relative p-10 gap-10"
       ref={ ref }
     >
-      <div className="div relative flex items-start px-4">
+      <div className="div relative flex items-start">
         <div className="max-w-2xl">
           { content.map((item, index) => (
             <div key={ item.title + index } className="my-20">
