@@ -5,6 +5,11 @@ import { motion } from "framer-motion";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+type Content = {
+  title: string;
+  description: string;
+  content?: React.ReactNode | any;
+};
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -13,20 +18,16 @@ const StickyScrollReveal = ({
   content,
   contentClassName,
 }: {
-  content: {
-    title: string;
-    description: string;
-    content?: React.ReactNode | any;
-  }[];
+  content: Content[];
   contentClassName?: string;
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef<any>(null);
   const { scrollYProgress } = useScroll({
-    // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
+    // uncomment line 28 and comment line 29 if you DONT want the overflow container and want to have it change on the entire page scroll
     // target: ref
     container: ref,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end center"],
   });
   const cardLength = content.length;
 
@@ -71,7 +72,7 @@ const StickyScrollReveal = ({
       animate={ {
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       } }
-      className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10"
+      className="grow overflow-y-auto flex justify-center relative p-10"
       ref={ ref }
     >
       <div className="div relative flex items-start px-4">
@@ -108,7 +109,7 @@ const StickyScrollReveal = ({
       <div
         style={ { background: backgroundGradient } }
         className={ cn(
-          "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
+          "hidden lg:block h-60 w-80 rounded-lg bg-white sticky top-10 overflow-hidden",
           contentClassName
         ) }
       >
