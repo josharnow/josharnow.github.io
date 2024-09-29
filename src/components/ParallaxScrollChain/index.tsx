@@ -1,6 +1,6 @@
 "use client";
 import { useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { type ClassValue, clsx } from "clsx";
@@ -51,7 +51,9 @@ const ParallaxScrollChain = ({
 
 
   // TODO - Track which tab is selected
-  // const [selectedTab, setSelectedTab] = useState("");
+  const [selectedCategory1, setselectedCategory1] = useState(firstPart[0].category);
+  const [selectedCategory2, setselectedCategory2] = useState(secondPart[0].category);
+  const [selectedCategory3, setselectedCategory3] = useState(thirdPart[0].category);
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     console.log(latest);
     // console.log("latest", latest);
@@ -75,18 +77,24 @@ const ParallaxScrollChain = ({
       className={ cn("h-[40rem] items-start overflow-y-auto w-full relative", className) }
       ref={ gridRef }
     >
-      {/* NOTE - Below div is necessary to center the text with the sidebar... not sure why, but it works */}
-      <div className="w-full flex justify-center">
-        <div className="fixed top-20 sm:top-0 w-full sm:w-[calc(100%-0%)] bg-black z-[1] flex justify-center">
-
-          <span>testing 123</span>
-        </div>
-      </div>
       <div
-        className="grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 py-40 px-10 absolute top-5 z-0"
+        // className="grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 p-10 absolute top-5 z-0"
+        // top-20 sm:top-0 bottom-30 sm:bottom-10
+        className="grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 p-10 absolute top-10 bottom-0 z-0"
         ref={ gridRef }
       >
-        <div className="grid gap-10">
+        <div className="grid gap-10 relative">
+
+
+
+          
+          <div className="sticky left-0 right-0 top-0 bg-black z-[1] flex justify-center py-6 text-center">
+            <h1 className="text-3xl font-medium">{ selectedCategory1 }</h1>
+          </div>
+
+
+
+
           { firstPart.map((content, idx) => (
             <motion.div
               style={ { y: translateFirst } } // Apply the translateY motion value here
@@ -102,6 +110,13 @@ const ParallaxScrollChain = ({
           )) }
         </div>
         <div className="grid gap-10">
+
+
+          <div className="sticky left-0 right-0 top-0 bg-black z-[1] flex justify-center py-6 text-center">
+            <h1 className="text-3xl font-medium">{ selectedCategory2 }</h1>
+          </div>
+
+
           { secondPart.map((content, idx) => (
             <motion.div style={ { y: translateSecond } } key={ "grid-2" + idx } className="bg-slate-500 rounded-3xl p-5">
               <Image
@@ -113,6 +128,14 @@ const ParallaxScrollChain = ({
           )) }
         </div>
         <div className="grid gap-10">
+
+
+          <div className="sticky left-0 right-0 top-0 bg-black z-[1] flex justify-center py-6 text-center">
+            <h1 className="text-3xl font-medium">{ selectedCategory3 }</h1>
+          </div>
+
+
+
           { thirdPart.map((content, idx) => (
             <motion.div style={ { y: translateThird } } key={ "grid-3" + idx } className="bg-slate-500 rounded-3xl p-5">
               <Image
