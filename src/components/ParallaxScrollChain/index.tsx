@@ -75,9 +75,15 @@ const ParallaxScrollChain = ({
       className={ cn("h-[40rem] items-start overflow-y-auto w-full relative", className) }
       ref={ gridRef }
     >
-      <div className="fixed top-0 w-full bg-black z-10">testing 123</div>
+      {/* NOTE - Below div is necessary to center the text with the sidebar... not sure why, but it works */}
+      <div className="w-full flex justify-center">
+        <div className="fixed top-20 sm:top-0 w-full sm:w-[calc(100%-0%)] bg-black z-[1] flex justify-center">
+
+          <span>testing 123</span>
+        </div>
+      </div>
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start  max-w-5xl mx-auto gap-10 py-40 px-10 absolute top-5 z-0"
+        className="grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 py-40 px-10 absolute top-5 z-0"
         ref={ gridRef }
       >
         <div className="grid gap-10">
@@ -85,12 +91,11 @@ const ParallaxScrollChain = ({
             <motion.div
               style={ { y: translateFirst } } // Apply the translateY motion value here
               key={ "grid-1" + idx }
+              className="bg-slate-500 rounded-3xl p-5"
             >
               <Image
                 src={ content.imageSrc as string }
-                className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
-                height={400}
-                width={400}
+                className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
                 alt="thumbnail"
               />
             </motion.div>
@@ -98,12 +103,10 @@ const ParallaxScrollChain = ({
         </div>
         <div className="grid gap-10">
           { secondPart.map((content, idx) => (
-            <motion.div style={ { y: translateSecond } } key={ "grid-2" + idx }>
+            <motion.div style={ { y: translateSecond } } key={ "grid-2" + idx } className="bg-slate-500 rounded-3xl p-5">
               <Image
                 src={ content.imageSrc as string }
-                className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
-                height={400}
-                width={400}
+                className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
                 alt="thumbnail"
               />
             </motion.div>
@@ -111,12 +114,10 @@ const ParallaxScrollChain = ({
         </div>
         <div className="grid gap-10">
           { thirdPart.map((content, idx) => (
-            <motion.div style={ { y: translateThird } } key={ "grid-3" + idx }>
+            <motion.div style={ { y: translateThird } } key={ "grid-3" + idx } className="bg-slate-500 rounded-3xl p-5">
               <Image
                 src={ content.imageSrc as string }
-                className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
-                height={400}
-                width={400}
+                className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
                 alt="thumbnail"
               />
             </motion.div>
