@@ -8,6 +8,7 @@ import {
   InfiniteMovingCards,
   StickyScrollReveal,
   AnimatedTabs,
+  ParallaxScroll,
 } from '@/src/components';
 import appleLogo from "@/src/assets/icons/apple.svg";
 import appstoreLogo from "@/src/assets/icons/appstore.svg";
