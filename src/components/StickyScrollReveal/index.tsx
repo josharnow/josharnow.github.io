@@ -5,11 +5,6 @@ import { motion } from "framer-motion";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-type Content = {
-  title: string;
-  description: string;
-  content?: React.ReactNode | any;
-};
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }

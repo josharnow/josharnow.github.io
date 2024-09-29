@@ -8,7 +8,7 @@ import {
   InfiniteMovingCards,
   StickyScrollReveal,
   AnimatedTabs,
-  ParallaxScroll,
+  ParallaxScrollChain,
 } from '@/src/components';
 import appleLogo from "@/src/assets/icons/apple.svg";
 import appstoreLogo from "@/src/assets/icons/appstore.svg";
@@ -65,15 +65,6 @@ import xcodeLogo from "@/src/assets/icons/xcode.svg";
 // import { type StaticImport } from 'next/dist/shared/lib/get-img-props';
 // import joshArnowLogoNoShadows from "@/src/assets/images/josh_arnow_logo_no_shadows.svg";
 
-type Content = {
-  title: string;
-  description: string;
-  content ?: React.ReactNode | any;
-}
-type ContentArrContainer = {
-  [key: string]: Content[];
-}
-
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -90,13 +81,13 @@ const Logo = (src: any) => {
   );
 };
 
-// TODO - Feed StickyScrollReveal to content
-
 
 const contentArrContainer: ContentArrContainer = {
   programming_languages: [
     {
       title: "JavaScript / TypeScript",
+      imageSrc: typescriptLogo,
+      category: "Programming Languages",
       description:
         "",
       content: (
@@ -113,6 +104,8 @@ const contentArrContainer: ContentArrContainer = {
       title: "Python",
       description:
         "",
+      imageSrc: pythonLogo,
+      category: "Programming Languages",
       content: (
         <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
           <Image
@@ -125,6 +118,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Java",
+      imageSrc: javaLogo,
+      category: "Programming Languages",
       description:
         "",
       content: (
@@ -139,6 +134,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Solidity",
+      imageSrc: solidityLogo,
+      category: "Programming Languages",
       description:
         "",
       content: (
@@ -153,6 +150,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "HTML5",
+      imageSrc: htmlLogo,
+      category: "Programming Languages",
       description:
         "",
       content: (
@@ -167,6 +166,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "SCSS/CSS3",
+      imageSrc: cssLogo,
+        category: "Programming Languages",
       description:
         "",
       content: (
@@ -183,6 +184,8 @@ const contentArrContainer: ContentArrContainer = {
   libraries: [
     {
       title: "React.js",
+      imageSrc: reactLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -197,6 +200,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "ChartJS",
+      imageSrc: chartJsLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -211,6 +216,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Mapbox GL JS",
+      imageSrc: mapboxLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -225,6 +232,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Firebase",
+      imageSrc: firebaseLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -239,6 +248,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "jQuery",
+      imageSrc: jQueryLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -253,6 +264,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Pandas",
+      imageSrc: pandasLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -267,6 +280,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Swiper.js",
+      imageSrc: swiperJsLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -281,6 +296,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Video.js",
+      imageSrc: videoJsLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -295,6 +312,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Axios",
+      imageSrc: axiosLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -309,6 +328,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Framer Motion",
+      imageSrc: framerLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -323,6 +344,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Pinia",
+      imageSrc: piniaLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -337,6 +360,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Vue Router",
+      imageSrc: vueJsLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -351,6 +376,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Web3.js",
+      imageSrc: web3JsLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -365,6 +392,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Ethers.js",
+      imageSrc: ethersJsLogo,
+      category: "Libraries",
       description:
         "",
       content: (
@@ -381,6 +410,8 @@ const contentArrContainer: ContentArrContainer = {
   frameworks: [
     {
       title: "React Native",
+      imageSrc: reactNativeLogo,
+      category: "Frameworks",
       description:
         "",
       content: (
@@ -395,6 +426,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Vue.js",
+      imageSrc: vueJsLogo,
+      category: "Frameworks",
       description:
         "",
       content: (
@@ -409,6 +442,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Ionic / Capacitor",
+      imageSrc: ionicLogo,
+      category: "Frameworks",
       description:
         "",
       content: (
@@ -423,6 +458,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Next.js",
+      imageSrc: nextJsLogo,
+      category: "Frameworks",
       description:
         "",
       content: (
@@ -437,6 +474,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Express.js",
+      imageSrc: expressJsLogo,
+      category: "Frameworks",
       description:
         "",
       content: (
@@ -451,6 +490,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Flask",
+      imageSrc: flaskLogo,
+      category: "Frameworks",
       description:
         "",
       content: (
@@ -465,6 +506,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Tailwind CSS",
+      imageSrc: tailwindCssLogo,
+      category: "Frameworks",
       description:
         "",
       content: (
@@ -481,6 +524,8 @@ const contentArrContainer: ContentArrContainer = {
   databases_orms: [
     {
       title: "MySQL",
+      imageSrc: mySqlLogo,
+      category: "Databases / ORMs / ODMs",
       description:
         "",
       content: (
@@ -495,6 +540,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "MongoDB",
+      imageSrc: mongoDbLogo,
+      category: "Databases / ORMs / ODMs",
       description:
         "",
       content: (
@@ -509,6 +556,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "MariaDB",
+      imageSrc: mariaDbLogo,
+      category: "Databases / ORMs / ODMs",
       description:
         "",
       content: (
@@ -523,6 +572,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "SQLAlchemy",
+      imageSrc: sqlAlchemyLogo,
+      category: "Databases / ORMs / ODMs",
       description:
         "",
       content: (
@@ -537,6 +588,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Mongoose",
+      imageSrc: mongooseLogo,
+      category: "Databases / ORMs / ODMs",
       description:
         "",
       content: (
@@ -553,6 +606,8 @@ const contentArrContainer: ContentArrContainer = {
   software: [
     {
       title: "Visual Studio Code",
+      imageSrc: vsCodeLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -567,6 +622,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Git",
+      imageSrc: gitLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -581,6 +638,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Xcode",
+      imageSrc: xcodeLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -595,6 +654,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Android Studio",
+      imageSrc: googleGLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -609,6 +670,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Docker",
+      imageSrc: dockerLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -623,6 +686,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Java Spring",
+      imageSrc: javaSpringLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -637,6 +702,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Remix IDE",
+      imageSrc: remixLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -651,6 +718,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Node.js",
+      imageSrc: nodeJsLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -665,6 +734,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Jira",
+      imageSrc: jiraLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -679,6 +750,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Postman",
+      imageSrc: postmanLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -693,6 +766,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Apple App Store Connect",
+      imageSrc: appstoreLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -707,6 +782,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Google Play Console",
+      imageSrc: googlePlayConsoleLogo,
+      category: "Software",
       description:
         "",
       content: (
@@ -723,6 +800,8 @@ const contentArrContainer: ContentArrContainer = {
   cloud_computing_ci_cd: [
     {
       title: "AWS - Elastic Beanstalk",
+      imageSrc: awsLogo,
+      category: "Cloud Computing / CI / CD",
       description:
         "",
       content: (
@@ -737,6 +816,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "AWS - EC2",
+      imageSrc: awsLogo,
+      category: "Cloud Computing / CI / CD",
       description:
         "",
       content: (
@@ -751,6 +832,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "AWS - S3",
+      imageSrc: awsLogo,
+      category: "Cloud Computing / CI / CD",
       description:
         "",
       content: (
@@ -765,6 +848,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "AWS - RDS",
+      imageSrc: awsLogo,
+      category: "Cloud Computing / CI / CD",
       description:
         "",
       content: (
@@ -779,6 +864,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "AWS - CloudFront",
+      imageSrc: awsLogo,
+      category: "Cloud Computing / CI / CD",
       description:
         "",
       content: (
@@ -793,6 +880,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "AWS - Lambda",
+      imageSrc: awsLogo,
+      category: "Cloud Computing / CI / CD",
       description:
         "",
       content: (
@@ -807,6 +896,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "AWS - MediaConvert",
+      imageSrc: awsLogo,
+      category: "Cloud Computing / CI / CD",
       description:
         "",
       content: (
@@ -821,6 +912,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Cloudflare",
+      imageSrc: cloudflareLogo,
+      category: "Cloud Computing / CI / CD",
       description:
         "",
       content: (
@@ -835,6 +928,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "GitHub Actions",
+      imageSrc: githubActionsLogo,
+      category: "Cloud Computing / CI / CD",
       description:
         "",
       content: (
@@ -849,6 +944,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Xcode Cloud",
+      imageSrc: xcodeLogo,
+      category: "Cloud Computing / CI / CD",
       description:
         "",
       content: (
@@ -887,6 +984,8 @@ const contentArrContainer: ContentArrContainer = {
   apis: [
     {
       title: "Mapbox GL JS",
+      imageSrc: mapboxLogo,
+      category: "APIs",
       description:
         "",
       content: (
@@ -901,6 +1000,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Google Places",
+      imageSrc: googleMapsLogo,
+      category: "APIs",
       description:
         "",
       content: (
@@ -915,6 +1016,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Twilio",
+      imageSrc: twilioLogo,
+      category: "APIs",
       description:
         "",
       content: (
@@ -929,6 +1032,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Sendgrid",
+      imageSrc: sendgridLogo,
+      category: "APIs",
       description:
         "",
       content: (
@@ -943,6 +1048,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Sign In With Apple",
+      imageSrc: appleLogo,
+      category: "APIs",
       description:
         "",
       content: (
@@ -957,6 +1064,8 @@ const contentArrContainer: ContentArrContainer = {
     },
     {
       title: "Google Sign-In",
+      imageSrc: googleGLogo,
+      category: "APIs",
       description:
         "",
       content: (
@@ -981,11 +1090,16 @@ const tabs = [
     content: (
       // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
       <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        <p className='text-xl md:text-4xl'>Programming Languages</p>
+        {/* <p className='text-xl md:text-4xl'>Programming Languages</p> */}
         {/* <DummyContent /> */}
         {/* <div className='border grow flex justify-center items-center'> */}
-          <StickyScrollReveal
+          {/* <StickyScrollReveal
             content={ contentArrContainer.programming_languages }
+          /> */}
+          <ParallaxScrollChain
+            // images={ contentArrContainer.programming_languages.map((content) => content.imageSrc as string) }
+            contentArrContainer={ contentArrContainer }
+            className=''
           />
         {/* </div> */}
       </div>
@@ -1088,8 +1202,12 @@ export default function TechnologiesPage() {
   return (
     <>
       {/* <div className='technologies-page-wrapper h-[calc(100%-9rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'> */}
-      <div className='technologies-page-wrapper h-[calc(100%-5rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'>
-        <div className="h-full [perspective:1000px] relative b flex flex-col  mx-auto w-full items-start justify-start">
+
+
+      {/* <div className='technologies-page-wrapper h-[calc(100%-5rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'>
+        <div className="h-full [perspective:1000px] relative b flex flex-col  mx-auto w-full items-start justify-start"> */}
+
+
           {/* TODO - Within AnimatedTabs, on mobile if you click on a tab in the background it should trigger a tab change as if you clicked on the option in the tab bar */}
           {/* TODO - Implement StickyScrollReveal */}
           {/* TODO - Implement InfinteScroll (?) */}
@@ -1097,7 +1215,7 @@ export default function TechnologiesPage() {
 
 
           {/* NOTE - Accounting for switch to mt-36 by changing the subtrahend used in the calculation for .technologies-page-wrapper (4rem difference between mt-36 & mt-20) */}
-          <AnimatedTabs 
+          {/* <AnimatedTabs 
             tabs={ tabs } 
             contentClassName={ cn(
               styles.content,
@@ -1115,9 +1233,20 @@ export default function TechnologiesPage() {
               styles.tabButton,
               "sm:text-lg font-medium h-fit"
             ) }
-          />
-        </div>
-      </div>
+          /> */}
+
+        {/* </div>
+      </div> */}
+
+
+      <ParallaxScrollChain
+        // images={ contentArrContainer.programming_languages.map((content) => content.imageSrc as string) }
+        contentArrContainer={ contentArrContainer }
+        className='h-full'
+      />
+
+      {/* TODO - Make chained ParallaxScroll... have it link together disparate groups and emit position to trigger a "section" change  */}
+
     </>
   );
 }
