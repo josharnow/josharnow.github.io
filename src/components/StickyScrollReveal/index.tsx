@@ -22,12 +22,18 @@ const StickyScrollReveal = ({
   contentClassName?: string;
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
-  const ref = useRef<any>(null);
+  const stickyScrollRevealRef = useRef<any>(null);
+  const descriptionRef = useRef<any>(null);
   const { scrollYProgress } = useScroll({
     // uncomment line 28 and comment line 29 if you DONT want the overflow container and want to have it change on the entire page scroll
-    // target: ref
-    container: ref,
-    offset: ["start start", "end center"],
+    // target: descriptionRef,
+    // target: stickyScrollRevealRef,
+    container: stickyScrollRevealRef,
+    offset: ["0 0", ".4 0"],
+    // offset: ["0 0", ".5 0"],
+    // offset: ["0 0", "1 0"],
+    // offset: ["00", "1 0.5"],
+    // offset: ["00", "1 1"],
   });
   const cardLength = content.length;
 
@@ -73,7 +79,7 @@ const StickyScrollReveal = ({
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       } }
       className="grow rounded-lg overflow-y-auto flex justify-center relative p-10 gap-10"
-      ref={ ref }
+      ref={ stickyScrollRevealRef }
     >
       <div className="div relative flex items-start">
         <div className="max-w-2xl">
@@ -98,6 +104,7 @@ const StickyScrollReveal = ({
                   opacity: activeCard === index ? 1 : 0.3,
                 } }
                 className="text-kg text-white max-w-sm mt-10"
+                ref={ descriptionRef }
               >
                 { item.description }
               </motion.p>
