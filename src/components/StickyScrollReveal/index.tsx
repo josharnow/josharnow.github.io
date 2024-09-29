@@ -29,8 +29,9 @@ const StickyScrollReveal = ({
     // target: descriptionRef,
     // target: stickyScrollRevealRef,
     container: stickyScrollRevealRef,
-    offset: ["0 0", ".4 0"],
-    // offset: ["0 0", ".5 0"],
+    // offset: ["0 0.5", "1 0.5"],
+    // offset: ["0 0", ".4 0"],
+    offset: ["0 0", ".5 0"],
     // offset: ["0 0", "1 0"],
     // offset: ["00", "1 0.5"],
     // offset: ["00", "1 1"],
@@ -38,6 +39,8 @@ const StickyScrollReveal = ({
   const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    // console.log("latest", latest);
+
     const cardsBreakpoints = content.map((_, index) => index / cardLength);
     const closestBreakpointIndex = cardsBreakpoints.reduce(
       (acc, breakpoint, index) => {
