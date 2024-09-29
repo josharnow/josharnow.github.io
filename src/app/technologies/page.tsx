@@ -9,6 +9,60 @@ import {
   StickyScrollReveal,
   AnimatedTabs,
 } from '@/src/components';
+import appleLogo from "@/src/assets/icons/apple.svg";
+import appstoreLogo from "@/src/assets/icons/appstore.svg";
+import awsLogo from "@/src/assets/icons/aws.svg";
+import axiosLogo from "@/src/assets/icons/axios.svg";
+import chartJsLogo from "@/src/assets/icons/chartjs.svg";
+import cloudflareLogo from "@/src/assets/icons/cloudflare.svg";
+import cssLogo from "@/src/assets/icons/css.svg";
+import dockerLogo from "@/src/assets/icons/docker.svg";
+import ethersJsLogo from "@/src/assets/icons/ethersjs.svg";
+import expressJsLogo from "@/src/assets/icons/expressjs.svg";
+import firebaseLogo from "@/src/assets/icons/firebase.svg";
+import flaskLogo from "@/src/assets/icons/flask.svg";
+import framerLogo from "@/src/assets/icons/framer.svg";
+import gitLogo from "@/src/assets/icons/git.svg";
+import githubActionsLogo from "@/src/assets/icons/githubactions.svg";
+import googleGLogo from "@/src/assets/icons/googleg.svg";
+import googleMapsLogo from "@/src/assets/icons/googlemaps.svg";
+import googlePlayConsoleLogo from "@/src/assets/icons/googleplay.svg";
+import htmlLogo from "@/src/assets/icons/html.svg";
+import ionicLogo from "@/src/assets/icons/ionic.svg";
+import javaLogo from "@/src/assets/icons/java.svg";
+import javaSpringLogo from "@/src/assets/icons/spring.svg";
+import jiraLogo from "@/src/assets/icons/jira.svg";
+import jQueryLogo from "@/src/assets/icons/jquery.svg";
+import mapboxLogo from "@/src/assets/icons/mapbox.svg";
+import mariaDbLogo from "@/src/assets/icons/mariadb.svg";
+import mongoDbLogo from "@/src/assets/icons/mongodb.svg";
+import mongooseLogo from "@/src/assets/icons/mongoose.svg";
+import mySqlLogo from "@/src/assets/icons/mysql.svg";
+import nextJsLogo from "@/src/assets/icons/nextjs.svg";
+import nodeJsLogo from "@/src/assets/icons/nodejs.svg";
+import pandasLogo from "@/src/assets/icons/pandas.svg";
+import piniaLogo from "@/src/assets/icons/pinia.svg";
+import postmanLogo from "@/src/assets/icons/postman.svg";
+import pythonLogo from "@/src/assets/icons/python.svg";
+import reactLogo from "@/src/assets/icons/react.svg";
+import reactNativeLogo from "@/src/assets/icons/reactnative.svg";
+import remixLogo from "@/src/assets/icons/remix.svg";
+import sendgridLogo from "@/src/assets/icons/sendgrid.svg";
+import solidityLogo from "@/src/assets/icons/solidity.svg";
+import sqlAlchemyLogo from "@/src/assets/icons/sqlalchemy.svg";
+import swiperJsLogo from "@/src/assets/icons/swiperjs.svg";
+import tailwindCssLogo from "@/src/assets/icons/tailwindcss.svg";
+import twilioLogo from "@/src/assets/icons/twilio.svg";
+import typescriptLogo from "@/src/assets/icons/typescript.svg";
+import videoJsLogo from "@/src/assets/icons/videojs.svg";
+import vsCodeLogo from "@/src/assets/icons/vscode.svg";
+import vueJsLogo from "@/src/assets/icons/vue.svg";
+import web3JsLogo from "@/src/assets/icons/web3js.svg";
+import xcodeLogo from "@/src/assets/icons/xcode.svg";
+
+
+// import { type StaticImport } from 'next/dist/shared/lib/get-img-props';
+// import joshArnowLogoNoShadows from "@/src/assets/images/josh_arnow_logo_no_shadows.svg";
 
 type Content = {
   title: string;
@@ -23,14 +77,14 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const DummyContent = () => {
+const Logo = (src: any) => {
   return (
     <Image
-      src="https://elearningchips.com/wp-content/uploads/2017/02/ph_024_043_pw1.jpg"
-      alt="dummy image"
-      width="1000"
-      height="1000"
-      className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
+      src={src as string}
+      alt="technology-logo"
+      width={1000}
+      height={1000}
+      // className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
     />
   );
 };
@@ -43,60 +97,84 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "JavaScript / TypeScript",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image 
+            alt="technology-logo"
+            src={typescriptLogo} 
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Python",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ pythonLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Java",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ javaLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Solidity",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ solidityLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "HTML5",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ htmlLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "SCSS/CSS3",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ cssLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
@@ -105,150 +183,196 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "React.js",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ reactLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "ChartJS",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ chartJsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Mapbox GL JS",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ mapboxLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Firebase",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ firebaseLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "jQuery",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ jQueryLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Pandas",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ pandasLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Swiper.js",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ swiperJsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Video.js",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
-        </div>
-      ),
-    },
-    {
-      title: "Mongoose",
-      description:
-        "TODO",
-      content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ videoJsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Axios",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ axiosLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Framer Motion",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ framerLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Pinia",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ piniaLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Vue Router",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ vueJsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Web3.js",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ web3JsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Ethers.js",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ ethersJsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
@@ -257,70 +381,98 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "React Native",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ reactNativeLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Vue.js",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ vueJsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Ionic / Capacitor",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ ionicLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Next.js",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ nextJsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Express.js",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ expressJsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Flask",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ flaskLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Tailwind CSS",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ tailwindCssLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
@@ -329,40 +481,70 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "MySQL",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ mySqlLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "MongoDB",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ mongoDbLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "MariaDB",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ mariaDbLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "SQLAlchemy",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ sqlAlchemyLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Mongoose",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ mongooseLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
@@ -371,120 +553,168 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "Visual Studio Code",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ vsCodeLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Git",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ gitLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Xcode",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ xcodeLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Android Studio",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ googleGLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Docker",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ dockerLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Java Spring",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ javaSpringLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Remix IDE",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ remixLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Node.js",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ nodeJsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Jira",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ jiraLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Postman",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ postmanLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Apple App Store Connect",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ appstoreLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Google Play Console",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ googlePlayConsoleLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
@@ -493,100 +723,140 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "AWS - Elastic Beanstalk",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ awsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "AWS - EC2",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ awsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "AWS - S3",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ awsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "AWS - RDS",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ awsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "AWS - CloudFront",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ awsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "AWS - Lambda",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ awsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "AWS - MediaConvert",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+                    <Image
+            alt="technology-logo"
+            src={ awsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Cloudflare",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ cloudflareLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "GitHub Actions",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ githubActionsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Xcode Cloud",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ xcodeLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
@@ -595,20 +865,20 @@ const contentArrContainer: ContentArrContainer = {
   //   {
   //     title: "Figma",
   //     description:
-  //       "TODO",
+  //       "",
   //     content: (
-  //       <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-  //         TODO - INSERT LOGO
+  //       <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+  //         
   //       </div>
   //     ),
   //   },
   //   {
   //     title: "Adobe XD",
   //     description:
-  //       "TODO",
+  //       "",
   //     content: (
-  //       <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-  //         TODO - INSERT LOGO
+  //       <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+  //         
   //       </div>
   //     ),
   //   },
@@ -617,60 +887,84 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "Mapbox GL JS",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ mapboxLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Google Places",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ googleMapsLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Twilio",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ twilioLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Sendgrid",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ sendgridLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Sign In With Apple",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ appleLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
     {
       title: "Google Sign-In",
       description:
-        "TODO",
+        "",
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          TODO - INSERT LOGO
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ googleGLogo }
+            className="object-cover w-auto h-full"
+          />
         </div>
       ),
     },
@@ -727,7 +1021,7 @@ const tabs = [
     ),
   },
   {
-    title: "Databases/ORMs",
+    title: "Databases/ORMs/ODMs",
     value: "databases_orms",
     indexOrder: 3,
     content: (
