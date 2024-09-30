@@ -76,28 +76,45 @@ const ParallaxScrollChain = ({
   // SOURCE - https://maxschmitt.me/posts/react-refs-loops
   const refsById1 = useMemo(() => {
     const refs: { [key: string]: React.RefObject<HTMLImageElement> } = {};
-    firstPart.forEach((item) => {
-      // refs[item.id as number] = useIsVisible(React.createRef());
-      refs[item.id as number] = React.createRef();
+    firstPart.forEach((item, i) => {
+      refs[i] = React.createRef();
     })
     return refs;
   }, [firstPart]);
   const refsById2 = useMemo(() => {
     const refs: { [key: string]: React.RefObject<HTMLImageElement> } = {};
-    secondPart.forEach((item) => {
-      // refs[item.id as number] = useIsVisible(React.createRef());
-      refs[item.id as number] = React.createRef();
+    secondPart.forEach((item, i) => {
+      refs[i] = React.createRef();
     })
     return refs;
   }, [secondPart]);
   const refsById3 = useMemo(() => {
     const refs: { [key: string]: React.RefObject<HTMLImageElement> } = {};
-    thirdPart.forEach((item) => {
-      // refs[item.id as number] = useIsVisible(React.createRef());
-      refs[item.id as number] = React.createRef();
+    thirdPart.forEach((item, i) => {
+      refs[i] = React.createRef();
     })
     return refs;
   }, [thirdPart]);
+
+  const consolidatedRefs = useMemo(() => {
+    // return { ...refsById1, ...refsById2, ...refsById3 };
+    let i = 0;
+    const refs: { [key: string]: React.RefObject<HTMLImageElement> } = {};
+    for (const [, value] of Object.entries(refsById1)) {
+      refs[i] = value;
+      i++;
+    }
+    for (const [, value] of Object.entries(refsById2)) {
+      refs[i] = value;
+      i++;
+    }
+    for (const [, value] of Object.entries(refsById3)) {
+      refs[i] = value;
+      i++;
+    }
+    return refs;
+  }, [refsById1, refsById2, refsById3]);
+
 
   function getTailwindColorRgb(color?: string) {
     const colorMapRgb: { [key: string]: number[] } = {
@@ -113,6 +130,16 @@ const ParallaxScrollChain = ({
     return colorMapRgb[color];
   }
 
+  function handleTabClick(e: React.BaseSyntheticEvent<MouseEvent>) {
+    const filteredRefs = Object.values(consolidatedRefs).filter((ref) => ref.current?.dataset.category === e.target.textContent);
+
+    filteredRefs?.[0]?.current?.scrollIntoView({ 
+      behavior: "smooth",
+      block: "start",
+      inline: "start",
+    });
+  }
+
 
   return (
     <div
@@ -124,6 +151,7 @@ const ParallaxScrollChain = ({
           Object.keys(colorMap).map((key, idx) => (
             // NOTE - For some reason the shadow colors must be applied multiple times here for it to apply the colors dynamically...
             <div 
+              onClick={handleTabClick}
               key={idx}
               className={ cn(
                 `flex justify-center items-center rounded-full 
@@ -166,6 +194,7 @@ const ParallaxScrollChain = ({
                 alt={ content.imageAlt || "thumbnail" }
                 ref={ refsById1[idx] }
                 id={ (content.id as number).toString() }
+                category={ content.category }
               />
               <div className="absolute left-0 right-0 top-0 bottom-0">
                 <Card
@@ -202,8 +231,9 @@ const ParallaxScrollChain = ({
               src={ content.imageSrc as string }
               className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
               alt={ content.imageAlt || "thumbnail" }
-              ref={ refsById2[content.id as number] }
+              ref={ refsById2[idx] }
               id={ (content.id as number).toString() }
+              category={ content.category }
             />
               <div className="absolute left-0 right-0 top-0 bottom-0">
                 <Card
@@ -233,8 +263,9 @@ const ParallaxScrollChain = ({
                 src={ content.imageSrc as string }
                 className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
                 alt={ content.imageAlt || "thumbnail" }
-                ref={ refsById3[content.id as number] }
+                ref={ refsById3[idx] }
                 id={ (content.id as number).toString() }
+                category={ content.category }
               />
               <div className="absolute left-0 right-0 top-0 bottom-0">
                 <Card

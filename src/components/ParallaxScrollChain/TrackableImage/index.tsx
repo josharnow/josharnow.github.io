@@ -18,33 +18,10 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   alt: string;
   ref: React.ForwardedRef<HTMLDivElement>;
   id: string;
+  category?: string;
 };
 
 const TrackableImage = forwardRef(function TrackableImage(props: Props, ref: React.ForwardedRef<HTMLDivElement>) {
-
-  // const [containerRef, isVisible] = useOnScreen({
-  //   root: null,
-  //   rootMargin: '0px',
-  //   threshold: 0.1
-  // });
-
-  // console.log(isVisible);
-
-  // const isVisible = useIsVisible(ref);
-
-  // console.log(ref.current)
-  if (parseInt(props.id) === 0) {
-    // console.log(isVisible);
-    // console.log(ref.current.offsetTop)
-  }
-
-  // if (isVisible) {
-  //   console.log(isVisible);
-  //   console.log(ref.current)
-  // }
-
-  // console.log(ref?.current?.getBoundingClientRect());
-  // console.log(ref?.current?.y);
 
   return (
     <Image
@@ -52,6 +29,7 @@ const TrackableImage = forwardRef(function TrackableImage(props: Props, ref: Rea
       className={props.className}
       alt={ props.alt }
       ref={ ref as any }
+      data-category={ props.category }
     />
   );
 });
