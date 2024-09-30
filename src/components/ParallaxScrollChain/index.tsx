@@ -1,6 +1,6 @@
 "use client";
 import { useScroll, useTransform, AnimatePresence, motion } from "framer-motion";
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import TrackableImage from "./TrackableImage";
@@ -45,7 +45,6 @@ const ParallaxScrollChain = ({
 
 
 
-  // TODO - Break out contentArrContainer into 3 parts. Used to be string[] now it's ContentArrContainer
 
   const consolidatedContentArr: Content[] = [];
 
@@ -59,7 +58,6 @@ const ParallaxScrollChain = ({
   }
   
 
-  // TODO - Use category key to switch between which tab heading is shown
 
   const columnRef1 = useRef<HTMLDivElement>(null);
   const columnRef2 = useRef<HTMLDivElement>(null);
@@ -173,7 +171,6 @@ const ParallaxScrollChain = ({
                 "bg-" + colorMap[key], 
                 "shadow-" + colorMap[key]
               )}
-              // className={ cn(`flex justify-center items-center rounded-full w-full p-1 my-0 mx-auto shadow-3xl shadow-blue-500 shadow-${colorMap[key]}`, colorMap[key])}
             >
               <h3 className="text-sm sm:text-base font-medium text-center p-1">{key}</h3>
             </div>
@@ -182,7 +179,6 @@ const ParallaxScrollChain = ({
 
       </div>
       <div
-        // className="overflow-y-auto grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 p-10 absolute top-52 sm:top-32 bottom-0 z-0"
         className=" overflow-y-auto overflow-x-hidden grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 grow"
       >
         <div className="grid gap-10 relative" ref={ columnRef1 }>
@@ -191,9 +187,7 @@ const ParallaxScrollChain = ({
             <motion.div
               style={ { y: translateFirst } } // Apply the translateY motion value here
               key={ "grid-1" + idx }
-              // className={ cn("bg-slate-500 rounded-3xl p-5", content.category?.toLowerCase() === "libraries" && "bg-red-500") }
               className={ cn("rounded-3xl p-5 relative shadow-3xl", content.category && "bg-" + colorMap[content.category], content.category && "shadow-" + colorMap[content.category]) }
-              // colorMap
             >
               <TrackableImage
                 src={ content.imageSrc as string }
@@ -319,6 +313,7 @@ const Card = ({
   url?: string;
 }) => {
   const [hovered, setHovered] = React.useState(false);
+  const anchorRef = useRef<HTMLAnchorElement>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!hovered || !url) {
@@ -326,9 +321,18 @@ const Card = ({
     }
     // window.open(url, "_blank");
     setHovered(!hovered);
-
-    // TODO - Fix text not disappearing on click
   }
+
+
+  useEffect(() => {
+    if (!hovered && anchorRef.current) {
+      anchorRef.current.style.opacity = "0";
+
+      // TODO - Set opacity
+    } else if (hovered && anchorRef.current) {
+      anchorRef.current.style.opacity = "1";
+    }
+  }, [hovered, anchorRef]);
 
   return (
     <div
@@ -345,7 +349,6 @@ const Card = ({
                 initial={ { opacity: 0 } }
                 animate={ { opacity: 1 } }
                 className="h-full w-full absolute left-0 right-0 top-0 bottom-0 rounded-3xl inset-0 overflow-hidden"
-              // className="h-full w-full absolute inset-0 rounded-3xl"
               >
                 { children }
               </motion.div>
@@ -357,36 +360,15 @@ const Card = ({
       <Link 
         onClick={ handleClick }
         href={ url || "#" }
-        className="relative z-40 rounded-3xl size-full flex text-center justify-center items-center cursor-pointer"
+        className={ cn("relative z-40 rounded-3xl size-full flex text-center justify-center items-center cursor-pointer",
+          "text-white text-base sm:text-2xl  mt-4 font-medium  transition duration-200", 
+          "opacity-0 group-hover/canvas-card:opacity-100 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2") }
         target="_blank"
+        ref={ anchorRef }
       >
-        <h2 className="text-white text-base sm:text-2xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10  mt-4  font-medium group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 ">
-          { title }
-        </h2>
+        { title }
       </Link>
     </div>
-  );
-};
-
-const AceternityIcon = () => {
-  return (
-    <svg
-      width="66"
-      height="65"
-      viewBox="0 0 66 65"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-10 w-10 text-black dark:text-white group-hover/canvas-card:text-white "
-    >
-      <path
-        d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-        stroke="currentColor"
-        strokeWidth="15"
-        strokeMiterlimit="3.86874"
-        strokeLinecap="round"
-        style={ { mixBlendMode: "darken" } }
-      />
-    </svg>
   );
 };
 
