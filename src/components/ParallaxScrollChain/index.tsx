@@ -11,13 +11,13 @@ function cn(...inputs: ClassValue[]) {
 }
 
 const colorMap: {[key: string]: any} = {
-  "Programming Languages": "bg-blue-500",
-  "Libraries": "bg-purple-500",
-  "Frameworks": "bg-yellow-500",
-  "Databases / ORMs / ODMs": "bg-indigo-500",
-  "Software": "bg-slate-500",
-  "Cloud Computing / CI / CD": "bg-orange-500",
-  "APIs": "bg-red-500",
+  "Programming Languages": "blue-500",
+  "Libraries": "purple-500",
+  "Frameworks": "yellow-500",
+  "Databases / ORMs / ODMs": "indigo-500",
+  "Software": "slate-500",
+  "Cloud Computing / CI / CD": "orange-500",
+  "APIs": "red-500",
 };
 
 
@@ -101,13 +101,13 @@ const ParallaxScrollChain = ({
 
   function getTailwindColorRgb(color?: string) {
     const colorMapRgb: { [key: string]: number[] } = {
-      "bg-blue-500": [59, 130, 246],
-      "bg-purple-500": [168, 85, 247],
-      "bg-yellow-500": [234, 179, 8],
-      "bg-indigo-500": [99, 102, 241],
-      "bg-slate-500": [100, 116, 139],
-      "bg-orange-500": [249, 115, 22],
-      "bg-red-500": [239, 68, 68],
+      "blue-500": [59, 130, 246],
+      "purple-500": [168, 85, 247],
+      "yellow-500": [234, 179, 8],
+      "indigo-500": [99, 102, 241],
+      "slate-500": [100, 116, 139],
+      "orange-500": [249, 115, 22],
+      "red-500": [239, 68, 68],
     };
     if (!color || !(color in colorMapRgb)) return [255, 255, 255];
     return colorMapRgb[color];
@@ -122,9 +122,23 @@ const ParallaxScrollChain = ({
       <div className="grow grid grid-cols-2 gap-2">
         {
           Object.keys(colorMap).map((key, idx) => (
+            // NOTE - For some reason the shadow colors must be applied multiple times here for it to apply the colors dynamically...
             <div 
               key={idx}
-              className={cn("flex justify-center items-center rounded-full w-full p-1 my-0 mx-auto", colorMap[key])}
+              className={ cn(
+                `flex justify-center items-center rounded-full 
+                shadow-purple-500 
+                shadow-yellow-500 
+                shadow-blue-500
+                shadow-indigo-500
+                shadow-slate-500
+                shadow-orange-500
+                shadow-red-500
+                w-full p-1 my-0 mx-auto shadow-3xl `,
+                "bg-" + colorMap[key], 
+                "shadow-" + colorMap[key]
+              )}
+              // className={ cn(`flex justify-center items-center rounded-full w-full p-1 my-0 mx-auto shadow-3xl shadow-blue-500 shadow-${colorMap[key]}`, colorMap[key])}
             >
               <h3 className="text-sm sm:text-base font-medium text-center p-1">{key}</h3>
             </div>
@@ -134,7 +148,7 @@ const ParallaxScrollChain = ({
       </div>
       <div
         // className="overflow-y-auto grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 p-10 absolute top-52 sm:top-32 bottom-0 z-0"
-        className=" overflow-y-auto grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 grow"
+        className=" overflow-y-auto overflow-x-hidden grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 grow"
       >
         <div className="grid gap-10 relative" ref={ columnRef1 }>
 
@@ -143,7 +157,7 @@ const ParallaxScrollChain = ({
               style={ { y: translateFirst } } // Apply the translateY motion value here
               key={ "grid-1" + idx }
               // className={ cn("bg-slate-500 rounded-3xl p-5", content.category?.toLowerCase() === "libraries" && "bg-red-500") }
-              className={ cn("bg-slate-500 rounded-3xl p-5 relative", content.category && colorMap[content.category]) }
+              className={ cn("rounded-3xl p-5 relative shadow-3xl", content.category && "bg-" + colorMap[content.category], content.category && "shadow-" + colorMap[content.category]) }
               // colorMap
             >
               <TrackableImage
@@ -182,7 +196,7 @@ const ParallaxScrollChain = ({
 
           { secondPart.map((content, idx) => (
             <motion.div style={ { y: translateSecond } } key={ "grid-2" + idx } 
-              className={ cn("bg-slate-500 rounded-3xl p-5 relative", content.category && colorMap[content.category]) }
+              className={ cn("rounded-3xl p-5 relative shadow-3xl", content.category && "bg-" + colorMap[content.category], content.category && "shadow-" + colorMap[content.category]) }
             >
             <TrackableImage
               src={ content.imageSrc as string }
@@ -214,7 +228,7 @@ const ParallaxScrollChain = ({
 
 
           { thirdPart.map((content, idx) => (
-            <motion.div style={ { y: translateThird } } key={ "grid-3" + idx } className={ cn("bg-slate-500 rounded-3xl p-5 relative", content.category && colorMap[content.category]) }>
+            <motion.div style={ { y: translateThird } } key={ "grid-3" + idx } className={ cn("rounded-3xl p-5 relative shadow-3xl", content.category && "bg-" + colorMap[content.category], content.category && "shadow-" + colorMap[content.category]) }>
               <TrackableImage
                 src={ content.imageSrc as string }
                 className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
@@ -290,7 +304,7 @@ const Card = ({
         {/* <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
           { icon }
         </div> */}
-        <h2 className="text-white text-2xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10  mt-4  font-medium group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 ">
+        <h2 className="text-white text-base sm:text-2xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10  mt-4  font-medium group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 ">
           { title }
         </h2>
       </div>
