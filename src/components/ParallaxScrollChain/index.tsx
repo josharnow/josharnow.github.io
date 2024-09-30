@@ -324,15 +324,15 @@ const Card = ({
   }
 
 
-  useEffect(() => {
-    if (!hovered && anchorRef.current) {
-      anchorRef.current.style.opacity = "0";
+  // useEffect(() => {
+  //   if (!hovered && anchorRef.current) {
+  //     anchorRef.current.style.opacity = "0";
 
-      // TODO - Set opacity
-    } else if (hovered && anchorRef.current) {
-      anchorRef.current.style.opacity = "1";
-    }
-  }, [hovered, anchorRef]);
+  //     // TODO - Set opacity
+  //   } else if (hovered && anchorRef.current) {
+  //     anchorRef.current.style.opacity = "1";
+  //   }
+  // }, [hovered, anchorRef]);
 
   return (
     <div
