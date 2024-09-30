@@ -48,7 +48,7 @@ const Timeline = ({
       };
     }
   }
-  , [inputRef]);
+  , [inputRef, timelineYears]);
 
   const currentYear = timelineYears[timelineYears.length - 1];
 
