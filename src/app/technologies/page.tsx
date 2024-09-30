@@ -1,13 +1,7 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-import styles from './styles.module.scss';
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
 import { 
-  InfiniteMovingCards,
-  StickyScrollReveal,
-  AnimatedTabs,
   ParallaxScrollChain,
 } from '@/src/components';
 import appleLogo from "@/src/assets/icons/apple.svg";
@@ -62,24 +56,6 @@ import web3JsLogo from "@/src/assets/icons/web3js.svg";
 import xcodeLogo from "@/src/assets/icons/xcode.svg";
 
 
-// import { type StaticImport } from 'next/dist/shared/lib/get-img-props';
-// import joshArnowLogoNoShadows from "@/src/assets/images/josh_arnow_logo_no_shadows.svg";
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-const Logo = (src: any) => {
-  return (
-    <Image
-      src={src as string}
-      alt="technology-logo"
-      width={1000}
-      height={1000}
-      // className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
-    />
-  );
-};
 
 
 const contentArrContainer: ContentArrContainer = {
@@ -1081,121 +1057,6 @@ const contentArrContainer: ContentArrContainer = {
   ],
 }
 
-
-const tabs = [
-  {
-    title: "Programming Languages",
-    value: "programming_languages",
-    indexOrder: 0,
-    content: (
-      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        {/* <p className='text-xl md:text-4xl'>Programming Languages</p> */}
-        {/* <DummyContent /> */}
-        {/* <div className='border grow flex justify-center items-center'> */}
-          {/* <StickyScrollReveal
-            content={ contentArrContainer.programming_languages }
-          /> */}
-          <ParallaxScrollChain
-            // images={ contentArrContainer.programming_languages.map((content) => content.imageSrc as string) }
-            contentArrContainer={ contentArrContainer }
-            className=''
-          />
-        {/* </div> */}
-      </div>
-    ),
-  },
-  {
-    title: "Libraries",
-    value: "libraries",
-    indexOrder: 1,
-    content: (
-      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        <p className='text-xl md:text-4xl'>Libraries</p>
-        {/* <DummyContent /> */}
-          <StickyScrollReveal
-            content={ contentArrContainer.libraries }
-          />
-      </div>
-    ),
-  },
-  {
-    title: "Frameworks",
-    value: "frameworks",
-    indexOrder: 2,
-    content: (
-      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        <p className='text-xl md:text-4xl'>Frameworks</p>
-        {/* <DummyContent /> */}
-          <StickyScrollReveal
-            content={ contentArrContainer.frameworks }
-          />
-      </div>
-    ),
-  },
-  {
-    title: "Databases/ORMs/ODMs",
-    value: "databases_orms",
-    indexOrder: 3,
-    content: (
-      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        <p className='text-xl md:text-4xl'>Databases/ORMs</p>
-        {/* <DummyContent /> */}
-          <StickyScrollReveal
-            content={ contentArrContainer.databases_orms }
-          />
-      </div>
-    ),
-  },
-  {
-    title: "Software",
-    value: "software",
-    indexOrder: 4,
-    content: (
-      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        <p className='text-xl md:text-4xl'>Software</p>
-        {/* <DummyContent /> */}
-          <StickyScrollReveal
-            content={ contentArrContainer.software }
-          />
-      </div>
-    ),
-  },
-  {
-    title: "Cloud Computing & CI/CD",
-    value: "cloud_computing_ci_cd",
-    indexOrder: 5,
-    content: (
-      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        <p className='text-xl md:text-4xl'>Cloud Computing & CI/CD</p>
-        {/* <DummyContent /> */}
-          <StickyScrollReveal
-            content={ contentArrContainer.cloud_computing_ci_cd }
-          />
-      </div>
-    ),
-  },
-  {
-    title: "APIs",
-    value: "apis",
-    indexOrder: 6,
-    content: (
-      // <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white ">
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        <p className='text-xl md:text-4xl'>APIs</p>
-        {/* <DummyContent /> */}
-          <StickyScrollReveal
-            content={ contentArrContainer.apis }
-          />
-      </div>
-    ),
-  },
-];
 
 export default function TechnologiesPage() {
 
