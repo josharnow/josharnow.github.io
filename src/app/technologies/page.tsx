@@ -1122,52 +1122,11 @@ export default function TechnologiesPage() {
 
   return (
     <>
-      {/* <div className='technologies-page-wrapper h-[calc(100%-9rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'> */}
-
-
-      {/* <div className='technologies-page-wrapper h-[calc(100%-5rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'>
-        <div className="h-full [perspective:1000px] relative b flex flex-col  mx-auto w-full items-start justify-start"> */}
-
-
-          {/* TODO - Within AnimatedTabs, on mobile if you click on a tab in the background it should trigger a tab change as if you clicked on the option in the tab bar */}
-          {/* TODO - Implement StickyScrollReveal */}
-          {/* TODO - Implement InfinteScroll (?) */}
-
-
-
-          {/* NOTE - Accounting for switch to mt-36 by changing the subtrahend used in the calculation for .technologies-page-wrapper (4rem difference between mt-36 & mt-20) */}
-          {/* <AnimatedTabs 
-            tabs={ tabs } 
-            contentClassName={ cn(
-              styles.content,
-              'mt-20 sm:mt-20 bg-slate-700 rounded-lg shadow-3xl shadow-blue-500 text-white',
-            ) }
-            // containerClassName=
-            containerClassName={ cn(
-              'sm:justify-center gap-2 rounded-full bg-slate-700 self-center p-1 shadow-3xl shadow-blue-500 items-center h-fit'
-            ) }
-            activeTabClassName={ cn(
-              styles.activeTab,
-              'bg-blue-500 shadow-3xl',
-            ) }
-            tabClassName={ cn(
-              styles.tabButton,
-              "sm:text-lg font-medium h-fit"
-            ) }
-          /> */}
-
-        {/* </div>
-      </div> */}
-
-
       <ParallaxScrollChain
         // images={ contentArrContainer.programming_languages.map((content) => content.imageSrc as string) }
         contentArrContainer={ contentArrContainer }
         className='h-full'
       />
-
-      {/* TODO - Make chained ParallaxScroll... have it link together disparate groups and emit position to trigger a "section" change  */}
-
     </>
   );
 }
