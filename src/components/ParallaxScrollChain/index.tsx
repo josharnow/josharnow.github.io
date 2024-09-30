@@ -12,12 +12,12 @@ function cn(...inputs: ClassValue[]) {
 
 const colorMap: {[key: string]: any} = {
   "Programming Languages": "bg-blue-500",
-  "Libraries": "bg-red-500",
+  "Libraries": "bg-purple-500",
   "Frameworks": "bg-yellow-500",
-  "Databases / ORMs / ODMs": "bg-green-500",
-  "Software": "bg-purple-500",
-  "Cloud Computing / CI / CD": "bg-indigo-500",
-  "APIs": "bg-pink-500",
+  "Databases / ORMs / ODMs": "bg-indigo-500",
+  "Software": "bg-slate-500",
+  "Cloud Computing / CI / CD": "bg-orange-500",
+  "APIs": "bg-red-500",
 };
 
 
@@ -99,6 +99,19 @@ const ParallaxScrollChain = ({
     return refs;
   }, [thirdPart]);
 
+  function getTailwindColorRgb(color?: string) {
+    const colorMapRgb: { [key: string]: number[] } = {
+      "bg-blue-500": [59, 130, 246],
+      "bg-purple-500": [168, 85, 247],
+      "bg-yellow-500": [234, 179, 8],
+      "bg-indigo-500": [99, 102, 241],
+      "bg-slate-500": [100, 116, 139],
+      "bg-orange-500": [249, 115, 22],
+      "bg-red-500": [239, 68, 68],
+    };
+    if (!color || !(color in colorMapRgb)) return [255, 255, 255];
+    return colorMapRgb[color];
+  }
 
 
   return (
@@ -149,11 +162,10 @@ const ParallaxScrollChain = ({
                     // src={ content.imageSrc as string }
                     // alt={ content.imageAlt || "thumbnail" }
                     animationSpeed={ 3 }
-                    containerClassName="bg-black"
-                    colors={ [
-                      [236, 72, 153],
-                      [232, 121, 249],
-                    ] }
+                    containerClassName="bg-black bg-opacity-70"
+                    colors={
+                      [getTailwindColorRgb(colorMap[content.category as string])]
+                    }
                   />
                 </Card>
               </div>
@@ -170,15 +182,31 @@ const ParallaxScrollChain = ({
 
           { secondPart.map((content, idx) => (
             <motion.div style={ { y: translateSecond } } key={ "grid-2" + idx } 
-              className={ cn("bg-slate-500 rounded-3xl p-5", content.category && colorMap[content.category]) }
+              className={ cn("bg-slate-500 rounded-3xl p-5 relative", content.category && colorMap[content.category]) }
             >
-              <TrackableImage
-                src={ content.imageSrc as string }
-                className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
-                alt={ content.imageAlt || "thumbnail" }
-                ref={ refsById2[content.id as number] }
-                id={ (content.id as number).toString() }
-              />
+            <TrackableImage
+              src={ content.imageSrc as string }
+              className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
+              alt={ content.imageAlt || "thumbnail" }
+              ref={ refsById2[content.id as number] }
+              id={ (content.id as number).toString() }
+            />
+              <div className="absolute left-0 right-0 top-0 bottom-0">
+                <Card
+                  title={ content.title }
+                  icon={ <></> }
+                >
+                  <CanvasRevealEffect
+                    // src={ content.imageSrc as string }
+                    // alt={ content.imageAlt || "thumbnail" }
+                    animationSpeed={ 3 }
+                    containerClassName="bg-black bg-opacity-70"
+                    colors={
+                      [getTailwindColorRgb(colorMap[content.category as string])]
+                    }
+                  />
+                </Card>
+              </div>
             </motion.div>
           )) }
         </div>
@@ -186,7 +214,7 @@ const ParallaxScrollChain = ({
 
 
           { thirdPart.map((content, idx) => (
-            <motion.div style={ { y: translateThird } } key={ "grid-3" + idx } className={ cn("bg-slate-500 rounded-3xl p-5", content.category && colorMap[content.category]) }>
+            <motion.div style={ { y: translateThird } } key={ "grid-3" + idx } className={ cn("bg-slate-500 rounded-3xl p-5 relative", content.category && colorMap[content.category]) }>
               <TrackableImage
                 src={ content.imageSrc as string }
                 className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
@@ -194,6 +222,22 @@ const ParallaxScrollChain = ({
                 ref={ refsById3[content.id as number] }
                 id={ (content.id as number).toString() }
               />
+              <div className="absolute left-0 right-0 top-0 bottom-0">
+                <Card
+                  title={ content.title }
+                  icon={ <></> }
+                >
+                  <CanvasRevealEffect
+                    // src={ content.imageSrc as string }
+                    // alt={ content.imageAlt || "thumbnail" }
+                    animationSpeed={ 3 }
+                    containerClassName="bg-black bg-opacity-70"
+                    colors={
+                      [getTailwindColorRgb(colorMap[content.category as string])]
+                    }
+                  />
+                </Card>
+              </div>
             </motion.div>
           )) }
         </div>
@@ -226,7 +270,7 @@ const Card = ({
     >
 
       <div className="h-full w-full absolute left-0 right-0 top-0 bottom-0 rounded-3xl z-30 p-4">
-        <div className="size-full rounded-3xl border border-red-500 relative">
+        <div className="size-full rounded-3xl relative">
           <AnimatePresence>
             { hovered && (
               <motion.div
@@ -246,7 +290,7 @@ const Card = ({
         {/* <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
           { icon }
         </div> */}
-        <h2 className="text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10  mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 ">
+        <h2 className="text-white text-2xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10  mt-4  font-medium group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 ">
           { title }
         </h2>
       </div>
