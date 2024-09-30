@@ -15,7 +15,7 @@ export { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger } from './Ani
 export { default as ContactModal } from './ContactModal';
 export { default as ContactIcon } from './ContactIcon';
 export { default as ContactForm } from './ContactForm';
-export { default as CardSpotlight } from './CardSpotlight';
+export { CardSpotlight, CanvasRevealEffect } from './CardSpotlight';
 export { default as Input } from './Input';
 export { default as FormInput } from './FormInput';
 export { default as FormLabel } from './FormLabel';

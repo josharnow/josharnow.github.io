@@ -1,33 +1,24 @@
 "use client";
-import { useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import React, { useRef, useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import { useScroll, useTransform, AnimatePresence, motion } from "framer-motion";
+import React, { useRef, useMemo } from "react";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import TrackableImage from "./TrackableImage";
+import { CanvasRevealEffect } from "@/src/components";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// function useIsVisible(ref: React.RefObject<any>) {
-//   const [isIntersecting, setIntersecting] = useState(false);
-
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(([entry]) =>
-//       setIntersecting(entry.isIntersecting)
-//     );
-
-//     observer.observe(ref.current);
-//     return () => {
-//       observer.disconnect();
-//     };
-//   }, [ref]);
-
-//   return isIntersecting;
-// }
-
-
+const colorMap: {[key: string]: any} = {
+  "Programming Languages": "bg-blue-500",
+  "Libraries": "bg-red-500",
+  "Frameworks": "bg-yellow-500",
+  "Databases / ORMs / ODMs": "bg-green-500",
+  "Software": "bg-purple-500",
+  "Cloud Computing / CI / CD": "bg-indigo-500",
+  "APIs": "bg-pink-500",
+};
 
 
 const ParallaxScrollChain = ({
@@ -65,6 +56,7 @@ const ParallaxScrollChain = ({
       i++;
     }
   }
+  
 
   // TODO - Use category key to switch between which tab heading is shown
 
@@ -78,12 +70,6 @@ const ParallaxScrollChain = ({
   const secondPart = consolidatedContentArr.slice(third, 2 * third);
   const thirdPart = consolidatedContentArr.slice(2 * third);
 
-
-
-  // TODO - Track which tab is selected
-  const [selectedCategory1, setSelectedCategory1] = useState(firstPart[0].category);
-  const [selectedCategory2, setSelectedCategory2] = useState(secondPart[0].category);
-  const [selectedCategory3, setSelectedCategory3] = useState(thirdPart[0].category);
 
 
 
@@ -115,138 +101,69 @@ const ParallaxScrollChain = ({
 
 
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    // const refColumn1Bounds = columnRef1?.current?.getBoundingClientRect();
-    // const refColumn2Bounds = columnRef2?.current?.getBoundingClientRect();
-    // const refColumn3Bounds = columnRef3?.current?.getBoundingClientRect();
-
-
-
-    // console.log(gridRef.current.getBoundingClientRect().top);
-    console.log("SCROLLING")
-    // NOTE - Should be the "top" of the gridRef as it scrolls; if scrollY > element bottom, then it's not visible
-    // console.log(refsById1[0].current.getBoundingClientRect().top + scrollY.get());
-    // console.log(refsById1[0].current.getBoundingClientRect().top);
-    // console.log(refsById1[0].current.getBoundingClientRect().bottom);
-    // console.log(scrollY.get());
-
-    // NOTE - *** INDEXING APPEARS TO BE OFF. THAT'S PROBABLY THE ISSUE...
-    console.log(refsById1[0].current?.offsetParent);
-    console.log(refsById1[0].current?.offsetParent?.scrollTop);
-    console.log(refsById1)
-
-    
-
-
-    // console.log(scrollYProgress.get());
-
-
-    // console.log(refColumn1Bounds);
-    // console.log(refsById1[0].current?.getBoundingClientRect());
-    // TODO - Get scroll position of each image ref
-
-    // console.log(isVisibleById);
-
-
-    // TODO - Track the first visible card from each column and set the category
-
-
-
-    function getBreakpointIndex(refsById: { [key: string]: React.RefObject<HTMLImageElement> }) {
-      const cardBreakpoint = Object.keys(refsById).map((_, index) => index / Object.keys(refsById).length);
-      const closestBreakpointIndex = cardBreakpoint.reduce(
-        (acc, breakpoint, index) => {
-          const distance = Math.abs(latest - breakpoint);
-          if (distance < Math.abs(latest - cardBreakpoint[acc])) {
-            return index;
-          }
-          return acc;
-        },
-        0
-      );
-      return closestBreakpointIndex;
-    }
-
-
-    // const cardBreakpoint1 = firstPart.map((_, index) => index / firstPart.length);
-    // // const cardsBreakpoints = content.map((_, index) => index / cardLength);
-    // const closestBreakpointIndex1 = cardBreakpoint1.reduce(
-    //   (acc, breakpoint, index) => {
-    //     const distance = Math.abs(latest - breakpoint);
-    //     if (distance < Math.abs(latest - cardBreakpoint1[acc])) {
-    //       return index;
-    //     }
-    //     return acc;
-    //   },
-    //   0
-    // );
-
-    const breakpointIndex1 = getBreakpointIndex(refsById1);
-    const breakpointIndex2 = getBreakpointIndex(refsById2);
-    const breakpointIndex3 = getBreakpointIndex(refsById3);
-    console.log("closestBreakpointIndex1", breakpointIndex1);
-
-    setSelectedCategory1(firstPart[breakpointIndex1].category);
-    setSelectedCategory2(secondPart[breakpointIndex2].category);
-    setSelectedCategory3(thirdPart[breakpointIndex3].category);
-
-
-    // setActiveCard(closestBreakpointIndex);
-  });
-
   return (
     <div
-      className={ cn("h-[40rem] items-start overflow-y-auto w-full relative", className) }
+      className={ cn("h-[40rem] w-full relative flex flex-col p-10 gap-5", className) }
       ref={ gridRef }
     >
+      <div className="grow grid grid-cols-2 gap-2">
+        {
+          Object.keys(colorMap).map((key, idx) => (
+            <div 
+              key={idx}
+              className={cn("flex justify-center items-center rounded-full", colorMap[key])}
+            >
+              <h3 className="text-sm sm:text-base font-medium text-center p-1">{key}</h3>
+            </div>
+          ))
+        }
+
+      </div>
       <div
-        // className="grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 p-10 absolute top-5 z-0"
-        // top-20 sm:top-0 bottom-30 sm:bottom-10
-        className="grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 p-10 absolute top-0 bottom-0 z-0"
-        // ref={ gridRef }
+        // className="overflow-y-auto grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 p-10 absolute top-52 sm:top-32 bottom-0 z-0"
+        className=" overflow-y-auto grid grid-cols-2 sm:grid-cols-3 items-start w-full mx-auto gap-10 sm:gap-28 grow"
       >
         <div className="grid gap-10 relative" ref={ columnRef1 }>
-
-          {/* <div className="sticky left-0 right-0 top-0 bg-black z-[1] flex justify-center py-6 text-center">
-            <h1 className="text-3xl font-medium">{ selectedCategory1 }</h1>
-          </div> */}
-
-
-          <div className="sticky left-0 right-0 top-0 bg-black z-[1] flex justify-center py-6 text-center">
-            <h1 className="text-3xl font-medium">{ selectedCategory1 }</h1>
-          </div>
-
-
-
-
-
 
           { firstPart.map((content, idx) => (
             <motion.div
               style={ { y: translateFirst } } // Apply the translateY motion value here
               key={ "grid-1" + idx }
-              className="bg-slate-500 rounded-3xl p-5"
+              // className={ cn("bg-slate-500 rounded-3xl p-5", content.category?.toLowerCase() === "libraries" && "bg-red-500") }
+              className={ cn("bg-slate-500 rounded-3xl p-5", content.category && colorMap[content.category]) }
+              // colorMap
             >
-              <TrackableImage
+              {/* <TrackableImage
                 src={ content.imageSrc as string }
                 className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
                 alt={ content.imageAlt || "thumbnail" }
                 ref={ refsById1[idx] }
                 id={ (content.id as number).toString() }
-              />
+              /> */}
+              <Card
+                title={ content.title }
+                icon={ <AceternityIcon /> }
+              >
+                <CanvasRevealEffect
+                  src={ content.imageSrc as string }
+                  alt={ content.imageAlt || "thumbnail" }
+                />
+              </Card>
             </motion.div>
           )) }
         </div>
         <div className="grid gap-10 relative" ref={ columnRef2 }>
 
 
-          <div className="sticky left-0 right-0 top-0 bg-black z-[1] flex justify-center py-6 text-center">
+          {/* <div className="sticky left-0 right-0 top-0 bg-black z-[1] flex justify-center py-6 text-center">
             <h1 className="text-3xl font-medium">{ selectedCategory2 }</h1>
-          </div>
+          </div> */}
 
 
           { secondPart.map((content, idx) => (
-            <motion.div style={ { y: translateSecond } } key={ "grid-2" + idx } className="bg-slate-500 rounded-3xl p-5">
+            <motion.div style={ { y: translateSecond } } key={ "grid-2" + idx } 
+              className={ cn("bg-slate-500 rounded-3xl p-5", content.category && colorMap[content.category]) }
+            >
               <TrackableImage
                 src={ content.imageSrc as string }
                 className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
@@ -260,14 +177,8 @@ const ParallaxScrollChain = ({
         <div className="grid gap-10 relative" ref={ columnRef3 }>
 
 
-          <div className="sticky left-0 right-0 top-0 bg-black z-[1] flex justify-center py-6 text-center">
-            <h1 className="text-3xl font-medium">{ selectedCategory3 }</h1>
-          </div>
-
-
-
           { thirdPart.map((content, idx) => (
-            <motion.div style={ { y: translateThird } } key={ "grid-3" + idx } className="bg-slate-500 rounded-3xl p-5">
+            <motion.div style={ { y: translateThird } } key={ "grid-3" + idx } className={ cn("bg-slate-500 rounded-3xl p-5", content.category && colorMap[content.category]) }>
               <TrackableImage
                 src={ content.imageSrc as string }
                 className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
@@ -283,3 +194,91 @@ const ParallaxScrollChain = ({
   );
 };
 export default ParallaxScrollChain;
+
+
+
+
+
+
+const Card = ({
+  title,
+  icon,
+  children,
+}: {
+  title: string;
+  icon: React.ReactNode;
+  children?: React.ReactNode;
+}) => {
+  const [hovered, setHovered] = React.useState(false);
+  return (
+    <div
+      onMouseEnter={ () => setHovered(true) }
+      onMouseLeave={ () => setHovered(false) }
+      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 h-[30rem] relative"
+    >
+      <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
+      <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
+      <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
+      <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+
+      <AnimatePresence>
+        { hovered && (
+          <motion.div
+            initial={ { opacity: 0 } }
+            animate={ { opacity: 1 } }
+            className="h-full w-full absolute inset-0"
+          >
+            { children }
+          </motion.div>
+        ) }
+      </AnimatePresence>
+
+      <div className="relative z-20">
+        <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
+          { icon }
+        </div>
+        <h2 className="dark:text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+          { title }
+        </h2>
+      </div>
+    </div>
+  );
+};
+
+const AceternityIcon = () => {
+  return (
+    <svg
+      width="66"
+      height="65"
+      viewBox="0 0 66 65"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-10 w-10 text-black dark:text-white group-hover/canvas-card:text-white "
+    >
+      <path
+        d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+        stroke="currentColor"
+        strokeWidth="15"
+        strokeMiterlimit="3.86874"
+        strokeLinecap="round"
+        style={ { mixBlendMode: "darken" } }
+      />
+    </svg>
+  );
+};
+
+export const Icon = ({ className, ...rest }: any) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className={ className }
+      { ...rest }
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+    </svg>
+  );
+};

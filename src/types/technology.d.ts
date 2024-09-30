@@ -6,6 +6,7 @@ type Content = {
   imageAlt?: string;
   category?: string;
   id?: number;
+  color?: string;
 }
 type ContentArrContainer = {
   [key: string]: Content[];

@@ -10,7 +10,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const CardSpotlight = ({
+export const CardSpotlight = ({
   children,
   radius = 350,
   color = "#262626",
@@ -77,4 +77,4 @@ const CardSpotlight = ({
     </div>
   );
 };
-export default CardSpotlight;
+export { CanvasRevealEffect } from "./CanvasRevealEffect";
