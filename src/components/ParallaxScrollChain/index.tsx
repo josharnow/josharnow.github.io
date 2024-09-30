@@ -1,6 +1,6 @@
 "use client";
 import { useScroll, useTransform, AnimatePresence, motion } from "framer-motion";
-import React, { useRef, useMemo, useEffect } from "react";
+import React, { useRef, useMemo } from "react";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import TrackableImage from "./TrackableImage";
