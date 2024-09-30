@@ -162,6 +162,13 @@ const ParallaxScrollChain = ({
                 shadow-slate-500
                 shadow-orange-500
                 shadow-red-500
+                bg-purple-500
+                bg-yellow-500
+                bg-blue-500
+                bg-indigo-500
+                bg-slate-500
+                bg-orange-500
+                bg-red-500
                 w-full p-1 my-0 mx-auto shadow-3xl `,
                 "bg-" + colorMap[key], 
                 "shadow-" + colorMap[key]
@@ -312,6 +319,17 @@ const Card = ({
   url?: string;
 }) => {
   const [hovered, setHovered] = React.useState(false);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!hovered || !url) {
+      e.preventDefault();
+    }
+    // window.open(url, "_blank");
+    setHovered(!hovered);
+
+    // TODO - Fix text not disappearing on click
+  }
+
   return (
     <div
       onMouseEnter={ () => setHovered(true) }
@@ -337,8 +355,9 @@ const Card = ({
       </div>
 
       <Link 
+        onClick={ handleClick }
         href={ url || "#" }
-        className="relative z-40 rounded-3xl size-full flex text-center justify-center items-center"
+        className="relative z-40 rounded-3xl size-full flex text-center justify-center items-center cursor-pointer"
         target="_blank"
       >
         <h2 className="text-white text-base sm:text-2xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10  mt-4  font-medium group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 ">
