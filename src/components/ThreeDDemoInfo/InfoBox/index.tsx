@@ -6,7 +6,7 @@ const InfoBox = ({ text, link, btnText }: {
   link?: string;
   btnText?: string;
 }) => (
-  <div className="info-box">
+  <div className="info-box size-full flex justify-center items-center text-balance">
     <p className='font-medium text-center sm:text-xl'>
       { text }
     </p>
