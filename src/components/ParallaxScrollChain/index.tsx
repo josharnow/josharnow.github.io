@@ -111,7 +111,7 @@ const ParallaxScrollChain = ({
           Object.keys(colorMap).map((key, idx) => (
             <div 
               key={idx}
-              className={cn("flex justify-center items-center rounded-full", colorMap[key])}
+              className={cn("flex justify-center items-center rounded-full w-full p-1 my-0 mx-auto", colorMap[key])}
             >
               <h3 className="text-sm sm:text-base font-medium text-center p-1">{key}</h3>
             </div>
@@ -130,25 +130,33 @@ const ParallaxScrollChain = ({
               style={ { y: translateFirst } } // Apply the translateY motion value here
               key={ "grid-1" + idx }
               // className={ cn("bg-slate-500 rounded-3xl p-5", content.category?.toLowerCase() === "libraries" && "bg-red-500") }
-              className={ cn("bg-slate-500 rounded-3xl p-5", content.category && colorMap[content.category]) }
+              className={ cn("bg-slate-500 rounded-3xl p-5 relative", content.category && colorMap[content.category]) }
               // colorMap
             >
-              {/* <TrackableImage
+              <TrackableImage
                 src={ content.imageSrc as string }
                 className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
                 alt={ content.imageAlt || "thumbnail" }
                 ref={ refsById1[idx] }
                 id={ (content.id as number).toString() }
-              /> */}
-              <Card
-                title={ content.title }
-                icon={ <AceternityIcon /> }
-              >
-                <CanvasRevealEffect
-                  src={ content.imageSrc as string }
-                  alt={ content.imageAlt || "thumbnail" }
-                />
-              </Card>
+              />
+              <div className="absolute left-0 right-0 top-0 bottom-0">
+                <Card
+                  title={ content.title }
+                  icon={ <></> }
+                >
+                  <CanvasRevealEffect
+                    // src={ content.imageSrc as string }
+                    // alt={ content.imageAlt || "thumbnail" }
+                    animationSpeed={ 3 }
+                    containerClassName="bg-black"
+                    colors={ [
+                      [236, 72, 153],
+                      [232, 121, 249],
+                    ] }
+                  />
+                </Card>
+              </div>
             </motion.div>
           )) }
         </div>
@@ -214,30 +222,31 @@ const Card = ({
     <div
       onMouseEnter={ () => setHovered(true) }
       onMouseLeave={ () => setHovered(false) }
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 h-[30rem] relative"
+      className="group/canvas-card flex items-center justify-center border-white/[0.2] w-full mx-auto p-4 h-full relative rounded-3xl"
     >
-      <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-      <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-      <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-      <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
 
-      <AnimatePresence>
-        { hovered && (
-          <motion.div
-            initial={ { opacity: 0 } }
-            animate={ { opacity: 1 } }
-            className="h-full w-full absolute inset-0"
-          >
-            { children }
-          </motion.div>
-        ) }
-      </AnimatePresence>
-
-      <div className="relative z-20">
-        <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
-          { icon }
+      <div className="h-full w-full absolute left-0 right-0 top-0 bottom-0 rounded-3xl z-30 p-4">
+        <div className="size-full rounded-3xl border border-red-500 relative">
+          <AnimatePresence>
+            { hovered && (
+              <motion.div
+                initial={ { opacity: 0 } }
+                animate={ { opacity: 1 } }
+                className="h-full w-full absolute left-0 right-0 top-0 bottom-0 rounded-3xl inset-0 overflow-hidden"
+              // className="h-full w-full absolute inset-0 rounded-3xl"
+              >
+                { children }
+              </motion.div>
+            ) }
+          </AnimatePresence>
         </div>
-        <h2 className="dark:text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+      </div>
+
+      <div className="relative z-40 rounded-3xl size-full flex text-center justify-center items-center">
+        {/* <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
+          { icon }
+        </div> */}
+        <h2 className="text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10  mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 ">
           { title }
         </h2>
       </div>
