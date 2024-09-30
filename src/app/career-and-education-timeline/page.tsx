@@ -243,6 +243,9 @@ export default function CareerAndEducationTimelinePage() {
         <div>
           <span>•</span>&nbsp;<span>Exceeded client expectations after former developers could not satisfy them which led to contract renewals with our company at higher rates</span>
         </div>
+        <div>
+          <span>•</span>&nbsp;<span>Contributed to popular open source libraries such as Capacitor as I improved them in the course of work</span>
+        </div>
       </div>,
       institution: "Two Fish Creative, Inc.",
       location: "W. Palm Beach, FL / Remote (Hybrid)",

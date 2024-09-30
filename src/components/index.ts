@@ -15,7 +15,7 @@ export { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger } from './Ani
 export { default as ContactModal } from './ContactModal';
 export { default as ContactIcon } from './ContactIcon';
 export { default as ContactForm } from './ContactForm';
-export { default as CardSpotlight } from './CardSpotlight';
+export { CardSpotlight, CanvasRevealEffect } from './CardSpotlight';
 export { default as Input } from './Input';
 export { default as FormInput } from './FormInput';
 export { default as FormLabel } from './FormLabel';
@@ -28,3 +28,8 @@ export { default as AboutPageEducationWork } from './AboutPageEducationWork';
 export { default as AboutPagePortfolio } from './AboutPagePortfolio';
 export { default as AboutPageTechnologies } from './AboutPageTechnologies';
 export { default as AboutPageContact } from './AboutPageContact';
+export { default as InfiniteMovingCards } from './InfiniteMovingCards';
+export { default as StickyScrollReveal } from './StickyScrollReveal';
+export { default as AnimatedTabs } from './AnimatedTabs';
+export { default as ParallaxScroll } from './ParallaxScroll';
+export { default as ParallaxScrollChain } from './ParallaxScrollChain';

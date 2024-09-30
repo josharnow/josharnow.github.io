@@ -1,0 +1,31 @@
+.selectedTabNotHovering {
+  display: block;
+  transition-property: all;
+  transition-duration: 0.50s;
+  transition-behavior: allow-discrete;
+  
+  --tw-bg-opacity: 0.35 !important;
+}
+.selectedTabHovering {
+  display: block;
+  opacity: 1;
+  transition-property: top, display, opacity;
+  transition-duration: 0.50s;
+  transition-behavior: allow-discrete;
+
+}
+.unselectedTabHovering {
+  display: block;
+  opacity: 1;
+  transition-property: top, display, opacity;
+  transition-duration: 0.50s;
+  transition-behavior: allow-discrete;
+
+}
+.unselectedTabNotHovering {
+  display: none !important;
+  opacity: 0 !important;
+  transition-property: display, opacity;
+  transition-duration: 0.50s;
+  transition-behavior: allow-discrete;
+}

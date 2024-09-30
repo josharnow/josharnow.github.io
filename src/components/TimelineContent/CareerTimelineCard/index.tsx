@@ -22,7 +22,7 @@ const CareerTimelineCard = ({ content, className }: {
           style={ { transition: "box-shadow 1s ease 0s, background 1s ease 0s, opacity 1s ease 0s, color 1s ease 1s allow-discrete" } }
           > */}
         {/* <CardSpotlight className={ cn(styles.card, "flex flex-col gap-y-2 rounded-lg w-full h-full p-2 shadow-3xl shadow-blue-500 bg-black bg-opacity-80") }> */}
-        <div className={ cn(styles.card, "flex flex-col gap-y-2 rounded-lg w-full h-full p-2 shadow-3xl shadow-blue-500 bg-black bg-opacity-80") }>
+        <div className={ cn(styles.card, "flex flex-col gap-y-2 rounded-lg w-full h-full p-2 shadow-3xl shadow-blue-500 bg-slate-700 bg-opacity-35") }>
           <div>
             <div className="grid grid-cols-2">
               <div className="text-xs sm:text-sm md:text-base xl:text-lg flex h-fit text-white">

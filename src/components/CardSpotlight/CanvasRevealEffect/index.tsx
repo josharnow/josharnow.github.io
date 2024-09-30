@@ -30,8 +30,8 @@ export const CanvasRevealEffect = ({
   showGradient?: boolean;
 }) => {
   return (
-    <div className={ cn("h-full relative bg-white w-full", containerClassName) }>
-      <div className="h-full w-full">
+    <div className={ cn("h-full relative bg-white w-full rounded-3xl", containerClassName) }>
+      <div className="h-full w-full rounded-3xl">
         <DotMatrix
           colors={ colors ?? [[0, 255, 255]] }
           dotSize={ dotSize ?? 3 }
@@ -103,9 +103,9 @@ const DotMatrix: React.FC<DotMatrixProps> = ({
     return {
       u_colors: {
         value: colorsArray.map((color) => [
-          color[0] / 255,
-          color[1] / 255,
-          color[2] / 255,
+          color[0] ? color[0] / 255 : 0,
+          color[1] ? color[1] / 255 : 0,
+          color[2] ? color[2] / 255 : 0,
         ]),
         type: "uniform3fv",
       },
@@ -283,7 +283,7 @@ const ShaderMaterial = ({
     });
 
     return materialObject;
-  }, [size.width, size.height, source]);
+  }, [source, getUniforms]);
 
   return (
     <mesh ref={ ref as any }>
