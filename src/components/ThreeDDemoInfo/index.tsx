@@ -13,21 +13,22 @@ const renderContent: RenderContentObj = {
   ),
   2: (
     <InfoBox
-      text="Worked with many companies and picked up many skills along the way"
-      // link="/about"
-      // btnText="Learn more"
+      // text="This is a simple 3D demo I put together while learning React Three Fiber (R3F). Tools that I use more often can be found on my technologies page!"
+      text="This is a simple 3D demo I put together while learning React Three Fiber (R3F). Check out my portfolio to see some larger projects!"
+      link="/portfolio"
+      btnText="My Portfolio"
     />
   ),
   3: (
     <InfoBox
-      text="Led multiple projects to success over the years. Curious about the impact?"
-      // link="/projects"
-      // btnText="Visit my portfolio"
+      text="I have yet to use R3F in the course of my career but thought it was a fun tool to add to my belt. The ones that see the most use can be found on my technologies page!"
+      link="/technologies"
+      btnText="My Technologies"
     />
   ),
   4: (
     <InfoBox
-      text="Need a project done or looking for a dev? I'm just a few keystrokes away"
+      text="Want to get in touch? I'd love to hear from you! Simply tap the contact button in the tab bar to choose your preferred method."
       // link="/contact"
       // btnText="Let's talk"
     />
