@@ -64,6 +64,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "JavaScript / TypeScript",
       imageSrc: typescriptLogo,
       category: "Programming Languages",
+      url: "https://www.typescriptlang.org/",
       description:
         "",
       content: (
@@ -82,6 +83,7 @@ const contentArrContainer: ContentArrContainer = {
         "",
       imageSrc: pythonLogo,
       category: "Programming Languages",
+      url: "https://www.python.org/",
       content: (
         <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
           <Image
@@ -96,6 +98,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Java",
       imageSrc: javaLogo,
       category: "Programming Languages",
+      url: "https://www.java.com/",
       description:
         "",
       content: (
@@ -112,6 +115,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Solidity",
       imageSrc: solidityLogo,
       category: "Programming Languages",
+      url: "https://soliditylang.org/",
       description:
         "",
       content: (
@@ -128,6 +132,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "HTML5",
       imageSrc: htmlLogo,
       category: "Programming Languages",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
       description:
         "",
       content: (
@@ -143,7 +148,8 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "SCSS/CSS3",
       imageSrc: cssLogo,
-        category: "Programming Languages",
+      category: "Programming Languages",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
       description:
         "",
       content: (
@@ -162,6 +168,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "React.js",
       imageSrc: reactLogo,
       category: "Libraries",
+      url: "https://reactjs.org/",
       description:
         "",
       content: (
@@ -178,6 +185,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "ChartJS",
       imageSrc: chartJsLogo,
       category: "Libraries",
+      url: "https://www.chartjs.org/",
       description:
         "",
       content: (
@@ -194,6 +202,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Mapbox GL JS",
       imageSrc: mapboxLogo,
       category: "Libraries",
+      url: "https://docs.mapbox.com/mapbox-gl-js/api/",
       description:
         "",
       content: (
@@ -210,6 +219,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Firebase",
       imageSrc: firebaseLogo,
       category: "Libraries",
+      url: "https://firebase.google.com/",
       description:
         "",
       content: (
@@ -226,6 +236,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "jQuery",
       imageSrc: jQueryLogo,
       category: "Libraries",
+      url: "https://jquery.com/",
       description:
         "",
       content: (
@@ -242,6 +253,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Pandas",
       imageSrc: pandasLogo,
       category: "Libraries",
+      url: "https://pandas.pydata.org/",
       description:
         "",
       content: (
@@ -258,6 +270,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Swiper.js",
       imageSrc: swiperJsLogo,
       category: "Libraries",
+      url: "https://swiperjs.com/",
       description:
         "",
       content: (
@@ -274,6 +287,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Video.js",
       imageSrc: videoJsLogo,
       category: "Libraries",
+      url: "https://videojs.com/",
       description:
         "",
       content: (
@@ -290,6 +304,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Axios",
       imageSrc: axiosLogo,
       category: "Libraries",
+      url: "https://axios-http.com/",
       description:
         "",
       content: (
@@ -306,6 +321,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Framer Motion",
       imageSrc: framerLogo,
       category: "Libraries",
+      url: "https://www.framer.com/motion/",
       description:
         "",
       content: (
@@ -322,6 +338,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Pinia",
       imageSrc: piniaLogo,
       category: "Libraries",
+      url: "https://pinia.esm.dev/",
       description:
         "",
       content: (
@@ -338,6 +355,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Vue Router",
       imageSrc: vueJsLogo,
       category: "Libraries",
+      url: "https://router.vuejs.org/",
       description:
         "",
       content: (
@@ -354,6 +372,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Web3.js",
       imageSrc: web3JsLogo,
       category: "Libraries",
+      url: "https://web3js.readthedocs.io/",
       description:
         "",
       content: (
@@ -370,6 +389,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Ethers.js",
       imageSrc: ethersJsLogo,
       category: "Libraries",
+      url: "https://docs.ethers.io/",
       description:
         "",
       content: (
@@ -388,6 +408,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "React Native",
       imageSrc: reactNativeLogo,
       category: "Frameworks",
+      url: "https://reactnative.dev/",
       description:
         "",
       content: (
@@ -404,6 +425,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Vue.js",
       imageSrc: vueJsLogo,
       category: "Frameworks",
+      url: "https://vuejs.org/",
       description:
         "",
       content: (
@@ -420,6 +442,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Ionic / Capacitor",
       imageSrc: ionicLogo,
       category: "Frameworks",
+      url: "https://ionicframework.com/",
       description:
         "",
       content: (
@@ -436,6 +459,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Next.js",
       imageSrc: nextJsLogo,
       category: "Frameworks",
+      url: "https://nextjs.org/",
       description:
         "",
       content: (
@@ -452,6 +476,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Express.js",
       imageSrc: expressJsLogo,
       category: "Frameworks",
+      url: "https://expressjs.com/",
       description:
         "",
       content: (
@@ -468,6 +493,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Flask",
       imageSrc: flaskLogo,
       category: "Frameworks",
+      url: "https://flask.palletsprojects.com/",
       description:
         "",
       content: (
@@ -484,6 +510,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Tailwind CSS",
       imageSrc: tailwindCssLogo,
       category: "Frameworks",
+      url: "https://tailwindcss.com/",
       description:
         "",
       content: (
@@ -502,6 +529,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "MySQL",
       imageSrc: mySqlLogo,
       category: "Databases / ORMs / ODMs",
+      url: "https://www.mysql.com/",
       description:
         "",
       content: (
@@ -518,6 +546,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "MongoDB",
       imageSrc: mongoDbLogo,
       category: "Databases / ORMs / ODMs",
+      url: "https://www.mongodb.com/",
       description:
         "",
       content: (
@@ -534,6 +563,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "MariaDB",
       imageSrc: mariaDbLogo,
       category: "Databases / ORMs / ODMs",
+      url: "https://mariadb.org/",
       description:
         "",
       content: (
@@ -550,6 +580,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "SQLAlchemy",
       imageSrc: sqlAlchemyLogo,
       category: "Databases / ORMs / ODMs",
+      url: "https://www.sqlalchemy.org/",
       description:
         "",
       content: (
@@ -566,6 +597,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Mongoose",
       imageSrc: mongooseLogo,
       category: "Databases / ORMs / ODMs",
+      url: "https://mongoosejs.com/",
       description:
         "",
       content: (
@@ -584,6 +616,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Visual Studio Code",
       imageSrc: vsCodeLogo,
       category: "Software",
+      url: "https://code.visualstudio.com/",
       description:
         "",
       content: (
@@ -600,6 +633,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Git",
       imageSrc: gitLogo,
       category: "Software",
+      url: "https://git-scm.com/",
       description:
         "",
       content: (
@@ -616,6 +650,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Xcode",
       imageSrc: xcodeLogo,
       category: "Software",
+      url: "https://developer.apple.com/xcode/",
       description:
         "",
       content: (
@@ -632,6 +667,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Android Studio",
       imageSrc: googleGLogo,
       category: "Software",
+      url: "https://developer.android.com/studio",
       description:
         "",
       content: (
@@ -648,6 +684,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Docker",
       imageSrc: dockerLogo,
       category: "Software",
+      url: "https://www.docker.com/",
       description:
         "",
       content: (
@@ -664,6 +701,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Java Spring",
       imageSrc: javaSpringLogo,
       category: "Software",
+      url: "https://spring.io/",
       description:
         "",
       content: (
@@ -680,6 +718,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Remix IDE",
       imageSrc: remixLogo,
       category: "Software",
+      url: "https://remix.run/",
       description:
         "",
       content: (
@@ -696,6 +735,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Node.js",
       imageSrc: nodeJsLogo,
       category: "Software",
+      url: "https://nodejs.org/",
       description:
         "",
       content: (
@@ -712,6 +752,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Jira",
       imageSrc: jiraLogo,
       category: "Software",
+      url: "https://www.atlassian.com/software/jira",
       description:
         "",
       content: (
@@ -728,6 +769,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Postman",
       imageSrc: postmanLogo,
       category: "Software",
+      url: "https://www.postman.com/",
       description:
         "",
       content: (
@@ -744,6 +786,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Apple App Store Connect",
       imageSrc: appstoreLogo,
       category: "Software",
+      url: "https://appstoreconnect.apple.com/",
       description:
         "",
       content: (
@@ -760,6 +803,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Google Play Console",
       imageSrc: googlePlayConsoleLogo,
       category: "Software",
+      url: "https://developer.android.com/distribute/console",
       description:
         "",
       content: (
@@ -778,6 +822,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "AWS - Elastic Beanstalk",
       imageSrc: awsLogo,
       category: "Cloud Computing / CI / CD",
+      url: "https://aws.amazon.com/elasticbeanstalk/",
       description:
         "",
       content: (
@@ -794,6 +839,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "AWS - EC2",
       imageSrc: awsLogo,
       category: "Cloud Computing / CI / CD",
+      url: "https://aws.amazon.com/ec2/",
       description:
         "",
       content: (
@@ -810,6 +856,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "AWS - S3",
       imageSrc: awsLogo,
       category: "Cloud Computing / CI / CD",
+      url: "https://aws.amazon.com/s3/",
       description:
         "",
       content: (
@@ -826,6 +873,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "AWS - RDS",
       imageSrc: awsLogo,
       category: "Cloud Computing / CI / CD",
+      url: "https://aws.amazon.com/rds/",
       description:
         "",
       content: (
@@ -842,6 +890,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "AWS - CloudFront",
       imageSrc: awsLogo,
       category: "Cloud Computing / CI / CD",
+      url: "https://aws.amazon.com/cloudfront/",
       description:
         "",
       content: (
@@ -858,6 +907,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "AWS - Lambda",
       imageSrc: awsLogo,
       category: "Cloud Computing / CI / CD",
+      url: "https://aws.amazon.com/lambda/",
       description:
         "",
       content: (
@@ -874,6 +924,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "AWS - MediaConvert",
       imageSrc: awsLogo,
       category: "Cloud Computing / CI / CD",
+      url: "https://aws.amazon.com/mediaconvert/",
       description:
         "",
       content: (
@@ -890,6 +941,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Cloudflare",
       imageSrc: cloudflareLogo,
       category: "Cloud Computing / CI / CD",
+      url: "https://www.cloudflare.com/",
       description:
         "",
       content: (
@@ -906,6 +958,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "GitHub Actions",
       imageSrc: githubActionsLogo,
       category: "Cloud Computing / CI / CD",
+      url: "https://docs.github.com/en/actions",
       description:
         "",
       content: (
@@ -922,6 +975,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Xcode Cloud",
       imageSrc: xcodeLogo,
       category: "Cloud Computing / CI / CD",
+      url: "https://developer.apple.com/xcode/cloud/",
       description:
         "",
       content: (
@@ -962,6 +1016,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Mapbox GL JS",
       imageSrc: mapboxLogo,
       category: "APIs",
+      url: "https://docs.mapbox.com/mapbox-gl-js/api/",
       description:
         "",
       content: (
@@ -978,6 +1033,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Google Places",
       imageSrc: googleMapsLogo,
       category: "APIs",
+      url: "https://developers.google.com/maps/documentation/places/web-service/overview",
       description:
         "",
       content: (
@@ -994,6 +1050,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Twilio",
       imageSrc: twilioLogo,
       category: "APIs",
+      url: "https://www.twilio.com/",
       description:
         "",
       content: (
@@ -1010,6 +1067,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Sendgrid",
       imageSrc: sendgridLogo,
       category: "APIs",
+      url: "https://sendgrid.com/",
       description:
         "",
       content: (
@@ -1026,6 +1084,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Sign In With Apple",
       imageSrc: appleLogo,
       category: "APIs",
+      url: "https://developer.apple.com/sign-in-with-apple/",
       description:
         "",
       content: (
@@ -1042,6 +1101,7 @@ const contentArrContainer: ContentArrContainer = {
       title: "Google Sign-In",
       imageSrc: googleGLogo,
       category: "APIs",
+      url: "https://developers.google.com/identity/sign-in/web/sign-in",
       description:
         "",
       content: (

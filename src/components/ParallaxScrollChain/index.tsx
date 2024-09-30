@@ -97,7 +97,6 @@ const ParallaxScrollChain = ({
   }, [thirdPart]);
 
   const consolidatedRefs = useMemo(() => {
-    // return { ...refsById1, ...refsById2, ...refsById3 };
     let i = 0;
     const refs: { [key: string]: React.RefObject<HTMLImageElement> } = {};
     for (const [, value] of Object.entries(refsById1)) {

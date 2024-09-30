@@ -7,6 +7,7 @@ type Content = {
   category?: string;
   id?: number;
   color?: string;
+  url?: string;
 }
 type ContentArrContainer = {
   [key: string]: Content[];
