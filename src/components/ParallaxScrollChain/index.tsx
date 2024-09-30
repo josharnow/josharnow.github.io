@@ -5,6 +5,7 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import TrackableImage from "./TrackableImage";
 import { CanvasRevealEffect } from "@/src/components";
+import Link from "next/link";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -199,6 +200,7 @@ const ParallaxScrollChain = ({
                 <Card
                   title={ content.title }
                   icon={ <></> }
+                  url={ content.url }
                 >
                   <CanvasRevealEffect
                     // src={ content.imageSrc as string }
@@ -238,6 +240,7 @@ const ParallaxScrollChain = ({
                 <Card
                   title={ content.title }
                   icon={ <></> }
+                  url={ content.url }
                 >
                   <CanvasRevealEffect
                     // src={ content.imageSrc as string }
@@ -270,6 +273,7 @@ const ParallaxScrollChain = ({
                 <Card
                   title={ content.title }
                   icon={ <></> }
+                  url={ content.url }
                 >
                   <CanvasRevealEffect
                     // src={ content.imageSrc as string }
@@ -300,10 +304,12 @@ const Card = ({
   title,
   icon,
   children,
+  url,
 }: {
   title: string;
   icon: React.ReactNode;
   children?: React.ReactNode;
+  url?: string;
 }) => {
   const [hovered, setHovered] = React.useState(false);
   return (
@@ -330,14 +336,15 @@ const Card = ({
         </div>
       </div>
 
-      <div className="relative z-40 rounded-3xl size-full flex text-center justify-center items-center">
-        {/* <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
-          { icon }
-        </div> */}
+      <Link 
+        href={ url || "#" }
+        className="relative z-40 rounded-3xl size-full flex text-center justify-center items-center"
+        target="_blank"
+      >
         <h2 className="text-white text-base sm:text-2xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10  mt-4  font-medium group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 ">
           { title }
         </h2>
-      </div>
+      </Link>
     </div>
   );
 };
