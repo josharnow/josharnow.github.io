@@ -167,7 +167,7 @@ const ParallaxScrollChain = ({
                 bg-slate-500
                 bg-orange-500
                 bg-red-500
-                w-full p-1 my-0 mx-auto shadow-3xl `,
+                w-full p-1 my-0 mx-auto shadow-3xl cursor-pointer`,
                 "bg-" + colorMap[key], 
                 "shadow-" + colorMap[key]
               )}
