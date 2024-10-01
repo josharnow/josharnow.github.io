@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './styles.module.scss';
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -11,6 +12,14 @@ import {
   ParallaxScroll,
   Slideshow,
 } from '@/src/components';
+
+import surrogacyAdvisorScreenshot1 from '@/src/assets/images/surrogacy_advisor_screenshot_1.png';
+import surrogacyAdvisorScreenshot2 from '@/src/assets/images/surrogacy_advisor_screenshot_2.png';
+import surrogacyAdvisorScreenshot3 from '@/src/assets/images/surrogacy_advisor_screenshot_3.png';
+import surrogacyAdvisorScreenshot4 from '@/src/assets/images/surrogacy_advisor_screenshot_4.png';
+import segPlusScreenshot1 from '@/src/assets/images/seg_plus_screenshot_1.png';
+import cyzlAppStoreScreenshot1 from '@/src/assets/images/cyzl_app_store_screenshot_1.png';
+import cyzlPlayStoreScreenshot1 from '@/src/assets/images/cyzl_play_store_screenshot_1.png';
 
 // TODO - Add technologies used in each project as an automatic infinite scrolling list of logos
 import appleLogo from "@/src/assets/icons/apple.svg";
@@ -101,14 +110,31 @@ const tabs = [
     value: "cyzl",
     indexOrder: 0,
     content: (
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
+      <div className="w-full overflow-auto relative h-full flex flex-col items-center gap-10 sm:p-10 font-medium">
         {/* <ParallaxScroll
           images={ contentArrContainer.libraries.map((content) => content.content) }
         /> */}
-        <Slideshow
-          srcArray={ ["https://elearningchips.com/wp-content/uploads/2017/02/ph_024_043_pw1.jpg", "https://elearningchips.com/wp-content/uploads/2017/02/ph_024_043_pw1.jpg"] }
-          delay={ 4000 }
-        />
+        <div className='h-1/2 w-1/2'>
+          <Slideshow
+            srcArray={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1] }
+            hrefArray={ ["https://apps.apple.com/us/app/cyzl/id6448448669", "https://play.google.com/store/apps/details?id=app.cyzl.cyzlmobile"] }
+            delay={ 5000 }
+            imageClassName=''
+            slideshowClassName=''
+          />
+        </div>
+        <div className='h-1/2 w-full flex flex-col items-center gap-5'>
+          <Link 
+            href="https://apps.apple.com/us/app/cyzl/id6448448669"
+            target='_blank'
+            className='font-medium text-3xl sm:text-5xl'
+          >
+            Cyzl
+          </Link>
+          <div className='size-full flex justify-center'>
+            <p className='text-xl sm:text-2xl text-balance'>WRITE UP DESCRIPTION HERE</p>
+          </div>
+        </div>
       </div>
     ),
   },

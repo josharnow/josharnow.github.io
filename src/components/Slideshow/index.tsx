@@ -2,12 +2,13 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import styles from './styles.module.scss';
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
 // const colors = ["#0088FE", "#00C49F", "#FFBB28"];
 // const delay = 2500;
 import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { ClassNameValue, twMerge } from "tailwind-merge";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -21,13 +22,18 @@ function Slideshow(
     hasDots = false,
     children,
     imageClassName,
+    slideshowClassName,
+    hrefArray,
   }: 
   {
-    srcArray?: string[];
+    srcArray?: string[] | StaticImageData[];
     delay?: number;
     hasDots?: boolean;
     children?: React.ReactNode;
     imageClassName?: string;
+    slideshowClassName?: string;
+    hrefArray?: string[];
+    // imageClassName?: React.HTMLAttributes<HTMLDivElement>.className;
   }
 ) {
   const [index, setIndex] = useState(0);
@@ -55,13 +61,28 @@ function Slideshow(
   }, [index, delay, srcArray.length]);
 
   return (
-    <div className={ cn(styles.slideshow)}>
+    <div className={ cn(styles.slideshow, slideshowClassName)}>
       <div
         className={ cn(styles.slideshowSlider) }
         style={ { transform: `translate3d(${-index * 100}%, 0, 0)` } }
       >
-        { srcArray.map((src, index) => (
-          <Image 
+        { srcArray.map((src, index) => {
+          if (hrefArray && hrefArray.length && hrefArray[index]) {
+            return (
+                <Image 
+                  src={ src }
+                  key={ index }
+                  alt="portfolio-sample-image"
+                  width={ 0 }
+                  height={ 0 }
+                  className={ cn(styles.slide, imageClassName) }
+                  quality={ 100 }
+                />
+            )
+          }
+
+
+          return <Image 
             src={ src }
             key={ index }
             alt="portfolio-sample-image"
@@ -70,7 +91,7 @@ function Slideshow(
             className={ cn(styles.slide, imageClassName) }
             quality={ 100 }
           />
-        )) }
+}) }
       </div>
       {
         hasDots && (
