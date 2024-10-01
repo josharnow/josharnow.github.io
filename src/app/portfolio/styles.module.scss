@@ -1,0 +1,32 @@
+// NOTE - Mimicking effects from navbar
+.activeTab {
+  +span {
+    color: black;
+    transition: all 0.75s allow-discrete;
+  }
+}
+
+
+.tabButton {
+  transition: all 0.75s allow-discrete;
+
+  // NOTE - Targets only the inactive tabs
+  >span:first-child {
+    // 
+    color: theme("colors.gray.300");
+    transition: all 0.75s allow-discrete;
+  }
+
+  &:hover {
+    >span {
+      color: white;
+      transition: all 0.75s allow-discrete;
+    }
+  }
+
+  &:hover {
+    box-shadow: theme("boxShadow.3xl");
+    // NOTE - Below is the equivalent of setting the background color to blue-500 and the opacity to 15%. Avoids effect of changing the opacity of the text as well
+    background-color: rgba(33, 150, 243, 0.15);
+  }
+}
