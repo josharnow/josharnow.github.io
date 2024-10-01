@@ -9,6 +9,7 @@ import {
   StickyScrollReveal,
   AnimatedTabs,
   ParallaxScroll,
+  Slideshow,
 } from '@/src/components';
 
 // TODO - Add technologies used in each project as an automatic infinite scrolling list of logos
@@ -93,7 +94,7 @@ const Logo = (src: any) => {
 };
 
 
-
+// TODO - Get images for each project
 const tabs = [
   {
     title: "Cyzl",
@@ -104,7 +105,10 @@ const tabs = [
         {/* <ParallaxScroll
           images={ contentArrContainer.libraries.map((content) => content.content) }
         /> */}
-        test
+        <Slideshow
+          srcArray={ ["https://elearningchips.com/wp-content/uploads/2017/02/ph_024_043_pw1.jpg", "https://elearningchips.com/wp-content/uploads/2017/02/ph_024_043_pw1.jpg"] }
+          delay={ 4000 }
+        />
       </div>
     ),
   },
