@@ -20,12 +20,14 @@ function Slideshow(
     delay = 2500,
     hasDots = false,
     children,
+    imageClassName,
   }: 
   {
     srcArray?: string[];
     delay?: number;
     hasDots?: boolean;
     children?: React.ReactNode;
+    imageClassName?: string;
   }
 ) {
   const [index, setIndex] = useState(0);
@@ -65,7 +67,7 @@ function Slideshow(
             alt="portfolio-sample-image"
             width={ 0 }
             height={ 0 }
-            className={ cn(styles.slide) }
+            className={ cn(styles.slide, imageClassName) }
             quality={ 100 }
           />
         )) }
