@@ -2,8 +2,11 @@
   display: flex;
   flex-direction: column;
 }
-.bodyElement > div {
-  display: flex;
+.bulletGrid {
+  // display: flex;
+    display: grid;
+    grid-template-columns: fit-content(50%) 1fr;
+    gap: theme("gap.1");
 }
 
 

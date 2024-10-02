@@ -132,7 +132,21 @@ const tabs = [
             Cyzl
           </Link>
           <div className='size-full flex justify-center'>
-            <p className='text-xl sm:text-2xl text-balance'>WRITE UP DESCRIPTION HERE</p>
+            {/* <p className='text-xl sm:text-2xl text-balance'>WRITE UP DESCRIPTION HERE</p> */}
+
+
+
+            {/* <div className={ cn( 'grid grid-cols-1 gap-1') }> */}
+            <div className={ cn( 'flex flex-col gap-1') }>
+              <div
+                className={ cn(styles.bulletGrid) }
+              >
+                <span>•</span><span>Worked as lead developer to build this full stack native cross-platform mobile app from the ground up.</span>
+              </div>
+              <div className={ cn(styles.bulletGrid) }>
+                <span>•</span>&nbsp;<span>\</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -17,17 +17,17 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2012,
       yearEnd: 2016,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1')}>
-        <div>
-          <span>•</span>&nbsp;<span>Excelled at a complete pre-med curriculum as I pursued two degrees in unrelated fields</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Excelled at a complete pre-med curriculum as I pursued two degrees in unrelated fields</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Engaged in many extracurricular activities including musical ensembles, residence life leadership, Greek life leadership, & more</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Engaged in many extracurricular activities including musical ensembles, residence life leadership, Greek life leadership, & more</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Spent a semester abroad at Cambridge University to study economics & broaden my horizons by exploring Europe</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Spent a semester abroad at Cambridge University to study economics & broaden my horizons by exploring Europe</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Founders Scholarship recipient</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Founders Scholarship recipient</span>
         </div>
       </div>,
       institution: "Tulane University",
@@ -40,8 +40,8 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2018,
       yearEnd: 2019,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
-        <div>
-          <span>•</span>&nbsp;<span>Expanded on optional pre-med coursework related to my personal interests, such as cancer biology</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Expanded on optional pre-med coursework related to my personal interests, such as cancer biology</span>
         </div>
         <div className='flex flex-col'>
           <div>
@@ -57,8 +57,8 @@ export default function CareerAndEducationTimelinePage() {
             <span>○</span>&nbsp;<span>Continued regularly volunteering as an EMT (2017-2021)</span>
           </div>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Opted not to send out my completed application packet due to COVID lockdowns</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Opted not to send out my completed application packet due to COVID lockdowns</span>
         </div>
       </div>,
       institution: "Stony Brook University",
@@ -70,14 +70,14 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2020,
       yearEnd: 2021,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
-        <div>
-          <span>•</span>&nbsp;<span>Seized an opportunity to study law amidst mandated lockdowns</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Seized an opportunity to study law amidst mandated lockdowns</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Forwent degree completion after finding my passion in software engineering</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Forwent degree completion after finding my passion in software engineering</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Dean’s Fellowship Scholarship recipient</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Dean’s Fellowship Scholarship recipient</span>
         </div>
       </div>,
       institution: "Touro Law Center",
@@ -89,14 +89,14 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2021,
       yearEnd: 2021,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
-        <div>
-          <span>•</span>&nbsp;<span>Completed a full-time online coding bootcamp focused on full-stack software development within three tech stacks</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Completed a full-time online coding bootcamp focused on full-stack software development within three tech stacks</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Studied React, Python, & Java frameworks in addition to HTML, CSS, & vanilla JavaScript</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Studied React, Python, & Java frameworks in addition to HTML, CSS, & vanilla JavaScript</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Obtained certifications after receiving excellent marks on completed projects from each tech stack</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Obtained certifications after receiving excellent marks on completed projects from each tech stack</span>
         </div>
       </div>,
       institution: "Coding Dojo",
@@ -108,14 +108,14 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2013,
       yearEnd: 2015,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
-        <div>
-          <span>•</span>&nbsp;<span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Addressed concerns & managed emergencies for dozens of residents while maintaining order within the dorms</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Planned & coordinated activities with fellow RAs on behalf of our residents</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Planned & coordinated activities with fellow RAs on behalf of our residents</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Maintained a high academic standing & acted as a social role model for residents</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Maintained a high academic standing & acted as a social role model for residents</span>
         </div>
       </div>,
       institution: "Tulane University",
@@ -127,14 +127,14 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2014,
       yearEnd: 2015,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
-        <div>
-          <span>•</span>&nbsp;<span>Interpreted annual financial reports to determine the creditworthiness of municipalities</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Interpreted annual financial reports to determine the creditworthiness of municipalities</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Researched bond pricing & related information to assist in credit analysis, making extensive use of Bloomberg terminals</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Researched bond pricing & related information to assist in credit analysis, making extensive use of Bloomberg terminals</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Developed an understanding of the intricacies of the municipal bond market</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Developed an understanding of the intricacies of the municipal bond market</span>
         </div>
       </div>,
       institution: "Capital One",
@@ -146,14 +146,14 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2016,
       yearEnd: 2018,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
-        <div>
-          <span>•</span>&nbsp;<span>Assessed & reported on the financial performance of middle market firms with annual revenues up to $1 billion</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Assessed & reported on the financial performance of middle market firms with annual revenues up to $1 billion</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Recommended extensions of credit based on underwriting criteria & qualities of the borrower</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Recommended extensions of credit based on underwriting criteria & qualities of the borrower</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Analyzed borrowers’ business prospects through quantitative analysis of financial statements while assessing qualitative aspects & information gathered from client meetings</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Analyzed borrowers’ business prospects through quantitative analysis of financial statements while assessing qualitative aspects & information gathered from client meetings</span>
         </div>
         <div className='flex flex-col'>
           <div>
@@ -173,11 +173,11 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2018,
       yearEnd: 2021,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
-        <div>
-          <span>•</span>&nbsp;<span>Reviewed & analyzed offering memorandums to recommend the acquisition of residential & commercial real estate</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Reviewed & analyzed offering memorandums to recommend the acquisition of residential & commercial real estate</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Performed tasks including annual cash flow analysis, rent roll review, property improvement plans, cash flow projections, & review of third-party reports</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Performed tasks including annual cash flow analysis, rent roll review, property improvement plans, cash flow projections, & review of third-party reports</span>
         </div>
       </div>,
       institution: "Citiscape Realty Advisors, Inc.",
@@ -189,14 +189,14 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2021,
       yearEnd: 2022,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
-        <div>
-          <span>•</span>&nbsp;<span>Expanded upon ideas by using various languages to independently design full-stack applications</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Expanded upon ideas by using various languages to independently design full-stack applications</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Educated myself on languages & software frameworks I was interested in but didn’t have exposure to</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Educated myself on languages & software frameworks I was interested in but didn’t have exposure to</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Familiarized myself with common project management philosophies & frameworks like Agile & Scrum</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Familiarized myself with common project management philosophies & frameworks like Agile & Scrum</span>
         </div>
       </div>,
       institution: "Self-Employed",
@@ -208,14 +208,14 @@ export default function CareerAndEducationTimelinePage() {
       yearStart: 2022,
       yearEnd: 2023,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
-        <div>
-          <span>•</span>&nbsp;<span>Created full-stack webapps for clients related to surrogacy services & sales/marketing</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Created full-stack webapps for clients related to surrogacy services & sales/marketing</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Integrated various forms of analytics into the systems & rendered data using ChartJS</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Integrated various forms of analytics into the systems & rendered data using ChartJS</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Primarily used Python/Flask alongside jQuery & MySQL/MariaDB in the stack & deployed applications to AWS to be accessed by clients’ customers & employees on the web</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Primarily used Python/Flask alongside jQuery & MySQL/MariaDB in the stack & deployed applications to AWS to be accessed by clients’ customers & employees on the web</span>
         </div>
       </div>,
       institution: "Two Fish Creative, Inc.",
@@ -228,23 +228,23 @@ export default function CareerAndEducationTimelinePage() {
       // yearEnd: 2024,
       isPresent: true,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
-        <div>
-          <span>•</span>&nbsp;<span>Independently created/published native iOS & Android applications & designed a server & databases to integrate with</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Independently created/published native iOS & Android applications & designed a server & databases to integrate with</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Utilized TypeScript with the Vue.js Composition API to create the end user frontend, Ionic/Capacitor to build native mobile apps, Python/Flask to build the server & admin portal, & MySQL/MariaDB to handle the database</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Utilized TypeScript with the Vue.js Composition API to create the end user frontend, Ionic/Capacitor to build native mobile apps, Python/Flask to build the server & admin portal, & MySQL/MariaDB to handle the database</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Heavily used Mapbox GL JS & GeoJSON data to render maps & ChartJS to provide analytics</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Heavily used Mapbox GL JS & GeoJSON data to render maps & ChartJS to provide analytics</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Introduced new developers to the project & led the development process while utilizing scrum/agile methodologies, performing code reviews, & managing the project timeline</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Introduced new developers to the project & led the development process while utilizing scrum/agile methodologies, performing code reviews, & managing the project timeline</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Exceeded client expectations after former developers could not satisfy them which led to contract renewals with our company at higher rates</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Exceeded client expectations after former developers could not satisfy them which led to contract renewals with our company at higher rates</span>
         </div>
-        <div>
-          <span>•</span>&nbsp;<span>Contributed to popular open source libraries such as Capacitor as I improved them in the course of work</span>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Contributed to popular open source libraries such as Capacitor as I improved them in the course of work</span>
         </div>
       </div>,
       institution: "Two Fish Creative, Inc.",

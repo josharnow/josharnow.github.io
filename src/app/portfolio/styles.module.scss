@@ -30,3 +30,10 @@
     background-color: rgba(33, 150, 243, 0.15);
   }
 }
+
+// .bodyElement > div {
+.bulletGrid {
+  display: grid;
+  grid-template-columns: fit-content(50%) 1fr;
+  gap: theme("gap.1");
+}
