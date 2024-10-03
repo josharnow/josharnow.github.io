@@ -67,21 +67,19 @@ function Slideshow(
         style={ { transform: `translate3d(${-index * 100}%, 0, 0)` } }
       >
         { srcArray.map((src, index) => {
-          if (hrefArray && hrefArray.length && hrefArray[index]) {
-            return (
-                <Image 
-                  src={ src }
-                  key={ index }
-                  alt="portfolio-sample-image"
-                  width={ 0 }
-                  height={ 0 }
-                  className={ cn(styles.slide, imageClassName) }
-                  quality={ 100 }
-                />
-            )
-          }
-
-
+          // if (hrefArray && hrefArray.length && hrefArray[index]) {
+          //   return (
+          //       <Image 
+          //         src={ src }
+          //         key={ index }
+          //         alt="portfolio-sample-image"
+          //         width={ 0 }
+          //         height={ 0 }
+          //         className={ cn(styles.slide, imageClassName) }
+          //         quality={ 100 }
+          //       />
+          //   )
+          // }
           return <Image 
             src={ src }
             key={ index }
@@ -91,7 +89,7 @@ function Slideshow(
             className={ cn(styles.slide, imageClassName) }
             quality={ 100 }
           />
-}) }
+      }) }
       </div>
       {
         hasDots && (

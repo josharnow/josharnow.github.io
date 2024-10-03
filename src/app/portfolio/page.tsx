@@ -117,9 +117,9 @@ const tabs = [
         title="Cyzl"
         slideshowDelay={ 5000 }
         titleHref='https://apps.apple.com/us/app/cyzl/id6448448669'
-        slideshowHrefArr={ ["https://apps.apple.com/us/app/cyzl/id6448448669", "https://play.google.com/store/apps/details?id=app.cyzl.cyzlmobile"] }
+        // slideshowHrefArr={ ["https://apps.apple.com/us/app/cyzl/id6448448669", "https://play.google.com/store/apps/details?id=app.cyzl.cyzlmobile"] }
         slideshowClassName='h-1/2 rounded-lg mx-auto shadow-3xl shadow-black'
-        htmlContent={<>
+        htmlContent={
           <div
             className={ cn(globalStyles.bulletGrid) }
           >
@@ -146,7 +146,7 @@ const tabs = [
               <span>○</span><span>Maintained separate staging & production environments and facilitated new releases</span>
             </div>
           </div>
-        </>}
+        }
       />
     ),
   },
@@ -155,12 +155,43 @@ const tabs = [
     value: "seg",
     indexOrder: 1,
     content: (
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        {/* <ParallaxScroll
-          images={ contentArrContainer.libraries.map((content) => content.content) }
-        /> */}
-        test
-      </div>
+      <PortfolioTabContent
+        imgSrcArr={ [""] }
+        title="Sales Empowerment Group (SEG)"
+        slideshowDelay={ 5000 }
+        titleHref=''
+        slideshowHrefArr={ [""] }
+        slideshowClassName='h-1/2 rounded-lg mx-auto shadow-3xl shadow-black'
+        htmlContent={
+          <div
+            className={ cn(globalStyles.bulletGrid) }
+          >
+
+            {/* <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile application from the ground up</span>
+            <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
+            <div>
+              <span>○</span><span>The apps serve as a conduit between venues and potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
+              <span>○</span><span>Built using Vue & Ionic/Capacitor</span>
+            </div>
+            <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
+            <div>
+              <span>○</span><span>Built using Python/Flask</span>
+            </div>
+            <span>•</span><span>Managed multiple codebases that each served different roles in the larger system being built</span>
+            <span>•</span><span>Coordinated many AWS cloud services responsible for various backend features such as:</span>
+            <div>
+              <span>○</span><span>relational databases (RDS)</span>
+              <span>○</span><span>data storage (S3)</span>
+              <span>○</span><span>media compression & conversion (MediaConvert)</span>
+              <span>○</span><span>scalable computing (EC2 / Elastic Beanstalk) for the API & admin portal webapp</span>
+            </div>
+            <span>•</span><span>Published apps to the Apple App Store & Google Play Store</span>
+            <div>
+              <span>○</span><span>Maintained separate staging & production environments and facilitated new releases</span>
+            </div> */}
+          </div>
+        }
+      />
     ),
   },
   {
@@ -168,12 +199,42 @@ const tabs = [
     value: "sad",
     indexOrder: 2,
     content: (
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        {/* <ParallaxScroll
-          images={ contentArrContainer.libraries.map((content) => content.content) }
-        /> */}
-        test
-      </div>
+      <PortfolioTabContent
+        imgSrcArr={ [""] }
+        title="Surrogacy Advisor"
+        slideshowDelay={ 5000 }
+        titleHref=''
+        slideshowHrefArr={ [""] }
+        slideshowClassName='h-1/2 rounded-lg mx-auto shadow-3xl shadow-black'
+        htmlContent={
+          <div
+            className={ cn(globalStyles.bulletGrid) }
+          >
+            {/* <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile application from the ground up</span>
+            <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
+            <div>
+              <span>○</span><span>The apps serve as a conduit between venues and potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
+              <span>○</span><span>Built using Vue & Ionic/Capacitor</span>
+            </div>
+            <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
+            <div>
+              <span>○</span><span>Built using Python/Flask</span>
+            </div>
+            <span>•</span><span>Managed multiple codebases that each served different roles in the larger system being built</span>
+            <span>•</span><span>Coordinated many AWS cloud services responsible for various backend features such as:</span>
+            <div>
+              <span>○</span><span>relational databases (RDS)</span>
+              <span>○</span><span>data storage (S3)</span>
+              <span>○</span><span>media compression & conversion (MediaConvert)</span>
+              <span>○</span><span>scalable computing (EC2 / Elastic Beanstalk) for the API & admin portal webapp</span>
+            </div>
+            <span>•</span><span>Published apps to the Apple App Store & Google Play Store</span>
+            <div>
+              <span>○</span><span>Maintained separate staging & production environments and facilitated new releases</span>
+            </div> */}
+          </div>
+        }
+      />
     ),
   },
   {
@@ -181,12 +242,42 @@ const tabs = [
     value: "contributions",
     indexOrder: 3,
     content: (
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        {/* <ParallaxScroll
-          images={ contentArrContainer.libraries.map((content) => content.content) }
-        /> */}
-        test
-      </div>
+      <PortfolioTabContent
+        imgSrcArr={ [""] }
+        title="Open & Closed Source Contributions"
+        slideshowDelay={ 5000 }
+        titleHref=''
+        slideshowHrefArr={ [""] }
+        slideshowClassName='h-1/2 rounded-lg mx-auto shadow-3xl shadow-black'
+        htmlContent={
+          <div
+            className={ cn(globalStyles.bulletGrid) }
+          >
+            {/* <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile application from the ground up</span>
+            <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
+            <div>
+              <span>○</span><span>The apps serve as a conduit between venues and potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
+              <span>○</span><span>Built using Vue & Ionic/Capacitor</span>
+            </div>
+            <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
+            <div>
+              <span>○</span><span>Built using Python/Flask</span>
+            </div>
+            <span>•</span><span>Managed multiple codebases that each served different roles in the larger system being built</span>
+            <span>•</span><span>Coordinated many AWS cloud services responsible for various backend features such as:</span>
+            <div>
+              <span>○</span><span>relational databases (RDS)</span>
+              <span>○</span><span>data storage (S3)</span>
+              <span>○</span><span>media compression & conversion (MediaConvert)</span>
+              <span>○</span><span>scalable computing (EC2 / Elastic Beanstalk) for the API & admin portal webapp</span>
+            </div>
+            <span>•</span><span>Published apps to the Apple App Store & Google Play Store</span>
+            <div>
+              <span>○</span><span>Maintained separate staging & production environments and facilitated new releases</span>
+            </div> */}
+          </div>
+        }
+      />
     ),
   },
   {
@@ -194,12 +285,42 @@ const tabs = [
     value: "personal_website",
     indexOrder: 4,
     content: (
-      <div className="w-full overflow-auto relative h-full flex flex-col gap-5 sm:p-10 font-medium">
-        {/* <ParallaxScroll
-          images={ contentArrContainer.libraries.map((content) => content.content) }
-        /> */}
-        test
-      </div>
+      <PortfolioTabContent
+        imgSrcArr={ [""] }
+        title="This Website 🚀"
+        slideshowDelay={ 5000 }
+        titleHref=''
+        slideshowHrefArr={ [""] }
+        slideshowClassName='h-1/2 rounded-lg mx-auto shadow-3xl shadow-black'
+        htmlContent={
+          <div
+            className={ cn(globalStyles.bulletGrid) }
+          >
+            {/* <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile application from the ground up</span>
+            <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
+            <div>
+              <span>○</span><span>The apps serve as a conduit between venues and potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
+              <span>○</span><span>Built using Vue & Ionic/Capacitor</span>
+            </div>
+            <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
+            <div>
+              <span>○</span><span>Built using Python/Flask</span>
+            </div>
+            <span>•</span><span>Managed multiple codebases that each served different roles in the larger system being built</span>
+            <span>•</span><span>Coordinated many AWS cloud services responsible for various backend features such as:</span>
+            <div>
+              <span>○</span><span>relational databases (RDS)</span>
+              <span>○</span><span>data storage (S3)</span>
+              <span>○</span><span>media compression & conversion (MediaConvert)</span>
+              <span>○</span><span>scalable computing (EC2 / Elastic Beanstalk) for the API & admin portal webapp</span>
+            </div>
+            <span>•</span><span>Published apps to the Apple App Store & Google Play Store</span>
+            <div>
+              <span>○</span><span>Maintained separate staging & production environments and facilitated new releases</span>
+            </div> */}
+          </div>
+        }
+      />
     ),
   },
 ];
