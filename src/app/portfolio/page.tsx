@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './styles.module.scss';
+import globalStyles from '@/src/styles/globals.module.scss';
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import {
@@ -11,6 +12,7 @@ import {
   AnimatedTabs,
   ParallaxScroll,
   Slideshow,
+  PortfolioTabContent
 } from '@/src/components';
 
 import surrogacyAdvisorScreenshot1 from '@/src/assets/images/surrogacy_advisor_screenshot_1.png';
@@ -110,46 +112,53 @@ const tabs = [
     value: "cyzl",
     indexOrder: 0,
     content: (
-      <div className="w-full overflow-auto relative h-full flex flex-col items-center gap-10 sm:p-10 font-medium">
-        {/* <ParallaxScroll
-          images={ contentArrContainer.libraries.map((content) => content.content) }
-        /> */}
-        <div className='h-1/2 w-1/2'>
-          <Slideshow
-            srcArray={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1] }
-            hrefArray={ ["https://apps.apple.com/us/app/cyzl/id6448448669", "https://play.google.com/store/apps/details?id=app.cyzl.cyzlmobile"] }
-            delay={ 5000 }
-            imageClassName=''
-            slideshowClassName=''
-          />
-        </div>
-        <div className='h-1/2 w-full flex flex-col items-center gap-5'>
-          <Link 
-            href="https://apps.apple.com/us/app/cyzl/id6448448669"
-            target='_blank'
-            className='font-medium text-3xl sm:text-5xl'
+      <PortfolioTabContent
+        imgSrcArr={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1] }
+        title="Cyzl"
+        slideshowDelay={ 5000 }
+        titleHref='https://apps.apple.com/us/app/cyzl/id6448448669'
+        slideshowHrefArr={ ["https://apps.apple.com/us/app/cyzl/id6448448669", "https://play.google.com/store/apps/details?id=app.cyzl.cyzlmobile"] }
+        slideshowClassName='h-1/2 rounded-lg mx-auto shadow-3xl shadow-black'
+        htmlContent={<>
+          <div
+            className={ cn(globalStyles.bulletGrid) }
           >
-            Cyzl
-          </Link>
-          <div className='size-full flex justify-center'>
-            {/* <p className='text-xl sm:text-2xl text-balance'>WRITE UP DESCRIPTION HERE</p> */}
+            <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile app from the ground up</span>
+            <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
+            <div>
+              <span>○</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
+              {/* TODO - subbullets */ }
+              {/* Built this nightlife app to connect users find the best events, venues, and deals in their area</span>
+            
+              native iPhone & Android applications using Vue & Ionic/Capacitor</span> */}
+            </div>
+            <span>•</span><span>Built a venue portal webapp for admins to control various aspects of their business within the system</span>
+            <div>
+              {/* TODO - subbullets */ }
 
+              {/* Wrote the webapp in Python/Flask */ }
 
-
-            {/* <div className={ cn( 'grid grid-cols-1 gap-1') }> */}
-            <div className={ cn( 'flex flex-col gap-1') }>
-              <div
-                className={ cn(styles.bulletGrid) }
-              >
-                <span>•</span><span>Worked as lead developer to build this full stack native cross-platform mobile app from the ground up.</span>
-              </div>
-              <div className={ cn(styles.bulletGrid) }>
-                <span>•</span>&nbsp;<span>\</span>
-              </div>
+              {/* Built this nightlife app to connect users find the best events, venues, and deals in their area</span>
+              
+              native iPhone & Android applications using Vue & Ionic/Capacitor</span> */}
+            </div>
+            <span>•</span><span>Managed multiple codebases that each served different roles in the larger system being built</span>
+            <span>•</span><span>Coordinated many AWS cloud services responsible for various backend features such as:</span>
+            <div>
+              <span>○</span><span>relational databases (RDS)</span>
+              <span>○</span><span>data storage (S3)</span>
+              <span>○</span><span>media compression & conversion (MediaConvert)</span>
+              <span>○</span><span>scalable computing (EC2 / Elastic Beanstalk) for the API & admin portal webapp</span>
+            </div>
+            <span>•</span><span>Published apps to the Apple App Store & Google Play Store</span>
+            <div>
+              {/* TODO - subbullets */ }
+              {/* Maintained separate staging & production environments and facilitated new releases */ }
             </div>
           </div>
-        </div>
-      </div>
+        </>}
+        // slideshowImageClassName="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
+      />
     ),
   },
   {

@@ -33,3 +33,4 @@ export { default as StickyScrollReveal } from './StickyScrollReveal';
 export { default as AnimatedTabs } from './AnimatedTabs';
 export { default as ParallaxScroll } from './ParallaxScroll';
 export { default as ParallaxScrollChain } from './ParallaxScrollChain';
+export { default as PortfolioTabContent } from './PortfolioTabContent';
