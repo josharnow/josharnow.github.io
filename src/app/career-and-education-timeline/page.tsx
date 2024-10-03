@@ -42,22 +42,12 @@ export default function CareerAndEducationTimelinePage() {
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div className={ cn(styles.bulletGrid) }>
           <span>•</span><span>Expanded on optional pre-med coursework related to my personal interests, such as cancer biology</span>
-        </div>
-        <div className='flex flex-col'>
+          <span>•</span><span>Prepared a medical school application packet during this time</span>
           <div>
-            <span>•</span>&nbsp;<span>Prepared a medical school application packet during this time</span>
+            <span>○</span><span>Shadowed a private practice physician & an ER physician</span>
+            <span>○</span><span>Scored above average on the MCAT</span>
+            <span>○</span><span>Continued regularly volunteering as an EMT (2017-2021)</span>
           </div>
-          <div className='sub-bullet pl-6'>
-            <span>○</span>&nbsp;<span>Shadowed a private practice physician & an ER physician</span>
-          </div>
-          <div className='sub-bullet pl-6'>
-            <span>○</span>&nbsp;<span>Scored above average on the MCAT</span>
-          </div>
-          <div className='sub-bullet pl-6'>
-            <span>○</span>&nbsp;<span>Continued regularly volunteering as an EMT (2017-2021)</span>
-          </div>
-        </div>
-        <div className={ cn(styles.bulletGrid) }>
           <span>•</span><span>Opted not to send out my completed application packet due to COVID lockdowns</span>
         </div>
       </div>,
@@ -155,12 +145,10 @@ export default function CareerAndEducationTimelinePage() {
         <div className={ cn(styles.bulletGrid) }>
           <span>•</span><span>Analyzed borrowers’ business prospects through quantitative analysis of financial statements while assessing qualitative aspects & information gathered from client meetings</span>
         </div>
-        <div className='flex flex-col'>
+        <div className={ cn(styles.bulletGrid) }>
+          <span>•</span><span>Participated in Capital One’s Commercial Banking Development Program to receive specialized skill training over the course of my employment</span>
           <div>
-            <span>•</span>&nbsp;<span>Participated in Capital One’s Commercial Banking Development Program to receive specialized skill training over the course of my employment</span>
-          </div>
-          <div className='sub-bullet pl-6'>
-            <span>○</span>&nbsp;<span>Received education & exposure to many aspects of banking at Capital One sites around the country</span>
+            <span>○</span><span>Received education & exposure to many aspects of banking at Capital One sites around the country</span>
           </div>
         </div>
       </div>,
