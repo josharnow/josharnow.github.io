@@ -41,7 +41,7 @@ const EducationTimelineCard = ({ content, className }: {
 
           {/* <div className="grow text-sm sm:text-base md:text-lg xl:text-xl !overflow-y-scroll flex flex-col text-white" style={ { "flexBasis": 0, "justifyContent": "safe center", "WebkitJustifyContent": "safe center" }}> */}
           {/* NOTE - https://stackoverflow.com/a/47636238 */}
-          <div className="grow text-sm sm:text-base md:text-lg xl:text-xl !overflow-y-scroll flex flex-col text-white" style={ { "flexBasis": 0, "margin": "0 auto" }}>
+          <div className="grow text-sm sm:text-base md:text-lg xl:text-xl !overflow-y-scroll flex flex-col text-white items-start" style={ { "flexBasis": 0 }}>
             { content.bodyElement }
           </div>
         </div>
