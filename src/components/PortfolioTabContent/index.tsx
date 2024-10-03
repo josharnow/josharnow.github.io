@@ -61,7 +61,7 @@ const PortfolioTabContent = ({
 
   return (
     <>
-      <div className="w-full relative h-full grid grid-cols-1 justify-items-center gap-10 p-2 sm:p-5 font-medium" style={ { "gridTemplateRows": "fit-content(50%)" } }>
+      <div className="w-full relative h-full grid grid-cols-1 justify-items-center gap-5 p-2 sm:p-5 font-medium" style={ { "gridTemplateRows": "fit-content(50%)" } }>
           {/* TODO - Infinitely scroll through technologies used */}
             <div className='h-fit w-1/2' style={ { "gridTemplateRows": "fit-content(50%)" } }>
               <Slideshow
@@ -83,7 +83,7 @@ const PortfolioTabContent = ({
                   { title }
                 </Link>
               </div>
-              <div className='overflow-y-auto grid grid-cols-1 justify-items-center w-full'>
+              <div className='overflow-y-scroll grid grid-cols-1 justify-items-center w-full'>
                 { htmlContent }
               </div>
         </div>

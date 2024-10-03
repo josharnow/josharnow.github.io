@@ -123,24 +123,15 @@ const tabs = [
           <div
             className={ cn(globalStyles.bulletGrid) }
           >
-            <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile app from the ground up</span>
+            <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile application from the ground up</span>
             <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
             <div>
-              <span>○</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
-              {/* TODO - subbullets */ }
-              {/* Built this nightlife app to connect users find the best events, venues, and deals in their area</span>
-            
-              native iPhone & Android applications using Vue & Ionic/Capacitor</span> */}
+              <span>○</span><span>The apps serve as a conduit between venues and potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
+              <span>○</span><span>Built using Vue & Ionic/Capacitor</span>
             </div>
-            <span>•</span><span>Built a venue portal webapp for admins to control various aspects of their business within the system</span>
+            <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
             <div>
-              {/* TODO - subbullets */ }
-
-              {/* Wrote the webapp in Python/Flask */ }
-
-              {/* Built this nightlife app to connect users find the best events, venues, and deals in their area</span>
-              
-              native iPhone & Android applications using Vue & Ionic/Capacitor</span> */}
+              <span>○</span><span>Built using Python/Flask</span>
             </div>
             <span>•</span><span>Managed multiple codebases that each served different roles in the larger system being built</span>
             <span>•</span><span>Coordinated many AWS cloud services responsible for various backend features such as:</span>
@@ -152,12 +143,10 @@ const tabs = [
             </div>
             <span>•</span><span>Published apps to the Apple App Store & Google Play Store</span>
             <div>
-              {/* TODO - subbullets */ }
-              {/* Maintained separate staging & production environments and facilitated new releases */ }
+              <span>○</span><span>Maintained separate staging & production environments and facilitated new releases</span>
             </div>
           </div>
         </>}
-        // slideshowImageClassName="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
       />
     ),
   },
