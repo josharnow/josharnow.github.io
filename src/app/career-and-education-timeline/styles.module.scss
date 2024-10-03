@@ -7,8 +7,18 @@
     display: grid;
     grid-template-columns: fit-content(50%) 1fr;
     gap: theme("gap.1");
-}
 
+    // NOTE - This is the sub-bullet div
+    > div {
+      // SOURCE - https: //stackoverflow.com/a/59284975
+      grid-column: span 2;
+      padding-left: theme("padding.6");
+
+      display: grid;
+      grid-template-columns: fit-content(50%) 1fr;
+      gap: theme("gap.1");
+    }
+}
 
 // .bodyElement::-webkit-scrollbar {
 //   -webkit-appearance: none;
