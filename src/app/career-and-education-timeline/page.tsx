@@ -345,7 +345,7 @@ export default function CareerAndEducationTimelinePage() {
   return (
     <>
       <WavyBackground containerClassName="absolute top-0 left-0 right-0 bottom-0 bg-black" className="w-full" />
-      <div className="absolute top-0 bottom-0 left-0 right-0 p-2 sm:p-4">
+      <div className="z-[1] absolute top-0 bottom-0 left-0 right-0 p-2 sm:p-4">
         <div className="w-full h-full">
           <div className="w-full h-full flex flex-col relative">
             <div className="w-full h-[40%] flex justify-center items-center">
