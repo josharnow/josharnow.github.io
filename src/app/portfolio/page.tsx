@@ -113,12 +113,15 @@ const tabs = [
     indexOrder: 0,
     content: (
       <PortfolioTabContent
-        imgSrcArr={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1] }
+        // imgSrcArr={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1] }
+        imgSrcArr={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1, cyzlPlayStoreScreenshot1] }
         title="Cyzl"
-        slideshowDelay={ 5000 }
+        // slideshowDelay={ 5000 }
+        slideshowDelay={ 3000 }
         titleHref='https://apps.apple.com/us/app/cyzl/id6448448669'
         // slideshowHrefArr={ ["https://apps.apple.com/us/app/cyzl/id6448448669", "https://play.google.com/store/apps/details?id=app.cyzl.cyzlmobile"] }
-        slideshowClassName='h-1/2 rounded-lg mx-auto shadow-3xl shadow-black'
+        slideshowClassName='!w-1/2 h-fit rounded-lg mx-auto shadow-3xl shadow-black'
+        // slideshowImageClassName='max-h-full'
         htmlContent={
           <div
             className={ cn(globalStyles.bulletGrid) }
@@ -161,7 +164,8 @@ const tabs = [
         slideshowDelay={ 5000 }
         titleHref=''
         slideshowHrefArr={ [""] }
-        slideshowClassName='h-1/2 rounded-lg mx-auto shadow-3xl shadow-black'
+        // slideshowClassName='h-full rounded-lg mx-auto shadow-3xl shadow-black'
+        // slideshowImageClassName='h-full'
         htmlContent={
           <div
             className={ cn(globalStyles.bulletGrid) }

@@ -61,16 +61,34 @@ const PortfolioTabContent = ({
 
   return (
     <>
-      <div className="w-full relative h-full grid grid-cols-1 justify-items-center gap-5 p-2 sm:p-5 font-medium" style={ { "gridTemplateRows": "fit-content(50%)" } }>
+      <div 
+        className="w-full relative h-full grid grid-cols-1 justify-items-center  gap-5 p-2 sm:p-5 font-medium" 
+        // style={ { "gridTemplateRows": "0.5fr" } }
+        // style={ { "gridTemplateRows": "fit-content(50%)" } }
+        style={ { "gridTemplateRows": "33.333%" } }
+      >
           {/* TODO - Infinitely scroll through technologies used */}
-            <div className='h-fit w-1/2' style={ { "gridTemplateRows": "fit-content(50%)" } }>
-              <Slideshow
-                srcArray={ imgSrcArr }
-                hrefArray={ slideshowHrefArr }
-                delay={ slideshowDelay }
-                imageClassName={ slideshowImageClassName }
-                slideshowClassName={ slideshowClassName }
-              />
+            {/* <div className='h-fit w-1/2 my-auto' style={ { "gridTemplateRows": "fit-content(100%)" } }> */}
+            {/* <div 
+              className='h-full my-auto' 
+            >
+            </div> */}
+            <div className="size-full relative">
+          <div className="absolute top-0 bottom-0 left-0 right-0 flex justify-center">
+                {/* <div>
+                  test
+                </div> */}
+                {/* <div className="h-full w-3/4"> */}
+
+                  <Slideshow
+                    srcArray={ imgSrcArr }
+                    hrefArray={ slideshowHrefArr }
+                    delay={ slideshowDelay }
+                    imageClassName={ slideshowImageClassName }
+                    slideshowClassName={ slideshowClassName }
+                  />
+                {/* </div> */}
+              </div>
             </div>
             <div className='grow w-full grid grid-cols-1 justify-items-center gap-3 overflow-y-hidden' style={{"gridTemplateRows": "fit-content(50%)"}}>
               <div className="flex justify-center">
