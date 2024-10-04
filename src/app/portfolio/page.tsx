@@ -23,62 +23,6 @@ import segPlusScreenshot1 from '@/src/assets/images/seg_plus_screenshot_1.png';
 import cyzlAppStoreScreenshot1 from '@/src/assets/images/cyzl_app_store_screenshot_1.png';
 import cyzlPlayStoreScreenshot1 from '@/src/assets/images/cyzl_play_store_screenshot_1.png';
 
-// TODO - Add technologies used in each project as an automatic infinite scrolling list of logos
-import appleLogo from "@/src/assets/icons/apple.svg";
-import appstoreLogo from "@/src/assets/icons/appstore.svg";
-import awsLogo from "@/src/assets/icons/aws.svg";
-import axiosLogo from "@/src/assets/icons/axios.svg";
-import chartJsLogo from "@/src/assets/icons/chartjs.svg";
-import cloudflareLogo from "@/src/assets/icons/cloudflare.svg";
-import cssLogo from "@/src/assets/icons/css.svg";
-import dockerLogo from "@/src/assets/icons/docker.svg";
-import ethersJsLogo from "@/src/assets/icons/ethersjs.svg";
-import expressJsLogo from "@/src/assets/icons/expressjs.svg";
-import firebaseLogo from "@/src/assets/icons/firebase.svg";
-import flaskLogo from "@/src/assets/icons/flask.svg";
-import framerLogo from "@/src/assets/icons/framer.svg";
-import gitLogo from "@/src/assets/icons/git.svg";
-import githubActionsLogo from "@/src/assets/icons/githubactions.svg";
-import googleGLogo from "@/src/assets/icons/googleg.svg";
-import googleMapsLogo from "@/src/assets/icons/googlemaps.svg";
-import googlePlayConsoleLogo from "@/src/assets/icons/googleplay.svg";
-import htmlLogo from "@/src/assets/icons/html.svg";
-import ionicLogo from "@/src/assets/icons/ionic.svg";
-import javaLogo from "@/src/assets/icons/java.svg";
-import javaSpringLogo from "@/src/assets/icons/spring.svg";
-import jiraLogo from "@/src/assets/icons/jira.svg";
-import jQueryLogo from "@/src/assets/icons/jquery.svg";
-import mapboxLogo from "@/src/assets/icons/mapbox.svg";
-import mariaDbLogo from "@/src/assets/icons/mariadb.svg";
-import mongoDbLogo from "@/src/assets/icons/mongodb.svg";
-import mongooseLogo from "@/src/assets/icons/mongoose.svg";
-import mySqlLogo from "@/src/assets/icons/mysql.svg";
-import nextJsLogo from "@/src/assets/icons/nextjs.svg";
-import nodeJsLogo from "@/src/assets/icons/nodejs.svg";
-import pandasLogo from "@/src/assets/icons/pandas.svg";
-import piniaLogo from "@/src/assets/icons/pinia.svg";
-import postmanLogo from "@/src/assets/icons/postman.svg";
-import pythonLogo from "@/src/assets/icons/python.svg";
-import reactLogo from "@/src/assets/icons/react.svg";
-import reactNativeLogo from "@/src/assets/icons/reactnative.svg";
-import remixLogo from "@/src/assets/icons/remix.svg";
-import sendgridLogo from "@/src/assets/icons/sendgrid.svg";
-import solidityLogo from "@/src/assets/icons/solidity.svg";
-import sqlAlchemyLogo from "@/src/assets/icons/sqlalchemy.svg";
-import swiperJsLogo from "@/src/assets/icons/swiperjs.svg";
-import tailwindCssLogo from "@/src/assets/icons/tailwindcss.svg";
-import twilioLogo from "@/src/assets/icons/twilio.svg";
-import typescriptLogo from "@/src/assets/icons/typescript.svg";
-import videoJsLogo from "@/src/assets/icons/videojs.svg";
-import vsCodeLogo from "@/src/assets/icons/vscode.svg";
-import vueJsLogo from "@/src/assets/icons/vue.svg";
-import web3JsLogo from "@/src/assets/icons/web3js.svg";
-import xcodeLogo from "@/src/assets/icons/xcode.svg";
-
-
-// import { type StaticImport } from 'next/dist/shared/lib/get-img-props';
-// import joshArnowLogoNoShadows from "@/src/assets/images/josh_arnow_logo_no_shadows.svg";
-
 type Content = {
   title: string;
   description: string;
@@ -114,29 +58,27 @@ const tabs = [
     content: (
       <PortfolioTabContent
         // imgSrcArr={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1] }
-        imgSrcArr={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1, cyzlPlayStoreScreenshot1] }
+        imgSrcArr={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1] }
         title="Cyzl"
-        // slideshowDelay={ 5000 }
-        slideshowDelay={ 3000 }
+        slideshowDelay={ 5000 }
         titleHref='https://apps.apple.com/us/app/cyzl/id6448448669'
         // slideshowHrefArr={ ["https://apps.apple.com/us/app/cyzl/id6448448669", "https://play.google.com/store/apps/details?id=app.cyzl.cyzlmobile"] }
         slideshowClassName='!w-1/2 h-fit rounded-lg mx-auto shadow-3xl shadow-black'
-        // slideshowImageClassName='max-h-full'
         htmlContent={
           <div
             className={ cn(globalStyles.bulletGrid) }
           >
-            <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile application from the ground up</span>
+            <span>•</span><span>Worked as team lead to develop this full stack, native, & cross-platform mobile application from the ground up</span>
             <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
             <div>
               <span>○</span><span>The apps serve as a conduit between venues and potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
-              <span>○</span><span>Built using Vue & Ionic/Capacitor</span>
+              <span>○</span><span>Written using Vue & Ionic/Capacitor</span>
             </div>
-            <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
+            <span>•</span><span>Built a venue portal webapp for admins to control various aspects of their business within the system</span>
             <div>
-              <span>○</span><span>Built using Python/Flask</span>
+              <span>○</span><span>Written using Python/Flask</span>
             </div>
-            <span>•</span><span>Managed multiple codebases that each served different roles in the larger system being built</span>
+            <span>•</span><span>Managed multiple codebases that each serve different roles in the larger system</span>
             <span>•</span><span>Coordinated many AWS cloud services responsible for various backend features such as:</span>
             <div>
               <span>○</span><span>relational databases (RDS)</span>
@@ -146,7 +88,7 @@ const tabs = [
             </div>
             <span>•</span><span>Published apps to the Apple App Store & Google Play Store</span>
             <div>
-              <span>○</span><span>Maintained separate staging & production environments and facilitated new releases</span>
+              <span>○</span><span>Maintained separate staging & production environments while facilitating new releases</span>
             </div>
           </div>
         }
@@ -154,52 +96,43 @@ const tabs = [
     ),
   },
   {
-    title: "SEG",
+    title: "Sales Empowerment Group",
+    // title: "Sales Empowerment Group Plus",
+
     value: "seg",
     indexOrder: 1,
     content: (
       <PortfolioTabContent
-        imgSrcArr={ [""] }
-        title="Sales Empowerment Group (SEG)"
+        imgSrcArr={ [segPlusScreenshot1] }
+
+        title="Sales Empowerment Group Plus (SEG+)"
         slideshowDelay={ 5000 }
-        titleHref=''
-        slideshowHrefArr={ [""] }
-        // slideshowClassName='h-full rounded-lg mx-auto shadow-3xl shadow-black'
-        // slideshowImageClassName='h-full'
+        titleHref='https://salesempowermentgroup.com'
+
+        // slideshowHrefArr={ ["https://apps.apple.com/us/app/cyzl/id6448448669", "https://play.google.com/store/apps/details?id=app.cyzl.cyzlmobile"] }
+        slideshowClassName='!w-1/2 h-fit rounded-lg mx-auto shadow-3xl shadow-black'
         htmlContent={
           <div
             className={ cn(globalStyles.bulletGrid) }
           >
-
-            {/* <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile application from the ground up</span>
-            <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
+            <span>•</span><span>Developed this enhanced full stack platform, designed to streamline & automate the client’s existing business processes, alongside our internal team</span>
             <div>
-              <span>○</span><span>The apps serve as a conduit between venues and potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
-              <span>○</span><span>Built using Vue & Ionic/Capacitor</span>
+              <span>○</span><span>The software is primarily geared towards the client’s business development representatives (BDRs) & aims to realize greater business efficiencies, increase BDR retention, & improve employee engagement</span>
+              <span>○</span><span>Written using Python/Flask</span>
             </div>
             <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
             <div>
               <span>○</span><span>Built using Python/Flask</span>
             </div>
-            <span>•</span><span>Managed multiple codebases that each served different roles in the larger system being built</span>
-            <span>•</span><span>Coordinated many AWS cloud services responsible for various backend features such as:</span>
-            <div>
-              <span>○</span><span>relational databases (RDS)</span>
-              <span>○</span><span>data storage (S3)</span>
-              <span>○</span><span>media compression & conversion (MediaConvert)</span>
-              <span>○</span><span>scalable computing (EC2 / Elastic Beanstalk) for the API & admin portal webapp</span>
-            </div>
-            <span>•</span><span>Published apps to the Apple App Store & Google Play Store</span>
-            <div>
-              <span>○</span><span>Maintained separate staging & production environments and facilitated new releases</span>
-            </div> */}
+            <span>•</span><span> Enhanced the client’s portfolio with leverageable intellectual property & technology products in the form of the SEG+ software</span>
+            <span>•</span><span>Created specialized tools such as a client forms generator & playbook builder to improve the workflow of the client’s sales teams, track their progress, manage their leads, & communicate with each other</span>
           </div>
         }
       />
     ),
   },
   {
-    title: "SAD",
+    title: "Surrogacy Advisor",
     value: "sad",
     indexOrder: 2,
     content: (
