@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import Image from 'next/image';
 import styles from './styles.module.scss';
 import globalStyles from '@/src/styles/globals.module.scss';
 import { type ClassValue, clsx } from "clsx";

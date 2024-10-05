@@ -3,12 +3,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import styles from './styles.module.scss';
 import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
 
 // const colors = ["#0088FE", "#00C49F", "#FFBB28"];
 // const delay = 2500;
 import { type ClassValue, clsx } from "clsx";
-import { ClassNameValue, twMerge } from "tailwind-merge";
+import { twMerge } from "tailwind-merge";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
