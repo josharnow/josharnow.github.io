@@ -22,7 +22,7 @@ export default function CareerAndEducationTimelinePage() {
           <span>•</span><span>Excelled at a complete pre-med curriculum as I pursued two degrees in unrelated fields</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Engaged in many extracurricular activities including musical ensembles, residence life leadership, Greek life leadership, & more</span>
+          <span>•</span><span>Engaged in many extracurricular activities including musical ensembles, residence life leadership, Greek life leadership, and more</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
           <span>•</span><span>Spent a semester abroad at Cambridge University to study economics & broaden my horizons by exploring Europe</span>
@@ -84,7 +84,7 @@ export default function CareerAndEducationTimelinePage() {
           <span>•</span><span>Completed a full-time online coding bootcamp focused on full-stack software development within three tech stacks</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Studied React, Python, & Java frameworks in addition to HTML, CSS, & vanilla JavaScript</span>
+          <span>•</span><span>Studied React, Python, and Java frameworks in addition to HTML, CSS, and vanilla JavaScript</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
           <span>•</span><span>Obtained certifications after receiving excellent marks on completed projects from each tech stack</span>
@@ -166,7 +166,7 @@ export default function CareerAndEducationTimelinePage() {
           <span>•</span><span>Reviewed & analyzed offering memorandums to recommend the acquisition of residential & commercial real estate</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Performed tasks including annual cash flow analysis, rent roll review, property improvement plans, cash flow projections, & review of third-party reports</span>
+          <span>•</span><span>Performed tasks including annual cash flow analysis, rent roll review, property improvement plans, cash flow projections, and review of third-party reports</span>
         </div>
       </div>,
       institution: "Citiscape Realty Advisors, Inc.",
@@ -221,13 +221,13 @@ export default function CareerAndEducationTimelinePage() {
           <span>•</span><span>Independently created/published native iOS & Android applications & designed a server & databases to integrate with</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Utilized TypeScript with the Vue.js Composition API to create the end user frontend, Ionic/Capacitor to build native mobile apps, Python/Flask to build the server & admin portal, & MySQL/MariaDB to handle the database</span>
+          <span>•</span><span>Utilized TypeScript with the Vue.js Composition API to create the end user frontend, Ionic/Capacitor to build native mobile apps, Python/Flask to build the server & admin portal, and MySQL/MariaDB to handle the database</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
           <span>•</span><span>Heavily used Mapbox GL JS & GeoJSON data to render maps & ChartJS to provide analytics</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Introduced new developers to the project & led the development process while utilizing scrum/agile methodologies, performing code reviews, & managing the project timeline</span>
+          <span>•</span><span>Introduced new developers to the project & led the development process while utilizing scrum/agile methodologies, performing code reviews, and managing the project timeline</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
           <span>•</span><span>Exceeded client expectations after former developers could not satisfy them which led to contract renewals with our company at higher rates</span>

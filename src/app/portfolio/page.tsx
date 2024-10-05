@@ -56,8 +56,8 @@ const tabs = [
           <div
             className={ cn(globalStyles.bulletGrid) }
           >
-            <span>•</span><span>Worked as team lead to develop this full stack, native, & cross-platform mobile application from the ground up</span>
-            <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
+            <span>•</span><span>Worked as team lead to develop this full stack, native, and cross-platform mobile application from the ground up</span>
+            <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, and clubs in their area</span>
             <div>
               <span>○</span><span>The apps serve as a conduit between venues & potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
               <span>○</span><span>Written using Vue & Ionic/Capacitor</span>
@@ -101,7 +101,7 @@ const tabs = [
           >
             <span>•</span><span>Developed this enhanced full stack platform, designed to streamline & automate the client’s existing business processes, alongside our internal team</span>
             <div>
-              <span>○</span><span>The software is primarily geared towards the client’s business development representatives (BDRs) & aims to realize greater business efficiencies, increase BDR retention, & improve employee engagement</span>
+              <span>○</span><span>The software is primarily geared towards the client’s business development representatives (BDRs) & aims to realize greater business efficiencies, increase BDR retention, and improve employee engagement</span>
               <span>○</span><span>Written using Python/Flask</span>
             </div>
             <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
@@ -109,7 +109,7 @@ const tabs = [
               <span>○</span><span>Built using Python/Flask</span>
             </div>
             <span>•</span><span> Enhanced the client’s portfolio with leverageable intellectual property & technology products in the form of the SEG+ software</span>
-            <span>•</span><span>Created specialized tools such as a client forms generator & playbook builder to improve the workflow of the client’s sales teams, track their progress, manage their leads, & communicate with each other</span>
+            <span>•</span><span>Created specialized tools such as a client forms generator & playbook builder to improve the workflow of the client’s sales teams, track their progress, manage their leads, and communicate with each other</span>
           </div>
         }
       />
@@ -133,14 +133,14 @@ const tabs = [
           >
             <span>•</span><span>Built an Assisted Reproductive Technology (ART) industry directory & embedded directory extension alongside our internal team intended to improve the existing pay-to-play model in the ART industry & provide an intuitive modern directory system for prospective parents to use</span>
             <div>
-              <span>○</span><span>The full stack software platform features an administration portal, a provider portal, & a mobile responsive directory to connect prospective parents with disparate surrogacy resources in a single place</span>
+              <span>○</span><span>The full stack software platform features an administration portal, a provider portal, and a mobile responsive directory to connect prospective parents with disparate surrogacy resources in a single place</span>
               <span>○</span><span>Written using Python/Flask</span>
             </div>
-            <span>•</span><span>Features are designed to appeal to various types of users including prospective parents, ART industry providers, & admins</span>
+            <span>•</span><span>Features are designed to appeal to various types of users including prospective parents, ART industry providers, and admins</span>
             <div>
-              <span>○</span><span>Prospective parents, or the front-end users, benefit from being able to easily compare, save, & interact with provider data & provide public reviews in the directory</span>
-              <span>○</span><span>ART industry providers including clinics, agencies, & law firms benefit from business exposure & the ability to manage their image on the directory</span>
-              <span>○</span><span>Surrogacy Advisor admins benefit from being able to approve provider applications, approve modifications to provider profiles, manage memberships, configure reviews, & otherwise manage all aspects of the site from the admin portal</span>
+              <span>○</span><span>Prospective parents, or the front-end users, benefit from being able to easily compare, save, and interact with provider data & provide public reviews in the directory</span>
+              <span>○</span><span>ART industry providers including clinics, agencies, and law firms benefit from business exposure & the ability to manage their image on the directory</span>
+              <span>○</span><span>Surrogacy Advisor admins benefit from being able to approve provider applications, approve modifications to provider profiles, manage memberships, configure reviews, and otherwise manage all aspects of the site from the admin portal</span>
             </div>
             <span>•</span><span>Provided the client with an extensible custom platform not reliant on services such as WordPress, giving them an edge over their competitors using prebuilt software</span>
           </div>
@@ -173,7 +173,7 @@ const tabs = [
             <span>•</span><span>Open source contributions include critical bug fixes for popular libraries used in the course of my work</span>
             <div>
               <span>○</span><span>Some issues addressed include an app crash with a popular Google Sign-In library & a broken native mobile camera library caused by missing permissions requests on Android</span>
-              <span>○</span><span>So far these contributions have been written in Java, Swift, & Vue</span>
+              <span>○</span><span>So far these contributions have been written in Java, Swift, and Vue</span>
             </div>
           </div>
         }
@@ -199,7 +199,7 @@ const tabs = [
             <span>•</span><span>Designed & created this personal website entirely on my own while applying agile methodology to keep ideas & workflow organized</span>
             <span>•</span><span>Made extensive use of Tailwind CSS & Framer Motion to design and modify highly complex components</span>
             <div>
-              <span>○</span><span>When I wasn’t creating custom components from the ground up I built upon existing component ideas & made them my own</span>
+              <span>○</span><span>When not creating custom components from the ground up I built upon existing component ideas & made them my own</span>
             </div>
             <span>•</span><span>Used my experience to carefully balance form & function</span>
             <div>
