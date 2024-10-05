@@ -23,7 +23,7 @@ const AboutPagePortfolio = forwardRef(function AboutPagePortfolio(props, ref: Re
 
 
   return (
-    <div ref={ ref } id="portfolio" className="overflow-hidden bg-[#0B0B0F] w-full">
+    <div ref={ ref } id="portfolio" className="overflow-hidden bg-black w-full">
       <MacbookScroll
         // title={
         // }
