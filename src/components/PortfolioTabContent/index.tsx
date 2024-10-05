@@ -67,49 +67,38 @@ const PortfolioTabContent = ({
         // style={ { "gridTemplateRows": "fit-content(50%)" } }
         style={ { "gridTemplateRows": "33.333%" } }
       >
-          {/* TODO - Infinitely scroll through technologies used */}
-            {/* <div className='h-fit w-1/2 my-auto' style={ { "gridTemplateRows": "fit-content(100%)" } }> */}
-            {/* <div 
-              className='h-full my-auto' 
-            >
-            </div> */}
-            <div className="size-full relative">
+        {/* TODO - Infinitely scroll through technologies used */}
+        <div className="size-full relative">
           <div className="absolute top-0 bottom-0 left-0 right-0 flex justify-center">
-                {/* <div>
-                  test
-                </div> */}
-                {/* <div className="h-full w-3/4"> */}
-
-                  <Slideshow
-                    srcArray={ imgSrcArr }
-                    hrefArray={ slideshowHrefArr }
-                    delay={ slideshowDelay }
-                    imageClassName={ slideshowImageClassName }
-                    slideshowClassName={ slideshowClassName }
-                  />
-                {/* </div> */}
-              </div>
-            </div>
-            <div className='grow w-full grid grid-cols-1 justify-items-center gap-3 overflow-y-hidden' style={{"gridTemplateRows": "fit-content(50%)"}}>
-              <div className="flex justify-center">
-                {
-                  titleHref ? 
-                    <Link
-                      href={ titleHref as Url }
-                      target="_blank"
-                      className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'
-                    >
-                      { title }
-                    </Link>
-                    :
-                    <h1 className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'>
-                      { title }
-                    </h1>
-                }
-              </div>
-              <div className='overflow-y-auto grid grid-cols-1 justify-items-center w-full'>
-                { htmlContent }
-              </div>
+            <Slideshow
+              srcArray={ imgSrcArr }
+              hrefArray={ slideshowHrefArr }
+              delay={ slideshowDelay }
+              imageClassName={ slideshowImageClassName }
+              slideshowClassName={ slideshowClassName }
+            />
+          </div>
+        </div>
+        <div className='grow w-full grid grid-cols-1 justify-items-center gap-3 overflow-y-hidden' style={{"gridTemplateRows": "fit-content(50%)"}}>
+          <div className="flex justify-center">
+            {
+              titleHref ? 
+                <Link
+                  href={ titleHref as Url }
+                  target="_blank"
+                  className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'
+                >
+                  { title }
+                </Link>
+                :
+                <h1 className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'>
+                  { title }
+                </h1>
+            }
+          </div>
+          <div className='overflow-y-auto grid grid-cols-1 justify-items-center w-full'>
+            { htmlContent }
+          </div>
         </div>
       </div>
     </>
