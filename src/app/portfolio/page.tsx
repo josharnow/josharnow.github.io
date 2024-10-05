@@ -71,7 +71,7 @@ const tabs = [
             <span>•</span><span>Worked as team lead to develop this full stack, native, & cross-platform mobile application from the ground up</span>
             <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
             <div>
-              <span>○</span><span>The apps serve as a conduit between venues and potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
+              <span>○</span><span>The apps serve as a conduit between venues & potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
               <span>○</span><span>Written using Vue & Ionic/Capacitor</span>
             </div>
             <span>•</span><span>Built a venue portal webapp for admins to control various aspects of their business within the system</span>
@@ -155,7 +155,7 @@ const tabs = [
             <span>•</span><span>Features are designed to appeal to various types of users including prospective parents, ART industry providers, & admins</span>
             <div>
               <span>○</span><span>Prospective parents, or the front-end users, benefit from being able to easily compare, save, & interact with provider data & provide public reviews in the directory</span>
-              <span>○</span><span>ART industry providers including clinics, agencies, & law firms benefit from business exposure and the ability to manage their image on the directory</span>
+              <span>○</span><span>ART industry providers including clinics, agencies, & law firms benefit from business exposure & the ability to manage their image on the directory</span>
               <span>○</span><span>Surrogacy Advisor admins benefit from being able to approve provider applications, approve modifications to provider profiles, manage memberships, configure reviews, & otherwise manage all aspects of the site from the admin portal</span>
             </div>
             <span>•</span><span>Provided the client with an extensible custom platform not reliant on services such as WordPress, giving them an edge over their competitors using prebuilt software</span>
@@ -173,35 +173,24 @@ const tabs = [
         imgSrcArr={ [""] }
         title="Open & Closed Source Contributions"
         slideshowDelay={ 5000 }
-        titleHref=''
-        slideshowHrefArr={ [""] }
-        slideshowClassName='h-1/2 rounded-lg mx-auto shadow-3xl shadow-black'
+        // titleHref=''
+        // slideshowHrefArr={ [""] }
+        slideshowClassName='!w-1/2 h-fit rounded-lg mx-auto shadow-3xl shadow-black'
         htmlContent={
           <div
             className={ cn(globalStyles.bulletGrid) }
           >
-            {/* <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile application from the ground up</span>
-            <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
+            <span>•</span><span>Contribute to closed source repositories for the benefit of teammates in my company & open source repositories for the sake of developers worldwide as often as possible</span>
+            <span>•</span><span>Closed source contributions include feature additions & bug fixes to internal company libraries</span>
             <div>
-              <span>○</span><span>The apps serve as a conduit between venues and potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
-              <span>○</span><span>Built using Vue & Ionic/Capacitor</span>
+              <span>○</span><span>Contributions such as extending a datepicker component with a time selector help to realize greater internal company efficiencies by cutting down on the time it takes to implement similar features in future projects</span>
+              <span>○</span><span>Most of these contributions are written in Python & JavaScript</span>
             </div>
-            <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
+            <span>•</span><span>Open source contributions include critical bug fixes for popular libraries used in the course of my work</span>
             <div>
-              <span>○</span><span>Built using Python/Flask</span>
+              <span>○</span><span>Some issues addressed include an app crash with a popular Google Sign-In library & a broken native mobile camera library caused by missing permissions requests on Android</span>
+              <span>○</span><span>So far these contributions have been written in Java, Swift, & Vue</span>
             </div>
-            <span>•</span><span>Managed multiple codebases that each served different roles in the larger system being built</span>
-            <span>•</span><span>Coordinated many AWS cloud services responsible for various backend features such as:</span>
-            <div>
-              <span>○</span><span>relational databases (RDS)</span>
-              <span>○</span><span>data storage (S3)</span>
-              <span>○</span><span>media compression & conversion (MediaConvert)</span>
-              <span>○</span><span>scalable computing (EC2 / Elastic Beanstalk) for the API & admin portal webapp</span>
-            </div>
-            <span>•</span><span>Published apps to the Apple App Store & Google Play Store</span>
-            <div>
-              <span>○</span><span>Maintained separate staging & production environments and facilitated new releases</span>
-            </div> */}
           </div>
         }
       />
