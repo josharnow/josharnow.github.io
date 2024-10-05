@@ -205,35 +205,28 @@ const tabs = [
         imgSrcArr={ [""] }
         title="This Website 🚀"
         slideshowDelay={ 5000 }
-        titleHref=''
-        slideshowHrefArr={ [""] }
-        slideshowClassName='h-1/2 rounded-lg mx-auto shadow-3xl shadow-black'
+        // titleHref=''
+        // slideshowHrefArr={ [""] }
+        slideshowClassName='!w-1/2 h-fit rounded-lg mx-auto shadow-3xl shadow-black'
         htmlContent={
           <div
             className={ cn(globalStyles.bulletGrid) }
           >
-            {/* <span>•</span><span>Worked as lead developer to build this full stack, native, & cross-platform mobile application from the ground up</span>
-            <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, & clubs in their area</span>
+            <span>•</span><span>Designed & created this personal website entirely on my own while applying agile methodology to keep ideas & workflow organized</span>
+            <span>•</span><span>Made extensive use of Tailwind CSS & Framer Motion to design and modify highly complex components</span>
             <div>
-              <span>○</span><span>The apps serve as a conduit between venues and potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
-              <span>○</span><span>Built using Vue & Ionic/Capacitor</span>
+              <span>○</span><span>When I wasn’t creating custom components from the ground up I built upon existing component ideas & made them my own</span>
             </div>
-            <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
+            <span>•</span><span>Used my experience to carefully balance form & function</span>
             <div>
-              <span>○</span><span>Built using Python/Flask</span>
+              <span>○</span><span>As with all of my projects, I strive to harmonize aesthetics & purpose for the ideal user experience</span>
             </div>
-            <span>•</span><span>Managed multiple codebases that each served different roles in the larger system being built</span>
-            <span>•</span><span>Coordinated many AWS cloud services responsible for various backend features such as:</span>
+            <span>•</span><span>Leveraged GitHub Projects as a project management platform to organize ideas & progress on work via a kanban board</span>
+            <span>•</span><span>Written using React/Next.js</span>
+            <span>•</span><span>Hosted on GitHub Pages</span>
             <div>
-              <span>○</span><span>relational databases (RDS)</span>
-              <span>○</span><span>data storage (S3)</span>
-              <span>○</span><span>media compression & conversion (MediaConvert)</span>
-              <span>○</span><span>scalable computing (EC2 / Elastic Beanstalk) for the API & admin portal webapp</span>
+              <span>○</span><span>Since I designed this as a static site, one of the many advantages includes being able to host at no cost with this service</span>
             </div>
-            <span>•</span><span>Published apps to the Apple App Store & Google Play Store</span>
-            <div>
-              <span>○</span><span>Maintained separate staging & production environments and facilitated new releases</span>
-            </div> */}
           </div>
         }
       />

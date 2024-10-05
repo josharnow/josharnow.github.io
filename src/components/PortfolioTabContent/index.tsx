@@ -94,7 +94,7 @@ const PortfolioTabContent = ({
               <div className="flex justify-center">
                 <Link
                   href={ titleHref ? titleHref as Url : "" }
-                  target='_blank'
+                  target={ titleHref ? "_blank" : "_self" }
                   className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'
                 >
                   { title }
