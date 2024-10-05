@@ -14,7 +14,7 @@ const renderContent: RenderContentObj = {
   2: (
     <InfoBox
       // text="This is a simple 3D demo I put together while learning React Three Fiber (R3F). Tools that I use more often can be found on my technologies page!"
-      text="This is a simple 3D demo I put together while learning React Three Fiber (R3F). Check out my portfolio to see some larger projects!"
+      text="This is a simple interactive 3D demo I put together while learning React Three Fiber (R3F). Check out my portfolio to see some larger projects!"
       link="/portfolio"
       btnText="My Portfolio"
     />

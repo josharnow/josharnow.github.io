@@ -26,7 +26,11 @@ const CareerTimelineCard = ({ content, className }: {
           <div>
             <div className="grid grid-cols-2">
               <div className="text-xs sm:text-sm md:text-base xl:text-lg flex h-fit text-white">
-                <h1>{ content.yearStart }</h1>&nbsp;–&nbsp;<h1>{ content.yearEnd ? content.yearEnd : "Present" }</h1>
+                {
+                  content.yearStart === content.yearEnd
+                  ? <h1>{ content.yearStart }</h1>
+                  : <><h1>{ content.yearStart }</h1>&nbsp;–&nbsp;<h1>{ content.yearEnd ? content.yearEnd : "Present" }</h1></>
+                }
               </div>
               <h6 className="text-xs sm:text-sm md:text-base xl:text-lg h-fit text-white" style={ { textAlign: "right" } }><i>{ content.location }</i></h6>
             </div>
@@ -37,7 +41,7 @@ const CareerTimelineCard = ({ content, className }: {
           </div>
           {/* <div className="grow text-sm sm:text-base md:text-lg xl:text-xl !overflow-y-scroll flex flex-col text-white" style={ { "flexBasis": 0, "justifyContent": "safe center", "WebkitJustifyContent": "safe center" } }> */}
           {/* NOTE - https://stackoverflow.com/a/47636238 */ }
-          <div className="grow text-sm sm:text-base md:text-lg xl:text-xl !overflow-y-scroll flex flex-col text-white" style={ { "flexBasis": 0, "margin": "0 auto" } }>
+          <div className="grow text-sm sm:text-base md:text-lg xl:text-xl overflow-y-auto flex flex-col text-white" style={ { "flexBasis": 0 } }>
             { content.bodyElement }
           </div>
         </div>

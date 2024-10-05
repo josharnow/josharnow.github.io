@@ -72,7 +72,7 @@ export default function ThreeDDemoPage() {
   return (
     <>
       {/* <Leva collapsed={true} /> */}
-      <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center text-black'>
+      <div className='absolute top-28 left-0 right-0 flex items-center justify-center text-black z-[1]'>
         {currentStage && <ThreeDDemoInfo currentStage={currentStage} />}
       </div>
       <Canvas 
