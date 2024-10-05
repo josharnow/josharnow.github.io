@@ -1,17 +1,12 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from './styles.module.scss';
 import globalStyles from '@/src/styles/globals.module.scss';
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import {
-  InfiniteMovingCards,
-  StickyScrollReveal,
   AnimatedTabs,
-  ParallaxScroll,
-  Slideshow,
   PortfolioTabContent
 } from '@/src/components';
 
@@ -19,34 +14,28 @@ import surrogacyAdvisorScreenshot1 from '@/src/assets/images/surrogacy_advisor_s
 import surrogacyAdvisorScreenshot2 from '@/src/assets/images/surrogacy_advisor_screenshot_2.png';
 import surrogacyAdvisorScreenshot3 from '@/src/assets/images/surrogacy_advisor_screenshot_3.png';
 import surrogacyAdvisorScreenshot4 from '@/src/assets/images/surrogacy_advisor_screenshot_4.png';
+import surrogacyAdvisorScreenshot5 from '@/src/assets/images/surrogacy_advisor_screenshot_5.png';
 import segPlusScreenshot1 from '@/src/assets/images/seg_plus_screenshot_1.png';
 import cyzlAppStoreScreenshot1 from '@/src/assets/images/cyzl_app_store_screenshot_1.png';
 import cyzlPlayStoreScreenshot1 from '@/src/assets/images/cyzl_play_store_screenshot_1.png';
+import cyzlScreenshot1 from '@/src/assets/images/cyzl_screenshot_1.png';
+import cyzlScreenshot2 from '@/src/assets/images/cyzl_screenshot_2.png';
+import cyzlScreenshot3 from '@/src/assets/images/cyzl_screenshot_3.png';
+import cyzlScreenshot4 from '@/src/assets/images/cyzl_screenshot_4.png';
+import contributionsScreenshot1 from '@/src/assets/images/contributions_screenshot_1.png';
+import contributionsScreenshot2 from '@/src/assets/images/contributions_screenshot_2.png';
+import personalSiteScreenshot1 from '@/src/assets/images/personal_site_screenshot_1.png';
+import personalSiteScreenshot2 from '@/src/assets/images/personal_site_screenshot_2.png';
+import personalSiteScreenshot3 from '@/src/assets/images/personal_site_screenshot_3.png';
+import personalSiteScreenshot4 from '@/src/assets/images/personal_site_screenshot_4.png';
+import personalSiteScreenshot5 from '@/src/assets/images/personal_site_screenshot_5.png';
+import personalSiteScreenshot6 from '@/src/assets/images/personal_site_screenshot_6.png';
+import personalSiteScreenshot7 from '@/src/assets/images/personal_site_screenshot_7.png';
 
-type Content = {
-  title: string;
-  description: string;
-  content?: React.ReactNode | any;
-}
-type ContentArrContainer = {
-  [key: string]: Content[];
-}
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
-const Logo = (src: any) => {
-  return (
-    <Image
-      src={ src as string }
-      alt="technology-logo"
-      width={ 1000 }
-      height={ 1000 }
-    // className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
-    />
-  );
-};
 
 
 // TODO - Get images for each project
@@ -58,7 +47,7 @@ const tabs = [
     content: (
       <PortfolioTabContent
         // imgSrcArr={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1] }
-        imgSrcArr={ [cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1] }
+        imgSrcArr={ [cyzlScreenshot1, cyzlScreenshot2, cyzlScreenshot3, cyzlScreenshot4,cyzlAppStoreScreenshot1, cyzlPlayStoreScreenshot1] }
         title="Cyzl"
         slideshowDelay={ 5000 }
         titleHref='https://apps.apple.com/us/app/cyzl/id6448448669'
@@ -97,18 +86,14 @@ const tabs = [
   },
   {
     title: "Sales Empowerment Group",
-    // title: "Sales Empowerment Group Plus",
-
     value: "seg",
     indexOrder: 1,
     content: (
       <PortfolioTabContent
         imgSrcArr={ [segPlusScreenshot1] }
-
         title="Sales Empowerment Group Plus (SEG+)"
         slideshowDelay={ 5000 }
         titleHref='https://salesempowermentgroup.com'
-
         // slideshowHrefArr={ ["https://apps.apple.com/us/app/cyzl/id6448448669", "https://play.google.com/store/apps/details?id=app.cyzl.cyzlmobile"] }
         slideshowClassName='!w-1/2 h-fit rounded-lg mx-auto shadow-3xl shadow-black'
         htmlContent={
@@ -137,7 +122,7 @@ const tabs = [
     indexOrder: 2,
     content: (
       <PortfolioTabContent
-        imgSrcArr={ [surrogacyAdvisorScreenshot1, surrogacyAdvisorScreenshot2, surrogacyAdvisorScreenshot3, surrogacyAdvisorScreenshot4] }
+        imgSrcArr={ [surrogacyAdvisorScreenshot1, surrogacyAdvisorScreenshot2, surrogacyAdvisorScreenshot3, surrogacyAdvisorScreenshot4, surrogacyAdvisorScreenshot5] }
         title="Surrogacy Advisor"
         slideshowDelay={ 5000 }
         titleHref='https://www.surrogacyadvisor.org'
@@ -170,7 +155,7 @@ const tabs = [
     indexOrder: 3,
     content: (
       <PortfolioTabContent
-        imgSrcArr={ [""] }
+        imgSrcArr={ [contributionsScreenshot1, contributionsScreenshot2] }
         title="Open & Closed Source Contributions"
         slideshowDelay={ 5000 }
         // titleHref=''
@@ -202,7 +187,7 @@ const tabs = [
     indexOrder: 4,
     content: (
       <PortfolioTabContent
-        imgSrcArr={ [""] }
+        imgSrcArr={ [personalSiteScreenshot1, personalSiteScreenshot2, personalSiteScreenshot3, personalSiteScreenshot4, personalSiteScreenshot5, personalSiteScreenshot6, personalSiteScreenshot7] }
         title="This Website 🚀"
         slideshowDelay={ 5000 }
         // titleHref=''

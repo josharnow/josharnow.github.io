@@ -92,13 +92,20 @@ const PortfolioTabContent = ({
             </div>
             <div className='grow w-full grid grid-cols-1 justify-items-center gap-3 overflow-y-hidden' style={{"gridTemplateRows": "fit-content(50%)"}}>
               <div className="flex justify-center">
-                <Link
-                  href={ titleHref ? titleHref as Url : "" }
-                  target={ titleHref ? "_blank" : "_self" }
-                  className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'
-                >
-                  { title }
-                </Link>
+                {
+                  titleHref ? 
+                    <Link
+                      href={ titleHref as Url }
+                      target="_blank"
+                      className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'
+                    >
+                      { title }
+                    </Link>
+                    :
+                    <h1 className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'>
+                      { title }
+                    </h1>
+                }
               </div>
               <div className='overflow-y-auto grid grid-cols-1 justify-items-center w-full'>
                 { htmlContent }
