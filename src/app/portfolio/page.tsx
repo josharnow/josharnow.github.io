@@ -209,6 +209,7 @@ const tabs = [
             <span>•</span><span>Written using React/Next.js</span>
             <span>•</span><span>Hosted on GitHub Pages</span>
             <div>
+              <span>○</span><span>Made use of CI/CD automation via GitHub Actions</span>
               <span>○</span><span>Since I designed this as a static site, one of the many advantages includes being able to host at no cost with this service</span>
             </div>
           </div>
