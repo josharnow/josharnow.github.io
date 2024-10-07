@@ -196,7 +196,7 @@ const tabs = [
           <div
             className={ cn(globalStyles.bulletGrid) }
           >
-            <span>•</span><span>Designed & created this personal website entirely on my own while applying agile methodology to keep ideas & workflow organized</span>
+            <span>•</span><span>Independently designed & created this personal website while applying agile methodology to keep ideas & workflow organized</span>
             <span>•</span><span>Made extensive use of Tailwind CSS & Framer Motion to design and modify highly complex components</span>
             <div>
               <span>○</span><span>When not creating custom components from the ground up I built upon existing component ideas & made them my own</span>
