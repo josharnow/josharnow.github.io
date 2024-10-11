@@ -37,7 +37,7 @@ const AboutPagePortfolio = forwardRef(function AboutPagePortfolio(props, ref: Re
               className="bg-slate-700 !text-white border-slate-800 font-medium z-10 text-3xl sm:text-lg md:text-xl w-fit h-fit px-4 py-2 text-balance"
               duration={ 5000.0 }
             >
-              <Link href="/portfolio">My Portfolio</Link>
+              <Link href="/portfolio">My Portfolio Sample</Link>
             </MovingBorderButton>
             <p className="mt-4 sm:mt-2">I help make them a <span className="text-blue-500 font-medium">reality</span></p>
           </div>

@@ -28,7 +28,7 @@ const Navigation= () => {
       current: `/${segment}` === "/career-and-education-timeline" ? true : false,
     },
     {
-      name: "Portfolio",
+      name: "Portfolio Sample",
       href: "/portfolio",
       icon: RocketLaunchIcon,
       current: `/${segment}` === "/portfolio" ? true : false,
