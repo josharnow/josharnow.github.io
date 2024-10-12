@@ -101,7 +101,7 @@ export default async function RootLayout({
         <div className="flex flex-col sm:flex-row mx-auto w-full h-full">
           <Navigation />
           {/* NOTE - This margin is necessary due to the fixed navbar at the top when the screen is small */}
-          <main className={ classNames(styles.main, "sm:grow relative top-20 sm:top-0")}>
+          <main className={ classNames(styles.main, "sm:grow relative top-20 sm:top-0 bg-black")}>
             {children}
           </main>
         </div>

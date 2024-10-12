@@ -34,7 +34,7 @@ const EducationTimelineCard = ({ content, className }: {
             </div>
             <div className="grid grid-cols-2">
               <span className="font-medium text-sm sm:text-base md:text-lg xl:text-xl text-blue-500">{ content.institution }</span>
-              <span className="font-medium text-sm sm:text-base md:text-lg xl:text-xl" style={ { textAlign: "right" } }>{ content.GPA ? `GPA: ${content.GPA}` : "" }</span>
+              <span className="font-medium text-sm sm:text-base md:text-lg xl:text-xl text-white" style={ { textAlign: "right" } }>{ content.GPA ? `GPA: ${content.GPA}` : "" }</span>
             </div>
             { content.degrees.map((degreeElement, index) => (
               <div className="grid grid-cols-1 font-medium text-sm sm:text-base md:text-lg xl:text-xl text-white" key={ index }>

@@ -85,7 +85,7 @@ const ContactModal = ({
               {/* <div className="grid grid-cols-3 gap-4" style={{ flex:"5px 5px 5px"}}> */}
               {/* <div className="grid grid-cols-3 gap-4 h-5"> */}
                 { contentArr?.map((content, idx) => (
-                  <div key={ "content" + idx } className="flex flex-col gap-y-2">
+                  <div key={ "content" + idx } className="flex flex-col gap-y-2 text-white">
                     <ContactIcon content={ content } />
                     <Link className={ cn(styles.contactMethodText, " text-center w-fit self-center p-2 rounded-lg shadow-3xl shadow-slate-700 bg-slate-700 hover:shadow-blue-500 hover:bg-blue-500 hover:bg-opacity-15 flex flex-col text-[.5rem] sm:text-base")}
                     style={ { transition: "box-shadow 1s ease 0s, background 1s ease 0s, opacity 1s ease 0s, color 1s ease 1s allow-discrete" } }
