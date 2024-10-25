@@ -60,7 +60,7 @@ const tabs = [
             <span>•</span><span>Created iPhone & Android apps designed to connect users with restaurants, bars, and clubs in their area</span>
             <div>
               <span>○</span><span>The apps serve as a conduit between venues & potential customers, providing users with a platform to share & interact with other user-generated content while allowing venues to use collected data to directly offer users targeted promotions & relevant notifications</span>
-              <span>○</span><span>Written using Vue & Ionic/Capacitor</span>
+              <span>○</span><span>Written using Vue & Ionic/Capacitor (TypeScript)</span>
             </div>
             <span>•</span><span>Built a venue portal webapp for admins to control various aspects of their business within the system</span>
             <div>
@@ -206,7 +206,7 @@ const tabs = [
               <span>○</span><span>As with all of my projects, I strive to harmonize aesthetics & purpose for the ideal user experience</span>
             </div>
             <span>•</span><span>Leveraged GitHub Projects as a project management platform to organize ideas & progress on work via a kanban board</span>
-            <span>•</span><span>Written using React/Next.js</span>
+            <span>•</span><span>Written using React/Next.js (TypeScript)</span>
             <span>•</span><span>Hosted on GitHub Pages</span>
             <div>
               <span>○</span><span>Made use of CI/CD automation via GitHub Actions</span>
