@@ -104,10 +104,6 @@ const tabs = [
               <span>○</span><span>The software is primarily geared towards the client’s business development representatives (BDRs) & aims to realize greater business efficiencies, increase BDR retention, and improve employee engagement</span>
               <span>○</span><span>Written using Python/Flask</span>
             </div>
-            <span>•</span><span>Created a venue portal webapp for admins to control various aspects of their business within the system</span>
-            <div>
-              <span>○</span><span>Built using Python/Flask</span>
-            </div>
             <span>•</span><span> Enhanced the client’s portfolio with leverageable intellectual property & technology products in the form of the SEG+ software</span>
             <span>•</span><span>Created specialized tools such as a client forms generator & playbook builder to improve the workflow of the client’s sales teams, track their progress, manage their leads, and communicate with each other</span>
           </div>
