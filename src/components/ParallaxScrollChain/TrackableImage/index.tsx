@@ -16,7 +16,6 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   src: string;
   className: string;
   alt: string;
-  ref: React.ForwardedRef<HTMLDivElement>;
   id: string;
   category?: string;
 };
