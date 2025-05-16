@@ -131,7 +131,8 @@ const Timeline = ({
                       "absolute cursor-pointer flex flex-col", 
                       (i % 2 === 0) ? "top-4" : "bottom-3",
                       (year === selectedYear) ? styles.selectedYear : styles.unselectedYear,
-                      (year === selectedYear) ? "text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50 text-base sm:text-2xl" : "text-white text-xs sm:text-xl font-medium",
+                      (year === selectedYear) ? "text-black font-medium mt-1 p-1 shadow-3xl rounded-md text-base sm:text-2xl" : "text-white text-xs sm:text-xl font-medium",
+                      (year === currentYear && year === selectedYear) ? "mr-3" : "", // Prevents the text from being cut off when "Present" is selected
                       (timelineYears.includes(year)) ? "" : "hidden"
                     )} onClick={ (e) => handleYearClick(e, year, i) }>
                       { 

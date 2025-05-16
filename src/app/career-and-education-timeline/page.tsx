@@ -218,22 +218,22 @@ export default function CareerAndEducationTimelinePage() {
       isPresent: true,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Independently created/published native iOS & Android applications & designed a server & databases to integrate with</span>
+          <span>•</span><span>Independently create/publish native iOS & Android applications & design servers & databases to integrate with</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Utilized TypeScript with the Vue.js Composition API to create the end user frontend, Ionic/Capacitor to build native mobile apps, Python/Flask to build the server & admin portal, and MySQL/MariaDB to handle the database</span>
+          <span>•</span><span>Utilize TypeScript with the Vue.js Composition API to create the end user frontend, Ionic/Capacitor to build native mobile apps, Python/Flask to build the server, and MySQL/MariaDB to handle the database</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Heavily used Mapbox GL JS & GeoJSON data to render maps & ChartJS to provide analytics</span>
+          <span>•</span><span>Heavily use Mapbox GL JS & GeoJSON data to render maps & ChartJS to provide analytics</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Introduced new developers to the project & led the development process while utilizing scrum/agile methodologies, performing code reviews, and managing the project timeline</span>
+          <span>•</span><span>Introduce new developers to projects & lead the development process while utilizing scrum/agile methodologies, performing code reviews, and managing the project timeline</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Exceeded client expectations after former developers could not satisfy them which led to contract renewals with our company at higher rates</span>
+          <span>•</span><span>Exceed client expectations and achieve contract renewals with our company at higher rates, even after former developers could not satisfy them</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Contributed to popular open source libraries such as Capacitor as I improved them in the course of work</span>
+          <span>•</span><span>Contribute to popular open source libraries such as Capacitor as I improve them in the course of work</span>
         </div>
       </div>,
       institution: "Two Fish Creative, Inc.",
@@ -241,6 +241,28 @@ export default function CareerAndEducationTimelinePage() {
       type: "career",
       position: "Team Lead",
       supersedesOtherPositions: true,
+    },
+    {
+      yearStart: 2025,
+      isPresent: true,
+      // yearEnd: 2026,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div className={ cn(globalStyles.bulletGrid) }>
+          <span>•</span><span>Formally developing skills and techniques related to computer science and artificial intelligence through a rigorous academic curriculum</span>
+          <span>•</span><span>Combining active, in-the-field experience with academic concepts to achieve a deep understanding of the course material as well as ways to optimize my creations at work</span>
+          <span>•</span><span>Pursuing an optional thesis program, taking the opportunity to perform research in the field of artificial intelligence while focusing on a topic I am passionate about</span>
+          <div>
+            <span>○</span><span>The thesis topic combines my longstanding interest in medicine with AI, examining the applications of the technology within the field of oncology</span>
+            <span>○</span><span>AI has the potential to be beneficial or detrimental to society depending on its implementation and the intentions of its creators, but design pitfalls can be avoided with greater knowledge</span>
+            <span>○</span><span>Independent research allows me to reach a level of mastery in the topic that would otherwise be difficult to attain</span>
+          </div>
+        </div>
+      </div>,
+      institution: "Pace University",
+      location: "Remote (Part-Time)",
+      type: "education",
+      degrees: [(<span key={ 0 }>Master of Science <span className='font-normal'>in</span> Computer Science</span>), (<span key={ 1 }><span className='font-normal'>[Concentration: </span>Artificial Intelligence<span className='font-normal'>]</span></span>)],
+      GPA: 4.0,
     },
   ]
 

@@ -97,7 +97,7 @@ export default async function RootLayout({
   
   return (
     <html lang="en">
-      <body className={ classNames(ibmPlexSans.className, "h-screen") }>
+      <body className={ classNames(ibmPlexSans.className, "h-screen w-screen") }>
         <div className="flex flex-col sm:flex-row mx-auto w-full h-full">
           <Navigation />
           {/* NOTE - This margin is necessary due to the fixed navbar at the top when the screen is small */}
