@@ -55,6 +55,8 @@ import vsCodeLogo from "@/src/assets/icons/vscode.svg";
 import vueJsLogo from "@/src/assets/icons/vue.svg";
 import web3JsLogo from "@/src/assets/icons/web3js.svg";
 import xcodeLogo from "@/src/assets/icons/xcode.svg";
+import cLogo from '@/src/assets/icons/c++.svg';
+import pytestLogo from '@/src/assets/icons/pytest.svg';
 
 
 
@@ -107,6 +109,23 @@ const contentArrContainer: ContentArrContainer = {
           <Image
             alt="technology-logo"
             src={ javaLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "C/C++",
+      imageSrc: cLogo,
+      category: "Programming Languages",
+      url: "https://devdocs.io/cpp/",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ cLogo }
             className="object-cover w-auto h-full"
           />
         </div>
@@ -519,6 +538,23 @@ const contentArrContainer: ContentArrContainer = {
           <Image
             alt="technology-logo"
             src={ flaskLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Pytest",
+      imageSrc: pytestLogo,
+      category: "Frameworks",
+      url: "https://docs.pytest.org/en/stable/",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ pytestLogo }
             className="object-cover w-auto h-full"
           />
         </div>
