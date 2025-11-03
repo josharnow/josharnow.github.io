@@ -17,7 +17,7 @@ const colorMap: {[key: string]: any} = {
   "Frameworks": "yellow-500",
   "Databases / ORMs / ODMs": "indigo-500",
   "Software": "slate-500",
-  "Cloud Computing / CI / CD": "orange-500",
+  "Cloud Computing, Containerization, & CI/CD": "orange-500",
   "APIs": "red-500",
 };
 

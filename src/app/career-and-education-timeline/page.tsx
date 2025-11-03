@@ -259,7 +259,7 @@ export default function CareerAndEducationTimelinePage() {
         </div>
       </div>,
       institution: "Pace University",
-      location: "Remote (Part-Time)",
+      location: "New York, NY (Part-Time)",
       type: "education",
       degrees: [(<span key={ 0 }>Master of Science <span className='font-normal'>in</span> Computer Science</span>), (<span key={ 1 }><span className='font-normal'>[Concentration: </span>Artificial Intelligence<span className='font-normal'>]</span></span>)],
       GPA: 4.0,

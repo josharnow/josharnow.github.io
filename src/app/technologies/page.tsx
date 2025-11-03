@@ -28,6 +28,7 @@ import javaLogo from "@/src/assets/icons/java.svg";
 import javaSpringLogo from "@/src/assets/icons/spring.svg";
 import jiraLogo from "@/src/assets/icons/jira.svg";
 import jQueryLogo from "@/src/assets/icons/jquery.svg";
+import kubernetesLogo from "@/src/assets/icons/kubernetes.svg";
 import mapboxLogo from "@/src/assets/icons/mapbox.svg";
 import mariaDbLogo from "@/src/assets/icons/mariadb.svg";
 import mongoDbLogo from "@/src/assets/icons/mongodb.svg";
@@ -40,10 +41,12 @@ import piniaLogo from "@/src/assets/icons/pinia.svg";
 import postmanLogo from "@/src/assets/icons/postman.svg";
 import pythonLogo from "@/src/assets/icons/python.svg";
 import reactLogo from "@/src/assets/icons/react.svg";
+import pyTorchLogo from "@/src/assets/icons/pytorch.svg";
 import reactNativeLogo from "@/src/assets/icons/reactnative.svg";
 import remixLogo from "@/src/assets/icons/remix.svg";
 import sendgridLogo from "@/src/assets/icons/sendgrid.svg";
 import solidityLogo from "@/src/assets/icons/solidity.svg";
+import slurmLogo from "@/src/assets/icons/slurm.svg";
 import sqlLogo from "@/src/assets/icons/sql.svg";
 import sqlAlchemyLogo from "@/src/assets/icons/sqlalchemy.svg";
 import swiperJsLogo from "@/src/assets/icons/swiperjs.svg";
@@ -213,6 +216,23 @@ const contentArrContainer: ContentArrContainer = {
           <Image
             alt="technology-logo"
             src={ reactLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "PyTorch",
+      imageSrc: pyTorchLogo,
+      category: "Libraries",
+      url: "https://pytorch.org/",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ pyTorchLogo }
             className="object-cover w-auto h-full"
           />
         </div>
@@ -735,23 +755,6 @@ const contentArrContainer: ContentArrContainer = {
       ),
     },
     {
-      title: "Docker",
-      imageSrc: dockerLogo,
-      category: "Software",
-      url: "https://www.docker.com/",
-      description:
-        "",
-      content: (
-        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
-          <Image
-            alt="technology-logo"
-            src={ dockerLogo }
-            className="object-cover w-auto h-full"
-          />
-        </div>
-      ),
-    },
-    {
       title: "Java Spring",
       imageSrc: javaSpringLogo,
       category: "Software",
@@ -875,7 +878,7 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "AWS - Elastic Beanstalk",
       imageSrc: awsLogo,
-      category: "Cloud Computing / CI / CD",
+      category: "Cloud Computing, Containerization, & CI/CD",
       url: "https://aws.amazon.com/elasticbeanstalk/",
       description:
         "",
@@ -892,7 +895,7 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "AWS - EC2",
       imageSrc: awsLogo,
-      category: "Cloud Computing / CI / CD",
+      category: "Cloud Computing, Containerization, & CI/CD",
       url: "https://aws.amazon.com/ec2/",
       description:
         "",
@@ -909,7 +912,7 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "AWS - S3",
       imageSrc: awsLogo,
-      category: "Cloud Computing / CI / CD",
+      category: "Cloud Computing, Containerization, & CI/CD",
       url: "https://aws.amazon.com/s3/",
       description:
         "",
@@ -926,7 +929,7 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "AWS - RDS",
       imageSrc: awsLogo,
-      category: "Cloud Computing / CI / CD",
+      category: "Cloud Computing, Containerization, & CI/CD",
       url: "https://aws.amazon.com/rds/",
       description:
         "",
@@ -943,7 +946,7 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "AWS - CloudFront",
       imageSrc: awsLogo,
-      category: "Cloud Computing / CI / CD",
+      category: "Cloud Computing, Containerization, & CI/CD",
       url: "https://aws.amazon.com/cloudfront/",
       description:
         "",
@@ -960,7 +963,7 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "AWS - Lambda",
       imageSrc: awsLogo,
-      category: "Cloud Computing / CI / CD",
+      category: "Cloud Computing, Containerization, & CI/CD",
       url: "https://aws.amazon.com/lambda/",
       description:
         "",
@@ -977,7 +980,7 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "AWS - MediaConvert",
       imageSrc: awsLogo,
-      category: "Cloud Computing / CI / CD",
+      category: "Cloud Computing, Containerization, & CI/CD",
       url: "https://aws.amazon.com/mediaconvert/",
       description:
         "",
@@ -992,9 +995,60 @@ const contentArrContainer: ContentArrContainer = {
       ),
     },
     {
+      title: "Docker",
+      imageSrc: dockerLogo,
+      category: "Cloud Computing, Containerization, & CI/CD",
+      url: "https://www.docker.com/",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+                    <Image
+            alt="technology-logo"
+            src={ dockerLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Kubernetes",
+      imageSrc: kubernetesLogo,
+      category: "Cloud Computing, Containerization, & CI/CD",
+      url: "https://kubernetes.io/",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+                    <Image
+            alt="technology-logo"
+            src={ kubernetesLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Slurm",
+      imageSrc: slurmLogo,
+      category: "Cloud Computing, Containerization, & CI/CD",
+      url: "https://slurm.schedmd.com/",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+                    <Image
+            alt="technology-logo"
+            src={ slurmLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
       title: "Cloudflare",
       imageSrc: cloudflareLogo,
-      category: "Cloud Computing / CI / CD",
+      category: "Cloud Computing, Containerization, & CI/CD",
       url: "https://www.cloudflare.com/",
       description:
         "",
@@ -1011,7 +1065,7 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "GitHub Actions",
       imageSrc: githubActionsLogo,
-      category: "Cloud Computing / CI / CD",
+      category: "Cloud Computing, Containerization, & CI/CD",
       url: "https://docs.github.com/en/actions",
       description:
         "",
@@ -1028,7 +1082,7 @@ const contentArrContainer: ContentArrContainer = {
     {
       title: "Xcode Cloud",
       imageSrc: xcodeLogo,
-      category: "Cloud Computing / CI / CD",
+      category: "Cloud Computing, Containerization, & CI/CD",
       url: "https://developer.apple.com/xcode/cloud/",
       description:
         "",
