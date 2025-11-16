@@ -802,7 +802,7 @@ const contentArrContainer: ContentArrContainer = {
         <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
           <Image
             alt="technology-logo"
-            src={ googleGLogo }
+            src={ figmaLogo }
             className="object-cover w-auto h-full"
           />
         </div>
