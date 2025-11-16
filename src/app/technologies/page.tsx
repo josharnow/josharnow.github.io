@@ -14,6 +14,7 @@ import cssLogo from "@/src/assets/icons/css.svg";
 import dockerLogo from "@/src/assets/icons/docker.svg";
 import ethersJsLogo from "@/src/assets/icons/ethersjs.svg";
 import expressJsLogo from "@/src/assets/icons/expressjs.svg";
+import figmaLogo from "@/src/assets/icons/figma.svg";
 import firebaseLogo from "@/src/assets/icons/firebase.svg";
 import flaskLogo from "@/src/assets/icons/flask.svg";
 import framerLogo from "@/src/assets/icons/framer.svg";
@@ -47,10 +48,12 @@ import remixLogo from "@/src/assets/icons/remix.svg";
 import sendgridLogo from "@/src/assets/icons/sendgrid.svg";
 import solidityLogo from "@/src/assets/icons/solidity.svg";
 import slurmLogo from "@/src/assets/icons/slurm.svg";
+import swiftLogo from "@/src/assets/icons/swift.svg";
 import sqlLogo from "@/src/assets/icons/sql.svg";
 import sqlAlchemyLogo from "@/src/assets/icons/sqlalchemy.svg";
 import swiperJsLogo from "@/src/assets/icons/swiperjs.svg";
 import tailwindCssLogo from "@/src/assets/icons/tailwindcss.svg";
+import threeJSLogo from "@/src/assets/icons/threejs.svg";
 import twilioLogo from "@/src/assets/icons/twilio.svg";
 import typescriptLogo from "@/src/assets/icons/typescript.svg";
 import videoJsLogo from "@/src/assets/icons/videojs.svg";
@@ -129,6 +132,23 @@ const contentArrContainer: ContentArrContainer = {
           <Image
             alt="technology-logo"
             src={ cLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Swift",
+      imageSrc: swiftLogo,
+      category: "Programming Languages",
+      url: "https://swift.org/",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ swiftLogo }
             className="object-cover w-auto h-full"
           />
         </div>
@@ -369,6 +389,23 @@ const contentArrContainer: ContentArrContainer = {
           <Image
             alt="technology-logo"
             src={ axiosLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Three.js",
+      imageSrc: threeJSLogo,
+      category: "Libraries",
+      url: "https://threejs.org/",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ threeJSLogo }
             className="object-cover w-auto h-full"
           />
         </div>
@@ -742,6 +779,23 @@ const contentArrContainer: ContentArrContainer = {
       imageSrc: googleGLogo,
       category: "Software",
       url: "https://developer.android.com/studio",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ googleGLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Figma",
+      imageSrc: figmaLogo,
+      category: "Software",
+      url: "https://www.figma.com/",
       description:
         "",
       content: (
