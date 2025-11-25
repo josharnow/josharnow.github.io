@@ -218,19 +218,23 @@ export default function CareerAndEducationTimelinePage() {
       isPresent: true,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Independently create/publish native iOS & Android applications & design servers & databases to integrate with</span>
+          <span>•</span><span>Lead cross-functional development teams, manage the full software development life cycle (SDLC), and collaborate with product managers and UX/UI designers to deliver complex, high-quality client projects</span>
+          <div>
+            <span>○</span><span>Implement Agile/Scrum processes, perform rigorous code reviews, and manage project timelines to ensure on-time delivery</span>
+            <span>○</span><span>Architect and build full-stack platforms for clients using TypeScript, React, Python/Flask, MySQL/MariaDB, and AWS</span>
+            <span>○</span><span>Create and independently publish native iOS and Android applications and design server/database integrations</span>
+            <span>○</span><span>Migrate monolithic legacy platforms to modern service-oriented architectures (microservices) utilizing Docker/Kubernetes</span>
+            <span>○</span><span>Ensure high-quality, scalable software components by managing CI/CD pipelines and writing unit and integration tests</span>
+          </div>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Utilize TypeScript with the Vue.js Composition API to create the end user frontend, Ionic/Capacitor to build native mobile apps, Python/Flask to build the server, and MySQL/MariaDB to handle the database</span>
+          <span>•</span><span>Developed a new operational CRM for a major client to replace an inefficient legacy system. The new platform is projected to generate $4.8 million in new revenue from reclaimed sales time and save $672,000 in annual operational costs</span>
+          <div>
+            <span>○</span><span>Managed complex feature development and scope pivots, including architecting a custom inventory module from scratch, implementing a sales commission automation engine, and building a multi-stop long-distance dispatching system</span>
+          </div>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Heavily use Mapbox GL JS & GeoJSON data to render maps & ChartJS to provide analytics</span>
-        </div>
-        <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Introduce new developers to projects & lead the development process while utilizing scrum/agile methodologies, performing code reviews, and managing the project timeline</span>
-        </div>
-        <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Exceed client expectations and achieve contract renewals with our company at higher rates, even after former developers could not satisfy them</span>
+          <span>•</span><span>Regularly exceed client expectations, securing contract renewals at higher rates often by revitalizing stalled projects and delivering critical features that previous teams could not</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
           <span>•</span><span>Contribute to popular open source libraries such as Capacitor as I improve them in the course of work</span>
