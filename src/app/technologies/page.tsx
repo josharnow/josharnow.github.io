@@ -20,6 +20,7 @@ import flaskLogo from "@/src/assets/icons/flask.svg";
 import framerLogo from "@/src/assets/icons/framer.svg";
 import gitLogo from "@/src/assets/icons/git.svg";
 import githubActionsLogo from "@/src/assets/icons/githubactions.svg";
+import goLogo from "@/src/assets/icons/go.svg";
 import googleGLogo from "@/src/assets/icons/googleg.svg";
 import googleMapsLogo from "@/src/assets/icons/googlemaps.svg";
 import googlePlayConsoleLogo from "@/src/assets/icons/googleplay.svg";
@@ -149,6 +150,23 @@ const contentArrContainer: ContentArrContainer = {
           <Image
             alt="technology-logo"
             src={ swiftLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Go",
+      imageSrc: goLogo,
+      category: "Programming Languages",
+      url: "https://go.dev/",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ goLogo }
             className="object-cover w-auto h-full"
           />
         </div>
