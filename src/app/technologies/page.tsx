@@ -42,6 +42,7 @@ import pandasLogo from "@/src/assets/icons/pandas.svg";
 import piniaLogo from "@/src/assets/icons/pinia.svg";
 import postmanLogo from "@/src/assets/icons/postman.svg";
 import pythonLogo from "@/src/assets/icons/python.svg";
+import postgresqlLogo from "@/src/assets/icons/postgresql.svg";
 import reactLogo from "@/src/assets/icons/react.svg";
 import pyTorchLogo from "@/src/assets/icons/pytorch.svg";
 import reactNativeLogo from "@/src/assets/icons/reactnative.svg";
@@ -654,6 +655,23 @@ const contentArrContainer: ContentArrContainer = {
     },
   ],
   databases_orms: [
+    {
+      title: "PostgreSQL",
+      imageSrc: postgresqlLogo,
+      category: "Databases / ORMs / ODMs",
+      url: "https://www.postgresql.org/",
+      description:
+        "",
+      content: (
+        <div className="size-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white shadow-3xl p-2">
+          <Image
+            alt="technology-logo"
+            src={ postgresqlLogo }
+            className="object-cover w-auto h-full"
+          />
+        </div>
+      ),
+    },
     {
       title: "MySQL",
       imageSrc: mySqlLogo,
