@@ -210,21 +210,21 @@ export default function CareerAndEducationTimelinePage() {
       institution: "Two Fish Creative, Inc.",
       location: "W. Palm Beach, FL / Remote (Hybrid)",
       type: "career",
-      position: "Developer",
+      position: "Software Engineer",
     },
     {
       yearStart: 2023,
-      // yearEnd: 2024,
-      isPresent: true,
+      yearEnd: 2025,
+      isPresent: false,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Lead cross-functional development teams, manage the full software development life cycle (SDLC), and collaborate with product managers and UX/UI designers to deliver complex, high-quality client projects</span>
+          <span>•</span><span>Led cross-functional development teams, managed the full software development life cycle (SDLC), and collaborated with product managers and UX/UI designers to deliver complex, high-quality client projects</span>
           <div>
-            <span>○</span><span>Implement Agile/Scrum processes, perform rigorous code reviews, and manage project timelines to ensure on-time delivery</span>
-            <span>○</span><span>Architect and build full-stack platforms for clients using TypeScript, React, Python/Flask, MySQL/MariaDB, and AWS</span>
-            <span>○</span><span>Create and independently publish native iOS and Android applications and design server/database integrations</span>
-            <span>○</span><span>Migrate monolithic legacy platforms to modern service-oriented architectures (microservices) utilizing Docker/Kubernetes</span>
-            <span>○</span><span>Ensure high-quality, scalable software components by managing CI/CD pipelines and writing unit and integration tests</span>
+            <span>○</span><span>Implemented Agile/Scrum processes, performed rigorous code reviews, and managed timelines for timely feature delivery</span>
+            <span>○</span><span>Architected and built full-stack platforms for clients using TypeScript, React, Python/Flask, MySQL/MariaDB, and AWS</span>
+            <span>○</span><span>Created and independently published native iOS and Android applications and designed server/database integrations</span>
+            <span>○</span><span>Migrated monolithic legacy platforms to modern service-oriented architectures (microservices) utilizing Docker/Kubernetes</span>
+            <span>○</span><span>Ensured high-quality, scalable software components by managing CI/CD pipelines and writing unit and integration tests</span>
           </div>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
@@ -234,16 +234,38 @@ export default function CareerAndEducationTimelinePage() {
           </div>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Regularly exceed client expectations, securing contract renewals at higher rates often by revitalizing stalled projects and delivering critical features that previous teams could not</span>
+          <span>•</span><span>Regularly exceeded client expectations, securing contract renewals at higher rates often by revitalizing stalled projects and delivering critical features that previous teams could not</span>
         </div>
         <div className={ cn(globalStyles.bulletGrid) }>
-          <span>•</span><span>Contribute to popular open source libraries such as Capacitor as I improve them in the course of work</span>
+          <span>•</span><span>Contributed to popular open source libraries such as Capacitor as I improved them in the course of work</span>
         </div>
       </div>,
       institution: "Two Fish Creative, Inc.",
       location: "W. Palm Beach, FL / Remote (Hybrid)",
       type: "career",
       position: "Team Lead",
+    },
+    {
+      yearStart: 2025,
+      // yearEnd: 2024,
+      isPresent: true,
+      bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
+        <div className={ cn(globalStyles.bulletGrid) }>
+          <span>•</span><span>Create a novel, full-stack, and multi-platform application offering intuitive recipe creation, user experience, and sharing</span>
+          <div>
+            <span>○</span><span>Leverage Apple’s Foundation Models to develop a powerful AI assistant serving home cooks and culinary enthusiasts</span>
+            <span>○</span><span>Design and implement a seamless user experience across platforms using Swift, Kotlin, React, Go, and PostgreSQL</span>
+            <span>○</span><span>Integrate millions of recipes via extensive web scraping to solve the cold start problem and provide instant value to users</span>
+          </div>
+        </div>
+        <div className={ cn(globalStyles.bulletGrid) }>
+          <span>•</span><span>Build responsive e-commerce platforms in React for clients determined to expand their digital presence and drive online sales</span>
+        </div>
+      </div>,
+      institution: "Lumavant, LLC",
+      location: "New York & Florida / Remote",
+      type: "career",
+      position: "Founder & CEO",
       supersedesOtherPositions: true,
     },
     {
