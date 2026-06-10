@@ -102,8 +102,8 @@ export default async function RootLayout({
           <Navigation />
           {/* NOTE - This margin is necessary due to the fixed navbar at the top when the screen is small */}
           <main 
-            className={ classNames(styles.main, "relative top-20 sm:top-0 sm:grow bg-black")}
-            style={{ marginLeft: 'var(--sidebar-width, 0px)' }}
+            className={ classNames(styles.main, "relative top-20 sm:top-0 sm:grow bg-black ")}
+            style={{ marginLeft: 'var(--sidebar-width, 0px)', maxWidth: 'calc(100vw - var(--sidebar-width, 0px))' }}
           >
             {children}
           </main>

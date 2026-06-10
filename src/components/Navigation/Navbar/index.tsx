@@ -25,16 +25,37 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
         >
           <div className="flex justify-between items-center h-full w-full px-4 py-2">
             <div className="flex gap-x-4">
-              <ContactModal />
+              <ContactModal 
+                triggerElement={ (
+                  <>
+                    <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500 text-xs xs:text-base flex items-center">
+                      🙋‍♂️ Contact Me
+                    </span>
+                    <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
+                      📇
+                    </div>
+                  </>) }
+              />
               <Link 
                 className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit group/resume-btn" 
                 href="/resume"
               >
-                <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500">
+                <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500 text-xs xs:text-base flex items-center">
                   📄 Résumé
                 </span>
                 <div className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
                   📈
+                </div>
+              </Link>
+              <Link
+                className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit group/resume-btn"
+                href="/masters-thesis"
+              >
+                <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500 text-xs xs:text-base flex items-center">
+                  🎓 Master's Thesis
+                </span>
+                <div className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
+                  🧑‍🔬
                 </div>
               </Link>
             </div>
