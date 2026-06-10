@@ -115,7 +115,7 @@ const ConsolidatedSidebar = ({
                   href="/masters-thesis"
                 >
                   <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500 flex items-center">
-                    🎓 Master's Thesis
+                    🎓 Master’s Thesis
                   </span>
                   <div className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
                     🧑‍🔬

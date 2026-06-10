@@ -36,7 +36,7 @@ export default function ResumePage() {
       </div>
       <iframe 
         src={ iframeSrc } 
-        title="Josh Arnow's master's thesis" 
+        title="Josh Arnow's master’s thesis" 
         className="absolute left-0 right-0 bottom-0 top-10 w-full h-[calc(100%-2.5rem)]" 
         name='mastersThesisIframe'
         // onLoad={ onIframeLoad } 
