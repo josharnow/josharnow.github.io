@@ -24,7 +24,7 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
           ) }
         >
           <div className="flex justify-between items-center h-full w-full px-4 py-2">
-            <div className="flex gap-x-2">
+            <div className="flex gap-x-2 items-center">
               <ContactModal 
                 triggerElement={ (
                   <>
@@ -35,9 +35,10 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
                       📇
                     </div>
                   </>) }
+                modalTriggerClassName="bg-black text-white flex justify-center group/modal-btn shadow-3xl shadow-blue-500 w-fit h-fit max-h-16 px-2 py-1 rounded-md"
               />
               <Link 
-                className="px-2 py-1 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit group/resume-btn" 
+                className="px-2 py-1 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit h-fit max-h-16 group/resume-btn" 
                 href="/resume"
               >
                 <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500 text-xs xs:text-base flex items-center">
@@ -48,7 +49,7 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
                 </div>
               </Link>
               <Link
-                className="px-2 py-1 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit group/resume-btn"
+                className="px-2 py-1 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit h-fit max-h-16 group/resume-btn"
                 href="/masters-thesis"
               >
                 <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500 text-xs xs:text-base flex items-center">

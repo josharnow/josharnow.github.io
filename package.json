@@ -16,6 +16,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev_host": "next dev -H 0.0.0.0",
     "dev_turbo": "next dev --turbo",
     "build": "next build",
     "build:verbose": "next build --debug",
