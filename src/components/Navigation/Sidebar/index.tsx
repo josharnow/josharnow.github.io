@@ -1,8 +1,5 @@
 "use client";
-// import styles from "./styles.module.scss";
-// import { classNames } from "@/src/app/_utils";
-import RealSidebar from "./RealSidebar";
-import ShadowSidebar from "./ShadowSidebar";
+import ConsolidatedSidebar from "./RealSidebar";
 
 const Sidebar = ({
   isOpen,
@@ -13,20 +10,12 @@ const Sidebar = ({
   toggle: () => void;
   navigationOptions: NavigationOption[];
 }) => {
-
   return (
-    <>
-      <RealSidebar
-        isOpen={ isOpen } 
-        toggle={ toggle } 
-        navigationOptions={ navigationOptions } 
-      />
-      <ShadowSidebar 
-        isOpen={ isOpen } 
-        toggle={ toggle } 
-        navigationOptions={ navigationOptions } 
-      />
-    </>
+    <ConsolidatedSidebar
+      isOpen={ isOpen } 
+      toggle={ toggle } 
+      navigationOptions={ navigationOptions } 
+    />
   );
 };
 export default Sidebar;

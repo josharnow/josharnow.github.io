@@ -26,60 +26,14 @@
     display: none;
   }
 }
-// @keyframes smooth-shrink {
-//   from {
-//     transform: translateX(0);
-//   }
-//   to {
-//     transform: translateX(-75%);
-//   }
-// }
-
-.sidebarContainer,
-.shadowSidebarContainer {
-  // background: #F6AF3B;
-  // TODO - Make background darker
-  width: fit-content;
-  // box-shadow: -5px 0 11px rgba(10, 36, 173, 0.68) inset;
-  // transform: translateX(-100%);
-}
 
 .sidebarContainer {
+  width: fit-content;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
-  // animation: smooth-appear-for-real 1s ease forwards;
-}
-
-.shadowSidebarContainer {
-  z-index: 0;
-  // animation: smooth-appear 1s ease forwards;
-}
-
-// TODO - Figure out exit animation. The hidden property is making it not work (https: //chriscoyier.net/2023/10/30/exit-animations/)
-@media (max-width: 1024px) {
-  .sidebarContainer {
-    // animation: smooth-shrink 1s ease forwards;
-    // animation-fill-mode: forwards;
-  }
-  // ::view-transition-old(.sidebarContainer) {
-  //   animation: smooth-disappear 1s ease forwards;
-  // }
-  
-}
-
-// TODO - Figure out exit animation. The hidden property is making it not work (https: //chriscoyier.net/2023/10/30/exit-animations/)
-@media (max-width: 1024px) {
-  .shadowSidebarContainer {
-    // animation: smooth-shrink 1s ease forwards;
-    // animation-fill-mode: forwards;
-  }
-
-  // ::view-transition-old(.sidebarContainer) {
-  //   animation: smooth-disappear 1s ease forwards;
-  // }
-
+  height: 100vh;
+  overflow: hidden;
 }
 
 .navigationLink {
