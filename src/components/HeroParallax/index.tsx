@@ -153,11 +153,13 @@ const HeroParallax = forwardRef(function HeroParallax(props: HeroParallaxProps, 
             className="my-4 md:my-6 lg:my-10"
           >
             <MovingBorderButton
+              as={ Link }
+              href="/technologies"
               borderRadius="1.75rem"
               className="bg-slate-700 !text-white border-slate-800 font-medium z-10 text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
               duration={ 5000.0 }
             >
-              <Link href="/technologies">My Technologies</Link>
+              My Technologies
             </MovingBorderButton>
           </motion.div>
           <motion.p
@@ -184,7 +186,7 @@ const HeroParallax = forwardRef(function HeroParallax(props: HeroParallaxProps, 
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full ">
-      <motion.h1
+      <motion.h2
         key={ "about-page-technologies-header" }
         initial={ { opacity: 0.0, y: 0 } }
         whileInView={ { opacity: 1.0, y: 0 } }
@@ -197,7 +199,7 @@ export const Header = () => {
         className="text-4xl md:text-7xl font-medium text-white"
       >
         Technology moves<br/>faster than light
-      </motion.h1>
+      </motion.h2>
       <motion.p 
         key={ "about-page-technologies-subheader" }
         initial={ { opacity: 0.0, y: 0 } }
@@ -229,6 +231,16 @@ export const ProductCard = ({
   translate: MotionValue<number>;
   isLinkDisabled?: boolean;
 }) => {
+  const productImage = (
+    <Image
+      src={ product.thumbnail }
+      height="600"
+      width="600"
+      className="object-cover object-left-top absolute h-full w-full inset-0"
+      alt={ product.title }
+    />
+  );
+
   return (
     <motion.div
       style={ {
@@ -240,21 +252,19 @@ export const ProductCard = ({
       key={ product.title }
       className="group/product h-96 w-[32rem] relative flex-shrink-0"
     >
-      <Link
-        href={ product.link }
-        className="block group-hover/product:shadow-2xl"
-        onClick={ (e) => { e.preventDefault() } }
-      >
-        <Image
-          src={ product.thumbnail }
-          height="600"
-          width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0"
-          alt={ product.title }
-        />
-      </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+      { isLinkDisabled ? (
+        <div>{ productImage }</div>
+      ) : (
+        <Link
+          href={ product.link }
+          className="block group-hover/product:shadow-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-400"
+          aria-label={ `View ${product.title}` }
+        >
+          { productImage }
+        </Link>
+      ) }
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 group-focus-within/product:opacity-80 bg-black pointer-events-none"></div>
+      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 group-focus-within/product:opacity-100 text-white">
         { product.title }
       </h2>
     </motion.div>

@@ -40,9 +40,11 @@ const ContactIcon = ({
             ) }
           href={ content.href as string }
           target="_blank"
+          rel="noreferrer"
+          aria-label={ `Open ${content.contactMethod}` }
         >
           {/* TODO - Make icons larger on desktop */}
-          <i className={
+          <i aria-hidden="true" className={
             cn(
               styles.icon,
               content.primeiconClass,

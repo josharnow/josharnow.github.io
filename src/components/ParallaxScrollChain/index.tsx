@@ -128,11 +128,11 @@ const ParallaxScrollChain = ({
     return colorMapRgb[color];
   }
 
-  function handleTabClick(e: React.BaseSyntheticEvent<MouseEvent>) {
-    const filteredRefs = Object.values(consolidatedRefs).filter((ref) => ref.current?.dataset.category === e.target.textContent);
+  function handleTabClick(e: React.MouseEvent<HTMLButtonElement>) {
+    const filteredRefs = Object.values(consolidatedRefs).filter((ref) => ref.current?.dataset.category === e.currentTarget.textContent);
 
     filteredRefs?.[0]?.current?.scrollIntoView({ 
-      behavior: "smooth",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       block: "start",
       inline: "start",
     });
@@ -148,7 +148,8 @@ const ParallaxScrollChain = ({
         {
           Object.keys(colorMap).map((key, idx) => (
             // NOTE - For some reason the shadow colors must be applied multiple times here for it to apply the colors dynamically...
-            <div 
+            <button
+              type="button"
               onClick={handleTabClick}
               key={idx}
               className={ cn(
@@ -167,13 +168,13 @@ const ParallaxScrollChain = ({
                 bg-slate-500
                 bg-orange-500
                 bg-red-500
-                w-full p-1 my-0 mx-auto shadow-3xl cursor-pointer`,
+                w-full p-1 my-0 mx-auto shadow-3xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white`,
                 "bg-" + colorMap[key], 
                 "shadow-" + colorMap[key]
               )}
             >
-              <h3 className="text-sm sm:text-base font-medium text-center p-1">{key}</h3>
-            </div>
+              <span className="text-sm sm:text-base font-medium text-center p-1">{key}</span>
+            </button>
           ))
         }
 
@@ -192,7 +193,7 @@ const ParallaxScrollChain = ({
               <TrackableImage
                 src={ content.imageSrc as string }
                 className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
-                alt={ content.imageAlt || "thumbnail" }
+                alt={ content.imageAlt || `${content.title} logo` }
                 ref={ refsById1[idx] }
                 id={ (content.id as number).toString() }
                 category={ content.category }
@@ -232,7 +233,7 @@ const ParallaxScrollChain = ({
             <TrackableImage
               src={ content.imageSrc as string }
               className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
-              alt={ content.imageAlt || "thumbnail" }
+              alt={ content.imageAlt || `${content.title} logo` }
               ref={ refsById2[idx] }
               id={ (content.id as number).toString() }
               category={ content.category }
@@ -265,7 +266,7 @@ const ParallaxScrollChain = ({
               <TrackableImage
                 src={ content.imageSrc as string }
                 className="h-full w-full object-contain object-center rounded-lg gap-10 !m-0 !p-0"
-                alt={ content.imageAlt || "thumbnail" }
+                alt={ content.imageAlt || `${content.title} logo` }
                 ref={ refsById3[idx] }
                 id={ (content.id as number).toString() }
                 category={ content.category }
@@ -338,6 +339,8 @@ const Card = ({
     <div
       onMouseEnter={ () => setHovered(true) }
       onMouseLeave={ () => setHovered(false) }
+      onFocus={ () => setHovered(true) }
+      onBlur={ () => setHovered(false) }
       className="group/canvas-card flex items-center justify-center border-white/[0.2] w-full mx-auto p-4 h-full relative rounded-3xl"
     >
 
@@ -360,10 +363,12 @@ const Card = ({
       <Link 
         onClick={ handleClick }
         href={ url || "#" }
+        aria-label={ `Visit the ${title} website (opens in a new tab)` }
         className={ cn("relative z-40 rounded-3xl size-full flex text-center justify-center items-center cursor-pointer",
           "text-white text-base sm:text-2xl  mt-4 font-medium  transition duration-200", 
-          "opacity-0 group-hover/canvas-card:opacity-100 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2") }
+          "opacity-0 group-hover/canvas-card:opacity-100 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 focus:opacity-100 focus:-translate-y-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white") }
         target="_blank"
+        rel="noreferrer"
         ref={ anchorRef }
       >
         { title }

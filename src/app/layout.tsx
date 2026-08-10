@@ -16,6 +16,7 @@ import {
 // import { isMobileDevice, getBrowser, getDevice } from "@/src/utils/device";
 
 import styles from "./styles.module.scss";
+import MotionPreferences from "@/src/components/MotionPreferences";
 // import { classNames } from "@/src/app/_utils";
 
 
@@ -98,16 +99,23 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={ classNames(ibmPlexSans.className, "h-screen w-screen") }>
-        <div className="flex flex-col sm:flex-row mx-auto w-full h-full">
-          <Navigation />
-          {/* NOTE - This margin is necessary due to the fixed navbar at the top when the screen is small */}
-          <main 
-            className={ classNames(styles.main, "relative top-20 sm:top-0 sm:grow bg-black ")}
-            style={{ marginLeft: 'var(--sidebar-width, 0px)', maxWidth: 'calc(100vw - var(--sidebar-width, 0px))' }}
-          >
-            {children}
-          </main>
-        </div>
+        <a href="#main-content" className="fixed left-4 top-4 z-[3000] -translate-y-24 rounded-md bg-white px-4 py-2 font-medium text-black shadow-lg transition-transform focus:translate-y-0">
+          Skip to main content
+        </a>
+        <MotionPreferences>
+          <div className="flex flex-col sm:flex-row mx-auto w-full h-full">
+            <Navigation />
+            {/* NOTE - This margin is necessary due to the fixed navbar at the top when the screen is small */}
+            <main
+              id="main-content"
+              tabIndex={ -1 }
+              className={ classNames(styles.main, "relative top-20 sm:top-0 sm:grow bg-black ")}
+              style={{ marginLeft: 'var(--sidebar-width, 0px)', maxWidth: 'calc(100vw - var(--sidebar-width, 0px))' }}
+            >
+              {children}
+            </main>
+          </div>
+        </MotionPreferences>
       </body>
     </html>
   );

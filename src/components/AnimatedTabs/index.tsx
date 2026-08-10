@@ -43,12 +43,25 @@ const Tabs = ({
 
   const [hovering, setHovering] = useState(false);
 
-  const selectedTabbarElementRef = useRef<HTMLDivElement>(null);
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
+  const scrollBehavior = () =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+
+  const selectAndFocusTab = (idx: number, inline: ScrollLogicalPosition = "nearest") => {
+    moveSelectedTabToTop(idx);
+    tabRefs.current[idx]?.focus();
+    tabRefs.current[idx]?.scrollIntoView({
+      behavior: scrollBehavior(),
+      block: "nearest",
+      inline,
+    });
+  };
 
   // TODO - Fix bug where tab doesn't focus when going to first index to last or vice versa. Don't have time to fix the minor issue now
-  function handleBackClick(e: React.MouseEvent<HTMLButtonElement>, tabs: Tab[], activeTab: Tab) {
-    const lastTabIndex = (activeTab.indexOrder - 1 + tabs.length) % tabs.length;
-    moveSelectedTabToTop(lastTabIndex);
+  function handleBackClick() {
+    const lastTabIndex = (active.indexOrder - 1 + tabs.length) % tabs.length;
+    selectAndFocusTab(lastTabIndex, "end");
 
     setHovering(true);
     // NOTE - Timeout is set to the same transition duration in the CSS for the element
@@ -56,11 +69,10 @@ const Tabs = ({
       setHovering(false);
     }, 500);
 
-    selectedTabbarElementRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "end" });
   }
-  function handleNextClick(e: React.MouseEvent<HTMLButtonElement>, tabs: Tab[], activeTab: Tab) {
-    const nextTabIndex = (activeTab.indexOrder + 1) % tabs.length;
-    moveSelectedTabToTop(nextTabIndex);
+  function handleNextClick() {
+    const nextTabIndex = (active.indexOrder + 1) % tabs.length;
+    selectAndFocusTab(nextTabIndex, "start");
 
     setHovering(true);
     // NOTE - Timeout is set to the same transition duration in the CSS for the element
@@ -68,13 +80,33 @@ const Tabs = ({
       setHovering(false);
     }, 500);
 
-    selectedTabbarElementRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+  }
+
+  function handleTabKeyDown(event: React.KeyboardEvent<HTMLButtonElement>, idx: number) {
+    let nextIndex: number | undefined;
+
+    if (event.key === "ArrowRight") {
+      nextIndex = (idx + 1) % propTabs.length;
+    } else if (event.key === "ArrowLeft") {
+      nextIndex = (idx - 1 + propTabs.length) % propTabs.length;
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = propTabs.length - 1;
+    }
+
+    if (nextIndex !== undefined) {
+      event.preventDefault();
+      selectAndFocusTab(nextIndex);
+    }
   }
 
   return (
     <>
     {/* NOTE - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items */}
       <div
+        role="tablist"
+        aria-label="Portfolio projects"
         className={ cn(
           "flex flex-row sm:flex-wrap overflow-x-auto overflow-y-hidden sm:items-center sm:justify-start [perspective:1000px] relative sm:overflow-visible no-visible-scrollbar max-w-full w-fit",
           containerClassName
@@ -83,9 +115,17 @@ const Tabs = ({
         { propTabs.map((tab, idx) => (
           <button
             key={ tab.title }
+            ref={ (element) => { tabRefs.current[idx] = element; } }
+            type="button"
+            role="tab"
+            id={ `tab-${tab.value}` }
+            aria-selected={ active.value === tab.value }
+            aria-controls={ `panel-${tab.value}` }
+            tabIndex={ active.value === tab.value ? 0 : -1 }
             onClick={ () => {
               moveSelectedTabToTop(idx);
             } }
+            onKeyDown={ (event) => handleTabKeyDown(event, idx) }
             onMouseEnter={ () => setHovering(true) }
             onMouseLeave={ () => setHovering(false) }
             className={ cn("relative px-2 sm:px-4 sm:py-2 rounded-full", tabClassName) }
@@ -96,7 +136,7 @@ const Tabs = ({
           >
             { active.value === tab.value && (
               <motion.div
-                ref={ selectedTabbarElementRef }
+                aria-hidden="true"
                 layoutId="clickedbutton"
                 transition={ { type: "spring", bounce: 0.3, duration: 0.6 } }
                 className={ cn(
@@ -115,20 +155,24 @@ const Tabs = ({
       <div className="mt-4 w-full flex justify-between">
         {/* NOTE - After switching tab index, should focus on selected tab in bar */}
         <button 
+          type="button"
+          aria-label="Previous project"
           className="inline-flex size-12 animate-shimmer items-center justify-center rounded-2xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] p-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-          onClick={ (e) => handleBackClick(e, tabs, active) }
+          onClick={ handleBackClick }
           onMouseEnter={ () => setHovering(true) }
           onMouseLeave={ () => setHovering(false) }
         >
-          <i className="pi pi-chevron-left"></i>
+          <i aria-hidden="true" className="pi pi-chevron-left"></i>
         </button>
         <button
+          type="button"
+          aria-label="Next project"
           className="inline-flex size-12 animate-shimmer items-center justify-center rounded-2xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] p-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-          onClick={ (e) => handleNextClick(e, tabs, active) }
+          onClick={ handleNextClick }
           onMouseEnter={ () => setHovering(true) }
           onMouseLeave={ () => setHovering(false) }
         >
-          <i className="pi pi-chevron-right"></i>
+          <i aria-hidden="true" className="pi pi-chevron-right"></i>
         </button>
       </div>
       <FadeInDiv
@@ -145,6 +189,7 @@ const Tabs = ({
 export const FadeInDiv = ({
   className,
   tabs,
+  active,
   hovering,
 }: {
   className?: string;
@@ -154,13 +199,19 @@ export const FadeInDiv = ({
   hovering?: boolean;
 }) => {
   const isActive = (tab: Tab) => {
-    return tab.value === tabs[0].value;
+    return tab.value === active.value;
   };
   return (
     <div className="relative w-full h-full">
       { tabs.map((tab, idx) => (
         <motion.div
           key={ tab.value }
+          id={ `panel-${tab.value}` }
+          role="tabpanel"
+          aria-labelledby={ `tab-${tab.value}` }
+          aria-hidden={ !isActive(tab) }
+          inert={ !isActive(tab) ? true : undefined }
+          tabIndex={ isActive(tab) ? 0 : -1 }
           layoutId={ tab.value }
           style={ {
             scale: 1 - idx * 0.1,

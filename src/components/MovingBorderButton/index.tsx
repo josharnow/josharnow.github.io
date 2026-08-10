@@ -5,6 +5,7 @@ import {
   useAnimationFrame,
   useMotionTemplate,
   useMotionValue,
+  useReducedMotion,
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
@@ -38,7 +39,7 @@ export function MovingBorderButton({
   return (
     <Component
       className={ cn(
-        "bg-transparent relative p-[1px] overflow-hidden shadow-3xl shadow-blue-500",
+        "inline-flex bg-transparent relative p-[1px] overflow-hidden shadow-3xl shadow-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
         containerClassName
       ) }
       style={ {
@@ -46,21 +47,22 @@ export function MovingBorderButton({
       } }
       { ...otherProps }
     >
-      <div
+      <span
+        aria-hidden="true"
         className="absolute inset-0"
         style={ { borderRadius: `calc(${borderRadius} * 0.96)` } }
       >
         <MovingBorder duration={ duration } rx="30%" ry="30%">
-          <div
+          <span
             className={ cn(
-              "h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)]",
+              "block h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)]",
               borderClassName
             ) }
           />
         </MovingBorder>
-      </div>
+      </span>
 
-      <div
+      <span
         className={ cn(
           "relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased",
           className
@@ -70,7 +72,7 @@ export function MovingBorderButton({
         } }
       >
         { children }
-      </div>
+      </span>
     </Component>
   );
 }
@@ -90,8 +92,12 @@ export const MovingBorder = ({
 }) => {
   const pathRef = useRef<any>();
   const progress = useMotionValue<number>(0);
+  const shouldReduceMotion = useReducedMotion();
 
   useAnimationFrame((time) => {
+    if (shouldReduceMotion) {
+      return;
+    }
     const length = pathRef.current?.getTotalLength();
     if (length) {
       const pxPerMillisecond = length / duration;
@@ -129,7 +135,7 @@ export const MovingBorder = ({
           ref={ pathRef }
         />
       </svg>
-      <motion.div
+      <motion.span
         style={ {
           position: "absolute",
           top: 0,
@@ -139,7 +145,7 @@ export const MovingBorder = ({
         } }
       >
         { children }
-      </motion.div>
+      </motion.span>
     </>
   );
 };

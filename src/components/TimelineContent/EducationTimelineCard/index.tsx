@@ -26,14 +26,14 @@ const EducationTimelineCard = ({ content, className }: {
               <div className="text-xs sm:text-sm md:text-base xl:text-lg flex h-fit text-white">
                 {
                   content.yearStart === content.yearEnd
-                    ? <h1>{ content.yearStart }</h1>
-                    : <><h1>{ content.yearStart }</h1>&nbsp;–&nbsp;<h1>{ content.yearEnd ? content.yearEnd : "Present" }</h1></>
+                    ? <span>{ content.yearStart }</span>
+                    : <><span>{ content.yearStart }</span>&nbsp;–&nbsp;<span>{ content.yearEnd ? content.yearEnd : "Present" }</span></>
                 }
               </div>
               <span className="text-xs sm:text-sm md:text-base xl:text-lg h-fit text-white" style={ { textAlign: "right" } }><i>{ content.location }</i></span>
             </div>
             <div className="grid grid-cols-2">
-              <span className="font-medium text-sm sm:text-base md:text-lg xl:text-xl text-blue-500">{ content.institution }</span>
+              <h2 className="font-medium text-sm sm:text-base md:text-lg xl:text-xl text-blue-500">{ content.institution }</h2>
               <span className="font-medium text-sm sm:text-base md:text-lg xl:text-xl text-white" style={ { textAlign: "right" } }>{ content.GPA ? `GPA: ${content.GPA.toFixed(1)}` : "" }</span>
             </div>
             { content.degrees.map((degreeElement, index) => (

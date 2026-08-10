@@ -9,21 +9,25 @@ const NavbarMenuButton = ({ toggle, isOpen }: {
     return classes.filter(Boolean).join(" ");
   }
 
-  function handleButtonClick(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleButtonClick() {
     toggle();
-    return (e.currentTarget as HTMLButtonElement).querySelector(".ham")?.classList.toggle("active");
-  };
+  }
 
   return (
     <>
       {/* TODO - Apply box shadow to make the button look 3D */ }
       <button
+        id="mobile-navigation-toggle"
         type="button"
-        className="inline-flex items-center md:hidden h-fit w-16 overflow-visible"
+        aria-label={ isOpen ? "Close navigation menu" : "Open navigation menu" }
+        aria-expanded={ isOpen }
+        aria-controls="mobile-navigation-menu"
+        className="inline-flex items-center md:hidden h-fit w-16 overflow-visible rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
         onClick={ handleButtonClick }
       >
         {/* SOURCE - https://www.sliderrevolution.com/resources/css-hamburger-menu/ */ }
         <svg 
+          aria-hidden="true"
           className={ classNames(
             isOpen ? styles.active : "",
             styles.ham, 

@@ -37,6 +37,7 @@ function useScrollHook(initialPosition: number) {
 
 export default function AboutPage() {
   function handleArrowClick() {
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
     const sectionOffsets = [
       {
         element: aboutPageIntroRef.current,
@@ -64,7 +65,7 @@ export default function AboutPage() {
     // NOTE - If at the bottom, scroll to the top
     if (isScrollAtBottom) {
       return aboutPageIntroRef?.current?.scrollIntoView({
-        behavior: "smooth",
+        behavior,
         block: 'nearest',
         inline: 'center',
       });
@@ -74,7 +75,7 @@ export default function AboutPage() {
     for (let i = 0; i < sectionOffsets.length; i++) {
       if (scrollPosition < sectionOffsets[i].scrollPosition) {
         return sectionOffsets[i].element?.scrollIntoView({
-          behavior: "smooth",
+          behavior,
           block: 'nearest',
           inline: 'center',
         });
@@ -83,13 +84,12 @@ export default function AboutPage() {
 
     // NOTE - If in the bottom section but above the bottom of the page, scroll to the bottom
     return sectionOffsets[sectionOffsets.length - 1].element?.scrollIntoView({
-      behavior: "smooth",
+      behavior,
       block: 'nearest',
       inline: 'center',
     });
   }
 
-  const arrowRef = useRef<HTMLElement>(null);
   const aboutPageIntroRef = useRef<HTMLDivElement>(null);
   const aboutPageEducationWorkRef = useRef<HTMLDivElement>(null);
   const aboutPagePortfolioRef = useRef<HTMLDivElement>(null);
@@ -97,23 +97,12 @@ export default function AboutPage() {
   const aboutPageContactRef = useRef<HTMLDivElement>(null);
 
   const [isScrollAtBottom, setIsScrollAtBottom] = useState(false);
-  let bottomScrollPosition = 0;
-
-  // NOTE - This is necessary to prevent the window object from being accessed on the server (which will cause an error; this is a client-side only object but there appears to be a bug in Next where it thinks it isn't and throws an error)
-  if (typeof window !== "undefined") {
-    bottomScrollPosition = document.documentElement.scrollHeight - window.innerHeight;
-  }
-
   const scrollPosition = useScrollHook(0);
 
-  if (scrollPosition > 0) {
-    // NOTE - This is a hacky way to determine if the user has scrolled to the bottom of the page
-    if (scrollPosition >= bottomScrollPosition && isScrollAtBottom === false) {
-      setIsScrollAtBottom(true);
-    } else if (isScrollAtBottom === true && scrollPosition < bottomScrollPosition) {
-      setIsScrollAtBottom(false);
-    }
-  }
+  useEffect(() => {
+    const bottomScrollPosition = document.documentElement.scrollHeight - window.innerHeight;
+    setIsScrollAtBottom(scrollPosition > 0 && scrollPosition >= bottomScrollPosition - 1);
+  }, [scrollPosition]);
 
   return (
     <>
@@ -124,15 +113,19 @@ export default function AboutPage() {
       <AboutPagePortfolio ref={aboutPagePortfolioRef} />
       <AboutPageTechnologies ref={aboutPageTechnologiesRef} /> 
       <AboutPageContact ref={aboutPageContactRef} /> 
-      <div className={ cn(styles.pageArrowContainer, "p-2 bg-gradient-to-b shadow-black", {
+      <button
+        type="button"
+        aria-label={ isScrollAtBottom ? "Scroll to the top" : "Scroll to the next section" }
+        onClick={ handleArrowClick }
+        className={ cn(styles.pageArrowContainer, "p-2 bg-gradient-to-b shadow-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black", {
         "from-white to-blue-500": !isScrollAtBottom,
         "from-blue-500 to-white": isScrollAtBottom,
       }) }>
-        <i ref={ arrowRef } onClick={ handleArrowClick } className={ cn(styles.pageArrow, "pi text-[1rem] sm:text-[2rem]", {
+        <i aria-hidden="true" className={ cn(styles.pageArrow, "pi text-[1rem] sm:text-[2rem]", {
           "pi-arrow-up": isScrollAtBottom,
           "pi-arrow-down": !isScrollAtBottom,
         }) }></i>
-      </div>
+      </button>
     </>
   );
 }

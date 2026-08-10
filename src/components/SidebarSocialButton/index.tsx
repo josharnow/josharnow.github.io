@@ -29,7 +29,7 @@ const SidebarSocialButton = ({href, popoverContent, children}: SidebarSocialButt
             arrowColor={ "#ffffff" }
             arrowSize={ 10 }
           >
-            <div>
+            <div role="tooltip">
               <div className="popover-content text-center">{ popoverContent }</div>
             </div>
           </ArrowContainer>
@@ -39,10 +39,14 @@ const SidebarSocialButton = ({href, popoverContent, children}: SidebarSocialButt
           className="px-4 py-2 rounded-md text-white text-center relative overflow-hidden bg-black flex justify-center shadow-3xl shadow-blue-500 w-fit"
           href={ href }
           target="_blank"
+          rel="noreferrer"
+          aria-label={ popoverContent }
           onMouseEnter={ () => setIsPopoverOpen(true) }
           onMouseLeave={ () => setIsPopoverOpen(false) }
+          onFocus={ () => setIsPopoverOpen(true) }
+          onBlur={ () => setIsPopoverOpen(false) }
         >
-          <span className="text-center">
+          <span aria-hidden="true" className="text-center">
             { children }
           </span>
         </Link>

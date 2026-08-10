@@ -56,6 +56,7 @@ const WavyBackground = ({
     let height = 0;
     let noiseTime = 0;
     let animationId = 0;
+    const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const resizeCanvas = () => {
       width = context.canvas.width = window.innerWidth;
@@ -83,15 +84,24 @@ const WavyBackground = ({
       context.globalAlpha = waveOpacity;
       context.fillRect(0, 0, width, height);
       drawWave(5);
-      animationId = requestAnimationFrame(render);
+      if (!shouldReduceMotion) {
+        animationId = requestAnimationFrame(render);
+      }
+    };
+
+    const handleResize = () => {
+      resizeCanvas();
+      if (shouldReduceMotion) {
+        render();
+      }
     };
 
     resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("resize", handleResize);
     render();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationId);
     };
   }, [backgroundFill, blur, colors, speed, waveOpacity, waveWidth]);
@@ -114,6 +124,7 @@ const WavyBackground = ({
       ) }
     >
       <canvas
+        aria-hidden="true"
         className={ cn(
           className
         ) }

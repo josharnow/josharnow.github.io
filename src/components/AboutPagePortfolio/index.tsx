@@ -33,11 +33,13 @@ const AboutPagePortfolio = forwardRef(function AboutPagePortfolio(props, ref: Re
           <div className="w-full text-center text-balance text-5xl lg:text-4xl xl:text-5xl">
             <p className="mb-4 sm:mt-2">The digital frontier is a realm of <span className="text-blue-500 font-medium">limitless dreams</span></p>
             <MovingBorderButton
+              as={ Link }
+              href="/portfolio"
               borderRadius="1.75rem"
               className="bg-slate-700 !text-white border-slate-800 font-medium z-10 text-3xl sm:text-lg md:text-xl w-fit h-fit px-4 py-2 text-balance"
               duration={ 5000.0 }
             >
-              <Link href="/portfolio">My Portfolio Sample</Link>
+              My Portfolio Sample
             </MovingBorderButton>
             <p className="mt-4 sm:mt-2">I help make them a <span className="text-blue-500 font-medium">reality</span></p>
           </div>

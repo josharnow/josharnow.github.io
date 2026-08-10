@@ -86,14 +86,15 @@ const PortfolioTabContent = ({
                 <Link
                   href={ titleHref as Url }
                   target="_blank"
+                  rel="noreferrer"
                   className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'
                 >
-                  { title }
+                  <h2>{ title }</h2>
                 </Link>
                 :
-                <h1 className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'>
+                <h2 className='font-medium text-3xl sm:text-5xl h-fit text-balance text-center mx-auto'>
                   { title }
-                </h1>
+                </h2>
             }
           </div>
           <div className='overflow-y-auto grid grid-cols-1 justify-items-center w-full'>

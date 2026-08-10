@@ -6,6 +6,7 @@ import React, {
   createContext,
   useContext,
   useEffect,
+  useId,
   useRef,
   useState,
 } from "react";
@@ -15,6 +16,8 @@ import { twMerge } from "tailwind-merge";
 interface ModalContextType {
   open: boolean;
   setOpen: (open: boolean) => void;
+  dialogId: string;
+  triggerRef: React.RefObject<HTMLButtonElement>;
 }
 
 function cn(...inputs: ClassValue[]) {
@@ -25,9 +28,11 @@ const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
   const [open, setOpen] = useState(false);
+  const dialogId = useId();
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <ModalContext.Provider value={ { open, setOpen } }>
+    <ModalContext.Provider value={ { open, setOpen, dialogId, triggerRef } }>
       { children }
     </ModalContext.Provider>
   );
@@ -54,30 +59,41 @@ export const ModalTrigger = ({
   buttonElement?: ReactNode;
   className?: string;
 }) => {
-  const { setOpen } = useModal();
+  const { open, setOpen, dialogId, triggerRef } = useModal();
+  const triggerProps = {
+    ref: triggerRef,
+    type: "button" as const,
+    "aria-haspopup": "dialog" as const,
+    "aria-expanded": open,
+    "aria-controls": dialogId,
+    onClick: () => setOpen(true),
+  };
+
   return (
     <>
       {
         !buttonElement ? (
           <button
+            { ...triggerProps }
             className={ cn(
-              "px-4 py-2 rounded-md text-center relative overflow-hidden",
+              "px-4 py-2 rounded-md text-center relative overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
               className
             ) }
-            onClick={ () => setOpen(true) }
           >
             { children }
           </button>
         )
         : (
           
-          <>
-            <div 
-              onClick={ () => setOpen(true) }
-            >
+          <button
+            { ...triggerProps }
+            className={ cn(
+              "relative rounded-[1.75rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+              className
+            ) }
+          >
               { buttonElement }
-            </div>
-          </>
+          </button>
         )
         
       }
@@ -88,12 +104,15 @@ export const ModalTrigger = ({
 export const ModalBody = ({
   children,
   className,
+  ariaLabelledBy,
 }: {
   children: ReactNode;
   className?: string;
+  ariaLabelledBy?: string;
 }) => {
-  const { open } = useModal();
+  const { open, setOpen, dialogId, triggerRef } = useModal();
   const [isMounted, setIsMounted] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -105,14 +124,91 @@ export const ModalBody = ({
     }
 
     const previousOverflow = document.body.style.overflow;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const triggerElement = triggerRef.current;
     document.body.style.overflow = "hidden";
 
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [open]);
+    const modalLayer = modalRef.current?.parentElement;
+    const backgroundElements = Array.from(document.body.children).filter(
+      (element): element is HTMLElement =>
+        element instanceof HTMLElement && element !== modalLayer && element.tagName !== "SCRIPT"
+    );
+    const backgroundState = backgroundElements.map((element) => ({
+      element,
+      ariaHidden: element.getAttribute("aria-hidden"),
+      inert: element.inert,
+    }));
 
-  const modalRef = useRef(null);
+    backgroundElements.forEach((element) => {
+      element.inert = true;
+      element.setAttribute("aria-hidden", "true");
+    });
+
+    const focusableSelector = [
+      "a[href]",
+      "button:not([disabled])",
+      "input:not([disabled])",
+      "textarea:not([disabled])",
+      "select:not([disabled])",
+      "iframe",
+      "[tabindex]:not([tabindex='-1'])",
+    ].join(",");
+
+    const focusDialog = window.requestAnimationFrame(() => {
+      const firstFocusable = modalRef.current?.querySelector<HTMLElement>(focusableSelector);
+      (firstFocusable ?? modalRef.current)?.focus();
+    });
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || !modalRef.current) {
+        return;
+      }
+
+      const focusableElements = Array.from(
+        modalRef.current.querySelectorAll<HTMLElement>(focusableSelector)
+      ).filter((element) => element.getAttribute("aria-hidden") !== "true");
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        modalRef.current.focus();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.cancelAnimationFrame(focusDialog);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      backgroundState.forEach(({ element, ariaHidden, inert }) => {
+        element.inert = inert;
+        if (ariaHidden === null) {
+          element.removeAttribute("aria-hidden");
+        } else {
+          element.setAttribute("aria-hidden", ariaHidden);
+        }
+      });
+      (triggerElement ?? previouslyFocused)?.focus();
+    };
+  }, [open, setOpen, triggerRef]);
   // const { setOpen } = useModal();
 
   // NOTE - Below will close the modal when clicking outside of the modal
@@ -143,6 +239,12 @@ export const ModalBody = ({
 
           <motion.div
             ref={ modalRef }
+            id={ dialogId }
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={ ariaLabelledBy }
+            aria-label={ ariaLabelledBy ? undefined : "Dialog" }
+            tabIndex={ -1 }
             className={ cn(
               "min-h-[90%] sm:min-h-[95%] max-w-[95%] sm:max-w-[calc(100%-10rem)] bg-neutral-950 border border-neutral-800 rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
               className
@@ -239,6 +341,7 @@ export const ModalFooter = ({
 const Overlay = ({ className }: { className?: string }) => {
   return (
     <motion.div
+      aria-hidden="true"
       initial={ {
         opacity: 0,
       } }
@@ -259,10 +362,13 @@ const CloseIcon = () => {
   const { setOpen } = useModal();
   return (
     <button
+      type="button"
+      aria-label="Close dialog"
       onClick={ () => setOpen(false) }
-      className="absolute top-4 right-4 group z-50"
+      className="absolute top-4 right-4 group z-50 rounded-md p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
     >
       <svg
+        aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
