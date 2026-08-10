@@ -25,6 +25,7 @@
     "start:export": "npx serve@latest out",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
+    "generate:og": "node scripts/generate-og-image.mjs",
     "remove_unused_imports": "tslint --config tslint-imports.json --fix --project ."
   },
   "dependencies": {

@@ -17,49 +17,85 @@ import {
 
 import styles from "./styles.module.scss";
 import MotionPreferences from "@/src/components/MotionPreferences";
+import { createPageMetadata, SITE_NAME, SITE_URL } from "./metadata";
 // import { classNames } from "@/src/app/_utils";
 
 
-// TODO - Metadata for each page (https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
+const homeTitle = "Josh Arnow | Full-Stack Software Engineer";
+const homeDescription = "Josh Arnow is a full-stack software engineer based in New York and Florida. Explore his experience, portfolio, technical skills, and interactive work.";
+
 export const metadata: Metadata = {
-  applicationName: "Josh Arnow's Website", // NOTE - This should be applied on all pages
-  title: "About Josh Arnow", // NOTE - This should change depending on what page is being viewed. Same goes for other titles in this metadata object.
-  // title: "Josh Arnow's Website", // NOTE - This should change depending on what page is being viewed. Same goes for other titles in this metadata object.
-  description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida",
-  // description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida.",
-  authors: [{name: "Josh Arnow", url: "https://josharnow.com"}],
-  creator: "Josh Arnow",
-  metadataBase: new URL('https://josharnow.com'),
-  generator: "Next.js",
-  keywords: ["Josh Arnow", "software engineer", "full stack", "full-stack", "New York", "Florida", "software"], // TODO - Add more relevant keywords. Although it appears that Google doesn't actually look for them (https://developers.google.com/search/docs/crawling-indexing/special-tags)
+  ...createPageMetadata({
+    title: homeTitle,
+    description: homeDescription,
+    path: "/",
+    keywords: ["software portfolio", "cloud engineering", "backend development"],
+  }),
+  metadataBase: new URL(SITE_URL),
+  applicationName: `${SITE_NAME}'s Portfolio`,
+  title: {
+    default: homeTitle,
+    template: `%s | ${SITE_NAME}`,
+  },
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "technology",
+  referrer: "origin-when-cross-origin",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: {
+    telephone: false,
+  },
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
-  openGraph: { // NOTE - https://ahrefs.com/blog/open-graph-meta-tags/
-    type: "website",
-    url: "https://josharnow.com",
-    siteName: "Josh Arnow's Website",
-    title: "About Josh Arnow",
-    // title: "Josh Arnow's Website",
-    description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida",
-    images: [
-      {
-        url: "/open-graph-image.png",
-        width: 1200,
-        height: 1216,
-        alt: "Josh Arnow's Website",
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      email: "mailto:contact@josharnow.com",
+      jobTitle: "Full-Stack Software Engineer",
+      sameAs: [
+        "https://github.com/josharnow",
+        "https://www.linkedin.com/in/joshuaarnow/",
+      ],
+      knowsAbout: [
+        "Full-stack software development",
+        "Web application development",
+        "Mobile application development",
+        "Cloud computing",
+        "Machine learning",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: `${SITE_NAME}'s Portfolio`,
+      description: homeDescription,
+      inLanguage: "en-US",
+      author: {
+        "@id": `${SITE_URL}/#person`,
       },
-    ],
-    emails: ["contact@josharnow.com"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "https://josharnow.com",
-    creator: "Josh Arnow",
-    images: "/open-graph-image.png", // TODO - Make this an image of whatever page is being shared
-    description: "Personal website of Josh Arnow, a full stack software engineer based in New York & Florida",
-  },
+    },
+  ],
 };
 
 // NOTE - I installed this locally despite being available as a Google font because Google doesn't have a variable font version of IBM Plex Sans
@@ -98,6 +134,14 @@ export default async function RootLayout({
   
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={ {
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          } }
+        />
+      </head>
       <body className={ classNames(ibmPlexSans.className, "h-screen w-screen") }>
         <a href="#main-content" className="fixed left-4 top-4 z-[3000] -translate-y-24 rounded-md bg-white px-4 py-2 font-medium text-black shadow-lg transition-transform focus:translate-y-0">
           Skip to main content
