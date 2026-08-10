@@ -1,6 +1,5 @@
 import { type Config } from "tailwindcss";
 // import { default as colors } from "tailwindcss/colors";
-import { default as svgToDataUri } from "mini-svg-data-uri";
 import { default as defaultTheme } from "tailwindcss/defaultTheme";
 import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
 
@@ -155,6 +154,15 @@ const config: Config = {
   ],
 };
 export default config;
+
+function svgToDataUri(svg: string) {
+  return `data:image/svg+xml,${encodeURIComponent(svg)
+    .replace(/%20/g, " ")
+    .replace(/%3D/g, "=")
+    .replace(/%3A/g, ":")
+    .replace(/%2F/g, "/")
+    .replace(/%22/g, "'")}`;
+}
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
 function addVariablesForColors({ addBase, theme }: any) {

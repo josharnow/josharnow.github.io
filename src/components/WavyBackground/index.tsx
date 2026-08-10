@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
 
 import { type ClassValue, clsx } from "clsx";
@@ -32,78 +32,69 @@ const WavyBackground = ({
   waveOpacity?: number;
   [key: string]: any;
 }) => {
-  const noise = createNoise3D();
-  let w: number,
-    h: number,
-    nt: number,
-    i: number,
-    x: number,
-    ctx: any,
-    canvas: any;
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const getSpeed = () => {
-    switch (speed) {
-      case "slow":
-        return 0.001;
-      case "fast":
-        return 0.002;
-      default:
-        return 0.001;
-    }
-  };
-
-  const init = useCallback(() => {
-    canvas = canvasRef.current;
-    ctx = canvas.getContext("2d");
-    w = ctx.canvas.width = window.innerWidth;
-    h = ctx.canvas.height = canvas.parentElement.offsetHeight;
-    ctx.filter = `blur(${blur}px)`;
-    nt = 0;
-    window.onresize = function () {
-      w = ctx.canvas.width = window.innerWidth;
-      h = ctx.canvas.height = canvas.parentElement.offsetHeight;
-      ctx.filter = `blur(${blur}px)`;
-    };
-    render();
-  }, []);
-
-  const waveColors = colors ?? [
-    "#38bdf8",
-    "#818cf8",
-    "#c084fc",
-    "#e879f9",
-    "#22d3ee",
-  ];
-  const drawWave = (n: number) => {
-    nt += getSpeed();
-    for (i = 0; i < n; i++) {
-      ctx.beginPath();
-      ctx.lineWidth = waveWidth || 50;
-      ctx.strokeStyle = waveColors[i % waveColors.length];
-      for (x = 0; x < w; x += 5) {
-        var y = noise(x / 800, 0.3 * i, nt) * 100;
-        ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
-      }
-      ctx.stroke();
-      ctx.closePath();
-    }
-  };
-
-  let animationId: number | undefined = undefined;
-  const render = () => {
-    ctx.fillStyle = backgroundFill || "black";
-    ctx.globalAlpha = waveOpacity || 0.5;
-    ctx.fillRect(0, 0, w, h);
-    drawWave(5);
-    animationId = requestAnimationFrame(render);
-  };
 
   useEffect(() => {
-    init();
-    return () => {
-      cancelAnimationFrame(animationId as number);
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext("2d");
+    const parent = canvas?.parentElement;
+
+    if (!canvas || !context || !parent) {
+      return;
+    }
+
+    const noise = createNoise3D();
+    const waveColors = colors ?? [
+      "#38bdf8",
+      "#818cf8",
+      "#c084fc",
+      "#e879f9",
+      "#22d3ee",
+    ];
+    const noiseSpeed = speed === "fast" ? 0.002 : 0.001;
+    let width = 0;
+    let height = 0;
+    let noiseTime = 0;
+    let animationId = 0;
+
+    const resizeCanvas = () => {
+      width = context.canvas.width = window.innerWidth;
+      height = context.canvas.height = parent.offsetHeight;
+      context.filter = `blur(${blur}px)`;
     };
-  }, [animationId, init]);
+
+    const drawWave = (waveCount: number) => {
+      noiseTime += noiseSpeed;
+      for (let waveIndex = 0; waveIndex < waveCount; waveIndex++) {
+        context.beginPath();
+        context.lineWidth = waveWidth || 50;
+        context.strokeStyle = waveColors[waveIndex % waveColors.length];
+        for (let x = 0; x < width; x += 5) {
+          const y = noise(x / 800, 0.3 * waveIndex, noiseTime) * 100;
+          context.lineTo(x, y + height * 0.5);
+        }
+        context.stroke();
+        context.closePath();
+      }
+    };
+
+    const render = () => {
+      context.fillStyle = backgroundFill || "black";
+      context.globalAlpha = waveOpacity;
+      context.fillRect(0, 0, width, height);
+      drawWave(5);
+      animationId = requestAnimationFrame(render);
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+    render();
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      cancelAnimationFrame(animationId);
+    };
+  }, [backgroundFill, blur, colors, speed, waveOpacity, waveWidth]);
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {

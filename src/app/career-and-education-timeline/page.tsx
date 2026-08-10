@@ -270,8 +270,8 @@ export default function CareerAndEducationTimelinePage() {
     },
     {
       yearStart: 2025,
-      isPresent: true,
-      // yearEnd: 2026,
+      isPresent: false,
+      yearEnd: 2026,
       bodyElement: <div className={ cn(styles.bodyElement, 'grid grid-cols-1 gap-1') }>
         <div className={ cn(globalStyles.bulletGrid) }>
           <span>•</span><span>Formally developing skills and techniques related to computer science and artificial intelligence through a rigorous academic curriculum</span>

@@ -1,5 +1,3 @@
-import MillionLint from '@million/lint';
-import million from 'million/compiler';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -52,23 +50,5 @@ const nextConfig = {
   //   includePaths: [path.join(__dirname, 'src/styles')],
   // }
 };
-
-// NOTE - Fixes compile error (https://github.com/aidenybai/million/issues/963#issuecomment-1952815924)
-const millionConfig = {
-  mute: true,
-  auto: { rsc: true },
-  rsc: true,
-};
-
-// NOTE - Enabling million appears to mess up the which active link is selected in the sidebar (as of 2024-06-02)
-// export default million.next(MillionLint.next({
-//   rsc: true, 
-//   filter: {
-//     include: [
-//       "**/components/*.{mtsx,mjsx,tsx,jsx}",
-//       "**/app/*.{mtsx,mjsx,tsx,jsx}",
-//     ],
-//   }, 
-// })(nextConfig), millionConfig);
 
 export default nextConfig;
