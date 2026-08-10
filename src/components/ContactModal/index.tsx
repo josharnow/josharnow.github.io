@@ -10,21 +10,26 @@ import {
 } from "@/src/components";
 import { clsx, type ClassValue } from "clsx";
 import Link from "next/link";
-import React from "react";
+import React, { useRef, useState } from "react";
+import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
 import styles from "./styles.module.scss";
+import type { ContactFormInputs, ContactFormStatus } from "../ContactForm";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// type ContactModalProps = {
-//   contentArr?: ContentObj[];
-//   // triggerElement: React.ReactNode;
-//   // imageSrcArr?: string[];
-// };
+const defaultFormValues: ContactFormInputs = {
+  name: "",
+  email: "",
+  message: "",
+  "h-captcha-response": "",
+};
 
-// TODO - Change data here
+type Web3FormsResponse = {
+  success?: boolean;
+};
 
 const ContactModal = ({
   triggerElement = (
@@ -44,10 +49,16 @@ const ContactModal = ({
   modalTriggerClassName?: string;
   // content?: ContactModalProps;
 }) => {
+  const methods = useForm<ContactFormInputs>({
+    defaultValues: defaultFormValues,
+    mode: "onSubmit",
+    reValidateMode: "onChange",
+    shouldFocusError: true,
+  });
+  const [submissionStatus, setSubmissionStatus] = useState<ContactFormStatus>({ type: "idle" });
+  const [captchaResetKey, setCaptchaResetKey] = useState(0);
+  const submissionInProgressRef = useRef(false);
 
-  // const { imageSrcArr } = content  || {};
-
-  // console.log("imageSrcArr", imageSrcArr);
   const contentArr = [
     {
       contactMethod: "Email",
@@ -64,9 +75,85 @@ const ContactModal = ({
       primeiconClass: "pi-github",
       href: "https://github.com/josharnow",
     },
-  ]
+  ];
 
   const formId = "contactForm";
+
+  const resetCaptcha = () => {
+    methods.setValue("h-captcha-response", "", { shouldValidate: false });
+    setCaptchaResetKey((currentKey) => currentKey + 1);
+  };
+
+  const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
+    if (submissionInProgressRef.current) {
+      return;
+    }
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY;
+    if (!accessKey) {
+      setSubmissionStatus({
+        type: "error",
+        message: "The contact form is temporarily unavailable. Please email me at contact@josharnow.com.",
+      });
+      return;
+    }
+
+    submissionInProgressRef.current = true;
+    setSubmissionStatus({ type: "submitting" });
+
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 15000);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        signal: controller.signal,
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: data.name.trim(),
+          email: data.email.trim(),
+          message: data.message.trim(),
+          "h-captcha-response": data["h-captcha-response"],
+        }),
+      });
+      const result = await response.json() as Web3FormsResponse;
+
+      if (!response.ok || result.success !== true) {
+        throw new Error("Contact form submission was rejected");
+      }
+
+      methods.reset(defaultFormValues);
+      resetCaptcha();
+      setSubmissionStatus({
+        type: "success",
+        message: "Thanks — your message was sent. I look forward to reading it!",
+      });
+    } catch (error) {
+      resetCaptcha();
+      const timedOut = error instanceof DOMException && error.name === "AbortError";
+      setSubmissionStatus({
+        type: "error",
+        message: timedOut
+          ? "The request timed out. Please try again."
+          : "Your message could not be sent. Please try again or email me directly.",
+      });
+    } finally {
+      window.clearTimeout(timeoutId);
+      submissionInProgressRef.current = false;
+    }
+  };
+
+  const handleFormChange = () => {
+    if (submissionStatus.type === "success" || submissionStatus.type === "error") {
+      setSubmissionStatus({ type: "idle" });
+    }
+  };
+
+  const isSubmitting = methods.formState.isSubmitting || submissionStatus.type === "submitting";
 
   return (
     <>
@@ -75,40 +162,53 @@ const ContactModal = ({
         { triggerElement }
         </ModalTrigger>
         <ModalBody>
-          <ModalContent className="">
-            <h2 className="text-base sm:text-3xl text-neutral-100 font-medium text-center mb-2 sm:mb-8">
-              Let’s get in touch!
-            </h2>
-            {/* NOTE - https://tailwindcss.com/docs/grid-template-columns */}
-            <div className="grow flex flex-col gap-y-3">
-              <div className="grid grid-cols-3 gap-4">
-              {/* <div className="grid grid-cols-3 gap-4" style={{ flex:"5px 5px 5px"}}> */}
-              {/* <div className="grid grid-cols-3 gap-4 h-5"> */}
-                { contentArr?.map((content, idx) => (
-                  <div key={ "content" + idx } className="flex flex-col gap-y-2 text-white">
-                    <ContactIcon content={ content } />
-                    <Link className={ cn(styles.contactMethodText, " text-center w-fit self-center p-2 rounded-lg shadow-3xl shadow-slate-700 bg-slate-700 hover:shadow-blue-500 hover:bg-blue-500 hover:bg-opacity-15 flex flex-col text-[.5rem] sm:text-base")}
-                    style={ { transition: "box-shadow 1s ease 0s, background 1s ease 0s, opacity 1s ease 0s, color 1s ease 1s allow-discrete" } }
-                    href={ content.href } 
-                    target="_blank"
-                    >
-                      {content.contactMethod}
-                      { content.contactMethod.toLowerCase() === "email" && (
-                        <>
-                          <span className="text-[.5rem] sm:text-base">[<i className="text-medium">contact@josharnow.com</i>]</span>
-                        </>
-                        ) }
-                    </Link>
+          <FormProvider { ...methods }>
+            <form
+              noValidate
+              id={ formId }
+              onSubmit={ methods.handleSubmit(onSubmit) }
+              onChange={ handleFormChange }
+              aria-busy={ isSubmitting }
+              className="flex min-h-0 flex-1 flex-col"
+            >
+              <ModalContent className="">
+                <h2 className="text-base sm:text-3xl text-neutral-100 font-medium text-center mb-2 sm:mb-8">
+                  Let’s get in touch!
+                </h2>
+                <div className="grow flex flex-col gap-y-3">
+                  <div className="grid grid-cols-3 gap-4">
+                    { contentArr.map((content, idx) => (
+                      <div key={ "content" + idx } className="flex flex-col gap-y-2 text-white">
+                        <ContactIcon content={ content } />
+                        <Link className={ cn(styles.contactMethodText, " text-center w-fit self-center p-2 rounded-lg shadow-3xl shadow-slate-700 bg-slate-700 hover:shadow-blue-500 hover:bg-blue-500 hover:bg-opacity-15 flex flex-col text-[.5rem] sm:text-base")}
+                        style={ { transition: "box-shadow 1s ease 0s, background 1s ease 0s, opacity 1s ease 0s, color 1s ease 1s allow-discrete" } }
+                        href={ content.href }
+                        target="_blank"
+                        >
+                          {content.contactMethod}
+                          { content.contactMethod.toLowerCase() === "email" && (
+                            <span className="text-[.5rem] sm:text-base">[<i className="text-medium">contact@josharnow.com</i>]</span>
+                          ) }
+                        </Link>
+                      </div>
+                    )) }
                   </div>
-                )) }
-              </div>
-              <div className="flex flex-col grow border border-white p-4 rounded-2xl shadow-3xl shadow-slate-700 bg-slate-700">
-                <ContactForm formId={ formId } />
-              </div>
-            </div>
-          </ModalContent>
-          <ModalFooter className="gap-4" formId={ formId }>
-          </ModalFooter>
+                  <div className="flex flex-col grow border border-white p-4 rounded-2xl shadow-3xl shadow-slate-700 bg-slate-700">
+                    <ContactForm
+                      status={ submissionStatus }
+                      captchaResetKey={ captchaResetKey }
+                      disabled={ isSubmitting }
+                    />
+                  </div>
+                </div>
+              </ModalContent>
+              <ModalFooter
+                className="gap-4"
+                submitDisabled={ isSubmitting }
+                submitLabel={ isSubmitting ? "Sending…" : "Send Josh a message" }
+              />
+            </form>
+          </FormProvider>
         </ModalBody>
       </Modal>
     </>

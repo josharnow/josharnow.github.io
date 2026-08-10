@@ -21,6 +21,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>  {
   labelClassName?: string;
   inputClassName?: string;
   isCaptcha?: boolean;
+  captchaResetKey?: number;
 
 
   // cols?: number;
