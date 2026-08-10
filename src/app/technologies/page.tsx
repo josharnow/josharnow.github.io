@@ -1320,6 +1320,7 @@ export default function TechnologiesPage() {
 
   return (
     <>
+      <h1 className="sr-only">Technologies</h1>
       <ParallaxScrollChain
         // images={ contentArrContainer.programming_languages.map((content) => content.imageSrc as string) }
         contentArrContainer={ contentArrContainer }

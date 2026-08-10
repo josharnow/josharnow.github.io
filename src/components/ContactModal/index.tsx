@@ -161,7 +161,7 @@ const ContactModal = ({
         <ModalTrigger className={ cn(styles.modalButton, modalTriggerClassName)} buttonElement={ buttonElement }>
         { triggerElement }
         </ModalTrigger>
-        <ModalBody>
+        <ModalBody ariaLabelledBy="contact-modal-title">
           <FormProvider { ...methods }>
             <form
               noValidate
@@ -172,7 +172,7 @@ const ContactModal = ({
               className="flex min-h-0 flex-1 flex-col"
             >
               <ModalContent className="">
-                <h2 className="text-base sm:text-3xl text-neutral-100 font-medium text-center mb-2 sm:mb-8">
+                <h2 id="contact-modal-title" className="text-base sm:text-3xl text-neutral-100 font-medium text-center mb-2 sm:mb-8">
                   Let’s get in touch!
                 </h2>
                 <div className="grow flex flex-col gap-y-3">
@@ -184,6 +184,7 @@ const ContactModal = ({
                         style={ { transition: "box-shadow 1s ease 0s, background 1s ease 0s, opacity 1s ease 0s, color 1s ease 1s allow-discrete" } }
                         href={ content.href }
                         target="_blank"
+                        rel="noreferrer"
                         >
                           {content.contactMethod}
                           { content.contactMethod.toLowerCase() === "email" && (
@@ -204,6 +205,7 @@ const ContactModal = ({
               </ModalContent>
               <ModalFooter
                 className="gap-4"
+                formId={ formId }
                 submitDisabled={ isSubmitting }
                 submitLabel={ isSubmitting ? "Sending…" : "Send Josh a message" }
               />

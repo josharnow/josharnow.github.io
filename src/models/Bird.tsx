@@ -1,6 +1,7 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
+import { useReducedMotion } from "framer-motion";
 
 import birdScene from "@/src/assets/3d/bird.glb";
 
@@ -12,14 +13,20 @@ export function Bird() {
 
   // Get access to the animations for the bird
   const { actions } = useAnimations(animations, birdRef);
+  const shouldReduceMotion = useReducedMotion();
 
   // Play the "Take 001" animation when the component mounts
   // Note: Animation names can be found on the Sketchfab website where the 3D model is hosted.
   useEffect(() => {
-    actions?.["Take 001"]?.play();
-  }, [actions]);
+    if (shouldReduceMotion) {
+      actions?.["Take 001"]?.stop();
+    } else {
+      actions?.["Take 001"]?.play();
+    }
+  }, [actions, shouldReduceMotion]);
 
   useFrame(({ clock, camera }) => {
+    if (shouldReduceMotion) return;
     // Ensures that the birdRef is not null
     if (!birdRef.current) return;
     // Update the Y position to simulate bird-like motion using a sine wave

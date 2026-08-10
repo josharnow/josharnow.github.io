@@ -11,7 +11,7 @@ const AboutPageContact = forwardRef(function AboutPageContact(props, ref: React.
       {/* Radial gradient for the container to give a faded look */ }
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <div className=" p-4 max-w-7xl  mx-auto relative z-1  w-full pt-20 md:pt-0">
-        <motion.h1
+        <motion.h2
           key={ "about-page-contact-1" }
           initial={ { opacity: 0.0, y: 0 } }
           whileInView={ { opacity: 1.0, y: 0 } }
@@ -24,7 +24,7 @@ const AboutPageContact = forwardRef(function AboutPageContact(props, ref: React.
           className="text-4xl md:text-7xl font-bold text-center text-balance bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 pb-4"
         >
           Do you want a <span className="text-blue-500">vision</span> brought to <span className="text-blue-500">life</span>?
-        </motion.h1>
+        </motion.h2>
         <motion.div 
           key={ "about-page-contact-2" }
           initial={ { opacity: 0.0, y: 0 } }
@@ -42,6 +42,7 @@ const AboutPageContact = forwardRef(function AboutPageContact(props, ref: React.
             buttonElement={(
               <>
                 <MovingBorderButton
+                  as="span"
                   borderRadius="1.75rem"
                   className="bg-slate-700 !text-white border-slate-800 font-medium z-1 text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
                   duration={ 5000.0 }

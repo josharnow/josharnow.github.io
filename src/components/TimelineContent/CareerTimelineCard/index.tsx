@@ -28,14 +28,14 @@ const CareerTimelineCard = ({ content, className }: {
               <div className="text-xs sm:text-sm md:text-base xl:text-lg flex h-fit text-white">
                 {
                   content.yearStart === content.yearEnd
-                  ? <h1>{ content.yearStart }</h1>
-                  : <><h1>{ content.yearStart }</h1>&nbsp;–&nbsp;<h1>{ content.yearEnd ? content.yearEnd : "Present" }</h1></>
+                  ? <span>{ content.yearStart }</span>
+                  : <><span>{ content.yearStart }</span>&nbsp;–&nbsp;<span>{ content.yearEnd ? content.yearEnd : "Present" }</span></>
                 }
               </div>
-              <h6 className="text-xs sm:text-sm md:text-base xl:text-lg h-fit text-white" style={ { textAlign: "right" } }><i>{ content.location }</i></h6>
+              <span className="text-xs sm:text-sm md:text-base xl:text-lg h-fit text-white" style={ { textAlign: "right" } }><i>{ content.location }</i></span>
             </div>
             <div className="flex flex-col">
-              <h1 className="font-medium text-sm sm:text-base md:text-lg xl:text-xl text-blue-500">{ content.institution }</h1>
+              <h2 className="font-medium text-sm sm:text-base md:text-lg xl:text-xl text-blue-500">{ content.institution }</h2>
               <h3 className="font-medium text-xs sm:text-base md:text-lg xl:text-xl text-white"><i>{ content.position }</i></h3>
             </div>
           </div>

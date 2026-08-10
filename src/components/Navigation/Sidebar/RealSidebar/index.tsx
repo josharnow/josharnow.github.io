@@ -47,22 +47,22 @@ const ConsolidatedSidebar = ({
         {/* <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2"> */}
           {/* <div className="flex h-16 shrink-0 w-full"> */}
           <div className="flex h-16 shrink-0 items-center justify-center p-2 gap-x-2">
-            <Link href="/" className="" style={ { height: '2rem', width: '2rem' } }>
+            <Link href="/" aria-label="Josh Arnow home" className="rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" style={ { height: '2rem', width: '2rem' } }>
               <Logo />
             </Link>
             <Link href="/" className="">
-              <h1 className="text-white font-medium whitespace-nowrap sm:text-lg text-xl">Josh Arnow</h1>
+              <span className="text-white font-medium whitespace-nowrap sm:text-lg text-xl">Josh Arnow</span>
             </Link>
           </div>
-          <nav className="flex flex-1 flex-col">
+          <nav aria-label="Primary navigation" className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
               <li>
                 <ul role="list" className="-mx-2 space-y-1">
                   { navigationOptions.map((option) => (
                     <li key={ option.name }>
-                      <Link href={ option.href } className={ classNames(styles.navigationLink, option.current ? "bg-blue-500 text-black shadow-3xl" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15 hover:shadow-3xl", "hover:text-white group flex gap-x-2 rounded-md p-2 sm:text-lg text-xl leading-6 font-medium whitespace-nowrap cursor-pointer") }>
+                      <Link href={ option.href } aria-current={ option.current ? "page" : undefined } className={ classNames(styles.navigationLink, option.current ? "bg-blue-500 text-black shadow-3xl" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15 hover:shadow-3xl", "hover:text-white group flex gap-x-2 rounded-md p-2 sm:text-lg text-xl leading-6 font-medium whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400") }>
                         {/*  NOTE - Classes after the comma will be applied regardless of outcome of ternary */ }
-                        <option.icon className={ classNames(
+                        <option.icon aria-hidden="true" className={ classNames(
                           styles.navigationLinkIcon,
                           option.current ? "text-black" : "text-gray-300", " group-hover:text-white h-6 w-6 shrink-0") } />
                         {/* <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0" /> */}
@@ -93,7 +93,7 @@ const ConsolidatedSidebar = ({
                     <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500 text-sm xs:text-base flex items-center">
                       🙋‍♂️ Contact Me
                     </span>
-                    <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
+                    <div aria-hidden="true" className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
                       📇
                     </div>
                   </>) }
@@ -106,7 +106,7 @@ const ConsolidatedSidebar = ({
                   <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500 flex items-center">
                     📄 Résumé
                   </span>
-                  <div className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
+                  <div aria-hidden="true" className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
                     📈
                   </div>
                 </Link>
@@ -117,7 +117,7 @@ const ConsolidatedSidebar = ({
                   <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500 flex items-center">
                     🎓 Master’s Thesis
                   </span>
-                  <div className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
+                  <div aria-hidden="true" className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
                     🧑‍🔬
                   </div>
                 </Link>

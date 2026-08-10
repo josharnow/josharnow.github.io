@@ -219,6 +219,7 @@ export default function PortfolioPage() {
 
   return (
     <>
+      <h1 className="sr-only">Software portfolio</h1>
       {/* <div className='technologies-page-wrapper h-[calc(100%-9rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'> */ }
       <div className='technologies-page-wrapper h-[calc(100%-5rem)] sm:h-[calc(100%-5rem)] px-4 sm:px-6 py-6 sm:py-10'>
         <div className="h-full [perspective:1000px] relative b flex flex-col  mx-auto w-full items-start justify-start">

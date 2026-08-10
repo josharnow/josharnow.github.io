@@ -42,7 +42,7 @@ const Timeline = ({
    * @param year - The selected year.
    * @param yearIndex - The index of the selected year.
    */
-  function handleYearClick(e: React.MouseEvent<HTMLDivElement | HTMLSpanElement, MouseEvent>, year: number, yearIndex?: number) {
+  function handleYearClick(year: number) {
     setSelectedYear(year);
     setSliderValue(yearToSliderValue(year, timelineYears));
   }
@@ -80,6 +80,10 @@ const Timeline = ({
   return (
     <>
       <div className="w-full">
+        <span id="timeline-slider-label" className="sr-only">Timeline year</span>
+        <span className="sr-only" aria-live="polite" aria-atomic="true">
+          Showing timeline entries for { selectedYear }
+        </span>
         <div className="flex gap-x-2 relative w-full justify-between">
           { 
             [...generateYearRange(timelineYears)].map((year, i) =>
@@ -87,23 +91,33 @@ const Timeline = ({
                 <div className="flex flex-col items-center relative">
                   <div className="flex">
                     {/* NOTE - -left-1.5 is used to account for the radius of the circle so it can be properly centered */ }
-                    <div className={ cn(
-                      styles.timelineButton, 
-                      "circle border size-3 rounded-full shadow-3xl absolute -left-1.5 z-20 cursor-pointer -top-1", 
-                      (year === selectedYear) ? styles.selected : "bg-white",
+                    <button
+                      type="button"
+                      aria-label={ `Show ${year === currentYear ? "present" : year} timeline entries` }
+                      aria-pressed={ year === selectedYear }
+                      className={ cn(
+                      "absolute -left-3 -top-3 z-20 flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400",
                       (timelineYears.includes(year)) ? "" : "hidden"
-                    )} onClick={ (e) => handleYearClick(e, year, i) }></div>
+                    ) }
+                      onClick={ () => handleYearClick(year) }
+                    >
+                      <span aria-hidden="true" className={ cn(
+                        styles.timelineButton,
+                        "circle border size-3 rounded-full shadow-3xl",
+                        (year === selectedYear) ? styles.selected : "bg-white"
+                      ) } />
+                    </button>
                   </div>
                   {/* TODO - Transition animations for box that appears behind selected year */}
                   <span className={ 
                     cn(
-                      "absolute cursor-pointer flex flex-col", 
+                      "absolute flex flex-col",
                       (i % 2 === 0) ? "top-4" : "bottom-3",
                       (year === selectedYear) ? styles.selectedYear : styles.unselectedYear,
                       (year === selectedYear) ? "text-black font-medium mt-1 p-1 shadow-3xl rounded-md text-base sm:text-2xl" : "text-white text-xs sm:text-xl font-medium",
                       (year === currentYear && year === selectedYear) ? "mr-3" : "", // Prevents the text from being cut off when "Present" is selected
                       (timelineYears.includes(year)) ? "" : "hidden"
-                    )} onClick={ (e) => handleYearClick(e, year, i) }>
+                    )}>
                       { 
                         (year === currentYear) 
                         // ? (<><span className="text-center">{ year }</span><span>(Present)</span></>)
@@ -118,6 +132,7 @@ const Timeline = ({
             <Slider 
               value={ sliderValue } 
               onChange={ handleSliderChange } 
+              ariaLabelledBy="timeline-slider-label"
               pt={ {
                 root: {
                   className: "absolute top-0 w-full shadow-3xl h-1 bg-slate-700 cursor-pointer",
@@ -127,6 +142,7 @@ const Timeline = ({
                 },
                 handle: {
                   className: cn(styles.sliderHandle, "bg-blue-500 shadow-3xl border border-2 top-0 w-6 h-6 fixed z-50"),
+                  "aria-valuetext": `${selectedYear}`,
                 },
               } }
             />

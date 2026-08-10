@@ -392,6 +392,7 @@ export default function CareerAndEducationTimelinePage() {
   
   return (
     <>
+      <h1 className="sr-only">Career and education timeline</h1>
       <WavyBackground containerClassName="absolute top-0 left-0 right-0 bottom-0 bg-black" className="w-full" />
       <div className="z-[1] absolute top-0 bottom-0 left-0 right-0 p-2 sm:p-4">
         <div className="w-full h-full">

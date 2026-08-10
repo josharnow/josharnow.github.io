@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
+import { useReducedMotion } from "framer-motion";
 
 import planeScene from "../assets/3d/plane.glb";
 
@@ -13,16 +14,17 @@ export function Plane({ isRotating, ...props }: {
   const { scene, animations } = useGLTF(planeScene) as DreiGLTF;
   // Get animation actions associated with the plane
   const { actions } = useAnimations(animations, ref);
+  const shouldReduceMotion = useReducedMotion();
 
   // Use an effect to control the plane's animation based on 'isRotating'
   // Note: Animation names can be found on the Sketchfab website where the 3D model is hosted.
   useEffect(() => {
-    if (isRotating) {
+    if (isRotating && !shouldReduceMotion) {
       actions?.["Take 001"]?.play();
     } else {
       actions?.["Take 001"]?.stop();
     }
-  }, [actions, isRotating]);
+  }, [actions, isRotating, shouldReduceMotion]);
 
   return (
     <mesh {...props} ref={ref as AssignedMeshRef}>

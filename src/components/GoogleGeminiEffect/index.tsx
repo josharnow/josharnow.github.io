@@ -82,11 +82,13 @@ const GoogleGeminiEffect = ({
         <div className="mt-4 md:mt-6 lg:mt-10">
 
           <MovingBorderButton 
+            as={ Link }
+            href="/career-and-education-timeline"
             borderRadius="1.75rem"
             className="bg-slate-700 !text-white border-slate-800 font-medium z-10 text-normal sm:text-lg md:text-xl w-fit h-fit px-2 py-2 text-balance"
             duration={ 5000.0 }
             >
-            <Link href="/career-and-education-timeline">Career & Education Timeline</Link>
+            Career & Education Timeline
           </MovingBorderButton>
         </div>
       </motion.div>

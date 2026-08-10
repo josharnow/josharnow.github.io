@@ -71,11 +71,20 @@ export default function ThreeDDemoPage() {
 
   return (
     <>
+      <h1 className="sr-only">Interactive 3D portfolio demo</h1>
+      <p id="three-d-demo-instructions" className="sr-only">
+        Focus the 3D scene and use the left and right arrow keys to rotate the island and explore its information.
+      </p>
       {/* <Leva collapsed={true} /> */}
-      <div className='absolute top-28 left-0 right-0 flex items-center justify-center text-black z-[1]'>
+      <div aria-live="polite" aria-atomic="true" className='absolute top-28 left-0 right-0 flex items-center justify-center text-black z-[1]'>
         {currentStage && <ThreeDDemoInfo currentStage={currentStage} />}
       </div>
       <Canvas 
+        onCreated={ ({ gl }) => {
+          gl.domElement.tabIndex = 0;
+          gl.domElement.setAttribute("aria-label", "Interactive island scene");
+          gl.domElement.setAttribute("aria-describedby", "three-d-demo-instructions");
+        } }
         className={`w-full h-full bg-transparent relative ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
         camera={cameraProps}
       >

@@ -38,9 +38,9 @@ const AboutPageIntro = forwardRef(function AboutPageInfo(props, ref: React.Forwa
             className="w-full flex justify-end"
           >
             <div className="flex w-3/6 text-right justify-end" style={ { "textAlign": "justify" } }>
-              <h1 className="text-white self-center text-right text-balance text-3xl md:text-4xl lg:text-5xl">
+              <p className="text-white self-center text-right text-balance text-3xl md:text-4xl lg:text-5xl">
                 A <b className="text-blue-500 font-medium">software engineer</b> from NY/FL
-              </h1>
+              </p>
             </div>
           </motion.div>
           <div className="flex flex-col justify-end justify-self-end text-white w-3/6 text-3xl lg:text-4xl">

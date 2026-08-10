@@ -46,6 +46,7 @@ const TimelineContent = ({selectedContent, selectedYear, contentType, handleInpu
           contentType === "career" ?
             <input
               type="number"
+              aria-label="Selected timeline year"
               value={ selectedYear }
               className="w-14 sm:w-24 text-xs sm:text-base absolute top-0 right-0 text-blue-500 font-medium mt-1 p-1 bg-black shadow-3xl rounded-md bg-opacity-50"
               onChange={ handleInputYearChange }

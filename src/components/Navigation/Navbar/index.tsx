@@ -16,7 +16,7 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
   }
   return (
     <>
-      <nav className={ classNames(styles.navbar, "h-20 sm:hidden fixed shadow-3xl")}>
+      <nav aria-label="Mobile navigation" className={ classNames(styles.navbar, "h-20 sm:hidden fixed shadow-3xl")}>
         <div 
           className={ classNames(
             styles.navbar, 
@@ -31,7 +31,7 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
                     <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500 text-xs xs:text-base flex items-center">
                       🙋‍♂️ Contact Me
                     </span>
-                    <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
+                    <div aria-hidden="true" className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
                       📇
                     </div>
                   </>) }
@@ -44,7 +44,7 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
                 <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500 text-xs xs:text-base flex items-center">
                   📄 Résumé
                 </span>
-                <div className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
+                <div aria-hidden="true" className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
                   📈
                 </div>
               </Link>
@@ -55,7 +55,7 @@ const Navbar = ({ toggle, isOpen, navigationOptions }: {
                 <span className="group-hover/resume-btn:translate-x-40 text-center transition duration-500 text-xs xs:text-base flex items-center">
                   🎓 Master’s Thesis
                 </span>
-                <div className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
+                <div aria-hidden="true" className="-translate-x-40 group-hover/resume-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-black z-20">
                   🧑‍🔬
                 </div>
               </Link>

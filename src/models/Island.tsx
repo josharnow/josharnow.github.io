@@ -13,6 +13,7 @@ import { a } from "@react-spring/three";
 import React, { useCallback, useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
+import { useReducedMotion } from "framer-motion";
 
 import islandScene from "../assets/3d/island.glb";
 
@@ -33,6 +34,7 @@ export function Island({
   // Get access to the Three.js renderer and viewport
   const { gl, viewport } = useThree();
   const { nodes, materials } = useGLTF(islandScene) as DreiGLTF;
+  const shouldReduceMotion = useReducedMotion();
 
   // Use a ref for the last mouse x position
   const lastX = useRef(0);
@@ -99,11 +101,13 @@ export function Island({
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
     if (!islandRef.current) return;
     if (event.key === "ArrowLeft") {
+      event.preventDefault();
       if (!isRotating) setIsRotating(true);
 
       islandRef.current.rotation.y += 0.005 * Math.PI;
       rotationSpeed.current = 0.007;
     } else if (event.key === "ArrowRight") {
+      event.preventDefault();
       if (!isRotating) setIsRotating(true);
 
       islandRef.current.rotation.y -= 0.005 * Math.PI;
@@ -156,8 +160,8 @@ export function Island({
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointermove", handlePointerMove);
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
+    canvas.addEventListener("keydown", handleKeyDown);
+    canvas.addEventListener("keyup", handleKeyUp);
     canvas.addEventListener("touchstart", handleTouchStart);
     canvas.addEventListener("touchend", handleTouchEnd);
     canvas.addEventListener("touchmove", handleTouchMove);
@@ -167,8 +171,8 @@ export function Island({
       canvas.removeEventListener("pointerdown", handlePointerDown);
       canvas.removeEventListener("pointerup", handlePointerUp);
       canvas.removeEventListener("pointermove", handlePointerMove);
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("keyup", handleKeyUp);
+      canvas.removeEventListener("keydown", handleKeyDown);
+      canvas.removeEventListener("keyup", handleKeyUp);
       canvas.removeEventListener("touchstart", handleTouchStart);
       canvas.removeEventListener("touchend", handleTouchEnd);
       canvas.removeEventListener("touchmove", handleTouchMove);
@@ -178,6 +182,9 @@ export function Island({
   // This function is called on each frame update
   useFrame(() => {
     if (!islandRef.current) return;
+    if (shouldReduceMotion && !isRotating) {
+      rotationSpeed.current = 0;
+    }
     // If not rotating, apply damping to slow down the rotation (smoothly)
     if (!isRotating) {
       // Apply damping factor

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 // import { UserIcon, Bars3Icon } from "@heroicons/react/24/solid"
@@ -11,8 +11,30 @@ const Navigation= () => {
   const segment = useSelectedLayoutSegment();
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((open) => !open);
   };
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [segment]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        window.requestAnimationFrame(() => {
+          document.getElementById("mobile-navigation-toggle")?.focus();
+        });
+      }
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [isOpen]);
 
   const navigationOptions: NavigationOption[] = [
     {

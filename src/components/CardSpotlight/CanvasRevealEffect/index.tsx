@@ -2,6 +2,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, { useMemo, useRef, useCallback } from "react";
 import * as THREE from "three";
+import { useReducedMotion } from "framer-motion";
 
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -197,6 +198,7 @@ const ShaderMaterial = ({
 }) => {
   const { size } = useThree();
   const ref = useRef<THREE.Mesh>();
+  const shouldReduceMotion = useReducedMotion();
   let lastFrameTime = 0;
 
   useFrame(({ clock }) => {
@@ -209,7 +211,7 @@ const ShaderMaterial = ({
 
     const material: any = ref.current.material;
     const timeLocation = material.uniforms.u_time;
-    timeLocation.value = timestamp;
+    timeLocation.value = shouldReduceMotion ? 1 : timestamp;
   });
 
   const getUniforms = useCallback(() => {
