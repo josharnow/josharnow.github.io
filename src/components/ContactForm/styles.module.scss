@@ -8,8 +8,7 @@
 .textareaInput {
   display: block;
   width: 100%;
-  // overflow: auto;
-  overflow: hidden;
+  overflow: auto;
   resize: vertical;
   min-height: 4rem;
   line-height: 20px;
@@ -20,16 +19,3 @@
     min-height: 10rem !important;
   }
 }
-
-.textareaInput[contenteditable]:empty::before {
-  content: "Your message";
-  color: theme("colors.neutral.400");
-}
-// .textareaInput[contenteditable] {
-//   content: "Your message";
-//   color: theme("colors.neutral.400");
-// }
-// .textareaInput[contenteditable]::placeholder {
-//   content: "Your message";
-//   color: theme("colors.neutral.400");
-// }

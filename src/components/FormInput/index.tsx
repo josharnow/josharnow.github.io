@@ -1,8 +1,7 @@
 // Input component extends from shadcnui - https://ui.shadcn.com/docs/components/input
 "use client";
-import React, { useRef, useEffect, FormEvent } from "react";
+import React from "react";
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
-import { useFormContext } from 'react-hook-form';
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -10,7 +9,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const FormInput = React.forwardRef<HTMLInputElement, InputProps>(
+const FormInput = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
   ({
     className, 
     type = "text", 
@@ -22,36 +21,25 @@ const FormInput = React.forwardRef<HTMLInputElement, InputProps>(
     const radius = 100; // change this to increase the radius of the hover effect
     const [visible, setVisible] = React.useState(false);
     
-    let mouseX = useMotionValue(0);
-    let mouseY = useMotionValue(0);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
     
-    const spanRef = useRef<HTMLSpanElement>(null);
-
-    const {
-      setValue,
-      clearErrors,
-      formState: { isSubmitSuccessful },
-    } = useFormContext();
-    
-    function handleMouseMove({ currentTarget, clientX, clientY }: any) {
-      let { left, top } = currentTarget.getBoundingClientRect();
+    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent<HTMLDivElement>) {
+      const { left, top } = currentTarget.getBoundingClientRect();
 
       mouseX.set(clientX - left);
       mouseY.set(clientY - top);
     }
 
-    function handleSpanChange(e: FormEvent<HTMLSpanElement>) {
-      setValue(props.name, e.currentTarget.textContent);
-      clearErrors(props.name);
-    }
-    
-    useEffect(() => {
-      if (isSubmitSuccessful) {
-        if (spanRef.current) {
-          spanRef.current.textContent = "";
-        }
-      }
-    }, [isSubmitSuccessful]);
+    const fieldClassName = cn(
+      `flex w-full border-none bg-zinc-800 text-white rounded-md px-3 py-2 text-sm
+      placeholder:text-neutral-400 focus-visible:outline-none focus-visible:ring-[2px]
+      focus-visible:ring-neutral-600 disabled:cursor-not-allowed disabled:opacity-50
+      shadow-[0px_0px_1px_1px_var(--neutral-700)] group-hover/input:shadow-none
+      transition duration-400`,
+      !multiline && "h-10",
+      className
+    );
     
     return (
       <motion.div
@@ -70,43 +58,22 @@ const FormInput = React.forwardRef<HTMLInputElement, InputProps>(
         className="p-[2px] rounded-lg transition duration-300 group/input"
       >
         {
-          !inputElement ? ( 
-            (!multiline) ? (
-              <>
-                <input
-                  type={ type }
-                  className={ cn(
-                    `flex h-10 w-full border-none bg-zinc-800 text-white rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent 
-          file:text-sm file:font-medium placeholder-text-neutral-600 
-          focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-neutral-600
-          disabled:cursor-not-allowed disabled:opacity-50
-          shadow-[0px_0px_1px_1px_var(--neutral-700)]
-          group-hover/input:shadow-none transition duration-400
-          `,
-                    className
-                  ) }
-                  ref={ ref }
-                  { ...props }
-                />
-              </>
+          inputElement ?? (
+            multiline ? (
+              <textarea
+                rows={ 4 }
+                className={ fieldClassName }
+                ref={ ref as React.ForwardedRef<HTMLTextAreaElement> }
+                { ...(props as React.TextareaHTMLAttributes<HTMLTextAreaElement>) }
+              />
             ) : (
-              <>
-                {/* NOTE - https://css-tricks.com/auto-growing-inputs-textareas/ */ }
-                <input type="hidden" { ...props } ref={ ref } />
-                <span
-                  ref={ spanRef } 
-                  onInput={ handleSpanChange } 
-                  role="textbox" 
-                  contentEditable={ true } 
-                  aria-placeholder="Your message"
-                  className={ cn(className, "border-none bg-zinc-800 text-white rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent  file:text-sm file:font-medium placeholder-text-neutral-600  focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-600 disabled:cursor-not-allowed disabled:opacity-50 shadow-[0px_0px_1px_1px_var(--neutral-700)] group-hover/input:shadow-none transition duration-400") }
-                />
-              </>
+              <input
+                type={ type }
+                className={ fieldClassName }
+                ref={ ref as React.ForwardedRef<HTMLInputElement> }
+                { ...props }
+              />
             )
-) : (
-            <>
-              { inputElement }
-            </>
           )
         }
       </motion.div>

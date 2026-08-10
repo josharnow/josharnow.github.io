@@ -8,7 +8,7 @@
 |  🐸 Returns: TSX
 *-------------------------------------------------------------------*/
 
-import { type FieldErrors, type FieldValues, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { AnimatePresence, motion } from 'framer-motion';
 import { MdError } from 'react-icons/md';
 
@@ -24,10 +24,12 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const InputError = ({ message }: { message: string }) => {
+const InputError = ({ id, message }: { id: string; message: string }) => {
   return (
     <>
       <motion.p
+        id={ id }
+        role="alert"
         className="text-sm lg:text-base flex items-center gap-1 px-2 font-medium text-red-500 bg-red-100 rounded-md"
         { ...framer_error }
       >
@@ -39,27 +41,6 @@ const InputError = ({ message }: { message: string }) => {
 }
 
 
-
-/**
- * Finds the error associated with a specific input field. Filters the error object & returns the error of the given input
- * 
- * @param errors - The object containing the errors for all input fields.
- * @param name - The name of the input field to find the error for.
- * @returns The error object associated with the specified input field.
- */
-export function findInputError(errors: FieldErrors<FieldValues>, name: string) {
-  const filtered = Object.keys(errors)
-    .filter(key => key.includes(name))
-    .reduce((cur, key) => {
-      return Object.assign(cur, { error: errors[key] })
-    }, {});
-  return filtered as FieldErrors<FieldValues>;
-}
-
-export const isFormInvalid = (err: FieldErrors<FieldValues>) => {
-  if (Object.keys(err).length > 0) return true
-  return false
-}
 
 const framer_error = {
   initial: { opacity: 0, y: 10 },
@@ -80,25 +61,39 @@ const Input = ({
   labelClassName,
   inputClassName,
   isCaptcha = false,
-  // ...props
+  captchaResetKey = 0,
+  disabled,
+  autoComplete,
 }: InputProps) => {
   const {
     register,
     formState: { errors },
     setValue,
     clearErrors,
+    setError,
   } = useFormContext();
 
-  const inputErrors = findInputError(errors, name);
-  const isInvalid = isFormInvalid(inputErrors);
-
-  // const input_tailwind = 'p-5 font-medium rounded-md w-full border border-slate-300 placeholder:opacity-60';
-
-  // const inputRef = useRef<any>(null);
+  const inputError = errors[name];
+  const errorMessage = typeof inputError?.message === "string" ? inputError.message : "Invalid value";
+  const isInvalid = Boolean(inputError);
+  const errorId = `${id}-error`;
+  const captchaSiteKey = process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY;
 
   function handleCaptchaVerify(token: string) {
-    setValue(name, token);
+    setValue(name, token, { shouldDirty: true, shouldValidate: true });
     clearErrors(name);
+  }
+
+  function handleCaptchaExpire() {
+    setValue(name, "", { shouldValidate: true });
+  }
+
+  function handleCaptchaError() {
+    setValue(name, "", { shouldValidate: false });
+    setError(name, {
+      type: "manual",
+      message: "Captcha verification failed. Please try again.",
+    });
   }
 
   return (
@@ -109,24 +104,56 @@ const Input = ({
           <AnimatePresence mode="wait" initial={ false }>
             { isInvalid && (
               <InputError
-                message={ inputErrors?.error?.message as string }
-                key={ inputErrors?.error?.message as string }
+                id={ errorId }
+                message={ errorMessage }
+                key={ errorMessage }
               />
             ) }
           </AnimatePresence>
         </div>
         {
           !isCaptcha ? (
-            <FormInput id={ id } placeholder={ placeholder } className={ inputClassName } type={ type } multiline={ multiline } { ...register(name, validation) } />
+            <FormInput
+              id={ id }
+              placeholder={ placeholder }
+              className={ inputClassName }
+              type={ type }
+              multiline={ multiline }
+              disabled={ disabled }
+              autoComplete={ autoComplete }
+              aria-invalid={ isInvalid }
+              aria-describedby={ isInvalid ? errorId : undefined }
+              { ...register(name, validation) }
+            />
           ) :
           (
             <div className={ styles.captchaContainer }>
-              <FormInput id={ id } placeholder={ placeholder } className={ inputClassName } type={ type } multiline={ multiline } { ...register(name, validation) } />
-              <HCaptcha
-                sitekey={ process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY as string }
-                reCaptchaCompat={ false }
-                onVerify={ handleCaptchaVerify }
+              <FormInput
+                id={ id }
+                placeholder={ placeholder }
+                className={ inputClassName }
+                type={ type }
+                multiline={ multiline }
+                disabled={ disabled }
+                aria-invalid={ isInvalid }
+                aria-describedby={ isInvalid ? errorId : undefined }
+                { ...register(name, validation) }
               />
+              { captchaSiteKey ? (
+                <HCaptcha
+                  key={ captchaResetKey }
+                  sitekey={ captchaSiteKey }
+                  reCaptchaCompat={ false }
+                  onVerify={ handleCaptchaVerify }
+                  onExpire={ handleCaptchaExpire }
+                  onChalExpired={ handleCaptchaExpire }
+                  onError={ handleCaptchaError }
+                />
+              ) : (
+                <p role="alert" className="text-sm text-red-100">
+                  Contact verification is temporarily unavailable. Please email me directly instead.
+                </p>
+              ) }
             </div>
           )
         }

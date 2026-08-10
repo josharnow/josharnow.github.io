@@ -1,6 +1,5 @@
 "use client";
-import React, { useRef } from "react";
-import { useForm, FormProvider, type SubmitHandler } from "react-hook-form";
+import React from "react";
 import { Input } from "@/src/components";
 import styles from "./styles.module.scss";
 import {
@@ -8,82 +7,76 @@ import {
   EMAIL_VALIDATION,
   MESSAGE_VALIDATION,
   CAPTCHA_VALIDATION,
-} from './inputValidations'
+} from './inputValidations';
 
-// import { type ClassValue, clsx } from "clsx";
-// import { twMerge } from "tailwind-merge";
-
-type Inputs = {
-  // access_key: string;
+export type ContactFormInputs = {
   name: string;
   email: string;
   message: string;
   "h-captcha-response": string;
-}
+};
 
+export type ContactFormStatus = {
+  type: "idle" | "submitting" | "success" | "error";
+  message?: string;
+};
 
-// function cn(...inputs: ClassValue[]) {
-//   return twMerge(clsx(inputs));
-// }
-
-// SOURCE - https://dsavir-h.medium.com/contact-form-for-static-site-with-web3forms-575ee166732
-function ContactForm({ formId }: { formId?: string } ) {
-  const isMessageSent = useRef(false);
-
-  const methods = useForm<Inputs>();
-
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    // NOTE - Once this function is hit, it means data validation passed
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY,
-        ...data,
-      }),
-    });
-    const result = await response.json();
-
-    if (result.success) {
-      isMessageSent.current = true;
-      methods.reset();
-    }
-  };
+function ContactForm({
+  status,
+  captchaResetKey,
+  disabled = false,
+}: {
+  status: ContactFormStatus;
+  captchaResetKey: number;
+  disabled?: boolean;
+}) {
 
 
   return (
-    <>
-      <FormProvider {...methods}>
-        <form noValidate id={ formId } onSubmit={ methods.handleSubmit(onSubmit) } className="flex flex-col grow gap-y-2">
-          <Input
-            containerClassName="w-full sm:w-[50%]"
-            { ...NAME_VALIDATION }
-          />
-          <Input
-            containerClassName="w-full sm:w-[50%]"
-            { ...EMAIL_VALIDATION }
-          />
-          <Input
-            containerClassName="w-full"
-            inputClassName={ styles.textareaInput }
-            { ...MESSAGE_VALIDATION }
-          />
-          <Input
-            containerClassName="w-fit"
-            { ...CAPTCHA_VALIDATION }
-            isCaptcha={ true }
-          />
-        </form>
-      </FormProvider>
-      {
-        isMessageSent.current && (
-          <span className="text-right font-medium mt-5">Thanks, I look forward to reading your message!</span>
-        )
-      }
-    </>
+    <div className="flex flex-col grow gap-y-2">
+      <Input
+        containerClassName="w-full sm:w-[50%]"
+        autoComplete="name"
+        disabled={ disabled }
+        { ...NAME_VALIDATION }
+      />
+      <Input
+        containerClassName="w-full sm:w-[50%]"
+        autoComplete="email"
+        disabled={ disabled }
+        { ...EMAIL_VALIDATION }
+      />
+      <Input
+        containerClassName="w-full"
+        inputClassName={ styles.textareaInput }
+        disabled={ disabled }
+        { ...MESSAGE_VALIDATION }
+      />
+      <Input
+        containerClassName="w-fit max-w-full"
+        disabled={ disabled }
+        captchaResetKey={ captchaResetKey }
+        { ...CAPTCHA_VALIDATION }
+        isCaptcha={ true }
+      />
+      <div className="min-h-6 pt-1 text-sm sm:text-base" aria-atomic="true">
+        { status.type === "submitting" && (
+          <p role="status" aria-live="polite" className="text-neutral-200">
+            Sending your message…
+          </p>
+        ) }
+        { status.type === "success" && (
+          <p role="status" aria-live="polite" className="font-medium text-emerald-300">
+            { status.message }
+          </p>
+        ) }
+        { status.type === "error" && (
+          <p role="alert" className="font-medium text-red-200">
+            { status.message }
+          </p>
+        ) }
+      </div>
+    </div>
   );
 }
 export default ContactForm;

@@ -1,5 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
+import { createPortal } from "react-dom";
 import React, {
   ReactNode,
   createContext,
@@ -92,13 +93,23 @@ export const ModalBody = ({
   className?: string;
 }) => {
   const { open } = useModal();
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!open) {
+      return;
     }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
   }, [open]);
 
   const modalRef = useRef(null);
@@ -107,7 +118,11 @@ export const ModalBody = ({
   // NOTE - Below will close the modal when clicking outside of the modal
   // useOutsideClick(modalRef, () => setOpen(false));
 
-  return (
+  if (!isMounted) {
+    return null;
+  }
+
+  return createPortal(
     <AnimatePresence>
       { open && (
         <motion.div
@@ -122,7 +137,7 @@ export const ModalBody = ({
             opacity: 0,
             backdropFilter: "blur(0px)",
           } }
-          className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full  flex items-center justify-center z-50"
+          className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 flex items-center justify-center z-[2000]"
         >
           <Overlay />
 
@@ -160,7 +175,8 @@ export const ModalBody = ({
           </motion.div>
         </motion.div>
       ) }
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 
@@ -186,10 +202,14 @@ export const ModalFooter = ({
   children,
   formId,
   className,
+  submitDisabled = false,
+  submitLabel = "Send Josh a message",
 }: {
   children?: ReactNode;
   formId?: string;
   className?: string;
+  submitDisabled?: boolean;
+  submitLabel?: string;
 }) => {
   const { setOpen } = useModal();
   return (
@@ -200,11 +220,17 @@ export const ModalFooter = ({
       ) }
     >
       { children }
-      <button className="bg-black text-white text-sm px-2 py-1 rounded-md border border-black w-28 cursor-pointer" onClick={ () => setOpen(false) }>
+      <button type="button" className="bg-black text-white text-sm px-2 py-1 rounded-md border border-black w-28 cursor-pointer" onClick={ () => setOpen(false) }>
         Go back
       </button>
-      <button className="bg-white text-black text-sm px-2 py-1 rounded-md border border-white w-fit cursor-pointer self-end" type="submit" form={ formId }>
-        Send Josh a message
+      <button
+        className="bg-white text-black text-sm px-2 py-1 rounded-md border border-white w-fit cursor-pointer self-end disabled:cursor-not-allowed disabled:opacity-60"
+        type="submit"
+        form={ formId }
+        disabled={ submitDisabled }
+        aria-busy={ submitDisabled }
+      >
+        { submitLabel }
       </button>
     </div>
   );
@@ -224,7 +250,7 @@ const Overlay = ({ className }: { className?: string }) => {
         opacity: 0,
         backdropFilter: "blur(0px)",
       } }
-      className={ `fixed inset-0 h-full w-full bg-black bg-opacity-50 z-50 ${className}` }
+      className={ `fixed inset-0 h-full w-full bg-black bg-opacity-50 z-0 ${className}` }
     ></motion.div>
   );
 };
