@@ -14,25 +14,22 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, install dependencies:
+Use Node.js 22 and install the locked dependencies:
 
 ```bash
-npm i --legacy-peer-deps
+npm ci --legacy-peer-deps
 ```
-
-The flag is necessary to work around false positives for dependency conflicts due to using Release Candidate versions of React 19 and Next.js 15.
 
 Then, run the development server:
 
-```bash
-npm i --legacy-peer-deps
-```
-The flag is necessary to work around false positives for dependency conflicts due to using Release Candidate versions of React 19 and Next.js 15.
-
-
-Then, run the development server:
 ```bash
 npm run dev
+```
+
+Before opening a pull request, run the same lint, type-check, and production build checks used by CI:
+
+```bash
+npm run check
 ```
 
 

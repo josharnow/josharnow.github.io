@@ -31,7 +31,7 @@ export default function ResumePage() {
           target="_blank"
         className="absolute left-0 right-0 top-0 sm:top-0 h-10 flex justify-center items-center p-3 font-medium shadow-3xl border-b-[1px] border-white z-[1]"
         >
-        Open master's thesis in a new tab
+        Open master&apos;s thesis in a new tab
         </Link>
       </div>
       <iframe 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React from "react";
 
 import { Slider, SliderChangeEvent } from 'primereact/slider';
 
@@ -19,37 +19,6 @@ const Timeline = ({
   setSliderValue,
   yearToSliderValue,
 }: TimelineProps) => {
-  // const [sliderValue, setSliderValue] = useState<[number, number] | number>();
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (inputRef.current) {
-      const handleInputKeyPress = (e: KeyboardEvent) => {
-        const inputValue = parseInt(e.key);
-        const minYear = Math.min(...timelineYears);
-        const maxYear = Math.max(...timelineYears);
-        if (isNaN(inputValue)) {
-          e.preventDefault();
-        }
-        if (inputRef?.current?.value) {
-          if (inputRef.current.value?.length >= 3) {
-            const inputYear = parseInt(inputRef.current?.value.toString().concat(e.key) as string);
-            if (inputYear < minYear || inputYear > maxYear) {
-              e.preventDefault();
-            } 
-          }
-        } 
-
-
-      };
-      inputRef.current.addEventListener("keypress", handleInputKeyPress);
-      return () => {
-        inputRef.current?.removeEventListener("keypress", handleInputKeyPress);
-      };
-    }
-  }
-  , [inputRef, timelineYears]);
-
   const currentYear = timelineYears[timelineYears.length - 1];
 
   /**

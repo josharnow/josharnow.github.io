@@ -20,15 +20,16 @@
     "dev_turbo": "next dev --turbo",
     "build": "next build",
     "build:verbose": "next build --debug",
+    "check": "npm run lint && npm run typecheck && npm run build",
     "start": "next start",
     "start:export": "npx serve@latest out",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
     "remove_unused_imports": "tslint --config tslint-imports.json --fix --project ."
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.12.0",
     "@heroicons/react": "^2.2.0",
-    "@million/lint": "^1.0.14",
     "@radix-ui/react-label": "^2.1.6",
     "@react-spring/three": "^9.7.5",
     "@react-three/drei": "9.122.0",
@@ -42,9 +43,7 @@
     "eslint-plugin-react-compiler": "^0.0.0-experimental-c8b3f72-20240517",
     "framer-motion": "^12.10.1",
     "leva": "^0.10.0",
-    "million": "^3.1.11",
-    "mini-svg-data-uri": "^1.4.4",
-    "next": "^14.2.28",
+    "next": "14.2.35",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.5",
     "react": "^18.3.1",
@@ -64,13 +63,11 @@
     "@babel/preset-env": "^7.27.2",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.26.0",
     "@types/node": "^22.15.17",
     "@types/react": "^18.3.21",
     "@types/react-dom": "^18.3.7",
-    "eslint": "^9.26.0",
-    "eslint-config-next": "^15.3.2",
+    "eslint": "8.57.1",
+    "eslint-config-next": "14.2.35",
     "postcss": "^8.5.3",
     "sass": "^1.88.0",
     "tailwindcss": "^3.4.4",
@@ -81,5 +78,5 @@
     "darwin",
     "win32"
   ],
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "npm@10.9.2"
 }

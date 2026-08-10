@@ -1,5 +1,5 @@
 "use client";
-import { motion, MotionValue } from "framer-motion";
+import { motion, MotionValue, type Transition } from "framer-motion";
 import React, { ReactNode } from "react";
 import Link from "next/link";
 import { MovingBorderButton } from "@/src/components";
@@ -19,7 +19,7 @@ interface GoogleGeminiEffectProps extends React.HTMLProps<HTMLDivElement> {
   className?: string;
 }
 
-const transition = {
+const transition: Transition = {
   duration: 0,
   ease: "linear",
 };
