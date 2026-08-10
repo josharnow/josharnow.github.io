@@ -39,7 +39,7 @@ const AboutPageIntro = forwardRef(function AboutPageInfo(props, ref: React.Forwa
           >
             <div className="flex w-3/6 text-right justify-end" style={ { "textAlign": "justify" } }>
               <p className="text-white self-center text-right text-balance text-3xl md:text-4xl lg:text-5xl">
-                A <b className="text-blue-500 font-medium">software engineer</b> from NY/FL
+                A <b className="text-blue-500 font-medium">software engineer</b> from NY
               </p>
             </div>
           </motion.div>
