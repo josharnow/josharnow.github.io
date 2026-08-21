@@ -2,7 +2,6 @@
 import React from 'react';
 // import styles from './styles.module.scss';
 // import resume from '@/public/Josh_Arnow_Resume.pdf';
-import Link from "next/link";
 
 export default function ResumePage() {
   // NOTE - https://blog.logrocket.com/ultimate-guide-iframes/
@@ -27,14 +26,14 @@ export default function ResumePage() {
       <h1 className="sr-only">Josh Arnow&apos;s master&apos;s thesis</h1>
     {/* NOTE - https://stackoverflow.com/questions/71669274/having-trouble-rendering-a-local-pdf-within-a-nextjs-app */}
       <div className="h-full w-full relative">
-        <Link 
+        <a
           href="/OmniFusion - A Hybrid Deep Learning Foundation Model for Skin Cancer Diagnostics.pdf" 
           target="_blank"
           rel="noreferrer"
         className="absolute left-0 right-0 top-0 sm:top-0 h-10 flex justify-center items-center p-3 font-medium shadow-3xl border-b-[1px] border-white z-[1]"
         >
         Open master&apos;s thesis in a new tab
-        </Link>
+        </a>
       </div>
       <iframe 
         src={ iframeSrc } 

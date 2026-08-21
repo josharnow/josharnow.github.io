@@ -22,7 +22,7 @@ const NavbarMenu = ({ toggle, isOpen, navigationOptions }: {
     <>
       <div
         id="mobile-navigation-menu"
-        hidden={ !isOpen }
+        aria-hidden={ !isOpen }
         className={ classNames(
         styles.navbarMenu,
         "shadow-3xl",
@@ -36,6 +36,7 @@ const NavbarMenu = ({ toggle, isOpen, navigationOptions }: {
                 <Link
                   onClick={ handleNavigation }
                   href={ option.href }
+                  tabIndex={ isOpen ? undefined : -1 }
                   aria-current={ option.current ? "page" : undefined }
                   className={ classNames(styles.navigationLink,
                   option.current ? "bg-blue-500 text-black shadow-3xl" : "text-gray-400  hover:bg-blue-500 hover:bg-opacity-15 hover:shadow-3xl",

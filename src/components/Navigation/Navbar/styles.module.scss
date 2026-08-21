@@ -31,13 +31,15 @@
   height: fit-content;
   // opacity: 1;
   // scale: 1;
-  transition-property: transform, border, display;
-  transition-duration: 1.00s;
-  transition-behavior: allow-discrete;
+  transition-property: transform, visibility;
+  transition-duration: 1s, 0s;
+  transition-timing-function: ease-in-out, linear;
+  transition-delay: 0s, 0s;
 
 
   border-top: 2px solid black;
   transform: translateY(0);
+  visibility: visible;
   
   position: absolute;
   top: 5rem;
@@ -49,10 +51,15 @@
 // SOURCE - https: //kentondejong.medium.com/we-can-finally-transition-display-none-cbb03831351f
 .navbarMenu.closed {
   transform: translateY(-100%);
-  // border: 0;
-  // border-top: 2px solid black;
-  // NOTE - Below isn't working as expected when uncommented, so I'm leaving it as is without truly "hiding" since it can't be seen
-  // display: none;
+  visibility: hidden;
+  pointer-events: none;
+  transition-delay: 0s, 1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbarMenu {
+    transition: none;
+  }
 }
 
 @keyframes slideInFromTop {
