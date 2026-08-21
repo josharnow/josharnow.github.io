@@ -21,11 +21,13 @@
     "build": "next build",
     "build:verbose": "next build --debug",
     "check": "npm run lint && npm run typecheck && npm run build",
+    "deploy:cloudflare": "npm run build && wrangler deploy",
     "start": "next start",
     "start:export": "npx serve@latest out",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "generate:og": "node scripts/generate-og-image.mjs",
+    "preview:cloudflare": "npm run build && wrangler dev",
     "remove_unused_imports": "tslint --config tslint-imports.json --fix --project ."
   },
   "dependencies": {
@@ -72,7 +74,8 @@
     "postcss": "^8.5.3",
     "sass": "^1.88.0",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "wrangler": "^4.125.0"
   },
   "os": [
     "linux",

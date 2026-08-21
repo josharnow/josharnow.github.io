@@ -32,6 +32,30 @@ Before opening a pull request, run the same lint, type-check, and production bui
 npm run check
 ```
 
+### Cloudflare deployment
+
+The production build is a static Next.js export in `out/`. Cloudflare Workers Static Assets serves that directory directly; no runtime Worker code is required.
+
+To preview the production export through Wrangler locally:
+
+```bash
+npm run preview:cloudflare
+```
+
+To deploy it from an authenticated local machine:
+
+```bash
+npx wrangler login
+npm run deploy:cloudflare
+```
+
+The GitHub Actions deployment runs when a release is published or when the workflow is started manually. Configure these repository secrets before running it:
+
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN` with Workers edit permission
+- `NEXT_PUBLIC_WEB3FORMS_API_KEY`
+- `NEXT_PUBLIC_HCAPTCHA_SITE_KEY`
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
