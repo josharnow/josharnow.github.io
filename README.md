@@ -34,7 +34,7 @@ npm run check
 
 ### Cloudflare deployment
 
-The production build is a static Next.js export in `out/`. Cloudflare Workers Static Assets serves that directory directly; no runtime Worker code is required.
+The production build is a static Next.js export in `out/`. Cloudflare Workers Static Assets serves that directory directly; no runtime Worker code is required. The `josharnow.com` custom domain is declared in `wrangler.jsonc`; `www.josharnow.com` redirects to the apex domain through a Cloudflare Redirect Rule.
 
 To preview the production export through Wrangler locally:
 
